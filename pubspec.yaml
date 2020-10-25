@@ -35,5 +35,6 @@ flutter:
 
   assets:
     - packages/auth_buttons/images/google_logo.png
-    - packages/auth_buttons/images/google_dark.png
     - packages/auth_buttons/images/facebook_logo_white.png
+    - packages/auth_buttons/images/apple_logo_black.png
+    - packages/auth_buttons/images/apple_logo_white.png

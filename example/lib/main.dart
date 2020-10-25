@@ -21,7 +21,7 @@ class _MyAppState extends State<MyApp> {
           title: Text(appName),
         ),
         body: Center(
-          child: FacebookAuthButton(
+          child: AppleAuthButton(
             onPressed: () {},
           ),
         ),
