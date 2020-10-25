@@ -1,7 +1,7 @@
-import 'package:auth_buttons/shared_button.dart';
+import 'package:auth_buttons/res/shared_button.dart';
 import 'package:flutter/material.dart';
 
-class AppleAuthButton extends StatelessWidget {
+class FacebookAuthButton extends StatelessWidget {
   ///[onPressed] is a void function well be called when the button pressed
   final VoidCallback onPressed;
 
@@ -21,7 +21,7 @@ class AppleAuthButton extends StatelessWidget {
   ///[buttonPadding] Define the button padding, the default value is [null].
   final EdgeInsets buttonPadding;
 
-  ///[text] Define text in the button, the default value is ["Sign in with Google"].
+  ///[text] Define text in the button, the default value is ["Sign in with Facebook"].
   final String text;
 
   ///[textStyle] Define the text style
@@ -31,14 +31,14 @@ class AppleAuthButton extends StatelessWidget {
   ///the default value is [false].
   final bool darkMode;
 
-  AppleAuthButton({
+  FacebookAuthButton({
     @required this.onPressed,
     this.buttonColor,
     this.splashColor,
     this.elevation,
     this.borderRadius = 8.0,
     this.buttonPadding,
-    this.text = 'Sign in with Apple',
+    this.text = 'Sign in with Facebook',
     this.textStyle,
     this.darkMode = false,
   });
@@ -49,18 +49,18 @@ class AppleAuthButton extends StatelessWidget {
       onPressed: onPressed,
       borderRadius: borderRadius,
       buttonPadding: buttonPadding ?? EdgeInsets.all(8.0),
-      buttonColor: darkMode ? Colors.grey[700] : buttonColor ?? Colors.white,
+      buttonColor:
+          darkMode ? Colors.grey[700] : buttonColor ?? Color(0xFF1877F2),
       splashColor: splashColor,
       elevation: elevation,
       contents: [
         Image(
           image: ExactAssetImage(
-            darkMode
-                ? 'packages/auth_buttons/images/apple_logo_white.png'
-                : 'packages/auth_buttons/images/apple_logo_black.png',
+            'packages/auth_buttons/images/facebook_logo_white.png',
           ),
-          width: 28,
-          height: 28,
+          fit: BoxFit.cover,
+          width: 28.0,
+          height: 28.0,
         ),
         Padding(
           padding: const EdgeInsets.only(left: 8.0, right: 8.0),
@@ -68,8 +68,8 @@ class AppleAuthButton extends StatelessWidget {
             text,
             style: textStyle ??
                 TextStyle(
-                  color: darkMode ? Colors.white : Colors.black,
-                  fontSize: 18,
+                  color: Colors.white,
+                  fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.75,
                 ),

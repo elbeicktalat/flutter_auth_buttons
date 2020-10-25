@@ -1,4 +1,4 @@
-import 'package:auth_buttons/shared_button.dart';
+import 'package:auth_buttons/res/shared_button.dart';
 import 'package:flutter/material.dart';
 
 class GoogleAuthButton extends StatelessWidget {
@@ -36,7 +36,7 @@ class GoogleAuthButton extends StatelessWidget {
     this.buttonColor,
     this.splashColor,
     this.elevation,
-    this.borderRadius = 8,
+    this.borderRadius = 8.0,
     this.buttonPadding,
     this.text = 'Sign in with Google',
     this.textStyle,
@@ -64,8 +64,8 @@ class GoogleAuthButton extends StatelessWidget {
               'packages/auth_buttons/images/google_logo.png',
             ),
             fit: BoxFit.cover,
-            width: 28,
-            height: 28,
+            width: 28.0,
+            height: 28.0,
           ),
         ),
         Padding(
@@ -75,7 +75,7 @@ class GoogleAuthButton extends StatelessWidget {
             style: textStyle ??
                 TextStyle(
                   color: darkMode ? Colors.white : Colors.black,
-                  fontSize: 18,
+                  fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.75,
                 ),

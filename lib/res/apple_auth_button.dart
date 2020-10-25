@@ -1,7 +1,7 @@
-import 'package:auth_buttons/shared_button.dart';
+import 'package:auth_buttons/res/shared_button.dart';
 import 'package:flutter/material.dart';
 
-class TwitterAuthButton extends StatelessWidget {
+class AppleAuthButton extends StatelessWidget {
   ///[onPressed] is a void function well be called when the button pressed
   final VoidCallback onPressed;
 
@@ -21,7 +21,7 @@ class TwitterAuthButton extends StatelessWidget {
   ///[buttonPadding] Define the button padding, the default value is [null].
   final EdgeInsets buttonPadding;
 
-  ///[text] Define text in the button, the default value is ["Sign in with Twitter"].
+  ///[text] Define text in the button, the default value is ["Sign in with Apple"].
   final String text;
 
   ///[textStyle] Define the text style
@@ -31,14 +31,14 @@ class TwitterAuthButton extends StatelessWidget {
   ///the default value is [false].
   final bool darkMode;
 
-  TwitterAuthButton({
+  AppleAuthButton({
     @required this.onPressed,
     this.buttonColor,
     this.splashColor,
     this.elevation,
     this.borderRadius = 8.0,
     this.buttonPadding,
-    this.text = 'Sign in with Twitter',
+    this.text = 'Sign in with Apple',
     this.textStyle,
     this.darkMode = false,
   });
@@ -56,10 +56,9 @@ class TwitterAuthButton extends StatelessWidget {
         Image(
           image: ExactAssetImage(
             darkMode
-                ? 'packages/auth_buttons/images/twitter_logo_white.png'
-                : 'packages/auth_buttons/images/twitter_logo.png',
+                ? 'packages/auth_buttons/images/apple_logo_white.png'
+                : 'packages/auth_buttons/images/apple_logo_black.png',
           ),
-          fit: BoxFit.cover,
           width: 28.0,
           height: 28.0,
         ),
