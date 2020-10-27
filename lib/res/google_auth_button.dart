@@ -1,3 +1,4 @@
+import 'package:auth_buttons/res/colors.dart';
 import 'package:auth_buttons/res/shared_button.dart';
 import 'package:flutter/material.dart';
 
@@ -49,12 +50,12 @@ class GoogleAuthButton extends StatelessWidget {
       onPressed: onPressed,
       borderRadius: borderRadius,
       buttonPadding: buttonPadding ?? EdgeInsets.all(8.0),
-      buttonColor: darkMode ? Colors.grey[700] : buttonColor ?? Colors.white,
+      buttonColor: darkMode ? buttonDarkModeColor : buttonColor ?? Colors.white,
       splashColor: splashColor,
       elevation: elevation,
       contents: [
         Container(
-          padding: EdgeInsets.all(3.0),
+          padding: EdgeInsets.all(1.0),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(999),

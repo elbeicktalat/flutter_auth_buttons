@@ -64,9 +64,12 @@ class SharedButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius ?? 0.0),
         side: borderSide,
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: contents,
+      child: SizedBox(
+        width: 230,
+        height: 30,
+        child: Row(
+          children: contents,
+        ),
       ),
     );
   }

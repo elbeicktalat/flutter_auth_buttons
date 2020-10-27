@@ -1,3 +1,4 @@
+import 'package:auth_buttons/res/colors.dart';
 import 'package:auth_buttons/res/shared_button.dart';
 import 'package:flutter/material.dart';
 
@@ -50,7 +51,7 @@ class FacebookAuthButton extends StatelessWidget {
       borderRadius: borderRadius,
       buttonPadding: buttonPadding ?? EdgeInsets.all(8.0),
       buttonColor:
-          darkMode ? Colors.grey[700] : buttonColor ?? Color(0xFF1877F2),
+          darkMode ? buttonDarkModeColor : buttonColor ?? buttonFacebookColor,
       splashColor: splashColor,
       elevation: elevation,
       contents: [
@@ -69,7 +70,7 @@ class FacebookAuthButton extends StatelessWidget {
             style: textStyle ??
                 TextStyle(
                   color: Colors.white,
-                  fontSize: 18.0,
+                  fontSize: 16.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.75,
                 ),
