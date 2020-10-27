@@ -1,5 +1,5 @@
-export 'package:auth_buttons/res/apple_auth_button.dart';
-export 'package:auth_buttons/res/facebook_auth_button.dart';
-export 'package:auth_buttons/res/github_auth_button.dart';
-export 'package:auth_buttons/res/google_auth_button.dart';
-export 'package:auth_buttons/res/twitter_auth_button.dart';
+export 'package:auth_buttons/res/buttons/apple_auth_button.dart';
+export 'package:auth_buttons/res/buttons/facebook_auth_button.dart';
+export 'package:auth_buttons/res/buttons/github_auth_button.dart';
+export 'package:auth_buttons/res/buttons/google_auth_button.dart';
+export 'package:auth_buttons/res/buttons/twitter_auth_button.dart';
