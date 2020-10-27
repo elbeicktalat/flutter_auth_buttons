@@ -2,7 +2,7 @@ import 'package:auth_buttons/res/shared/colors.dart';
 import 'package:auth_buttons/res/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
-class AppleAuthButton extends StatelessWidget {
+class GitHubAuthButton extends StatelessWidget {
   ///[onPressed] is a void function well be called when the button pressed
   final VoidCallback onPressed;
 
@@ -32,14 +32,14 @@ class AppleAuthButton extends StatelessWidget {
   ///the default value is [false].
   final bool darkMode;
 
-  AppleAuthButton({
+  GitHubAuthButton({
     @required this.onPressed,
     this.buttonColor,
     this.splashColor,
     this.elevation,
     this.borderRadius = 8.0,
     this.buttonPadding,
-    this.text = 'Sign in with Apple',
+    this.text = 'Sign in with GitHub',
     this.textStyle,
     this.darkMode = false,
   });
@@ -50,15 +50,14 @@ class AppleAuthButton extends StatelessWidget {
       onPressed: onPressed,
       borderRadius: borderRadius,
       buttonPadding: buttonPadding ?? EdgeInsets.all(8.0),
-      buttonColor: darkMode ? buttonDarkModeColor : buttonColor ?? Colors.white,
+      buttonColor:
+          darkMode ? buttonDarkModeColor : buttonColor ?? buttonGithubColor,
       splashColor: splashColor,
       elevation: elevation,
       contents: [
         Image(
           image: ExactAssetImage(
-            darkMode
-                ? 'packages/auth_buttons/images/apple_logo_white.png'
-                : 'packages/auth_buttons/images/apple_logo_black.png',
+            'packages/auth_buttons/images/github_logo.png',
           ),
           width: 28.0,
           height: 28.0,
@@ -69,7 +68,7 @@ class AppleAuthButton extends StatelessWidget {
             text,
             style: textStyle ??
                 TextStyle(
-                  color: darkMode ? Colors.white : Colors.black,
+                  color: Colors.white,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 0.75,

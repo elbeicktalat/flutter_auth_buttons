@@ -24,3 +24,4 @@ flutter:
     - packages/auth_buttons/images/apple_logo_white.png
     - packages/auth_buttons/images/twitter_logo.png
     - packages/auth_buttons/images/twitter_logo_white.png
+    - packages/auth_buttons/images/github_logo.png

@@ -1,5 +1,5 @@
-import 'package:auth_buttons/res/colors.dart';
-import 'package:auth_buttons/res/shared_button.dart';
+import 'package:auth_buttons/res/shared/colors.dart';
+import 'package:auth_buttons/res/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
 class FacebookAuthButton extends StatelessWidget {
