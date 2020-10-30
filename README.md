@@ -25,10 +25,39 @@ import 'package:auth_buttons/auth_buttons.dart';
 ## Using
  
 You need to use just the following code: 
+
+![Example 1](readme_assets/icons_light.PNG)
 ```dart
-GoogleAuthButtons(
-onPressed: () {},
-);
+GoogleAuthButton(
+  onPressed: () {},
+  darkMode: false,
+  style: AuthButtonStyle.icon,
+),
 ```
-when you want to customize the any button 
+![Example 2](readme_assets/icons_dark.PNG)
+```dart
+GoogleAuthButton(
+  onPressed: () {},
+  darkMode: true,
+  style: AuthButtonStyle.icon,
+),
+```
+
+![Example 3](readme_assets/full_button_light.PNG)
+```dart
+GoogleAuthButton(
+  onPressed: () {},
+  darkMode: false,
+),
+```
+
+![Example 4](readme_assets/full_button_dark.PNG)
+```dart
+GoogleAuthButton(
+  onPressed: () {},
+  darkMode: true,
+),
+```
+
+Do same way with other buttons, when you want to customize any button 
 you can do it just passing a property which you want.

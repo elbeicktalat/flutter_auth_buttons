@@ -29,8 +29,8 @@ class _MyAppState extends State<MyApp> {
             children: [
               GoogleAuthButton(
                 onPressed: () {},
-                darkMode: darkMode,
-                style: authButtonStyle,
+                darkMode: false,
+                style: AuthButtonStyle.icon,
               ),
               Divider(),
               FacebookAuthButton(
