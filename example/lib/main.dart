@@ -15,6 +15,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     String appName = 'Auth Buttons Example';
     bool darkMode = false;
+    AuthButtonStyle authButtonStyle = AuthButtonStyle.icon;
     return MaterialApp(
       title: appName,
       home: Scaffold(
@@ -29,26 +30,31 @@ class _MyAppState extends State<MyApp> {
               GoogleAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
+                style: authButtonStyle,
               ),
               Divider(),
               FacebookAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
+                style: authButtonStyle,
               ),
               Divider(),
               AppleAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
+                style: authButtonStyle,
               ),
               Divider(),
               TwitterAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
+                style: authButtonStyle,
               ),
               Divider(),
               GitHubAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
+                style: authButtonStyle,
               ),
             ],
           ),

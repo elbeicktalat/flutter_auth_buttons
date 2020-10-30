@@ -1,4 +1,7 @@
+import 'package:auth_buttons/res/shared/auth_button_style.dart';
+import 'package:auth_buttons/res/shared/button_contents.dart';
 import 'package:auth_buttons/res/shared/colors.dart';
+import 'package:auth_buttons/res/shared/images_url.dart';
 import 'package:auth_buttons/res/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
@@ -32,6 +35,17 @@ class GitHubAuthButton extends StatelessWidget {
   ///the default value is [false].
   final bool darkMode;
 
+  ///[buttonBorderColor] Define the color border around the button,
+  ///the default value is [null].
+  final Color buttonBorderColor;
+
+  ///[buttonBorderWidth] Define the border width around the button,
+  ///the default value is [null].
+  final double buttonBorderWidth;
+
+  ///[style] Define the button style.
+  final AuthButtonStyle style;
+
   GitHubAuthButton({
     @required this.onPressed,
     this.buttonColor,
@@ -42,40 +56,59 @@ class GitHubAuthButton extends StatelessWidget {
     this.text = 'Sign in with GitHub',
     this.textStyle,
     this.darkMode = false,
+    this.buttonBorderColor,
+    this.buttonBorderWidth = 2.0,
+    this.style,
   });
 
   @override
   Widget build(BuildContext context) {
-    return SharedButton(
-      onPressed: onPressed,
-      borderRadius: borderRadius,
-      buttonPadding: buttonPadding ?? EdgeInsets.all(8.0),
-      buttonColor:
-          darkMode ? buttonDarkModeColor : buttonColor ?? buttonGithubColor,
-      splashColor: splashColor,
-      elevation: elevation,
-      contents: [
-        Image(
-          image: ExactAssetImage(
-            'packages/auth_buttons/images/github_logo.png',
+    switch (style) {
+      case AuthButtonStyle.icon:
+        return SizedBox(
+          width: 55,
+          height: 55,
+          child: SharedButton(
+            onPressed: onPressed,
+            borderRadius: borderRadius,
+            buttonPadding: buttonPadding ?? EdgeInsets.all(8.0),
+            buttonColor: darkMode
+                ? buttonDarkModeColor
+                : buttonColor ?? buttonGithubColor,
+            splashColor: splashColor,
+            elevation: elevation,
+            buttonBorderColor: buttonBorderColor ?? Colors.white,
+            buttonBorderWidth: buttonBorderWidth,
+            child: ButtonContents(
+              imageUrl: githubIcon,
+            ),
           ),
-          width: 28.0,
-          height: 28.0,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-          child: Text(
-            text,
-            style: textStyle ??
+        );
+        break;
+      default:
+        return SharedButton(
+          onPressed: onPressed,
+          borderRadius: borderRadius,
+          buttonPadding: buttonPadding ?? EdgeInsets.all(8.0),
+          buttonColor:
+              darkMode ? buttonDarkModeColor : buttonColor ?? buttonGithubColor,
+          splashColor: splashColor,
+          elevation: elevation,
+          buttonBorderColor: buttonBorderColor,
+          buttonBorderWidth: buttonBorderWidth,
+          child: ButtonContents(
+            imageUrl: githubIcon,
+            text: text,
+            darkMode: darkMode,
+            textStyle: textStyle ??
                 TextStyle(
                   color: Colors.white,
-                  fontSize: 18.0,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  letterSpacing: 0.75,
+                  letterSpacing: 0.50,
                 ),
           ),
-        ),
-      ],
-    );
+        );
+    }
   }
 }

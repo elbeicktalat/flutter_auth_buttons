@@ -29,7 +29,7 @@ class SharedButton extends StatelessWidget {
   final EdgeInsets buttonPadding;
 
   ///[contents] List of widgets inside the button.
-  final List<Widget> contents;
+  final Widget child;
 
   SharedButton({
     @required this.onPressed,
@@ -40,7 +40,7 @@ class SharedButton extends StatelessWidget {
     this.elevation,
     this.borderRadius,
     this.buttonPadding,
-    @required this.contents,
+    @required this.child,
   });
 
   @override
@@ -51,25 +51,23 @@ class SharedButton extends StatelessWidget {
         width: buttonBorderWidth,
         color: buttonBorderColor,
       );
-    }
-    borderSide = BorderSide.none;
+    } else
+      borderSide = BorderSide.none;
 
-    return RaisedButton(
-      onPressed: onPressed,
-      color: buttonColor,
-      splashColor: splashColor,
-      elevation: elevation,
-      padding: buttonPadding,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(borderRadius ?? 0.0),
-        side: borderSide,
-      ),
-      child: SizedBox(
-        width: 230,
-        height: 30,
-        child: Row(
-          children: contents,
+    return SizedBox(
+      width: 250,
+      height: 50,
+      child: RaisedButton(
+        onPressed: onPressed,
+        color: buttonColor,
+        splashColor: splashColor,
+        elevation: elevation,
+        padding: buttonPadding,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(borderRadius ?? 0.0),
+          side: borderSide,
         ),
+        child: child,
       ),
     );
   }
