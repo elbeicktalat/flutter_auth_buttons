@@ -7,45 +7,22 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class MicrosoftAuthButton extends StatelessWidget {
-  ///[onPressed] is a void function well be called when the button pressed
   final VoidCallback onPressed;
-
-  ///[buttonColor] Define the button color, default value [Colors.white].
   final Color buttonColor;
-
-  ///[splashColor] Define the color when the button onPressed,
-  ///the default value is [Colors.grey].
   final Color splashColor;
-
-  ///[elevation] Define the elevation button, the default value is [2.0].
   final double elevation;
-
-  ///[borderRadius] Define the border radius, the default value is [0.0].
   final double borderRadius;
-
-  ///[buttonPadding] Define the button padding, the default value is [null].
-  final EdgeInsets buttonPadding;
-
-  ///[text] Define text in the button, the default value is ["Sign in with Google"].
+  final EdgeInsets padding;
   final String text;
-
-  ///[textStyle] Define the text style
   final TextStyle textStyle;
-
-  ///[darkMode] Define if the theme of the button is dark or light,
-  ///the default value is [false].
   final bool darkMode;
-
-  ///[buttonBorderColor] Define the color border around the button,
-  ///the default value is [null].
-  final Color buttonBorderColor;
-
-  ///[buttonBorderWidth] Define the border width around the button,
-  ///the default value is [null].
-  final double buttonBorderWidth;
-
-  ///[style] Define the button style.
+  final Color borderColor;
+  final double borderWidth;
   final AuthButtonStyle style;
+  final double width;
+  final double height;
+  final double iconSize;
+  final double separator;
 
   MicrosoftAuthButton({
     @required this.onPressed,
@@ -53,53 +30,62 @@ class MicrosoftAuthButton extends StatelessWidget {
     this.splashColor,
     this.elevation,
     this.borderRadius = 8.0,
-    this.buttonPadding,
-    this.text = 'Sign in with Microsoft',
+    this.padding,
+    this.text = 'Sign in with Github',
     this.textStyle,
     this.darkMode = false,
-    this.buttonBorderColor,
-    this.buttonBorderWidth = 2.0,
+    this.borderColor,
+    this.borderWidth = 2.0,
     this.style,
+    this.width,
+    this.height,
+    this.iconSize = 35.0,
+    this.separator = 10.0,
   });
 
   @override
   Widget build(BuildContext context) {
     switch (style) {
       case AuthButtonStyle.icon:
-        return SizedBox(
-          width: 55,
-          height: 55,
-          child: SharedButton(
-            onPressed: onPressed,
-            borderRadius: borderRadius,
-            buttonPadding: buttonPadding ?? EdgeInsets.all(8.0),
-            buttonColor:
-                darkMode ? buttonDarkModeColor : buttonColor ?? Colors.white,
-            splashColor: splashColor,
-            elevation: elevation,
-            buttonBorderColor: buttonBorderColor ?? Colors.amber,
-            buttonBorderWidth: buttonBorderWidth,
-            child: ButtonContents(
-              imageUrl: microsoftIcon,
-            ),
+        return SharedButton(
+          width: width ?? 50.0,
+          height: height ?? 50.0,
+          onPressed: onPressed,
+          borderRadius: borderRadius,
+          padding: padding ?? EdgeInsets.all(0),
+          buttonColor:
+              darkMode ? buttonDarkModeColor : buttonColor ?? Colors.white,
+          splashColor: splashColor,
+          elevation: elevation,
+          borderColor: borderColor ?? Colors.amber,
+          borderWidth: borderWidth,
+          child: ButtonContents(
+            iconUrl: microsoftIcon,
+            iconSize: iconSize,
+            separator: 0.0,
           ),
         );
         break;
       default:
         return SharedButton(
+          width: width,
+          height: height,
           onPressed: onPressed,
           borderRadius: borderRadius,
-          buttonPadding: buttonPadding ?? EdgeInsets.all(8.0),
+          padding: padding ??
+              EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0),
           buttonColor:
               darkMode ? buttonDarkModeColor : buttonColor ?? Colors.white,
           splashColor: splashColor,
           elevation: elevation,
-          buttonBorderColor: buttonBorderColor,
-          buttonBorderWidth: buttonBorderWidth,
+          borderColor: borderColor,
+          borderWidth: borderWidth,
           child: ButtonContents(
-            imageUrl: microsoftIcon,
+            iconUrl: microsoftIcon,
             text: text,
             textStyle: textStyle,
+            iconSize: iconSize,
+            separator: separator,
             darkMode: darkMode,
           ),
         );

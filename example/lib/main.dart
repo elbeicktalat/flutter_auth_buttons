@@ -15,7 +15,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     String appName = 'Auth Buttons Example';
     bool darkMode = false;
-    AuthButtonStyle authButtonStyle = AuthButtonStyle.icon;
+    AuthButtonStyle authButtonStyle;
     return MaterialApp(
       title: appName,
       home: Scaffold(
@@ -23,11 +23,19 @@ class _MyAppState extends State<MyApp> {
           title: Text(appName),
         ),
         body: Container(
+          width: double.infinity,
           color: darkMode ? Color(0xff303030) : Colors.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GoogleAuthButton(
+                onPressed: () {},
+                darkMode: darkMode,
+                style: authButtonStyle,
+                borderColor: Colors.red,
+              ),
+              Divider(),
+              AppleAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 style: authButtonStyle,
@@ -39,25 +47,19 @@ class _MyAppState extends State<MyApp> {
                 style: authButtonStyle,
               ),
               Divider(),
-              AppleAuthButton(
-                onPressed: () {},
-                darkMode: darkMode,
-                style: authButtonStyle,
-              ),
-              Divider(),
-              TwitterAuthButton(
-                onPressed: () {},
-                darkMode: darkMode,
-                style: authButtonStyle,
-              ),
-              Divider(),
-              GitHubAuthButton(
+              GithubAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 style: authButtonStyle,
               ),
               Divider(),
               MicrosoftAuthButton(
+                onPressed: () {},
+                darkMode: darkMode,
+                style: authButtonStyle,
+              ),
+              Divider(),
+              TwitterAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 style: authButtonStyle,

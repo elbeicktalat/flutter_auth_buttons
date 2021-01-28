@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SharedButton extends StatelessWidget {
-  ///[onPressed] is a void function well be called when the button pressed
+  ///[onPressed] is a void function well be called when the button pressed.
   final VoidCallback onPressed;
 
   ///[buttonColor] Define the button color, default value [Colors.white].
@@ -11,13 +11,13 @@ class SharedButton extends StatelessWidget {
   ///the default value is [Colors.grey].
   final Color splashColor;
 
-  ///[buttonBorderColor] Define the color border around the button,
+  ///[borderColor] Define the color border around the button,
   ///the default value is [null].
-  final Color buttonBorderColor;
+  final Color borderColor;
 
-  ///[buttonBorderWidth] Define the border width around the button,
+  ///[borderWidth] Define the border width around the button,
   ///the default value is [null].
-  final double buttonBorderWidth;
+  final double borderWidth;
 
   ///[elevation] Define the elevation button, the default value is [2.0].
   final double elevation;
@@ -25,44 +25,52 @@ class SharedButton extends StatelessWidget {
   ///[borderRadius] Define the border radius, the default value is [0.0].
   final double borderRadius;
 
-  ///[buttonPadding] Define the button padding, the default value is [null].
-  final EdgeInsets buttonPadding;
+  ///[padding] Define the button padding, the default value is [null].
+  final EdgeInsets padding;
 
-  ///[contents] List of widgets inside the button.
+  ///[child] .
   final Widget child;
+
+  ///[width] Define the button width.
+  final double width;
+
+  ///[height] Define the button height.
+  final double height;
 
   SharedButton({
     @required this.onPressed,
-    this.buttonColor = Colors.white,
+    this.buttonColor,
     this.splashColor,
-    this.buttonBorderColor,
-    this.buttonBorderWidth,
+    this.borderColor,
+    this.borderWidth,
     this.elevation,
     this.borderRadius,
-    this.buttonPadding,
+    this.padding,
     @required this.child,
+    this.width,
+    this.height,
   });
 
   @override
   Widget build(BuildContext context) {
     BorderSide borderSide;
-    if (buttonBorderColor != null && buttonBorderWidth != null) {
+    if (borderColor != null && borderWidth != null) {
       borderSide = BorderSide(
-        width: buttonBorderWidth,
-        color: buttonBorderColor,
+        width: borderWidth,
+        color: borderColor,
       );
     } else
       borderSide = BorderSide.none;
 
     return SizedBox(
-      width: 250,
-      height: 50,
+      width: width ?? 265.0,
+      height: height ?? 50.0,
       child: RaisedButton(
         onPressed: onPressed,
         color: buttonColor,
         splashColor: splashColor,
         elevation: elevation,
-        padding: buttonPadding,
+        padding: padding,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius ?? 0.0),
           side: borderSide,
