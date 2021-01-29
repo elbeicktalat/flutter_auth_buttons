@@ -63,8 +63,8 @@ class SharedButton extends StatelessWidget {
       borderSide = BorderSide.none;
 
     return SizedBox(
-      width: width ?? 265.0,
-      height: height ?? 50.0,
+      width: width,
+      height: height,
       child: RaisedButton(
         onPressed: onPressed,
         color: buttonColor,

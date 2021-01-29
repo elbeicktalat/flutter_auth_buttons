@@ -35,7 +35,7 @@ class GithubAuthButton extends StatelessWidget {
     this.textStyle,
     this.darkMode = false,
     this.borderColor,
-    this.borderWidth = 2.0,
+    this.borderWidth,
     this.style,
     this.width,
     this.height,
@@ -45,6 +45,10 @@ class GithubAuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color buttonColor =
+        darkMode ? buttonDarkModeColor : this.buttonColor ?? buttonGithubColor;
+    Color borderColor =
+        this.borderColor ?? darkMode ? Colors.white : Colors.transparent;
     switch (style) {
       case AuthButtonStyle.icon:
         return SharedButton(
@@ -53,13 +57,11 @@ class GithubAuthButton extends StatelessWidget {
           onPressed: onPressed,
           borderRadius: borderRadius,
           padding: padding ?? EdgeInsets.all(0),
-          buttonColor:
-              darkMode ? buttonDarkModeColor : buttonColor ?? buttonGithubColor,
+          buttonColor: buttonColor,
           splashColor: splashColor,
           elevation: elevation,
-          borderColor:
-              borderColor ?? darkMode ? Colors.white : buttonGithubColor,
-          borderWidth: borderWidth,
+          borderColor: borderColor,
+          borderWidth: borderWidth ?? 2.0,
           child: ButtonContents(
             iconUrl: githubIcon,
             iconSize: iconSize,
@@ -75,8 +77,7 @@ class GithubAuthButton extends StatelessWidget {
           borderRadius: borderRadius,
           padding: padding ??
               EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0),
-          buttonColor:
-              darkMode ? buttonDarkModeColor : buttonColor ?? buttonGithubColor,
+          buttonColor: buttonColor,
           splashColor: splashColor,
           elevation: elevation,
           borderColor: borderColor,

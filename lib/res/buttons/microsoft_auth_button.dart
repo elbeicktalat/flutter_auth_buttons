@@ -31,11 +31,11 @@ class MicrosoftAuthButton extends StatelessWidget {
     this.elevation,
     this.borderRadius = 8.0,
     this.padding,
-    this.text = 'Sign in with Github',
+    this.text = 'Sign in with Microsoft',
     this.textStyle,
     this.darkMode = false,
     this.borderColor,
-    this.borderWidth = 2.0,
+    this.borderWidth,
     this.style,
     this.width,
     this.height,
@@ -45,6 +45,8 @@ class MicrosoftAuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color buttonColor =
+        darkMode ? buttonDarkModeColor : this.buttonColor ?? Colors.white;
     switch (style) {
       case AuthButtonStyle.icon:
         return SharedButton(
@@ -53,12 +55,11 @@ class MicrosoftAuthButton extends StatelessWidget {
           onPressed: onPressed,
           borderRadius: borderRadius,
           padding: padding ?? EdgeInsets.all(0),
-          buttonColor:
-              darkMode ? buttonDarkModeColor : buttonColor ?? Colors.white,
+          buttonColor: buttonColor,
           splashColor: splashColor,
           elevation: elevation,
           borderColor: borderColor ?? Colors.amber,
-          borderWidth: borderWidth,
+          borderWidth: borderWidth ?? 2.0,
           child: ButtonContents(
             iconUrl: microsoftIcon,
             iconSize: iconSize,
@@ -74,8 +75,7 @@ class MicrosoftAuthButton extends StatelessWidget {
           borderRadius: borderRadius,
           padding: padding ??
               EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0),
-          buttonColor:
-              darkMode ? buttonDarkModeColor : buttonColor ?? Colors.white,
+          buttonColor: buttonColor,
           splashColor: splashColor,
           elevation: elevation,
           borderColor: borderColor,
