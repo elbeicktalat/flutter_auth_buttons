@@ -35,7 +35,7 @@ class TwitterAuthButton extends StatelessWidget {
     this.textStyle,
     this.darkMode = false,
     this.borderColor,
-    this.borderWidth = 2.0,
+    this.borderWidth,
     this.style,
     this.width,
     this.height,
@@ -45,6 +45,10 @@ class TwitterAuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color buttonColor =
+        darkMode ? buttonDarkModeColor : this.buttonColor ?? Colors.white;
+    Color borderColor =
+        this.borderColor ?? darkMode ? Colors.white : Colors.blue;
     switch (style) {
       case AuthButtonStyle.icon:
         return SharedButton(
@@ -53,12 +57,11 @@ class TwitterAuthButton extends StatelessWidget {
           onPressed: onPressed,
           borderRadius: borderRadius,
           padding: padding ?? EdgeInsets.all(0),
-          buttonColor:
-              darkMode ? buttonDarkModeColor : buttonColor ?? Colors.white,
+          buttonColor: buttonColor,
           splashColor: splashColor,
           elevation: elevation,
-          borderColor: borderColor ?? darkMode ? Colors.white : Colors.black,
-          borderWidth: borderWidth,
+          borderColor: borderColor,
+          borderWidth: borderWidth ?? 2.0,
           child: ButtonContents(
             iconUrl: darkMode ? twitterWhiteIcon : twitterIcon,
             iconSize: iconSize,
@@ -74,8 +77,7 @@ class TwitterAuthButton extends StatelessWidget {
           borderRadius: borderRadius,
           padding: padding ??
               EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0),
-          buttonColor:
-              darkMode ? buttonDarkModeColor : buttonColor ?? Colors.white,
+          buttonColor: buttonColor,
           splashColor: splashColor,
           elevation: elevation,
           borderColor: borderColor,
