@@ -1,3 +1,7 @@
+// Copyright 2021 Talat El Beick. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:auth_buttons/res/shared/auth_button_style.dart';
 import 'package:auth_buttons/res/shared/button_contents.dart';
 import 'package:auth_buttons/res/shared/colors.dart';
@@ -15,16 +19,16 @@ class MicrosoftAuthButton extends StatelessWidget {
   /// else the value is [Color(0xff424242)].
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/style-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/dark-mode-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/dark-mode-default.png)
   ///
   /// <br/>
   /// You can also give it any color you want.
   ///```dart
   ///color: Colors.amberAccent,
   ///```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/button-color-amber.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/button-color-amber.png)
   final Color buttonColor;
 
   ///**[splashColor]** Define the color when the button onPressed.
@@ -34,20 +38,20 @@ class MicrosoftAuthButton extends StatelessWidget {
   ///**[elevation]** Define the elevation button, the default value is [2.0].
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/style-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/elevation.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/elevation.png)
   final double elevation;
 
   ///**[borderRadius]** Define the border radius, the default value is [8.0].
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/style-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
   ///
   /// <br/>
   ///Sure you can give it any other value.
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/border-radius.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-radius.png)
   final double borderRadius;
 
   ///**[padding]** Define the button padding, the default value is [null],
@@ -59,9 +63,9 @@ class MicrosoftAuthButton extends StatelessWidget {
   ///**[text]** Define text in the button.
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/style-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/text.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/text.png)
   final String text;
 
   ///**[textStyle]** Define the text style.
@@ -77,36 +81,36 @@ class MicrosoftAuthButton extends StatelessWidget {
   /// ),
   /// ```
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/text-style.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/text-style.png)
   final TextStyle textStyle;
 
   ///**[darkMode]** Define if the theme of the button is dark or light,
   ///the default value is [false].
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/style-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/dark-mode-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/dark-mode-default.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/style-icon.png)
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/dark-mode-icon.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-icon.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/dark-mode-icon.png)
   final bool darkMode;
 
   ///**[borderColor]** Define the border color around the button.
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/style-icon.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-icon.png)
   ///
   /// <br/>
   /// ```dart
   /// borderColor: Colors.amber
   /// ```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/border-color-amber.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-color-amber.png)
   ///
   /// <br/>
   /// ```dart
   /// borderColor: Colors.green
   /// ```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/border-color-green.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-color-green.png)
   final Color borderColor;
 
   ///**[borderWidth]** Define the border width around the button.
@@ -115,11 +119,11 @@ class MicrosoftAuthButton extends StatelessWidget {
   ///the value is [2.0].
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/border-width-soft.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-width-soft.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/border-width-medium.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-width-medium.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/border-width-large.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-width-large.png)
   final double borderWidth;
 
   ///**[style]** Define the button style.
@@ -127,13 +131,13 @@ class MicrosoftAuthButton extends StatelessWidget {
   /// <br/>
   /// This is the default style:
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/style-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
   ///
   /// <br/>
   ///```dart
   ///style: AuthButtonStyle.icon,
   ///```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/style-icon.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-icon.png)
   final AuthButtonStyle style;
 
   ///**[width]** Define the button width, the default value is the minimum.
@@ -144,7 +148,7 @@ class MicrosoftAuthButton extends StatelessWidget {
 
   ///**[iconSize]** Define the size of the icon, the default value is [35.0].
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/style-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
   ///
   /// <br/>
   /// Also you can give it any size.
@@ -152,20 +156,24 @@ class MicrosoftAuthButton extends StatelessWidget {
   /// ```dart
   ///iconSize: 25.0,
   /// ```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/icon-size-small.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/icon-size-small.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/icon-size-big.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/icon-size-big.png)
   final double iconSize;
 
   ///**[separator]** Define the value of the space between the [Icon] and the [Text].
   ///the default value is [10.0].
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/style-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/docs/api/assets/separator.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/separator.png)
   final double separator;
 
+  ///**[MicrosoftAuthButton]** is a button for authentication with Microsoft.
+  ///
+  /// <br/>
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/microsoft.png)
   MicrosoftAuthButton({
     @required this.onPressed,
     this.buttonColor,
