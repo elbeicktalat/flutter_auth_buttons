@@ -6,3 +6,4 @@ String twitterIcon = 'packages/auth_buttons/images/twitter_logo.png';
 String twitterWhiteIcon = 'packages/auth_buttons/images/twitter_logo_white.png';
 String githubIcon = 'packages/auth_buttons/images/github_logo.png';
 String microsoftIcon = 'packages/auth_buttons/images/microsoft_logo.png';
+String emailPasswordIcon = 'packages/auth_buttons/images/email_password_logo.png';

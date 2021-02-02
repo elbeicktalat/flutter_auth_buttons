@@ -26,3 +26,4 @@ flutter:
     - packages/auth_buttons/images/twitter_logo_white.png
     - packages/auth_buttons/images/github_logo.png
     - packages/auth_buttons/images/microsoft_logo.png
+    - packages/auth_buttons/images/email_password_logo.png
