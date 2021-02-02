@@ -2,13 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/auth_buttons.dart';
 import 'package:auth_buttons/res/shared/auth_button_style.dart';
 import 'package:auth_buttons/res/shared/button_contents.dart';
 import 'package:auth_buttons/res/shared/colors.dart';
 import 'package:auth_buttons/res/shared/images_url.dart';
 import 'package:auth_buttons/res/shared/shared_button.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class GoogleAuthButton extends StatelessWidget {
