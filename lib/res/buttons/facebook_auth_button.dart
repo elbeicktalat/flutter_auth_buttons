@@ -169,6 +169,13 @@ class FacebookAuthButton extends StatelessWidget {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/separator.png)
   final double separator;
 
+  ///**[rtl]** A boolean variable needed to support the **right to left** languages.
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/rtl.png)
+  final bool rtl;
+
   ///**[FacebookAuthButton]** is a button for authentication with Facebook.
   ///
   /// <br/>
@@ -190,7 +197,10 @@ class FacebookAuthButton extends StatelessWidget {
     this.height,
     this.iconSize = 35.0,
     this.separator = 10.0,
-  });
+    this.rtl = false,
+  })  : assert(text != null),
+        assert(darkMode != null),
+        assert(rtl != null);
 
   @override
   Widget build(BuildContext context) {
@@ -240,6 +250,7 @@ class FacebookAuthButton extends StatelessWidget {
             separator: separator,
             darkMode: darkMode,
             textColor: Colors.white,
+            rtl: rtl,
           ),
         );
     }

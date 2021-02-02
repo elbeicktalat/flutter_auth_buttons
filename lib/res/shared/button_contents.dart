@@ -8,6 +8,8 @@ class ButtonContents extends StatelessWidget {
   final bool darkMode;
   final double separator;
   final Color textColor;
+  final bool rtl;
+
   ButtonContents({
     this.iconSize,
     this.text = '',
@@ -16,13 +18,16 @@ class ButtonContents extends StatelessWidget {
     this.darkMode = false,
     this.separator,
     this.textColor,
-  });
+    this.rtl = false,
+  })  : assert(darkMode != null),
+        assert(rtl != null);
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
+      textDirection: rtl ? TextDirection.rtl : null,
       children: [
         Image(
           image: ExactAssetImage(
