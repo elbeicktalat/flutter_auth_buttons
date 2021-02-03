@@ -1,3 +1,4 @@
+import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 
 class ButtonContents extends StatelessWidget {
@@ -9,6 +10,9 @@ class ButtonContents extends StatelessWidget {
   final double separator;
   final Color textColor;
   final bool rtl;
+  final double borderRadius;
+  final Color iconBackground;
+  final AuthButtonStyle style;
 
   ButtonContents({
     this.iconSize,
@@ -19,6 +23,9 @@ class ButtonContents extends StatelessWidget {
     this.separator,
     this.textColor,
     this.rtl = false,
+    this.borderRadius,
+    this.iconBackground,
+    this.style,
   })  : assert(darkMode != null),
         assert(rtl != null);
 
@@ -29,12 +36,20 @@ class ButtonContents extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       textDirection: rtl ? TextDirection.rtl : null,
       children: [
-        Image(
-          image: ExactAssetImage(
-            iconUrl,
+        Container(
+          padding:
+              (style == AuthButtonStyle.secondary) ? EdgeInsets.all(4.0) : null,
+          decoration: BoxDecoration(
+            color: iconBackground,
+            borderRadius: BorderRadius.circular(borderRadius ?? 8.0),
           ),
-          width: iconSize,
-          height: iconSize,
+          child: Image(
+            image: ExactAssetImage(
+              iconUrl,
+            ),
+            width: iconSize,
+            height: iconSize,
+          ),
         ),
         SizedBox(
           width: separator,
