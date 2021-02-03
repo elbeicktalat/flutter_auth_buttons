@@ -64,6 +64,12 @@ class _MyAppState extends State<MyApp> {
                 style: authButtonStyle,
               ),
               Divider(),
+              EmailAuthButton(
+                onPressed: () {},
+                darkMode: darkMode,
+                style: authButtonStyle,
+              ),
+              Divider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
