@@ -15,7 +15,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     String appName = 'Auth Buttons Example';
     bool darkMode = false;
-    AuthButtonStyle authButtonStyle = AuthButtonStyle.icon;
+    AuthButtonStyle authButtonStyle = AuthButtonStyle.secondary;
     return MaterialApp(
       title: appName,
       home: Scaffold(
@@ -65,6 +65,12 @@ class _MyAppState extends State<MyApp> {
               ),
               Divider(),
               EmailAuthButton(
+                onPressed: () {},
+                darkMode: darkMode,
+                style: authButtonStyle,
+              ),
+              Divider(),
+              HuaweiAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 style: authButtonStyle,

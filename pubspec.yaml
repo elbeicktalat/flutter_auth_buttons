@@ -30,3 +30,5 @@ flutter:
     - packages/auth_buttons/images/microsoft.png
     - packages/auth_buttons/images/email.png
     - packages/auth_buttons/images/email_white.png
+    - packages/auth_buttons/images/huawei.png
+    - packages/auth_buttons/images/huawei_white.png

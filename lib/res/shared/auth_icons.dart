@@ -12,4 +12,6 @@ class AuthIcons {
   static String microsoft = 'packages/auth_buttons/images/microsoft.png';
   static String email = 'packages/auth_buttons/images/email.png';
   static String emailWhite = 'packages/auth_buttons/images/email_white.png';
+  static String huawei = 'packages/auth_buttons/images/huawei.png';
+  static String huaweiWhite = 'packages/auth_buttons/images/huawei_white.png';
 }
