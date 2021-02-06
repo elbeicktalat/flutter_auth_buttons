@@ -219,18 +219,20 @@ class AuthButton extends StatelessWidget {
 
   TextStyle getTextStyle() {
     if (style == AuthButtonStyle.secondary)
-      return TextStyle(
-        color: Colors.white,
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 0.50,
-      );
-    return TextStyle(
-      color: (darkMode ? Colors.white : Colors.black),
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-      letterSpacing: 0.50,
-    );
+      return textStyle ??
+          TextStyle(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 0.50,
+          );
+    return textStyle ??
+        TextStyle(
+          color: (darkMode ? Colors.white : Colors.black),
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          letterSpacing: 0.50,
+        );
   }
 
   @override

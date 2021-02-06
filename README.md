@@ -36,6 +36,7 @@ import 'package:auth_buttons/auth_buttons.dart'
 There are two style you can choose between them:
 1. [Default](#default-style)
 1. [Icon](#icon-style)
+1. [Secondary](#secondary-style)
 
 Note: all api is documented click `Ctrl + Q` to read the docs if you are using `Android Studio`
 or `Intellij Idea` on `Visual Studio Code` just hover over.
@@ -90,6 +91,26 @@ GoogleAuthButton(
 ![dark-icon](./doc/readme_assets/icon-button-dark.png)
 
 
+### Secondary Style
+```dart
+GoogleAuthButton(
+  onPressed: () {},
+  darkMode: false,
+  style: AuthButtonStyle.secondary,
+),
+```
+![light-icon](./doc/readme_assets/secondary-button-light.png)
+
+```dart
+GoogleAuthButton(
+  onPressed: () {},
+  darkMode: true,
+  style: AuthButtonStyle.icon,
+),
+```
+![dark-icon](./doc/readme_assets/secondary-button-dark.png)
+
+
 Do same think with the other buttons, when you want customize any button 
 you can do it just passing a property which you want.
 
@@ -104,15 +125,22 @@ GoogleAuthButton(
   borderRadius: 8.0,
   padding: EdgeInsets.all(8.0),
   text: 'Sign in with Google',
-  textStyle: TextStyle(),
+  textStyle: TextStyle(
+    color: Colors.black,
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    letterSpacing: 0.50,
+  ),
   darkMode: false,
   borderColor: Colors.red,
-  borderWidth: 1.0,
-  style: AuthButtonStyle.icon,
+  borderWidth: 2.0,
+  style: AuthButtonStyle.secondary,
   width: 280.0,
   height: 50.0,
   iconSize: 35.0,
-  separator: 15.0,
+  separator: 10.0,
+  rtl: false,
+  iconBackground: Colors.transparent,
 ),
 ```
 
