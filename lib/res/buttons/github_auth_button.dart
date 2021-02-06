@@ -2,14 +2,13 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/res/shared/auth_button_style.dart';
-import 'package:auth_buttons/res/shared/button_contents.dart';
-import 'package:auth_buttons/res/shared/colors.dart';
-import 'package:auth_buttons/res/shared/images_url.dart';
-import 'package:auth_buttons/res/shared/shared_button.dart';
+import 'package:auth_buttons/res/buttons/auth_button.dart';
+import 'package:auth_buttons/res/shared/auth_colors.dart';
+import 'package:auth_buttons/res/shared/auth_icons.dart';
+import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
-class GithubAuthButton extends StatelessWidget {
+class GithubAuthButton extends AuthButton {
   ///**[onPressed]** is a void function well be called when the button pressed.
   final VoidCallback onPressed;
 
@@ -176,6 +175,10 @@ class GithubAuthButton extends StatelessWidget {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/rtl.png)
   final bool rtl;
 
+  ///**[iconBackground]** Define the background icon,
+  /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
+  final Color iconBackground;
+
   ///**[GithubAuthButton]** is a button for authentication with Github.
   ///
   /// <br/>
@@ -198,60 +201,35 @@ class GithubAuthButton extends StatelessWidget {
     this.iconSize = 35.0,
     this.separator = 10.0,
     this.rtl = false,
+    this.iconBackground,
   })  : assert(text != null),
         assert(darkMode != null),
-        assert(rtl != null);
+        assert(rtl != null),
+        super(
+          iconUrl: (style == AuthButtonStyle.secondary)
+              ? (darkMode)
+                  ? AuthIcons.githubWhite
+                  : AuthIcons.github
+              : (darkMode)
+                  ? AuthIcons.githubWhite
+                  : AuthIcons.githubWhite,
+        );
 
   @override
-  Widget build(BuildContext context) {
-    Color buttonColor =
-        darkMode ? buttonDarkModeColor : this.buttonColor ?? buttonGithubColor;
-    Color borderColor =
-        this.borderColor ?? darkMode ? Colors.white : Colors.transparent;
-    switch (style) {
-      case AuthButtonStyle.icon:
-        return SharedButton(
-          width: width ?? 50.0,
-          height: height ?? 50.0,
-          onPressed: onPressed,
-          borderRadius: borderRadius,
-          padding: padding ?? EdgeInsets.all(0),
-          buttonColor: buttonColor,
-          splashColor: splashColor,
-          elevation: elevation,
-          borderColor: borderColor,
-          borderWidth: borderWidth ?? 2.0,
-          child: ButtonContents(
-            iconUrl: githubIcon,
-            iconSize: iconSize,
-            separator: 0.0,
-          ),
-        );
-        break;
-      default:
-        return SharedButton(
-          width: width,
-          height: height,
-          onPressed: onPressed,
-          borderRadius: borderRadius,
-          padding: padding ??
-              EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0),
-          buttonColor: buttonColor,
-          splashColor: splashColor,
-          elevation: elevation,
-          borderColor: borderColor,
-          borderWidth: borderWidth,
-          child: ButtonContents(
-            iconUrl: githubIcon,
-            text: text,
-            textStyle: textStyle,
-            iconSize: iconSize,
-            separator: separator,
-            darkMode: darkMode,
-            textColor: Colors.white,
-            rtl: rtl,
-          ),
-        );
-    }
+  Color getButtonColor() {
+    if (style == AuthButtonStyle.secondary)
+      return buttonColor ??
+          (darkMode ? AuthColors.darkMode : AuthColors.github);
+    return buttonColor ?? (darkMode ? AuthColors.darkMode : AuthColors.github);
+  }
+
+  @override
+  TextStyle getTextStyle() {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      letterSpacing: 0.50,
+    );
   }
 }

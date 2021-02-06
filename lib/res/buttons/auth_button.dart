@@ -2,13 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/res/buttons/auth_button.dart';
-import 'package:auth_buttons/res/shared/auth_colors.dart';
-import 'package:auth_buttons/res/shared/auth_icons.dart';
 import 'package:auth_buttons/res/shared/auth_style.dart';
+import 'package:auth_buttons/res/shared/button_contents.dart';
+import 'package:auth_buttons/res/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
-class AppleAuthButton extends AuthButton {
+class AuthButton extends StatelessWidget {
   ///**[onPressed]** is a void function well be called when the button pressed.
   final VoidCallback onPressed;
 
@@ -172,25 +171,28 @@ class AppleAuthButton extends AuthButton {
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/rtl.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/rtl.png)
   final bool rtl;
 
   ///**[iconBackground]** Define the background icon,
   /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
   final Color iconBackground;
 
-  ///**[AppleAuthButton]** is a button for authentication with Apple.
+  ///**[icon]** Define the icon.
+  final String iconUrl;
+
+  ///**[GoogleAuthButton]** is a button for authentication with Google.
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/apple.png)
-  AppleAuthButton({
-    @required this.onPressed,
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
+  AuthButton({
+    this.onPressed,
     this.buttonColor,
     this.splashColor,
     this.elevation,
-    this.borderRadius = 8.0,
+    this.borderRadius,
     this.padding,
-    this.text = 'Sign in with Apple',
+    this.text,
     this.textStyle,
     this.darkMode = false,
     this.borderColor,
@@ -198,19 +200,110 @@ class AppleAuthButton extends AuthButton {
     this.style,
     this.width,
     this.height,
-    this.iconSize = 35.0,
-    this.separator = 10.0,
+    this.iconSize,
+    this.separator,
     this.rtl = false,
     this.iconBackground,
-  })  : assert(text != null),
-        assert(darkMode != null),
+    this.iconUrl,
+  })  : assert(darkMode != null),
         assert(rtl != null),
-        super(iconUrl: darkMode ? AuthIcons.appleWhite : AuthIcons.appleBlack);
+        assert(iconUrl != null);
+
+  Color getButtonColor() => Colors.white;
+
+  Color getIconBackground() {
+    if (style == AuthButtonStyle.secondary)
+      return iconBackground ?? (darkMode ? Colors.black26 : Colors.white);
+    return iconBackground ?? Colors.transparent;
+  }
+
+  TextStyle getTextStyle() {
+    if (style == AuthButtonStyle.secondary)
+      return TextStyle(
+        color: Colors.white,
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 0.50,
+      );
+    return TextStyle(
+      color: (darkMode ? Colors.white : Colors.black),
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      letterSpacing: 0.50,
+    );
+  }
 
   @override
-  Color getButtonColor() {
-    if (style == AuthButtonStyle.secondary)
-      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.black);
-    return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
+  Widget build(BuildContext context) {
+    switch (style) {
+      case AuthButtonStyle.icon:
+        return SharedButton(
+          width: width ?? 50.0,
+          height: height ?? 50.0,
+          onPressed: onPressed,
+          borderRadius: borderRadius,
+          padding: padding ?? EdgeInsets.all(0),
+          buttonColor: getButtonColor(),
+          splashColor: splashColor,
+          elevation: elevation,
+          borderColor: borderColor,
+          borderWidth: borderWidth ?? 2.0,
+          child: ButtonContents(
+            iconUrl: iconUrl,
+            iconSize: iconSize,
+            separator: 0.0,
+          ),
+        );
+        break;
+      case AuthButtonStyle.secondary:
+        return SharedButton(
+          width: width,
+          height: height,
+          onPressed: onPressed,
+          borderRadius: borderRadius,
+          padding: padding ?? EdgeInsets.only(right: 16.0),
+          buttonColor: getButtonColor(),
+          splashColor: splashColor,
+          elevation: elevation,
+          borderColor: borderColor,
+          borderWidth: borderWidth,
+          child: ButtonContents(
+            iconUrl: iconUrl,
+            text: text,
+            textStyle: getTextStyle(),
+            iconSize: iconSize,
+            separator: separator,
+            darkMode: darkMode,
+            borderRadius: borderRadius,
+            iconBackground: getIconBackground(),
+            rtl: rtl,
+            style: style,
+          ),
+        );
+        break;
+      default:
+        return SharedButton(
+          width: width,
+          height: height,
+          onPressed: onPressed,
+          borderRadius: borderRadius,
+          padding: padding ??
+              EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0),
+          buttonColor: getButtonColor(),
+          splashColor: splashColor,
+          elevation: elevation,
+          borderColor: borderColor,
+          borderWidth: borderWidth,
+          child: ButtonContents(
+            iconUrl: iconUrl,
+            text: text,
+            textStyle: getTextStyle(),
+            iconSize: iconSize,
+            separator: separator,
+            darkMode: darkMode,
+            rtl: rtl,
+          ),
+        );
+    }
   }
 }

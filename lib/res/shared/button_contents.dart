@@ -56,13 +56,7 @@ class ButtonContents extends StatelessWidget {
         ),
         Text(
           text,
-          style: textStyle ??
-              TextStyle(
-                color: (textColor) ?? (darkMode ? Colors.white : Colors.black),
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 0.50,
-              ),
+          style: textStyle,
         ),
       ],
     );

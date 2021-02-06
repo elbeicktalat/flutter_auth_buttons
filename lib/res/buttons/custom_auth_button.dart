@@ -3,12 +3,10 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/res/buttons/auth_button.dart';
-import 'package:auth_buttons/res/shared/auth_colors.dart';
-import 'package:auth_buttons/res/shared/auth_icons.dart';
 import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
-class AppleAuthButton extends AuthButton {
+class CustomAuthButton extends AuthButton {
   ///**[onPressed]** is a void function well be called when the button pressed.
   final VoidCallback onPressed;
 
@@ -172,25 +170,28 @@ class AppleAuthButton extends AuthButton {
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/rtl.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/rtl.png)
   final bool rtl;
 
   ///**[iconBackground]** Define the background icon,
   /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
   final Color iconBackground;
 
-  ///**[AppleAuthButton]** is a button for authentication with Apple.
+  ///**[icon]** Define the icon.
+  final String icon;
+
+  ///**[GoogleAuthButton]** is a button for authentication with Google.
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/apple.png)
-  AppleAuthButton({
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
+  CustomAuthButton({
     @required this.onPressed,
     this.buttonColor,
     this.splashColor,
     this.elevation,
     this.borderRadius = 8.0,
     this.padding,
-    this.text = 'Sign in with Apple',
+    @required this.text,
     this.textStyle,
     this.darkMode = false,
     this.borderColor,
@@ -202,15 +203,9 @@ class AppleAuthButton extends AuthButton {
     this.separator = 10.0,
     this.rtl = false,
     this.iconBackground,
+    @required this.icon,
   })  : assert(text != null),
         assert(darkMode != null),
         assert(rtl != null),
-        super(iconUrl: darkMode ? AuthIcons.appleWhite : AuthIcons.appleBlack);
-
-  @override
-  Color getButtonColor() {
-    if (style == AuthButtonStyle.secondary)
-      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.black);
-    return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
-  }
+        super(iconUrl: icon);
 }
