@@ -9,6 +9,8 @@ import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class EmailAuthButton extends AuthButton {
+  final Key key;
+
   ///**[onPressed]** is a void function well be called when the button pressed.
   final VoidCallback onPressed;
 
@@ -184,6 +186,7 @@ class EmailAuthButton extends AuthButton {
   /// <br/>
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
   EmailAuthButton({
+    this.key,
     @required this.onPressed,
     this.buttonColor,
     this.splashColor,
@@ -206,6 +209,7 @@ class EmailAuthButton extends AuthButton {
         assert(darkMode != null),
         assert(rtl != null),
         super(
+          key: key ?? ValueKey('EmailAuthButton'),
           iconUrl: (style == AuthButtonStyle.secondary)
               ? (darkMode)
                   ? AuthIcons.emailWhite

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class SharedButton extends StatelessWidget {
+  final Key key;
+
   ///[onPressed] is a void function well be called when the button pressed.
   final VoidCallback onPressed;
 
@@ -49,6 +51,7 @@ class SharedButton extends StatelessWidget {
     @required this.child,
     this.width,
     this.height,
+    this.key,
   });
 
   @override
@@ -63,9 +66,11 @@ class SharedButton extends StatelessWidget {
       borderSide = BorderSide.none;
 
     return SizedBox(
+      key: key,
       width: width,
       height: height,
       child: RaisedButton(
+        key: key,
         onPressed: onPressed,
         color: buttonColor,
         splashColor: splashColor,

@@ -9,6 +9,8 @@ import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class GithubAuthButton extends AuthButton {
+  final Key key;
+
   ///**[onPressed]** is a void function well be called when the button pressed.
   final VoidCallback onPressed;
 
@@ -184,6 +186,7 @@ class GithubAuthButton extends AuthButton {
   /// <br/>
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/github.png)
   GithubAuthButton({
+    this.key,
     @required this.onPressed,
     this.buttonColor,
     this.splashColor,
@@ -206,6 +209,7 @@ class GithubAuthButton extends AuthButton {
         assert(darkMode != null),
         assert(rtl != null),
         super(
+          key: key ?? ValueKey('GithubAuthButton'),
           iconUrl: (style == AuthButtonStyle.secondary)
               ? (darkMode)
                   ? AuthIcons.githubWhite

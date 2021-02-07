@@ -9,6 +9,8 @@ import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class AppleAuthButton extends AuthButton {
+  final Key key;
+
   ///**[onPressed]** is a void function well be called when the button pressed.
   final VoidCallback onPressed;
 
@@ -184,6 +186,7 @@ class AppleAuthButton extends AuthButton {
   /// <br/>
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/apple.png)
   AppleAuthButton({
+    this.key,
     @required this.onPressed,
     this.buttonColor,
     this.splashColor,
@@ -205,7 +208,10 @@ class AppleAuthButton extends AuthButton {
   })  : assert(text != null),
         assert(darkMode != null),
         assert(rtl != null),
-        super(iconUrl: darkMode ? AuthIcons.appleWhite : AuthIcons.appleBlack);
+        super(
+          key: key ?? ValueKey('AppleAuthButton'),
+          iconUrl: darkMode ? AuthIcons.appleWhite : AuthIcons.appleBlack,
+        );
 
   @override
   Color getButtonColor() {

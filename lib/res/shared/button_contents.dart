@@ -2,6 +2,7 @@ import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 
 class ButtonContents extends StatelessWidget {
+  final Key key;
   final double iconSize;
   final String text;
   final String iconUrl;
@@ -15,6 +16,7 @@ class ButtonContents extends StatelessWidget {
   final AuthButtonStyle style;
 
   ButtonContents({
+    this.key,
     this.iconSize,
     this.text = '',
     this.iconUrl,
@@ -32,11 +34,13 @@ class ButtonContents extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      key: key,
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       textDirection: rtl ? TextDirection.rtl : null,
       children: [
         Container(
+          key: key,
           padding:
               (style == AuthButtonStyle.secondary) ? EdgeInsets.all(4.0) : null,
           decoration: BoxDecoration(
@@ -44,6 +48,7 @@ class ButtonContents extends StatelessWidget {
             borderRadius: BorderRadius.circular(borderRadius ?? 8.0),
           ),
           child: Image(
+            key: key,
             image: ExactAssetImage(
               iconUrl,
             ),
@@ -52,11 +57,13 @@ class ButtonContents extends StatelessWidget {
           ),
         ),
         SizedBox(
+          key: key,
           width: separator,
         ),
         Text(
           text,
           style: textStyle,
+          key: key,
         ),
       ],
     );

@@ -7,6 +7,8 @@ import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class CustomAuthButton extends AuthButton {
+  final Key key;
+
   ///**[onPressed]** is a void function well be called when the button pressed.
   final VoidCallback onPressed;
 
@@ -185,6 +187,7 @@ class CustomAuthButton extends AuthButton {
   /// <br/>
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
   CustomAuthButton({
+    this.key,
     @required this.onPressed,
     this.buttonColor,
     this.splashColor,
@@ -207,5 +210,8 @@ class CustomAuthButton extends AuthButton {
   })  : assert(text != null),
         assert(darkMode != null),
         assert(rtl != null),
-        super(iconUrl: icon);
+        super(
+          key: key,
+          iconUrl: icon,
+        );
 }

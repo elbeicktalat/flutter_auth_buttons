@@ -8,6 +8,8 @@ import 'package:auth_buttons/res/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
 class AuthButton extends StatelessWidget {
+  final Key key;
+
   ///**[onPressed]** is a void function well be called when the button pressed.
   final VoidCallback onPressed;
 
@@ -205,6 +207,7 @@ class AuthButton extends StatelessWidget {
     this.rtl = false,
     this.iconBackground,
     this.iconUrl,
+    this.key,
   })  : assert(darkMode != null),
         assert(rtl != null),
         assert(iconUrl != null);
@@ -240,6 +243,7 @@ class AuthButton extends StatelessWidget {
     switch (style) {
       case AuthButtonStyle.icon:
         return SharedButton(
+          key: key,
           width: width ?? 50.0,
           height: height ?? 50.0,
           onPressed: onPressed,
@@ -251,6 +255,7 @@ class AuthButton extends StatelessWidget {
           borderColor: borderColor,
           borderWidth: borderWidth ?? 2.0,
           child: ButtonContents(
+            key: key,
             iconUrl: iconUrl,
             iconSize: iconSize,
             separator: 0.0,
@@ -259,6 +264,7 @@ class AuthButton extends StatelessWidget {
         break;
       case AuthButtonStyle.secondary:
         return SharedButton(
+          key: key,
           width: width,
           height: height,
           onPressed: onPressed,
@@ -270,6 +276,7 @@ class AuthButton extends StatelessWidget {
           borderColor: borderColor,
           borderWidth: borderWidth,
           child: ButtonContents(
+            key: key,
             iconUrl: iconUrl,
             text: text,
             textStyle: getTextStyle(),
@@ -285,6 +292,7 @@ class AuthButton extends StatelessWidget {
         break;
       default:
         return SharedButton(
+          key: key,
           width: width,
           height: height,
           onPressed: onPressed,
@@ -297,6 +305,7 @@ class AuthButton extends StatelessWidget {
           borderColor: borderColor,
           borderWidth: borderWidth,
           child: ButtonContents(
+            key: key,
             iconUrl: iconUrl,
             text: text,
             textStyle: getTextStyle(),

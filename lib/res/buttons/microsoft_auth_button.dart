@@ -9,6 +9,8 @@ import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class MicrosoftAuthButton extends AuthButton {
+  final Key key;
+
   ///**[onPressed]** is a void function well be called when the button pressed.
   final VoidCallback onPressed;
 
@@ -184,6 +186,7 @@ class MicrosoftAuthButton extends AuthButton {
   /// <br/>
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/microsoft.png)
   MicrosoftAuthButton({
+    this.key,
     @required this.onPressed,
     this.buttonColor,
     this.splashColor,
@@ -205,7 +208,10 @@ class MicrosoftAuthButton extends AuthButton {
   })  : assert(text != null),
         assert(darkMode != null),
         assert(rtl != null),
-        super(iconUrl: AuthIcons.microsoft);
+        super(
+          key: key ?? ValueKey('MicrosoftAuthButton'),
+          iconUrl: AuthIcons.microsoft,
+        );
 
   @override
   Color getButtonColor() {
