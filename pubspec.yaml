@@ -18,17 +18,21 @@ dev_dependencies:
 flutter:
 
   assets:
-    - packages/auth_buttons/images/google.png
-    - packages/auth_buttons/images/facebook.png
-    - packages/auth_buttons/images/facebook_white.png
-    - packages/auth_buttons/images/apple_black.png
-    - packages/auth_buttons/images/apple_white.png
-    - packages/auth_buttons/images/twitter.png
-    - packages/auth_buttons/images/twitter_white.png
-    - packages/auth_buttons/images/github_white.png
-    - packages/auth_buttons/images/github_black.png
-    - packages/auth_buttons/images/microsoft.png
-    - packages/auth_buttons/images/email.png
-    - packages/auth_buttons/images/email_white.png
-    - packages/auth_buttons/images/huawei.png
-    - packages/auth_buttons/images/huawei_white.png
+    - packages/auth_buttons/images/default/google.png
+    - packages/auth_buttons/images/default/facebook.png
+    - packages/auth_buttons/images/default/facebook_white.png
+    - packages/auth_buttons/images/default/apple_black.png
+    - packages/auth_buttons/images/default/apple_white.png
+    - packages/auth_buttons/images/default/twitter.png
+    - packages/auth_buttons/images/default/twitter_white.png
+    - packages/auth_buttons/images/default/github_white.png
+    - packages/auth_buttons/images/default/github_black.png
+    - packages/auth_buttons/images/default/microsoft.png
+    - packages/auth_buttons/images/default/email.png
+    - packages/auth_buttons/images/default/email_white.png
+    - packages/auth_buttons/images/default/huawei.png
+    - packages/auth_buttons/images/default/huawei_white.png
+
+    - packages/auth_buttons/images/outlined/google.png
+
+    - packages/auth_buttons/images/secondary/google.png

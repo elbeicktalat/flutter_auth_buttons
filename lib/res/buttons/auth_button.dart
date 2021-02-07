@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/res/shared/auth_icons.dart';
 import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:auth_buttons/res/shared/button_contents.dart';
 import 'package:auth_buttons/res/shared/shared_button.dart';
@@ -182,6 +183,7 @@ class AuthButton extends StatelessWidget {
 
   ///**[icon]** Define the icon.
   final String iconUrl;
+  final AuthIconStyle iconStyle;
 
   ///**[GoogleAuthButton]** is a button for authentication with Google.
   ///
@@ -208,9 +210,9 @@ class AuthButton extends StatelessWidget {
     this.iconBackground,
     this.iconUrl,
     this.key,
+    this.iconStyle,
   })  : assert(darkMode != null),
-        assert(rtl != null),
-        assert(iconUrl != null);
+        assert(rtl != null);
 
   Color getButtonColor() => Colors.white;
 
@@ -238,6 +240,8 @@ class AuthButton extends StatelessWidget {
         );
   }
 
+  String getIconUrl() => iconUrl;
+
   @override
   Widget build(BuildContext context) {
     switch (style) {
@@ -256,7 +260,7 @@ class AuthButton extends StatelessWidget {
           borderWidth: borderWidth ?? 2.0,
           child: ButtonContents(
             key: key,
-            iconUrl: iconUrl,
+            iconUrl: getIconUrl(),
             iconSize: iconSize,
             separator: 0.0,
           ),
@@ -277,7 +281,7 @@ class AuthButton extends StatelessWidget {
           borderWidth: borderWidth,
           child: ButtonContents(
             key: key,
-            iconUrl: iconUrl,
+            iconUrl: getIconUrl(),
             text: text,
             textStyle: getTextStyle(),
             iconSize: iconSize,
@@ -306,7 +310,7 @@ class AuthButton extends StatelessWidget {
           borderWidth: borderWidth,
           child: ButtonContents(
             key: key,
-            iconUrl: iconUrl,
+            iconUrl: getIconUrl(),
             text: text,
             textStyle: getTextStyle(),
             iconSize: iconSize,

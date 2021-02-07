@@ -3,3 +3,8 @@ enum AuthButtonStyle {
   icon,
   secondary,
 }
+
+enum AuthIconStyle {
+  secondary,
+  outlined,
+}

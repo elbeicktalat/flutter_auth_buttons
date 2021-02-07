@@ -180,6 +180,7 @@ class GoogleAuthButton extends AuthButton {
   ///**[iconBackground]** Define the background icon,
   /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
   final Color iconBackground;
+  final AuthIconStyle iconStyle;
 
   ///**[GoogleAuthButton]** is a button for authentication with Google.
   ///
@@ -205,13 +206,20 @@ class GoogleAuthButton extends AuthButton {
     this.separator = 10.0,
     this.rtl = false,
     this.iconBackground,
+    this.iconStyle,
   })  : assert(text != null),
         assert(darkMode != null),
         assert(rtl != null),
         super(
           key: key ?? ValueKey('GoogleAuthButton'),
-          iconUrl: AuthIcons.google,
         );
+
+  @override
+  String getIconUrl() {
+    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.google[1];
+    if (iconStyle == AuthIconStyle.outlined) return AuthIcons.google[2];
+    return AuthIcons.google[0];
+  }
 
   @override
   Color getButtonColor() {
