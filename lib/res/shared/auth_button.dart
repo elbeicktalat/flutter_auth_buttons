@@ -182,12 +182,23 @@ class AuthButton extends StatelessWidget {
 
   ///**[icon]** Define the icon.
   final String iconUrl;
-  final AuthIconStyle iconStyle;
 
-  ///**[GoogleAuthButton]** is a button for authentication with Google.
+  ///**[iconStyle]** Define the icon style.
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
+  /// This's the **default** icon.
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/default/google.png)
+  ///
+  ///when the **[iconStyle]** is equal to **[AuthIconStyle.outlined]**
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/outlined/google.png)
+  ///
+  ///when the **[iconStyle]** is equal to **[AuthIconStyle.secondary]**
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/secondary/google.png)
+  final AuthIconStyle iconStyle;
+
   AuthButton({
     this.onPressed,
     this.buttonColor,

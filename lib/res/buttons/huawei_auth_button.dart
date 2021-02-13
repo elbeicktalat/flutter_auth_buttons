@@ -181,10 +181,10 @@ class HuaweiAuthButton extends AuthButton {
   /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
   final Color iconBackground;
 
-  ///**[FacebookAuthButton]** is a button for authentication with Facebook.
+  ///**[HuaweiAuthButton]** is a button for authentication with Huawei.
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/facebook.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/huawei.png)
   HuaweiAuthButton({
     this.key,
     @required this.onPressed,

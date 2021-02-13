@@ -181,10 +181,10 @@ class EmailAuthButton extends AuthButton {
   /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
   final Color iconBackground;
 
-  ///**[GoogleAuthButton]** is a button for authentication with Google.
+  ///**[EmailAuthButton]** is a button for authentication with Email.
   ///
   /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/email.png)
   EmailAuthButton({
     this.key,
     @required this.onPressed,
