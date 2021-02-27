@@ -28,9 +28,18 @@ class AuthIcons {
     'packages/auth_buttons/images/outlined/microsoft.png',
     'packages/auth_buttons/images/secondary/microsoft.png',
   ];
-  static String email = 'packages/auth_buttons/images/default/email.png';
-  static String emailWhite =
-      'packages/auth_buttons/images/default/email_white.png';
+
+  static List<String> email = [
+    'packages/auth_buttons/images/default/email.png',
+    'packages/auth_buttons/images/outlined/email.png',
+    'packages/auth_buttons/images/secondary/email.png',
+  ];
+  static List<String> emailWhite = [
+    'packages/auth_buttons/images/default/email_white.png',
+    'packages/auth_buttons/images/outlined/email_white.png',
+    'packages/auth_buttons/images/secondary/email_white.png',
+  ];
+
   static String huawei = 'packages/auth_buttons/images/default/huawei.png';
   static String huaweiWhite =
       'packages/auth_buttons/images/default/huawei_white.png';

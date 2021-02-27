@@ -72,6 +72,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {},
                 darkMode: darkMode,
                 style: authButtonStyle,
+                iconStyle: authIconStyle,
               ),
               Divider(),
               HuaweiAuthButton(
