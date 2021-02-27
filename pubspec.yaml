@@ -35,6 +35,8 @@ flutter:
 
     - packages/auth_buttons/images/outlined/google.png
     - packages/auth_buttons/images/outlined/microsoft.png
+    - packages/auth_buttons/images/outlined/twitter.png
+    - packages/auth_buttons/images/outlined/twitter_white.png
 
     - packages/auth_buttons/images/secondary/google.png
     - packages/auth_buttons/images/secondary/microsoft.png

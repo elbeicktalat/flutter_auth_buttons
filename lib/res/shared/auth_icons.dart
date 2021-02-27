@@ -11,9 +11,14 @@ class AuthIcons {
       'packages/auth_buttons/images/default/apple_black.png';
   static String appleWhite =
       'packages/auth_buttons/images/default/apple_white.png';
-  static String twitter = 'packages/auth_buttons/images/default/twitter.png';
-  static String twitterWhite =
-      'packages/auth_buttons/images/default/twitter_white.png';
+  static List<String> twitter = [
+    'packages/auth_buttons/images/default/twitter.png',
+    'packages/auth_buttons/images/outlined/twitter.png',
+  ];
+  static List<String> twitterWhite = [
+    'packages/auth_buttons/images/default/twitter_white.png',
+    'packages/auth_buttons/images/outlined/twitter_white.png',
+  ];
   static String github =
       'packages/auth_buttons/images/default/github_black.png';
   static String githubWhite =
