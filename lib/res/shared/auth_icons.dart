@@ -1,8 +1,8 @@
 class AuthIcons {
   static List<String> google = [
     'packages/auth_buttons/images/default/google.png',
-    'packages/auth_buttons/images/secondary/google.png',
     'packages/auth_buttons/images/outlined/google.png',
+    'packages/auth_buttons/images/secondary/google.png',
   ];
   static String facebook = 'packages/auth_buttons/images/default/facebook.png';
   static String facebookWhite =
@@ -18,8 +18,11 @@ class AuthIcons {
       'packages/auth_buttons/images/default/github_black.png';
   static String githubWhite =
       'packages/auth_buttons/images/default/github_white.png';
-  static String microsoft =
-      'packages/auth_buttons/images/default/microsoft.png';
+  static List<String> microsoft = [
+    'packages/auth_buttons/images/default/microsoft.png',
+    'packages/auth_buttons/images/outlined/microsoft.png',
+    'packages/auth_buttons/images/secondary/microsoft.png',
+  ];
   static String email = 'packages/auth_buttons/images/default/email.png';
   static String emailWhite =
       'packages/auth_buttons/images/default/email_white.png';
