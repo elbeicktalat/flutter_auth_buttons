@@ -177,6 +177,22 @@ class EmailAuthButton extends AuthButton {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/rtl.png)
   final bool rtl;
 
+  ///**[iconStyle]** Define the icon style.
+  ///
+  /// <br/>
+  /// This's the **default** icon.
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/default/google.png)
+  ///
+  ///when the **[iconStyle]** is equal to **[AuthIconStyle.outlined]**
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/outlined/google.png)
+  ///
+  ///when the **[iconStyle]** is equal to **[AuthIconStyle.secondary]**
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/secondary/google.png)
+  final AuthIconStyle iconStyle;
+
   ///**[iconBackground]** Define the background icon,
   /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
   final Color iconBackground;
@@ -205,27 +221,57 @@ class EmailAuthButton extends AuthButton {
     this.separator = 10.0,
     this.rtl = false,
     this.iconBackground,
+    this.iconStyle,
   })  : assert(text != null),
         assert(darkMode != null),
         assert(rtl != null),
         super(
           key: key ?? ValueKey('EmailAuthButton'),
-          iconUrl: (style == AuthButtonStyle.secondary)
-              ? (darkMode)
-                  ? AuthIcons.emailWhite
-                  : AuthIcons.email
-              : AuthIcons.emailWhite,
         );
+
+  @override
+  String getIconUrl() {
+    if (style == AuthButtonStyle.secondary)
+      return (darkMode)
+          ? (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.emailWhite[1]
+              : AuthIcons.emailWhite[0]
+          : (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.email[1]
+              : AuthIcons.email[0];
+
+    if (iconStyle == AuthIconStyle.outlined)
+      return (darkMode)
+          ? (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.email[1]
+              : AuthIcons.email[0]
+          : (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.emailWhite[1]
+              : AuthIcons.emailWhite[0];
+
+    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.email[2];
+
+    return (darkMode) ? AuthIcons.email[0] : AuthIcons.emailWhite[0];
+  }
 
   @override
   Color getButtonColor() {
     if (style == AuthButtonStyle.secondary)
       return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.teal);
+    if (iconStyle == AuthIconStyle.secondary)
+      return buttonColor ?? Colors.white;
     return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.teal);
   }
 
   @override
   TextStyle getTextStyle() {
+    if (iconStyle == AuthIconStyle.secondary)
+      return TextStyle(
+        color: Colors.teal[900],
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 0.50,
+      );
     return TextStyle(
       color: Colors.white,
       fontSize: 18,

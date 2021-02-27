@@ -58,18 +58,21 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {},
                 darkMode: darkMode,
                 style: authButtonStyle,
+                iconStyle: authIconStyle,
               ),
               Divider(),
               TwitterAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 style: authButtonStyle,
+                iconStyle: authIconStyle,
               ),
               Divider(),
               EmailAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 style: authButtonStyle,
+                iconStyle: authIconStyle,
               ),
               Divider(),
               HuaweiAuthButton(

@@ -231,8 +231,8 @@ class GoogleAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.google[1];
-    if (iconStyle == AuthIconStyle.outlined) return AuthIcons.google[2];
+    if (iconStyle == AuthIconStyle.outlined) return AuthIcons.google[1];
+    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.google[2];
     return AuthIcons.google[0];
   }
 

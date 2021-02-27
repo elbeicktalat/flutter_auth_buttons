@@ -181,6 +181,22 @@ class TwitterAuthButton extends AuthButton {
   /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
   final Color iconBackground;
 
+  ///**[iconStyle]** Define the icon style.
+  ///
+  /// <br/>
+  /// This's the **default** icon.
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/default/google.png)
+  ///
+  ///when the **[iconStyle]** is equal to **[AuthIconStyle.outlined]**
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/outlined/google.png)
+  ///
+  ///when the **[iconStyle]** is equal to **[AuthIconStyle.secondary]**
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/secondary/google.png)
+  final AuthIconStyle iconStyle;
+
   ///**[TwitterAuthButton]** is a button for authentication with Twitter.
   ///
   /// <br/>
@@ -205,17 +221,36 @@ class TwitterAuthButton extends AuthButton {
     this.separator = 10.0,
     this.rtl = false,
     this.iconBackground,
+    this.iconStyle,
   })  : assert(text != null),
         assert(darkMode != null),
         assert(rtl != null),
         super(
           key: key ?? ValueKey('TwitterAuthButton'),
-          iconUrl: (style == AuthButtonStyle.secondary)
-              ? AuthIcons.twitter
-              : (darkMode)
-                  ? AuthIcons.twitter
-                  : AuthIcons.twitterWhite,
         );
+
+  @override
+  String getIconUrl() {
+    if (style == AuthButtonStyle.secondary)
+      return (darkMode)
+          ? (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.twitterWhite[1]
+              : AuthIcons.twitterWhite[0]
+          : (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.twitter[1]
+              : AuthIcons.twitter[0];
+
+    if (iconStyle == AuthIconStyle.outlined)
+      return (darkMode)
+          ? (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.twitter[1]
+              : AuthIcons.twitter[0]
+          : (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.twitterWhite[1]
+              : AuthIcons.twitterWhite[0];
+
+    return (darkMode) ? AuthIcons.twitter[0] : AuthIcons.twitterWhite[0];
+  }
 
   @override
   Color getButtonColor() {
