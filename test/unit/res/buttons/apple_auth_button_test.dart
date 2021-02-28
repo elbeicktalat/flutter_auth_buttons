@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Check the default value of', () {
-    AppleAuthButton appleAuthButton = AppleAuthButton(onPressed: null);
+    AppleAuthButton appleAuthButton = AppleAuthButton(onPressed: () {});
     test('text', () {
       expect(appleAuthButton.text, 'Sign in with Apple');
     });

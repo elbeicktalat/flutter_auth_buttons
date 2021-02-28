@@ -2,24 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.7
-
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 
 class ButtonContents extends StatelessWidget {
-  final Key key;
-  final double iconSize;
-  final String text;
-  final String iconUrl;
-  final TextStyle textStyle;
+  final Key? key;
+  final double? iconSize;
+  final String? text;
+  final String? iconUrl;
+  final TextStyle? textStyle;
   final bool darkMode;
-  final double separator;
-  final Color textColor;
+  final double? separator;
+  final Color? textColor;
   final bool rtl;
-  final double borderRadius;
-  final Color iconBackground;
-  final AuthButtonStyle style;
+  final double? borderRadius;
+  final Color? iconBackground;
+  final AuthButtonStyle? style;
 
   ButtonContents({
     this.key,
@@ -34,8 +32,7 @@ class ButtonContents extends StatelessWidget {
     this.borderRadius,
     this.iconBackground,
     this.style,
-  })  : assert(darkMode != null),
-        assert(rtl != null);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +53,7 @@ class ButtonContents extends StatelessWidget {
           child: Image(
             key: key,
             image: ExactAssetImage(
-              iconUrl,
+              iconUrl!,
             ),
             width: iconSize,
             height: iconSize,
@@ -67,7 +64,7 @@ class ButtonContents extends StatelessWidget {
           width: separator,
         ),
         Text(
-          text,
+          text!,
           style: textStyle,
           key: key,
         ),

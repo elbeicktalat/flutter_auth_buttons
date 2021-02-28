@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.7
+
 
 import 'package:auth_buttons/res/shared/auth_button.dart';
 import 'package:auth_buttons/res/shared/auth_colors.dart';
@@ -11,10 +11,10 @@ import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class GoogleAuthButton extends AuthButton {
-  final Key key;
+  final Key? key;
 
   ///**[onPressed]** is a void function well be called when the button pressed.
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   ///**[buttonColor]** Define the button color.
   /// The default value is [white] if the [darkMode] = [false].
@@ -31,11 +31,11 @@ class GoogleAuthButton extends AuthButton {
   ///color: Colors.amberAccent,
   ///```
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/button-color-amber.png)
-  final Color buttonColor;
+  final Color? buttonColor;
 
   ///**[splashColor]** Define the color when the button onPressed.
   ///The default value is [Colors.grey].
-  final Color splashColor;
+  final Color? splashColor;
 
   ///**[elevation]** Define the elevation button, the default value is [2.0].
   ///
@@ -43,7 +43,7 @@ class GoogleAuthButton extends AuthButton {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/elevation.png)
-  final double elevation;
+  final double? elevation;
 
   ///**[borderRadius]** Define the border radius, the default value is [8.0].
   ///
@@ -60,7 +60,7 @@ class GoogleAuthButton extends AuthButton {
   /// when the [style] = [AuthButtonStyle.icon],
   /// the value is equal to [0.0], other way is equal to
   /// [EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0)].
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
 
   ///**[text]** Define text in the button.
   ///
@@ -84,7 +84,7 @@ class GoogleAuthButton extends AuthButton {
   /// ```
   /// <br/>
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/text-style.png)
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
 
   ///**[darkMode]** Define if the theme of the button is dark or light,
   ///the default value is [false].
@@ -113,7 +113,7 @@ class GoogleAuthButton extends AuthButton {
   /// borderColor: Colors.green
   /// ```
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-color-green.png)
-  final Color borderColor;
+  final Color? borderColor;
 
   ///**[borderWidth]** Define the border width around the button.
   ///
@@ -126,7 +126,7 @@ class GoogleAuthButton extends AuthButton {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-width-medium.png)
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-width-large.png)
-  final double borderWidth;
+  final double? borderWidth;
 
   ///**[style]** Define the button style.
   ///
@@ -140,13 +140,13 @@ class GoogleAuthButton extends AuthButton {
   ///style: AuthButtonStyle.icon,
   ///```
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-icon.png)
-  final AuthButtonStyle style;
+  final AuthButtonStyle? style;
 
   ///**[width]** Define the button width, the default value is the minimum.
-  final double width;
+  final double? width;
 
   ///**[height]** Define the height button, the default value is the minimum.
-  final double height;
+  final double? height;
 
   ///**[iconSize]** Define the size of the icon, the default value is [35.0].
   ///
@@ -181,7 +181,7 @@ class GoogleAuthButton extends AuthButton {
 
   ///**[iconBackground]** Define the background icon,
   /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
-  final Color iconBackground;
+  final Color? iconBackground;
 
   ///**[iconStyle]** Define the icon style.
   ///
@@ -197,7 +197,7 @@ class GoogleAuthButton extends AuthButton {
   ///when the **[iconStyle]** is equal to **[AuthIconStyle.secondary]**
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/secondary/google.png)
-  final AuthIconStyle iconStyle;
+  final AuthIconStyle? iconStyle;
 
   ///**[GoogleAuthButton]** is a button for authentication with Google.
   ///
@@ -205,7 +205,7 @@ class GoogleAuthButton extends AuthButton {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
   GoogleAuthButton({
     this.key,
-    @required this.onPressed,
+    required this.onPressed,
     this.buttonColor,
     this.splashColor,
     this.elevation,
@@ -224,9 +224,7 @@ class GoogleAuthButton extends AuthButton {
     this.rtl = false,
     this.iconBackground,
     this.iconStyle,
-  })  : assert(text != null),
-        assert(darkMode != null),
-        assert(rtl != null),
+  })  : assert(darkMode != null),
         super(
           key: key ?? ValueKey('GoogleAuthButton'),
         );
