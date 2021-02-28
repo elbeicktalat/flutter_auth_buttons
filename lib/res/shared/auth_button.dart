@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// @dart=2.7
+
 import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:auth_buttons/res/shared/button_contents.dart';
 import 'package:auth_buttons/res/shared/shared_button.dart';

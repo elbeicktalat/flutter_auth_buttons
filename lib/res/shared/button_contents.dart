@@ -1,3 +1,9 @@
+// Copyright 2021 Talat El Beick. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// @dart=2.7
+
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 

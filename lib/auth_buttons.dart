@@ -1,3 +1,9 @@
+// Copyright 2021 Talat El Beick. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
+// @dart=2.7
+
 export 'package:auth_buttons/res/buttons/apple_auth_button.dart';
 export 'package:auth_buttons/res/buttons/custom_auth_button.dart';
 export 'package:auth_buttons/res/buttons/email_auth_button.dart';
