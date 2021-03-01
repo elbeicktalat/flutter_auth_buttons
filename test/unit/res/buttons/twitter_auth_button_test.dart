@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Check the default value of', () {
-    TwitterAuthButton twitterAuthButton = TwitterAuthButton(onPressed: null);
+    TwitterAuthButton twitterAuthButton = TwitterAuthButton(onPressed: () {});
     test('text', () {
       expect(twitterAuthButton.text, 'Sign in with Twitter');
     });
