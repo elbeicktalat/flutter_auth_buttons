@@ -182,9 +182,6 @@ abstract class AuthButton extends StatelessWidget {
   /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
   final Color? iconBackground;
 
-  ///**[icon]** Define the icon.
-  //final String iconUrl;
-
   ///**[iconStyle]** Define the icon style.
   ///
   /// <br/>
