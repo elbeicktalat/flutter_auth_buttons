@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Check the default value of', () {
-    EmailAuthButton emailAuthButton = EmailAuthButton(onPressed: null);
+    EmailAuthButton emailAuthButton = EmailAuthButton(onPressed: () {});
     test('text', () {
       expect(emailAuthButton.text, 'Sign in with Email');
     });

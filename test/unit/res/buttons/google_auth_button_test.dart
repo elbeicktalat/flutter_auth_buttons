@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Check the default value of', () {
-    GoogleAuthButton googleAuthButton = GoogleAuthButton(onPressed: null);
+    GoogleAuthButton googleAuthButton = GoogleAuthButton(onPressed: () {});
     test('text', () {
       expect(googleAuthButton.text, 'Sign in with Google');
     });

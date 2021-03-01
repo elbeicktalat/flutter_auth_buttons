@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Check the default value of', () {
-    GithubAuthButton githubAuthButton = GithubAuthButton(onPressed: null);
+    GithubAuthButton githubAuthButton = GithubAuthButton(onPressed: () {});
     test('text', () {
       expect(githubAuthButton.text, 'Sign in with Github');
     });

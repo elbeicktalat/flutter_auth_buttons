@@ -2,30 +2,30 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.7
+// @dart=2.12
 
-import 'package:auth_buttons/auth_buttons.dart';
+import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class ButtonContents extends StatelessWidget {
-  final Key key;
-  final double iconSize;
+  final Key? key;
+  final double? iconSize;
   final String text;
   final String iconUrl;
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
   final bool darkMode;
-  final double separator;
-  final Color textColor;
+  final double? separator;
+  final Color? textColor;
   final bool rtl;
-  final double borderRadius;
-  final Color iconBackground;
-  final AuthButtonStyle style;
+  final double? borderRadius;
+  final Color? iconBackground;
+  final AuthButtonStyle? style;
 
   ButtonContents({
     this.key,
     this.iconSize,
     this.text = '',
-    this.iconUrl,
+    this.iconUrl = '',
     this.textStyle,
     this.darkMode = false,
     this.separator,
@@ -34,8 +34,7 @@ class ButtonContents extends StatelessWidget {
     this.borderRadius,
     this.iconBackground,
     this.style,
-  })  : assert(darkMode != null),
-        assert(rtl != null);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +45,6 @@ class ButtonContents extends StatelessWidget {
       textDirection: rtl ? TextDirection.rtl : null,
       children: [
         Container(
-          key: key,
           padding:
               (style == AuthButtonStyle.secondary) ? EdgeInsets.all(4.0) : null,
           decoration: BoxDecoration(
@@ -54,7 +52,6 @@ class ButtonContents extends StatelessWidget {
             borderRadius: BorderRadius.circular(borderRadius ?? 8.0),
           ),
           child: Image(
-            key: key,
             image: ExactAssetImage(
               iconUrl,
             ),
@@ -63,13 +60,11 @@ class ButtonContents extends StatelessWidget {
           ),
         ),
         SizedBox(
-          key: key,
           width: separator,
         ),
         Text(
           text,
           style: textStyle,
-          key: key,
         ),
       ],
     );

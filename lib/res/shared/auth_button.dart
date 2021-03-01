@@ -2,15 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.7
+// @dart=2.12
 
 import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:auth_buttons/res/shared/button_contents.dart';
 import 'package:auth_buttons/res/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
-class AuthButton extends StatelessWidget {
-  final Key key;
+abstract class AuthButton extends StatelessWidget {
+  final Key? key;
 
   ///**[onPressed]** is a void function well be called when the button pressed.
   final VoidCallback onPressed;
@@ -30,11 +30,11 @@ class AuthButton extends StatelessWidget {
   ///color: Colors.amberAccent,
   ///```
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/button-color-amber.png)
-  final Color buttonColor;
+  final Color? buttonColor;
 
   ///**[splashColor]** Define the color when the button onPressed.
   ///The default value is [Colors.grey].
-  final Color splashColor;
+  final Color? splashColor;
 
   ///**[elevation]** Define the elevation button, the default value is [2.0].
   ///
@@ -42,7 +42,7 @@ class AuthButton extends StatelessWidget {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/elevation.png)
-  final double elevation;
+  final double? elevation;
 
   ///**[borderRadius]** Define the border radius, the default value is [8.0].
   ///
@@ -53,13 +53,13 @@ class AuthButton extends StatelessWidget {
   ///Sure you can give it any other value.
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-radius.png)
-  final double borderRadius;
+  final double? borderRadius;
 
   ///**[padding]** Define the button padding, the default value is [null],
   /// when the [style] = [AuthButtonStyle.icon],
   /// the value is equal to [0.0], other way is equal to
   /// [EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0)].
-  final EdgeInsets padding;
+  final EdgeInsets? padding;
 
   ///**[text]** Define text in the button.
   ///
@@ -83,7 +83,7 @@ class AuthButton extends StatelessWidget {
   /// ```
   /// <br/>
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/text-style.png)
-  final TextStyle textStyle;
+  final TextStyle? textStyle;
 
   ///**[darkMode]** Define if the theme of the button is dark or light,
   ///the default value is [false].
@@ -112,7 +112,7 @@ class AuthButton extends StatelessWidget {
   /// borderColor: Colors.green
   /// ```
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-color-green.png)
-  final Color borderColor;
+  final Color? borderColor;
 
   ///**[borderWidth]** Define the border width around the button.
   ///
@@ -125,7 +125,7 @@ class AuthButton extends StatelessWidget {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-width-medium.png)
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-width-large.png)
-  final double borderWidth;
+  final double? borderWidth;
 
   ///**[style]** Define the button style.
   ///
@@ -139,13 +139,13 @@ class AuthButton extends StatelessWidget {
   ///style: AuthButtonStyle.icon,
   ///```
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-icon.png)
-  final AuthButtonStyle style;
+  final AuthButtonStyle? style;
 
   ///**[width]** Define the button width, the default value is the minimum.
-  final double width;
+  final double? width;
 
   ///**[height]** Define the height button, the default value is the minimum.
-  final double height;
+  final double? height;
 
   ///**[iconSize]** Define the size of the icon, the default value is [35.0].
   ///
@@ -160,7 +160,7 @@ class AuthButton extends StatelessWidget {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/icon-size-small.png)
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/icon-size-big.png)
-  final double iconSize;
+  final double? iconSize;
 
   ///**[separator]** Define the value of the space between the [Icon] and the [Text].
   ///the default value is [10.0].
@@ -169,7 +169,7 @@ class AuthButton extends StatelessWidget {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/separator.png)
-  final double separator;
+  final double? separator;
 
   ///**[rtl]** A boolean variable needed to support the **right to left** languages.
   ///
@@ -180,10 +180,7 @@ class AuthButton extends StatelessWidget {
 
   ///**[iconBackground]** Define the background icon,
   /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
-  final Color iconBackground;
-
-  ///**[icon]** Define the icon.
-  final String iconUrl;
+  final Color? iconBackground;
 
   ///**[iconStyle]** Define the icon style.
   ///
@@ -199,16 +196,17 @@ class AuthButton extends StatelessWidget {
   ///when the **[iconStyle]** is equal to **[AuthIconStyle.secondary]**
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/secondary/google.png)
-  final AuthIconStyle iconStyle;
+  final AuthIconStyle? iconStyle;
 
   AuthButton({
-    this.onPressed,
+    this.key,
+    required this.onPressed,
     this.buttonColor,
     this.splashColor,
     this.elevation,
     this.borderRadius,
     this.padding,
-    this.text,
+    required this.text,
     this.textStyle,
     this.darkMode = false,
     this.borderColor,
@@ -220,14 +218,12 @@ class AuthButton extends StatelessWidget {
     this.separator,
     this.rtl = false,
     this.iconBackground,
-    this.iconUrl,
-    this.key,
     this.iconStyle,
-  })  : assert(darkMode != null),
-        assert(rtl != null);
+  });
 
   Color getButtonColor() => Colors.white;
 
+  @required
   Color getIconBackground() {
     if (style == AuthButtonStyle.secondary)
       return iconBackground ?? (darkMode ? Colors.black26 : Colors.white);
@@ -252,7 +248,7 @@ class AuthButton extends StatelessWidget {
         );
   }
 
-  String getIconUrl() => iconUrl;
+  String getIconUrl();
 
   @override
   Widget build(BuildContext context) {
@@ -277,7 +273,6 @@ class AuthButton extends StatelessWidget {
             separator: 0.0,
           ),
         );
-        break;
       case AuthButtonStyle.secondary:
         return SharedButton(
           key: key,
@@ -305,7 +300,6 @@ class AuthButton extends StatelessWidget {
             style: style,
           ),
         );
-        break;
       default:
         return SharedButton(
           key: key,
