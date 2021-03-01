@@ -197,6 +197,8 @@ abstract class AuthButton extends StatelessWidget {
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/secondary/google.png)
   final AuthIconStyle? iconStyle;
+  final VoidCallback? onLongPress;
+  final Color? shadowColor;
 
   AuthButton({
     this.key,
@@ -219,6 +221,8 @@ abstract class AuthButton extends StatelessWidget {
     this.rtl = false,
     this.iconBackground,
     this.iconStyle,
+    this.onLongPress,
+    this.shadowColor,
   });
 
   Color getButtonColor() => Colors.white;
@@ -266,6 +270,8 @@ abstract class AuthButton extends StatelessWidget {
           elevation: elevation,
           borderColor: borderColor,
           borderWidth: borderWidth ?? 2.0,
+          onLongPress: onLongPress,
+          shadowColor: shadowColor,
           child: ButtonContents(
             key: key,
             iconUrl: getIconUrl(),
@@ -286,6 +292,8 @@ abstract class AuthButton extends StatelessWidget {
           elevation: elevation,
           borderColor: borderColor,
           borderWidth: borderWidth,
+          onLongPress: onLongPress,
+          shadowColor: shadowColor,
           child: ButtonContents(
             key: key,
             iconUrl: getIconUrl(),
@@ -314,6 +322,8 @@ abstract class AuthButton extends StatelessWidget {
           elevation: elevation,
           borderColor: borderColor,
           borderWidth: borderWidth,
+          onLongPress: onLongPress,
+          shadowColor: shadowColor,
           child: ButtonContents(
             key: key,
             iconUrl: getIconUrl(),

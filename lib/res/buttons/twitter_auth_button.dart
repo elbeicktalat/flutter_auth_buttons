@@ -32,6 +32,8 @@ class TwitterAuthButton extends AuthButton {
     bool rtl = false,
     Color? iconBackground,
     AuthIconStyle? iconStyle,
+    VoidCallback? onLongPressed,
+    Color? shadowColor,
   }) : super(
           key: key ?? ValueKey('TwitterAuthButton'),
           onPressed: onPressed,
@@ -53,6 +55,8 @@ class TwitterAuthButton extends AuthButton {
           rtl: rtl,
           iconBackground: iconBackground,
           iconStyle: iconStyle,
+          onLongPress: onLongPressed,
+          shadowColor: shadowColor,
         );
 
   @override

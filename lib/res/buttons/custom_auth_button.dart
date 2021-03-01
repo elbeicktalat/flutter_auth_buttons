@@ -33,6 +33,8 @@ class CustomAuthButton extends AuthButton {
     bool rtl = false,
     Color? iconBackground,
     AuthIconStyle? iconStyle,
+    VoidCallback? onLongPressed,
+    Color? shadowColor,
     required this.icon,
   }) : super(
           key: key,
@@ -55,6 +57,8 @@ class CustomAuthButton extends AuthButton {
           rtl: rtl,
           iconBackground: iconBackground,
           iconStyle: iconStyle,
+          onLongPress: onLongPressed,
+          shadowColor: shadowColor,
         );
 
   @override
