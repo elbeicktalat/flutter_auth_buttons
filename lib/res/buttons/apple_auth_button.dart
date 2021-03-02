@@ -61,7 +61,10 @@ class AppleAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    return darkMode ? AuthIcons.appleWhite : AuthIcons.appleBlack;
+    if (iconStyle == AuthIconStyle.outlined)
+      return darkMode ? AuthIcons.appleWhite[1] : AuthIcons.apple[1];
+    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.apple[2];
+    return darkMode ? AuthIcons.appleWhite[0] : AuthIcons.apple[0];
   }
 
   @override

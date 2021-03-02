@@ -4,13 +4,25 @@ class AuthIcons {
     'packages/auth_buttons/images/outlined/google.png',
     'packages/auth_buttons/images/secondary/google.png',
   ];
-  static String facebook = 'packages/auth_buttons/images/default/facebook.png';
-  static String facebookWhite =
-      'packages/auth_buttons/images/default/facebook_white.png';
-  static String appleBlack =
-      'packages/auth_buttons/images/default/apple_black.png';
-  static String appleWhite =
-      'packages/auth_buttons/images/default/apple_white.png';
+  static List<String> facebook = [
+    'packages/auth_buttons/images/default/facebook.png',
+    'packages/auth_buttons/images/outlined/facebook.png',
+    'packages/auth_buttons/images/secondary/facebook.png',
+  ];
+  static List<String> facebookWhite = [
+    'packages/auth_buttons/images/default/facebook_white.png',
+    'packages/auth_buttons/images/outlined/facebook_white.png',
+  ];
+
+  static List<String> apple = [
+    'packages/auth_buttons/images/default/apple.png',
+    'packages/auth_buttons/images/outlined/apple.png',
+    'packages/auth_buttons/images/secondary/apple.png',
+  ];
+  static List<String> appleWhite = [
+    'packages/auth_buttons/images/default/apple_white.png',
+    'packages/auth_buttons/images/outlined/apple_white.png',
+  ];
   static List<String> twitter = [
     'packages/auth_buttons/images/default/twitter.png',
     'packages/auth_buttons/images/outlined/twitter.png',
@@ -40,7 +52,13 @@ class AuthIcons {
     'packages/auth_buttons/images/secondary/email_white.png',
   ];
 
-  static String huawei = 'packages/auth_buttons/images/default/huawei.png';
-  static String huaweiWhite =
-      'packages/auth_buttons/images/default/huawei_white.png';
+  static List<String> huawei = [
+    'packages/auth_buttons/images/default/huawei.png',
+    'packages/auth_buttons/images/outlined/huawei.png',
+    'packages/auth_buttons/images/secondary/huawei.png',
+  ];
+  static List<String> huaweiWhite = [
+    'packages/auth_buttons/images/default/huawei_white.png',
+    'packages/auth_buttons/images/outlined/huawei_white.png',
+  ];
 }

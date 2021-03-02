@@ -21,7 +21,7 @@ flutter:
     - packages/auth_buttons/images/default/google.png
     - packages/auth_buttons/images/default/facebook.png
     - packages/auth_buttons/images/default/facebook_white.png
-    - packages/auth_buttons/images/default/apple_black.png
+    - packages/auth_buttons/images/default/apple.png
     - packages/auth_buttons/images/default/apple_white.png
     - packages/auth_buttons/images/default/twitter.png
     - packages/auth_buttons/images/default/twitter_white.png
@@ -39,8 +39,17 @@ flutter:
     - packages/auth_buttons/images/outlined/twitter_white.png
     - packages/auth_buttons/images/outlined/email.png
     - packages/auth_buttons/images/outlined/email_white.png
+    - packages/auth_buttons/images/outlined/apple.png
+    - packages/auth_buttons/images/outlined/apple_white.png
+    - packages/auth_buttons/images/outlined/facebook.png
+    - packages/auth_buttons/images/outlined/facebook_white.png
+    - packages/auth_buttons/images/outlined/huawei.png
+    - packages/auth_buttons/images/outlined/huawei_white.png
 
     - packages/auth_buttons/images/secondary/google.png
     - packages/auth_buttons/images/secondary/microsoft.png
     - packages/auth_buttons/images/secondary/email.png
     - packages/auth_buttons/images/secondary/email_white.png
+    - packages/auth_buttons/images/secondary/apple.png
+    - packages/auth_buttons/images/secondary/facebook.png
+    - packages/auth_buttons/images/secondary/huawei.png

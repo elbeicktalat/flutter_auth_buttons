@@ -61,27 +61,12 @@ class EmailAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    if (style == AuthButtonStyle.secondary)
-      return (darkMode)
-          ? (iconStyle == AuthIconStyle.outlined)
-              ? AuthIcons.emailWhite[1]
-              : AuthIcons.emailWhite[0]
-          : (iconStyle == AuthIconStyle.outlined)
-              ? AuthIcons.email[1]
-              : AuthIcons.email[0];
-
     if (iconStyle == AuthIconStyle.outlined)
-      return (darkMode)
-          ? (iconStyle == AuthIconStyle.outlined)
-              ? AuthIcons.email[1]
-              : AuthIcons.email[0]
-          : (iconStyle == AuthIconStyle.outlined)
-              ? AuthIcons.emailWhite[1]
-              : AuthIcons.emailWhite[0];
-
+      return (darkMode) ? AuthIcons.emailWhite[0] : AuthIcons.email[1];
     if (iconStyle == AuthIconStyle.secondary) return AuthIcons.email[2];
-
-    return (darkMode) ? AuthIcons.email[0] : AuthIcons.emailWhite[0];
+    return (style == AuthButtonStyle.secondary)
+        ? AuthIcons.email[0]
+        : AuthIcons.emailWhite[0];
   }
 
   @override
@@ -95,7 +80,8 @@ class EmailAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
-    if (iconStyle == AuthIconStyle.secondary)
+    if (iconStyle == AuthIconStyle.secondary &&
+        style != AuthButtonStyle.secondary)
       return TextStyle(
         color: darkMode ? Colors.white : Colors.teal[900],
         fontSize: 18,

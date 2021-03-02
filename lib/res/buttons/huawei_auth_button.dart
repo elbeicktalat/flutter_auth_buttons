@@ -61,11 +61,12 @@ class HuaweiAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
+    if (iconStyle == AuthIconStyle.outlined)
+      return darkMode ? AuthIcons.huaweiWhite[1] : AuthIcons.huawei[1];
+    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.huawei[2];
     return (style == AuthButtonStyle.secondary)
-        ? (darkMode)
-            ? AuthIcons.huaweiWhite
-            : AuthIcons.huawei
-        : AuthIcons.huaweiWhite;
+        ? AuthIcons.huawei[0]
+        : AuthIcons.huaweiWhite[0];
   }
 
   @override
@@ -73,11 +74,21 @@ class HuaweiAuthButton extends AuthButton {
     if (style == AuthButtonStyle.secondary)
       return buttonColor ??
           (darkMode ? AuthColors.darkMode : AuthColors.huawei);
+    if (iconStyle == AuthIconStyle.secondary)
+      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
     return buttonColor ?? (darkMode ? AuthColors.darkMode : AuthColors.huawei);
   }
 
   @override
   TextStyle getTextStyle() {
+    if (iconStyle == AuthIconStyle.secondary &&
+        style != AuthButtonStyle.secondary)
+      return TextStyle(
+        color: darkMode ? Colors.white : Colors.red[800],
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 0.50,
+      );
     return TextStyle(
       color: Colors.white,
       fontSize: 18,

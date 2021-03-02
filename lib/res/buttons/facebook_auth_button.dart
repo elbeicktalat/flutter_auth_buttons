@@ -65,11 +65,10 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    return (style == AuthButtonStyle.secondary)
-        ? (darkMode)
-            ? AuthIcons.facebookWhite
-            : AuthIcons.facebook
-        : AuthIcons.facebookWhite;
+    if (iconStyle == AuthIconStyle.outlined)
+      return (darkMode) ? AuthIcons.facebookWhite[1] : AuthIcons.facebook[1];
+    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.facebook[2];
+    return AuthIcons.facebookWhite[0];
   }
 
   @override
@@ -77,12 +76,21 @@ class FacebookAuthButton extends AuthButton {
     if (style == AuthButtonStyle.secondary)
       return buttonColor ??
           (darkMode ? AuthColors.darkMode : AuthColors.facebook);
+    if (iconStyle == AuthIconStyle.secondary)
+      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
     return buttonColor ??
         (darkMode ? AuthColors.darkMode : AuthColors.facebook);
   }
 
   @override
   TextStyle getTextStyle() {
+    if (iconStyle == AuthIconStyle.secondary && style == null)
+      return TextStyle(
+        color: darkMode ? Colors.white : Colors.blue[800],
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 0.50,
+      );
     return TextStyle(
       color: Colors.white,
       fontSize: 18,
