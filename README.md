@@ -54,9 +54,9 @@ GoogleAuthButton(
   darkMode: false, // if true second example
 ),
 ```
-<img src="./doc/readme_assets/default-button-default-icon.png" width="250" />
-<img src="./doc/readme_assets/dark-default-button-default-icon.png" width="250" />
-
+Light             |  Dark
+:-------------------------:|:-------------------------:
+![](./doc/readme_assets/default-button-default-icon.png)  |  ![](./doc/readme_assets/dark-default-button-default-icon.png)
 
 ```dart
 GoogleAuthButton(
@@ -65,8 +65,10 @@ GoogleAuthButton(
   iconStyle: AuthIconStyle.outlined,
 ),
 ```
-<img src="./doc/readme_assets/default-button-outlined-icon.png" width="250" />
-<img src="./doc/readme_assets/dark-default-button-outlined-icon.png" width="250" />
+
+Light             |  Dark
+:-------------------------:|:-------------------------:
+![](./doc/readme_assets/default-button-outlined-icon.png)  |  ![](./doc/readme_assets/dark-default-button-outlined-icon.png)
 
 
 ```dart
@@ -77,8 +79,9 @@ GoogleAuthButton(
 ),
 ```
 
-<img src="./doc/readme_assets/default-button-secondary-icon.png" width="250" />
-<img src="./doc/readme_assets/dark-default-button-secondary-icon.png" width="250" />
+Light             |  Dark
+:-------------------------:|:-------------------------:
+![](./doc/readme_assets/default-button-secondary-icon.png)  |  ![](./doc/readme_assets/dark-default-button-secondary-icon.png)
 
 
 ### Icon Style
@@ -91,8 +94,9 @@ GoogleAuthButton(
 ),
 ```
 
-<img src="./doc/readme_assets/icon-button-default-icon.png" width="250" />
-<img src="./doc/readme_assets/dark-icon-button-default-icon.png" width="250" />
+Light             |  Dark
+:-------------------------:|:-------------------------:
+![](./doc/readme_assets/icon-button-default-icon.png)  |  ![](./doc/readme_assets/dark-icon-button-default-icon.png)
 
 
 ```dart
@@ -104,8 +108,9 @@ GoogleAuthButton(
 ),
 ```
 
-<img src="./doc/readme_assets/icon-button-outlined-icon.png" width="250" />
-<img src="./doc/readme_assets/dark-icon-button-outlined-icon.png" width="250" />
+Light             |  Dark
+:-------------------------:|:-------------------------:
+![](./doc/readme_assets/icon-button-outlined-icon.png)  |  ![](./doc/readme_assets/dark-icon-button-outlined-icon.png)
 
 
 ```dart
@@ -117,8 +122,9 @@ GoogleAuthButton(
 ),
 ```
 
-<img src="./doc/readme_assets/icon-button-secondary-icon.png" width="250" />
-<img src="./doc/readme_assets/dark-icon-button-secondary-icon.png" width="250" />
+Light             |  Dark
+:-------------------------:|:-------------------------:
+![](./doc/readme_assets/icon-button-secondary-icon.png)  |  ![](./doc/readme_assets/dark-icon-button-secondary-icon.png)
 
 ### Secondary Style
 
@@ -131,8 +137,9 @@ GoogleAuthButton(
 ),
 ```
 
-<img src="./doc/readme_assets/secondary-button-default-icon.png" width="250" />
-<img src="./doc/readme_assets/dark-secondary-button-default-icon.png" width="250" />
+Light             |  Dark
+:-------------------------:|:-------------------------:
+![](./doc/readme_assets/secondary-button-default-icon.png)  |  ![](./doc/readme_assets/dark-secondary-button-default-icon.png)
 
 ```dart
 GoogleAuthButton(
@@ -143,9 +150,9 @@ GoogleAuthButton(
 ),
 ```
 
-<img src="./doc/readme_assets/secondary-button-outlined-icon.png" width="250" />
-<img src="./doc/readme_assets/dark-secondary-button-outlined-icon.png" width="250" />
-
+Light             |  Dark
+:-------------------------:|:-------------------------:
+![](./doc/readme_assets/secondary-button-outlined-icon.png)  |  ![](./doc/readme_assets/dark-secondary-button-outlined-icon.png)
 
 ```dart
 GoogleAuthButton(
@@ -156,8 +163,9 @@ GoogleAuthButton(
 ),
 ```
 
-<img src="./doc/readme_assets/secondary-button-secondary-icon.png" width="250" />
-<img src="./doc/readme_assets/dark-secondary-button-secondary-icon.png" width="250" />
+Light             |  Dark
+:-------------------------:|:-------------------------:
+![](./doc/readme_assets/secondary-button-secondary-icon.png)  |  ![](./doc/readme_assets/dark-secondary-button-secondary-icon.png)
 
 Do same think with the other buttons, when you want customize any button 
 you can do it just passing a property which you want.
