@@ -62,7 +62,7 @@ class EmailAuthButton extends AuthButton {
   @override
   String getIconUrl() {
     if (iconStyle == AuthIconStyle.outlined)
-      return (darkMode) ? AuthIcons.emailWhite[0] : AuthIcons.email[1];
+      return (darkMode) ? AuthIcons.emailWhite[1] : AuthIcons.email[1];
     if (iconStyle == AuthIconStyle.secondary) return AuthIcons.email[2];
     return (style == AuthButtonStyle.secondary)
         ? AuthIcons.email[0]

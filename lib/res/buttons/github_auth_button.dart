@@ -11,10 +11,6 @@ import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class GithubAuthButton extends AuthButton {
-  ///**[GithubAuthButton]** is a button for authentication with Github.
-  ///
-  /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/github.png)
   GithubAuthButton({
     Key? key,
     required VoidCallback onPressed,

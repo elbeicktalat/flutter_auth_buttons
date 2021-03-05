@@ -11,10 +11,6 @@ import 'package:auth_buttons/res/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class FacebookAuthButton extends AuthButton {
-  ///**[FacebookAuthButton]** is a button for authentication with Facebook.
-  ///
-  /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/facebook.png)
   FacebookAuthButton({
     Key? key,
     required VoidCallback onPressed,
