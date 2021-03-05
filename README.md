@@ -8,7 +8,7 @@ social networks like: Google, Facebook, Apple and too other.
 1) Add this to your packages pubspec.yaml file:
 ```yaml
 dependencies:
-  auth_buttons: ^0.0.5
+  auth_buttons: ^1.0.0
 ```
 2) Install it 
 You can install it from the command line:
@@ -30,24 +30,18 @@ We recommend you to using `show` special when you want use some button.
 import 'package:auth_buttons/auth_buttons.dart'
     show GoogleAuthButton, AuthButtonStyle;
 ```
+We also recommend you to using the latest version.
 
 ## Overview
 
-There are two style you can choose between them:
+**`New`** new icons available.
+
+There are three style you can choose between them:
+
 1. [Default](#default-style)
 1. [Icon](#icon-style)
 1. [Secondary](#secondary-style)
-
-Note: all api is documented click `Ctrl + Q` to read the docs if you are using `Android Studio`
-or `Intellij Idea` on `Visual Studio Code` just hover over.
-
-![default-light](./doc/readme_assets/api-docs-example-1.png)
-
-This is happen if you know you some property, other way click `Ctrl + space` then `Ctrl + Q`
-double click and the result will be like so.
-![default-light](./doc/readme_assets/api-docs-example-2.png)
-
-
+  
 ## Using
  
 You need to use just the following code: 
@@ -57,21 +51,38 @@ You need to use just the following code:
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: false,
+  darkMode: false, // if true second example
 ),
 ```
-![default-light](./doc/readme_assets/full-button-light.png)
+<img src="./doc/readme_assets/default-button-default-icon.png" width="250" />
+<img src="./doc/readme_assets/dark-default-button-default-icon.png" width="250" />
+
 
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: true,
+  darkMode: false,
+  iconStyle: AuthIconStyle.outlined,
 ),
 ```
-![default-dark](./doc/readme_assets/full-button-dark.png)
+<img src="./doc/readme_assets/default-button-outlined-icon.png" width="250" />
+<img src="./doc/readme_assets/dark-default-button-outlined-icon.png" width="250" />
+
+
+```dart
+GoogleAuthButton(
+  onPressed: () {},
+  darkMode: false,
+  iconStyle: AuthIconStyle.secondary,
+),
+```
+
+<img src="./doc/readme_assets/default-button-secondary-icon.png" width="250" />
+<img src="./doc/readme_assets/dark-default-button-secondary-icon.png" width="250" />
 
 
 ### Icon Style
+
 ```dart
 GoogleAuthButton(
   onPressed: () {},
@@ -79,37 +90,74 @@ GoogleAuthButton(
   style: AuthButtonStyle.icon,
 ),
 ```
-![light-icon](./doc/readme_assets/icon-button-light.png)
+
+<img src="./doc/readme_assets/icon-button-default-icon.png" width="250" />
+<img src="./doc/readme_assets/dark-icon-button-default-icon.png" width="250" />
+
 
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: true,
+  darkMode: false,
   style: AuthButtonStyle.icon,
+  iconStyle: AuthIconStyle.outlined,
 ),
 ```
-![dark-icon](./doc/readme_assets/icon-button-dark.png)
 
+<img src="./doc/readme_assets/icon-button-outlined-icon.png" width="250" />
+<img src="./doc/readme_assets/dark-icon-button-outlined-icon.png" width="250" />
+
+
+```dart
+GoogleAuthButton(
+  onPressed: () {},
+  darkMode: false,
+  style: AuthButtonStyle.icon,
+  iconStyle: AuthIconStyle.secondary,
+),
+```
+
+<img src="./doc/readme_assets/icon-button-secondary-icon.png" width="250" />
+<img src="./doc/readme_assets/dark-icon-button-secondary-icon.png" width="250" />
 
 ### Secondary Style
+
 ```dart
 GoogleAuthButton(
   onPressed: () {},
   darkMode: false,
   style: AuthButtonStyle.secondary,
+  iconStyle: AuthIconStyle.secondary,
 ),
 ```
-![light-icon](./doc/readme_assets/secondary-button-light.png)
+
+<img src="./doc/readme_assets/secondary-button-default-icon.png" width="250" />
+<img src="./doc/readme_assets/dark-secondary-button-default-icon.png" width="250" />
 
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: true,
-  style: AuthButtonStyle.icon,
+  darkMode: false,
+  style: AuthButtonStyle.secondary,
+  iconStyle: AuthIconStyle.outlined,
 ),
 ```
-![dark-icon](./doc/readme_assets/secondary-button-dark.png)
 
+<img src="./doc/readme_assets/secondary-button-outlined-icon.png" width="250" />
+<img src="./doc/readme_assets/dark-secondary-button-outlined-icon.png" width="250" />
+
+
+```dart
+GoogleAuthButton(
+  onPressed: () {},
+  darkMode: false,
+  style: AuthButtonStyle.secondary,
+  iconStyle: AuthIconStyle.secondary,
+),
+```
+
+<img src="./doc/readme_assets/secondary-button-secondary-icon.png" width="250" />
+<img src="./doc/readme_assets/dark-secondary-button-secondary-icon.png" width="250" />
 
 Do same think with the other buttons, when you want customize any button 
 you can do it just passing a property which you want.
@@ -118,11 +166,25 @@ Full property you can passing:
 
 ```dart
 GoogleAuthButton(
+  key: ValueKey(''),
   onPressed: () {},
+  onLongPressed: (){},
+  darkMode: false,
+  rtl: false,
   buttonColor: Colors.white,
   splashColor: Colors.grey,
-  elevation: 2.0,
+  shadowColor: Colors.teal,
+  borderColor: Colors.red,
   borderRadius: 8.0,
+  borderWidth: 2.0,
+  elevation: 2.0,
+  width: 280.0,
+  height: 50.0,
+  separator: 10.0,
+  iconSize: 35.0,
+  iconBackground: Colors.transparent,
+  iconStyle: AuthIconStyle.outlined,
+  style: AuthButtonStyle.secondary,
   padding: EdgeInsets.all(8.0),
   text: 'Sign in with Google',
   textStyle: TextStyle(
@@ -131,16 +193,6 @@ GoogleAuthButton(
     fontWeight: FontWeight.bold,
     letterSpacing: 0.50,
   ),
-  darkMode: false,
-  borderColor: Colors.red,
-  borderWidth: 2.0,
-  style: AuthButtonStyle.secondary,
-  width: 280.0,
-  height: 50.0,
-  iconSize: 35.0,
-  separator: 10.0,
-  rtl: false,
-  iconBackground: Colors.transparent,
 ),
 ```
 
