@@ -1,11 +1,12 @@
 ### [1.0.0] - 01 Mar 2021
-- Migrate to sound null safety
-- Migrate to ElevateButton instead of RaisedButton.
-- Add new Icon style, `outlined` & `secondary`.
+- Migration to sound null safety
+- Migration to ElevateButton instead of RaisedButton.
+- New Icon styles, `outlined` & `secondary`.
+- Add Keys with default values.
 - Add onLongPressed parameter.
 - Add shadowColor parameter.
 ### [0.0.6] - 06 Feb 2021
-- Add new style, `secondary style`.
+- New style, `secondary style`.
 - Add auth with `Huawei` button.
 - Add a custom button where you can give it any image as icon. This button is very helpful special when you want to add some button not exist in this library, and maintain the same style.
 - Too many change in the code structure, but you'll still using everything in the same way. There are no conflict with the previous versions.

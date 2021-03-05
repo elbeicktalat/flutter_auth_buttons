@@ -1,11 +1,11 @@
 name: auth_buttons
 description: Auth Buttons is a flutter widget library, include buttons for authenticating with the most popular social networks like Google, Facebook, Apple and Twitter.
-version: 0.0.6
+version: 1.0.0
 homepage: https://github.com/elbeicktalat/flutter_auth_buttons
 
 environment:
-  sdk: ">=2.12.0-0 <3.0.0"
-  flutter: ">=1.20.0 <2.0.0"
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=1.20.0"
 
 dependencies:
   flutter:
