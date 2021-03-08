@@ -34,6 +34,11 @@ class GoogleAuthButton extends AuthButton {
     AuthIconStyle? iconStyle,
     VoidCallback? onLongPressed,
     Color? shadowColor,
+    bool isLoading = false,
+    Color? progressIndicatorColor,
+    Color? progressIndicatorValueColor,
+    double? progressIndicatorStrokeWidth,
+    double? progressIndicatorValue,
   }) : super(
           key: key ?? ValueKey('GoogleAuthButton'),
           onPressed: onPressed,
@@ -57,6 +62,11 @@ class GoogleAuthButton extends AuthButton {
           iconStyle: iconStyle,
           onLongPress: onLongPressed,
           shadowColor: shadowColor,
+          isLoading: isLoading,
+          progressIndicatorColor: progressIndicatorColor,
+          progressIndicatorValueColor: progressIndicatorValueColor,
+          progressIndicatorStrokeWidth: progressIndicatorStrokeWidth,
+          progressIndicatorValue: progressIndicatorValue,
         );
 
   @override

@@ -9,7 +9,7 @@ import 'package:auth_buttons/res/shared/button_contents.dart';
 import 'package:auth_buttons/res/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
-abstract class AuthButton extends StatelessWidget {
+abstract class AuthButton extends StatefulWidget {
   final Key? key;
 
   ///**[onPressed]** is a void function well be called when the button pressed.
@@ -197,8 +197,21 @@ abstract class AuthButton extends StatelessWidget {
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/secondary/google.png)
   final AuthIconStyle? iconStyle;
+
+  ///**[onLongPress]** is a void function well be called when the button is long pressed.
   final VoidCallback? onLongPress;
+
+  ///**[shadowColor]** Define the color of the shadow.
   final Color? shadowColor;
+
+  ///**[isLoading]** it will give a **CircularProgressIndicator**
+  ///if the his value equal to **true**.
+  final bool isLoading;
+
+  final Color? progressIndicatorColor;
+  final Color? progressIndicatorValueColor;
+  final double? progressIndicatorStrokeWidth;
+  final double? progressIndicatorValue;
 
   AuthButton({
     this.key,
@@ -223,6 +236,11 @@ abstract class AuthButton extends StatelessWidget {
     this.iconStyle,
     this.onLongPress,
     this.shadowColor,
+    this.isLoading = false,
+    this.progressIndicatorColor,
+    this.progressIndicatorValueColor,
+    this.progressIndicatorStrokeWidth = 4.0,
+    this.progressIndicatorValue,
   });
 
   Color getButtonColor() => Colors.white;
@@ -255,84 +273,104 @@ abstract class AuthButton extends StatelessWidget {
   String getIconUrl();
 
   @override
+  _AuthButtonState createState() => _AuthButtonState();
+}
+
+class _AuthButtonState extends State<AuthButton> {
+  @override
   Widget build(BuildContext context) {
-    switch (style) {
+    switch (widget.style) {
       case AuthButtonStyle.icon:
         return SharedButton(
-          key: key,
-          width: width ?? 50.0,
-          height: height ?? 50.0,
-          onPressed: onPressed,
-          borderRadius: borderRadius,
-          padding: padding ?? EdgeInsets.all(0),
-          buttonColor: getButtonColor(),
-          splashColor: splashColor,
-          elevation: elevation,
-          borderColor: borderColor,
-          borderWidth: borderWidth ?? 2.0,
-          onLongPress: onLongPress,
-          shadowColor: shadowColor,
+          key: widget.key,
+          width: widget.width ?? 50.0,
+          height: widget.height ?? 50.0,
+          onPressed: widget.onPressed,
+          borderRadius: widget.borderRadius,
+          padding: widget.padding ?? EdgeInsets.all(0),
+          buttonColor: widget.getButtonColor(),
+          splashColor: widget.splashColor,
+          elevation: widget.elevation,
+          borderColor: widget.borderColor,
+          borderWidth: widget.borderWidth ?? 2.0,
+          onLongPress: widget.onLongPress,
+          shadowColor: widget.shadowColor,
           child: ButtonContents(
-            key: key,
-            iconUrl: getIconUrl(),
-            iconSize: iconSize,
+            key: widget.key,
+            iconUrl: widget.getIconUrl(),
+            iconSize: widget.iconSize,
             separator: 0.0,
+            isLoading: widget.isLoading,
+            progressIndicatorColor: widget.progressIndicatorColor,
+            progressIndicatorValueColor: widget.progressIndicatorValueColor,
+            progressIndicatorStrokeWidth: widget.progressIndicatorStrokeWidth,
+            progressIndicatorValue: widget.progressIndicatorValue,
           ),
         );
       case AuthButtonStyle.secondary:
         return SharedButton(
-          key: key,
-          width: width,
-          height: height,
-          onPressed: onPressed,
-          borderRadius: borderRadius,
-          padding: padding ?? EdgeInsets.only(right: 16.0),
-          buttonColor: getButtonColor(),
-          splashColor: splashColor,
-          elevation: elevation,
-          borderColor: borderColor,
-          borderWidth: borderWidth,
-          onLongPress: onLongPress,
-          shadowColor: shadowColor,
+          key: widget.key,
+          width: widget.width,
+          height: widget.height,
+          onPressed: widget.onPressed,
+          borderRadius: widget.borderRadius,
+          padding: widget.padding ?? EdgeInsets.only(right: 16.0),
+          buttonColor: widget.getButtonColor(),
+          splashColor: widget.splashColor,
+          elevation: widget.elevation,
+          borderColor: widget.borderColor,
+          borderWidth: widget.borderWidth,
+          onLongPress: widget.onLongPress,
+          shadowColor: widget.shadowColor,
           child: ButtonContents(
-            key: key,
-            iconUrl: getIconUrl(),
-            text: text,
-            textStyle: getTextStyle(),
-            iconSize: iconSize,
-            separator: separator,
-            darkMode: darkMode,
-            borderRadius: borderRadius,
-            iconBackground: getIconBackground(),
-            rtl: rtl,
-            style: style,
+            key: widget.key,
+            iconUrl: widget.getIconUrl(),
+            text: widget.text,
+            textStyle: widget.getTextStyle(),
+            iconSize: widget.iconSize,
+            separator: widget.separator,
+            darkMode: widget.darkMode,
+            borderRadius: widget.borderRadius,
+            iconBackground: widget.getIconBackground(),
+            rtl: widget.rtl,
+            style: widget.style,
+            isLoading: widget.isLoading,
+            progressIndicatorColor: widget.progressIndicatorColor,
+            progressIndicatorValueColor: widget.progressIndicatorValueColor,
+            progressIndicatorStrokeWidth: widget.progressIndicatorStrokeWidth,
+            progressIndicatorValue: widget.progressIndicatorValue,
           ),
         );
       default:
         return SharedButton(
-          key: key,
-          width: width,
-          height: height,
-          onPressed: onPressed,
-          borderRadius: borderRadius,
-          padding: padding ??
+          key: widget.key,
+          width: widget.width,
+          height: widget.height,
+          onPressed: widget.onPressed,
+          borderRadius: widget.borderRadius,
+          padding: widget.padding ??
               EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0),
-          buttonColor: getButtonColor(),
-          splashColor: splashColor,
-          elevation: elevation,
-          borderColor: borderColor,
-          borderWidth: borderWidth,
-          onLongPress: onLongPress,
-          shadowColor: shadowColor,
+          buttonColor: widget.getButtonColor(),
+          splashColor: widget.splashColor,
+          elevation: widget.elevation,
+          borderColor: widget.borderColor,
+          borderWidth: widget.borderWidth,
+          onLongPress: widget.onLongPress,
+          shadowColor: widget.shadowColor,
           child: ButtonContents(
-            key: key,
-            iconUrl: getIconUrl(),
-            text: text,
-            textStyle: getTextStyle(),
-            iconSize: iconSize,
-            separator: separator,
-            darkMode: darkMode,
-            rtl: rtl,
+            key: widget.key,
+            iconUrl: widget.getIconUrl(),
+            text: widget.text,
+            textStyle: widget.getTextStyle(),
+            iconSize: widget.iconSize,
+            separator: widget.separator,
+            darkMode: widget.darkMode,
+            rtl: widget.rtl,
+            isLoading: widget.isLoading,
+            progressIndicatorColor: widget.progressIndicatorColor,
+            progressIndicatorValueColor: widget.progressIndicatorValueColor,
+            progressIndicatorStrokeWidth: widget.progressIndicatorStrokeWidth,
+            progressIndicatorValue: widget.progressIndicatorValue,
           ),
         );
     }

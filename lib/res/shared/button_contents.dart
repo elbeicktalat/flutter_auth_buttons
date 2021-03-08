@@ -20,6 +20,11 @@ class ButtonContents extends StatelessWidget {
   final double? borderRadius;
   final Color? iconBackground;
   final AuthButtonStyle? style;
+  final bool isLoading;
+  final Color? progressIndicatorColor;
+  final Color? progressIndicatorValueColor;
+  final double? progressIndicatorStrokeWidth;
+  final double? progressIndicatorValue;
 
   ButtonContents({
     this.key,
@@ -34,6 +39,11 @@ class ButtonContents extends StatelessWidget {
     this.borderRadius,
     this.iconBackground,
     this.style,
+    this.isLoading = false,
+    this.progressIndicatorColor,
+    this.progressIndicatorValueColor,
+    this.progressIndicatorStrokeWidth = 4.0,
+    this.progressIndicatorValue,
   });
 
   @override
@@ -51,13 +61,21 @@ class ButtonContents extends StatelessWidget {
             color: iconBackground,
             borderRadius: BorderRadius.circular(borderRadius ?? 8.0),
           ),
-          child: Image(
-            image: ExactAssetImage(
-              iconUrl,
-            ),
-            width: iconSize,
-            height: iconSize,
-          ),
+          child: (isLoading)
+              ? CircularProgressIndicator(
+                  backgroundColor: progressIndicatorColor,
+                  strokeWidth: progressIndicatorStrokeWidth ?? 4.0,
+                  valueColor:
+                      AlwaysStoppedAnimation(progressIndicatorValueColor),
+                  value: progressIndicatorValue,
+                )
+              : Image(
+                  image: ExactAssetImage(
+                    iconUrl,
+                  ),
+                  width: iconSize,
+                  height: iconSize,
+                ),
         ),
         SizedBox(
           width: separator,

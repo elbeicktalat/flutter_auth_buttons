@@ -11,6 +11,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  bool isLoading;
+
+  @override
+  void initState() {
+    isLoading = true;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     String appName = 'Auth Buttons Example';
@@ -30,10 +38,16 @@ class _MyAppState extends State<MyApp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               GoogleAuthButton(
-                onPressed: () {},
+                onPressed: () {
+                  // your implementation
+                  setState(() {
+                    isLoading = !isLoading;
+                  });
+                },
                 darkMode: darkMode,
                 style: authButtonStyle,
                 iconStyle: authIconStyle,
+                isLoading: isLoading,
               ),
               Divider(),
               AppleAuthButton(
@@ -41,6 +55,7 @@ class _MyAppState extends State<MyApp> {
                 darkMode: darkMode,
                 style: authButtonStyle,
                 iconStyle: authIconStyle,
+                isLoading: isLoading,
               ),
               Divider(),
               FacebookAuthButton(
@@ -48,12 +63,14 @@ class _MyAppState extends State<MyApp> {
                 darkMode: darkMode,
                 style: authButtonStyle,
                 iconStyle: authIconStyle,
+                isLoading: isLoading,
               ),
               Divider(),
               GithubAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 style: authButtonStyle,
+                isLoading: isLoading,
               ),
               Divider(),
               MicrosoftAuthButton(
@@ -61,6 +78,7 @@ class _MyAppState extends State<MyApp> {
                 darkMode: darkMode,
                 style: authButtonStyle,
                 iconStyle: authIconStyle,
+                isLoading: isLoading,
               ),
               Divider(),
               TwitterAuthButton(
@@ -68,6 +86,7 @@ class _MyAppState extends State<MyApp> {
                 darkMode: darkMode,
                 style: authButtonStyle,
                 iconStyle: authIconStyle,
+                isLoading: isLoading,
               ),
               Divider(),
               EmailAuthButton(
@@ -75,6 +94,7 @@ class _MyAppState extends State<MyApp> {
                 darkMode: darkMode,
                 style: authButtonStyle,
                 iconStyle: authIconStyle,
+                isLoading: isLoading,
               ),
               Divider(),
               HuaweiAuthButton(
@@ -82,6 +102,7 @@ class _MyAppState extends State<MyApp> {
                 darkMode: darkMode,
                 style: authButtonStyle,
                 iconStyle: authIconStyle,
+                isLoading: isLoading,
               ),
               Divider(),
             ],
