@@ -36,6 +36,11 @@ class CustomAuthButton extends AuthButton {
     VoidCallback? onLongPressed,
     Color? shadowColor,
     required this.icon,
+    bool isLoading = false,
+    Color? progressIndicatorColor,
+    Color? progressIndicatorValueColor,
+    double? progressIndicatorStrokeWidth,
+    double? progressIndicatorValue,
   }) : super(
           key: key,
           onPressed: onPressed,
@@ -59,6 +64,11 @@ class CustomAuthButton extends AuthButton {
           iconStyle: iconStyle,
           onLongPress: onLongPressed,
           shadowColor: shadowColor,
+          isLoading: isLoading,
+          progressIndicatorColor: progressIndicatorColor,
+          progressIndicatorValueColor: progressIndicatorValueColor,
+          progressIndicatorStrokeWidth: progressIndicatorStrokeWidth,
+          progressIndicatorValue: progressIndicatorValue,
         );
 
   @override
