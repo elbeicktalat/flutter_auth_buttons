@@ -70,6 +70,12 @@ class FacebookAuthButton extends AuthButton {
         );
 
   @override
+  Color? getProgressIndicatorValueColor() {
+    if (style == AuthButtonStyle.secondary) return AuthColors.facebook;
+    if (style != AuthButtonStyle.secondary) return Color(0xff567de9);
+  }
+
+  @override
   String getIconUrl() {
     if (iconStyle == AuthIconStyle.outlined)
       return (darkMode) ? AuthIcons.facebookWhite[1] : AuthIcons.facebook[1];

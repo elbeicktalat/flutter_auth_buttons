@@ -70,6 +70,12 @@ class GithubAuthButton extends AuthButton {
         );
 
   @override
+  Color? getProgressIndicatorValueColor() {
+    if (style == AuthButtonStyle.secondary) return AuthColors.github;
+    if (style != AuthButtonStyle.secondary) return Color(0xff6d7c8b);
+  }
+
+  @override
   String getIconUrl() {
     return (style == AuthButtonStyle.secondary)
         ? (darkMode)

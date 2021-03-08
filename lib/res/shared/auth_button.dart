@@ -272,6 +272,8 @@ abstract class AuthButton extends StatefulWidget {
 
   String getIconUrl();
 
+  Color? getProgressIndicatorValueColor() => Colors.blue;
+
   @override
   _AuthButtonState createState() => _AuthButtonState();
 }
@@ -302,7 +304,8 @@ class _AuthButtonState extends State<AuthButton> {
             separator: 0.0,
             isLoading: widget.isLoading,
             progressIndicatorColor: widget.progressIndicatorColor,
-            progressIndicatorValueColor: widget.progressIndicatorValueColor,
+            progressIndicatorValueColor: widget.progressIndicatorValueColor ??
+                widget.getProgressIndicatorValueColor(),
             progressIndicatorStrokeWidth: widget.progressIndicatorStrokeWidth,
             progressIndicatorValue: widget.progressIndicatorValue,
           ),
@@ -336,7 +339,8 @@ class _AuthButtonState extends State<AuthButton> {
             style: widget.style,
             isLoading: widget.isLoading,
             progressIndicatorColor: widget.progressIndicatorColor,
-            progressIndicatorValueColor: widget.progressIndicatorValueColor,
+            progressIndicatorValueColor: widget.progressIndicatorValueColor ??
+                widget.getProgressIndicatorValueColor(),
             progressIndicatorStrokeWidth: widget.progressIndicatorStrokeWidth,
             progressIndicatorValue: widget.progressIndicatorValue,
           ),
@@ -368,7 +372,8 @@ class _AuthButtonState extends State<AuthButton> {
             rtl: widget.rtl,
             isLoading: widget.isLoading,
             progressIndicatorColor: widget.progressIndicatorColor,
-            progressIndicatorValueColor: widget.progressIndicatorValueColor,
+            progressIndicatorValueColor: widget.progressIndicatorValueColor ??
+                widget.getProgressIndicatorValueColor(),
             progressIndicatorStrokeWidth: widget.progressIndicatorStrokeWidth,
             progressIndicatorValue: widget.progressIndicatorValue,
           ),

@@ -70,6 +70,11 @@ class AppleAuthButton extends AuthButton {
         );
 
   @override
+  Color? getProgressIndicatorValueColor() {
+    if (style == AuthButtonStyle.secondary) return Colors.black;
+  }
+
+  @override
   String getIconUrl() {
     if (iconStyle == AuthIconStyle.outlined)
       return darkMode ? AuthIcons.appleWhite[1] : AuthIcons.apple[1];

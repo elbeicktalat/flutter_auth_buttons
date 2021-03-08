@@ -70,6 +70,12 @@ class EmailAuthButton extends AuthButton {
         );
 
   @override
+  Color? getProgressIndicatorValueColor() {
+    if (style == AuthButtonStyle.secondary) return Colors.teal;
+    if (style != AuthButtonStyle.secondary) return Colors.teal[200];
+  }
+
+  @override
   String getIconUrl() {
     if (iconStyle == AuthIconStyle.outlined)
       return (darkMode) ? AuthIcons.emailWhite[1] : AuthIcons.email[1];
