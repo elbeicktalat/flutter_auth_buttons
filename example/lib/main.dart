@@ -15,7 +15,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    isLoading = true;
+    isLoading = false;
     super.initState();
   }
 
