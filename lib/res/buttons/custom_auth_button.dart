@@ -14,7 +14,7 @@ class CustomAuthButton extends AuthButton {
 
   CustomAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    required VoidCallback? onPressed,
     Color? buttonColor,
     Color? splashColor,
     double? elevation,

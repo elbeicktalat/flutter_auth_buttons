@@ -13,7 +13,7 @@ abstract class AuthButton extends StatefulWidget {
   final Key? key;
 
   ///**[onPressed]** is a void function well be called when the button pressed.
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   ///**[buttonColor]** Define the button color.
   /// The default value is [white] if the [darkMode] = [false].

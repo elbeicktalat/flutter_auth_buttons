@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 class GoogleAuthButton extends AuthButton {
   GoogleAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    required VoidCallback? onPressed,
     Color? buttonColor,
     Color? splashColor,
     double? elevation,

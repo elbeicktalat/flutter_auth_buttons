@@ -10,7 +10,7 @@ class SharedButton extends StatelessWidget {
   final Key? key;
 
   ///[onPressed] is a void function well be called when the button pressed.
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   ///[onPressed] is a void function well be called when the button
   /// is pressed for long time.

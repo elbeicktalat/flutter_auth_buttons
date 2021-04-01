@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 class EmailAuthButton extends AuthButton {
   EmailAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    required VoidCallback? onPressed,
     Color? buttonColor,
     Color? splashColor,
     double? elevation,

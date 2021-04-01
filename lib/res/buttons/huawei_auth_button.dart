@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 class HuaweiAuthButton extends AuthButton {
   HuaweiAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    required VoidCallback? onPressed,
     Color? buttonColor,
     Color? splashColor,
     double? elevation,
