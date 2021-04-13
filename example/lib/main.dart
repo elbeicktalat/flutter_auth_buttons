@@ -21,19 +21,19 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    String appName = 'Auth Buttons Example';
-    bool darkMode = false;
-    AuthButtonStyleType authButtonStyle = AuthButtonStyleType.icon;
-    AuthIconStyle authIconStyle = AuthIconStyle.outlined;
+    const String appName = 'Auth Buttons Example';
+    const bool darkMode = false;
+    const AuthButtonStyleType authButtonStyleType = AuthButtonStyleType.icon;
+    const AuthIconStyle authIconStyle = AuthIconStyle.outlined;
     return MaterialApp(
       title: appName,
       home: Scaffold(
         appBar: AppBar(
-          title: Text(appName),
+          title: const Text(appName),
         ),
         body: Container(
           width: double.infinity,
-          color: darkMode ? Color(0xff303030) : Colors.white,
+          color: darkMode ? const Color(0xff303030) : Colors.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -45,66 +45,50 @@ class _MyAppState extends State<MyApp> {
                   });
                 },
                 darkMode: darkMode,
-                style: authButtonStyle,
-                iconStyle: authIconStyle,
                 isLoading: isLoading,
               ),
-              Divider(),
+              const Divider(),
               AppleAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
-                style: authButtonStyle,
-                iconStyle: authIconStyle,
                 isLoading: isLoading,
               ),
-              Divider(),
+              const Divider(),
               FacebookAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
-                style: authButtonStyle,
-                iconStyle: authIconStyle,
                 isLoading: isLoading,
               ),
-              Divider(),
+              const Divider(),
               GithubAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
-                style: authButtonStyle,
                 isLoading: isLoading,
               ),
-              Divider(),
+              const Divider(),
               MicrosoftAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
-                style: authButtonStyle,
-                iconStyle: authIconStyle,
                 isLoading: isLoading,
               ),
-              Divider(),
+              const Divider(),
               TwitterAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
-                style: authButtonStyle,
-                iconStyle: authIconStyle,
                 isLoading: isLoading,
               ),
-              Divider(),
+              const Divider(),
               EmailAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
-                style: authButtonStyle,
-                iconStyle: authIconStyle,
                 isLoading: isLoading,
               ),
-              Divider(),
+              const Divider(),
               HuaweiAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
-                style: authButtonStyle,
-                iconStyle: authIconStyle,
                 isLoading: isLoading,
               ),
-              Divider(),
             ],
           ),
         ),
