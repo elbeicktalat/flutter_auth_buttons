@@ -9,6 +9,8 @@ import 'package:auth_buttons/src/shared/button_contents.dart';
 import 'package:auth_buttons/src/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
+class Style {}
+
 abstract class AuthButton extends StatefulWidget {
   const AuthButton({
     this.key,
@@ -169,7 +171,7 @@ abstract class AuthButton extends StatefulWidget {
   ///style: AuthButtonStyle.icon,
   ///```
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-icon.png)
-  final AuthButtonStyle? style;
+  final AuthButtonStyleType? style;
 
   ///**[width]** Define the button width, the default value is the minimum.
   final double? width;
@@ -247,13 +249,13 @@ abstract class AuthButton extends StatefulWidget {
 
   @required
   Color getIconBackground() {
-    if (style == AuthButtonStyle.secondary)
+    if (style == AuthButtonStyleType.secondary)
       return iconBackground ?? (darkMode ? Colors.black26 : Colors.white);
     return iconBackground ?? Colors.transparent;
   }
 
   TextStyle getTextStyle() {
-    if (style == AuthButtonStyle.secondary)
+    if (style == AuthButtonStyleType.secondary)
       return textStyle ??
           const TextStyle(
             color: Colors.white,
@@ -282,7 +284,7 @@ class _AuthButtonState extends State<AuthButton> {
   @override
   Widget build(BuildContext context) {
     switch (widget.style) {
-      case AuthButtonStyle.icon:
+      case AuthButtonStyleType.icon:
         return SharedButton(
           key: widget.key,
           width: widget.width ?? 50.0,
@@ -310,7 +312,7 @@ class _AuthButtonState extends State<AuthButton> {
             progressIndicatorValue: widget.progressIndicatorValue,
           ),
         );
-      case AuthButtonStyle.secondary:
+      case AuthButtonStyleType.secondary:
         return SharedButton(
           key: widget.key,
           width: widget.width,

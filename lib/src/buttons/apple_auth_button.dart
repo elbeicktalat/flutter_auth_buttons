@@ -24,7 +24,7 @@ class AppleAuthButton extends AuthButton {
     bool darkMode = false,
     Color? borderColor,
     double? borderWidth,
-    AuthButtonStyle? style,
+    AuthButtonStyleType? style,
     double? width,
     double? height,
     double? iconSize = 35.0,
@@ -71,7 +71,7 @@ class AppleAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style == AuthButtonStyle.secondary) return Colors.black;
+    if (style == AuthButtonStyleType.secondary) return Colors.black;
   }
 
   @override
@@ -84,7 +84,7 @@ class AppleAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    if (style == AuthButtonStyle.secondary)
+    if (style == AuthButtonStyleType.secondary)
       return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.black);
     return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
   }

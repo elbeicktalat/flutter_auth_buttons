@@ -25,7 +25,7 @@ class CustomAuthButton extends AuthButton {
     bool darkMode = false,
     Color? borderColor,
     double? borderWidth,
-    AuthButtonStyle? style,
+    AuthButtonStyleType? style,
     double? width,
     double? height,
     double? iconSize = 35.0,

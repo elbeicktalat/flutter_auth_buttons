@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     String appName = 'Auth Buttons Example';
     bool darkMode = false;
-    AuthButtonStyle authButtonStyle = AuthButtonStyle.icon;
+    AuthButtonStyleType authButtonStyle = AuthButtonStyleType.icon;
     AuthIconStyle authIconStyle = AuthIconStyle.outlined;
     return MaterialApp(
       title: appName,

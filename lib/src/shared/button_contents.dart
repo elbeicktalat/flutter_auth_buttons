@@ -39,7 +39,7 @@ class ButtonContents extends StatelessWidget {
   final bool rtl;
   final double? borderRadius;
   final Color? iconBackground;
-  final AuthButtonStyle? style;
+  final AuthButtonStyleType? style;
   final bool isLoading;
   final Color? progressIndicatorColor;
   final Color? progressIndicatorValueColor;
@@ -55,7 +55,7 @@ class ButtonContents extends StatelessWidget {
       textDirection: rtl ? TextDirection.rtl : null,
       children: <Widget>[
         Container(
-          padding: (style == AuthButtonStyle.secondary)
+          padding: (style == AuthButtonStyleType.secondary)
               ? const EdgeInsets.all(4.0)
               : null,
           decoration: BoxDecoration(

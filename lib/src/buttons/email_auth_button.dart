@@ -24,7 +24,7 @@ class EmailAuthButton extends AuthButton {
     bool darkMode = false,
     Color? borderColor,
     double? borderWidth,
-    AuthButtonStyle? style,
+    AuthButtonStyleType? style,
     double? width,
     double? height,
     double? iconSize = 35.0,
@@ -71,8 +71,8 @@ class EmailAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style == AuthButtonStyle.secondary) return Colors.teal;
-    if (style != AuthButtonStyle.secondary) return Colors.teal[200];
+    if (style == AuthButtonStyleType.secondary) return Colors.teal;
+    if (style != AuthButtonStyleType.secondary) return Colors.teal[200];
   }
 
   @override
@@ -80,14 +80,14 @@ class EmailAuthButton extends AuthButton {
     if (iconStyle == AuthIconStyle.outlined)
       return (darkMode) ? AuthIcons.emailWhite[1] : AuthIcons.email[1];
     if (iconStyle == AuthIconStyle.secondary) return AuthIcons.email[2];
-    return (style == AuthButtonStyle.secondary)
+    return (style == AuthButtonStyleType.secondary)
         ? AuthIcons.email[0]
         : AuthIcons.emailWhite[0];
   }
 
   @override
   Color getButtonColor() {
-    if (style == AuthButtonStyle.secondary)
+    if (style == AuthButtonStyleType.secondary)
       return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.teal);
     if (iconStyle == AuthIconStyle.secondary)
       return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
@@ -97,7 +97,7 @@ class EmailAuthButton extends AuthButton {
   @override
   TextStyle getTextStyle() {
     if (iconStyle == AuthIconStyle.secondary &&
-        style != AuthButtonStyle.secondary)
+        style != AuthButtonStyleType.secondary)
       return TextStyle(
         color: darkMode ? Colors.white : Colors.teal[900],
         fontSize: 18,

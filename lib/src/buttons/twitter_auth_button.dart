@@ -24,7 +24,7 @@ class TwitterAuthButton extends AuthButton {
     bool darkMode = false,
     Color? borderColor,
     double? borderWidth,
-    AuthButtonStyle? style,
+    AuthButtonStyleType? style,
     double? width,
     double? height,
     double? iconSize = 35.0,
@@ -71,13 +71,13 @@ class TwitterAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style == AuthButtonStyle.secondary) return Colors.blue;
-    if (style != AuthButtonStyle.secondary) return Colors.blue[200];
+    if (style == AuthButtonStyleType.secondary) return Colors.blue;
+    if (style != AuthButtonStyleType.secondary) return Colors.blue[200];
   }
 
   @override
   String getIconUrl() {
-    if (style == AuthButtonStyle.secondary)
+    if (style == AuthButtonStyleType.secondary)
       return (darkMode)
           ? (iconStyle == AuthIconStyle.outlined)
               ? AuthIcons.twitterWhite[1]
@@ -100,7 +100,7 @@ class TwitterAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    if (style == AuthButtonStyle.secondary)
+    if (style == AuthButtonStyleType.secondary)
       return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.blue);
     return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.blue);
   }

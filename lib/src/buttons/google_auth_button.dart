@@ -24,7 +24,7 @@ class GoogleAuthButton extends AuthButton {
     bool darkMode = false,
     Color? borderColor,
     double? borderWidth,
-    AuthButtonStyle? style,
+    AuthButtonStyleType? style,
     double? width,
     double? height,
     double? iconSize = 35.0,
@@ -78,7 +78,7 @@ class GoogleAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    if (style == AuthButtonStyle.secondary)
+    if (style == AuthButtonStyleType.secondary)
       return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.blue);
     return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
   }
