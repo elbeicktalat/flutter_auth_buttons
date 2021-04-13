@@ -97,13 +97,13 @@ class FacebookAuthButton extends AuthButton {
   @override
   TextStyle getTextStyle() {
     if (iconStyle == AuthIconStyle.secondary && style == null)
-      return TextStyle(
+      return textStyle ?? TextStyle(
         color: darkMode ? Colors.white : Colors.blue[800],
         fontSize: 18,
         fontWeight: FontWeight.bold,
         letterSpacing: 0.50,
       );
-    return TextStyle(
+    return textStyle ?? TextStyle(
       color: Colors.white,
       fontSize: 18,
       fontWeight: FontWeight.bold,
