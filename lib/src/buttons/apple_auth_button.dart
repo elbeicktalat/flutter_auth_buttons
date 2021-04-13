@@ -4,14 +4,14 @@
 
 // @dart=2.12
 
-import 'package:auth_buttons/res/shared/auth_button.dart';
-import 'package:auth_buttons/res/shared/auth_colors.dart';
-import 'package:auth_buttons/res/shared/auth_icons.dart';
-import 'package:auth_buttons/res/shared/auth_style.dart';
+import 'package:auth_buttons/src/shared/auth_button.dart';
+import 'package:auth_buttons/src/shared/auth_colors.dart';
+import 'package:auth_buttons/src/shared/auth_icons.dart';
+import 'package:auth_buttons/src/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
-class FacebookAuthButton extends AuthButton {
-  FacebookAuthButton({
+class AppleAuthButton extends AuthButton {
+  AppleAuthButton({
     Key? key,
     required VoidCallback onPressed,
     Color? buttonColor,
@@ -19,7 +19,7 @@ class FacebookAuthButton extends AuthButton {
     double? elevation,
     double? borderRadius = 8.0,
     EdgeInsets? padding,
-    String text = 'Sign in with Facebook',
+    String text = 'Sign in with Apple',
     TextStyle? textStyle,
     bool darkMode = false,
     Color? borderColor,
@@ -40,7 +40,7 @@ class FacebookAuthButton extends AuthButton {
     double? progressIndicatorStrokeWidth,
     double? progressIndicatorValue,
   }) : super(
-          key: key ?? ValueKey('FacebookAuthButton'),
+          key: key ?? ValueKey('AppleAuthButton'),
           onPressed: onPressed,
           buttonColor: buttonColor,
           splashColor: splashColor,
@@ -71,43 +71,21 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style == AuthButtonStyle.secondary) return AuthColors.facebook;
-    if (style != AuthButtonStyle.secondary) return Color(0xff567de9);
+    if (style == AuthButtonStyle.secondary) return Colors.black;
   }
 
   @override
   String getIconUrl() {
     if (iconStyle == AuthIconStyle.outlined)
-      return (darkMode) ? AuthIcons.facebookWhite[1] : AuthIcons.facebook[1];
-    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.facebook[2];
-    return AuthIcons.facebookWhite[0];
+      return darkMode ? AuthIcons.appleWhite[1] : AuthIcons.apple[1];
+    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.apple[2];
+    return darkMode ? AuthIcons.appleWhite[0] : AuthIcons.apple[0];
   }
 
   @override
   Color getButtonColor() {
     if (style == AuthButtonStyle.secondary)
-      return buttonColor ??
-          (darkMode ? AuthColors.darkMode : AuthColors.facebook);
-    if (iconStyle == AuthIconStyle.secondary)
-      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
-    return buttonColor ??
-        (darkMode ? AuthColors.darkMode : AuthColors.facebook);
-  }
-
-  @override
-  TextStyle getTextStyle() {
-    if (iconStyle == AuthIconStyle.secondary && style == null)
-      return textStyle ?? TextStyle(
-        color: darkMode ? Colors.white : Colors.blue[800],
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 0.50,
-      );
-    return textStyle ?? TextStyle(
-      color: Colors.white,
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-      letterSpacing: 0.50,
-    );
+      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.black);
+    return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
   }
 }

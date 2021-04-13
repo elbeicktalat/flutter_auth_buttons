@@ -4,13 +4,13 @@
 
 // @dart=2.12
 
-export 'package:auth_buttons/res/buttons/apple_auth_button.dart';
-export 'package:auth_buttons/res/buttons/custom_auth_button.dart';
-export 'package:auth_buttons/res/buttons/email_auth_button.dart';
-export 'package:auth_buttons/res/buttons/facebook_auth_button.dart';
-export 'package:auth_buttons/res/buttons/github_auth_button.dart';
-export 'package:auth_buttons/res/buttons/google_auth_button.dart';
-export 'package:auth_buttons/res/buttons/huawei_auth_button.dart';
-export 'package:auth_buttons/res/buttons/microsoft_auth_button.dart';
-export 'package:auth_buttons/res/buttons/twitter_auth_button.dart';
-export 'package:auth_buttons/res/shared/auth_style.dart';
+export 'package:auth_buttons/src/buttons/apple_auth_button.dart';
+export 'package:auth_buttons/src/buttons/custom_auth_button.dart';
+export 'package:auth_buttons/src/buttons/email_auth_button.dart';
+export 'package:auth_buttons/src/buttons/facebook_auth_button.dart';
+export 'package:auth_buttons/src/buttons/github_auth_button.dart';
+export 'package:auth_buttons/src/buttons/google_auth_button.dart';
+export 'package:auth_buttons/src/buttons/huawei_auth_button.dart';
+export 'package:auth_buttons/src/buttons/microsoft_auth_button.dart';
+export 'package:auth_buttons/src/buttons/twitter_auth_button.dart';
+export 'package:auth_buttons/src/shared/auth_style.dart';

@@ -4,14 +4,14 @@
 
 // @dart=2.12
 
-import 'package:auth_buttons/res/shared/auth_button.dart';
-import 'package:auth_buttons/res/shared/auth_colors.dart';
-import 'package:auth_buttons/res/shared/auth_icons.dart';
-import 'package:auth_buttons/res/shared/auth_style.dart';
+import 'package:auth_buttons/src/shared/auth_button.dart';
+import 'package:auth_buttons/src/shared/auth_colors.dart';
+import 'package:auth_buttons/src/shared/auth_icons.dart';
+import 'package:auth_buttons/src/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
-class EmailAuthButton extends AuthButton {
-  EmailAuthButton({
+class GithubAuthButton extends AuthButton {
+  GithubAuthButton({
     Key? key,
     required VoidCallback onPressed,
     Color? buttonColor,
@@ -19,7 +19,7 @@ class EmailAuthButton extends AuthButton {
     double? elevation,
     double? borderRadius = 8.0,
     EdgeInsets? padding,
-    String text = 'Sign in with Email',
+    String text = 'Sign in with Github',
     TextStyle? textStyle,
     bool darkMode = false,
     Color? borderColor,
@@ -40,7 +40,7 @@ class EmailAuthButton extends AuthButton {
     double? progressIndicatorStrokeWidth,
     double? progressIndicatorValue,
   }) : super(
-          key: key ?? ValueKey('EmailAuthButton'),
+          key: key ?? ValueKey('GithubAuthButton'),
           onPressed: onPressed,
           buttonColor: buttonColor,
           splashColor: splashColor,
@@ -71,39 +71,31 @@ class EmailAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style == AuthButtonStyle.secondary) return Colors.teal;
-    if (style != AuthButtonStyle.secondary) return Colors.teal[200];
+    if (style == AuthButtonStyle.secondary) return AuthColors.github;
+    if (style != AuthButtonStyle.secondary) return Color(0xff6d7c8b);
   }
 
   @override
   String getIconUrl() {
-    if (iconStyle == AuthIconStyle.outlined)
-      return (darkMode) ? AuthIcons.emailWhite[1] : AuthIcons.email[1];
-    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.email[2];
     return (style == AuthButtonStyle.secondary)
-        ? AuthIcons.email[0]
-        : AuthIcons.emailWhite[0];
+        ? (darkMode)
+            ? AuthIcons.githubWhite
+            : AuthIcons.github
+        : (darkMode)
+            ? AuthIcons.githubWhite
+            : AuthIcons.githubWhite;
   }
 
   @override
   Color getButtonColor() {
     if (style == AuthButtonStyle.secondary)
-      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.teal);
-    if (iconStyle == AuthIconStyle.secondary)
-      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
-    return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.teal);
+      return buttonColor ??
+          (darkMode ? AuthColors.darkMode : AuthColors.github);
+    return buttonColor ?? (darkMode ? AuthColors.darkMode : AuthColors.github);
   }
 
   @override
   TextStyle getTextStyle() {
-    if (iconStyle == AuthIconStyle.secondary &&
-        style != AuthButtonStyle.secondary)
-      return TextStyle(
-        color: darkMode ? Colors.white : Colors.teal[900],
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 0.50,
-      );
     return TextStyle(
       color: Colors.white,
       fontSize: 18,

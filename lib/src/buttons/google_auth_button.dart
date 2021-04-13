@@ -4,14 +4,14 @@
 
 // @dart=2.12
 
-import 'package:auth_buttons/res/shared/auth_button.dart';
-import 'package:auth_buttons/res/shared/auth_colors.dart';
-import 'package:auth_buttons/res/shared/auth_icons.dart';
-import 'package:auth_buttons/res/shared/auth_style.dart';
+import 'package:auth_buttons/src/shared/auth_button.dart';
+import 'package:auth_buttons/src/shared/auth_colors.dart';
+import 'package:auth_buttons/src/shared/auth_icons.dart';
+import 'package:auth_buttons/src/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
-class AppleAuthButton extends AuthButton {
-  AppleAuthButton({
+class GoogleAuthButton extends AuthButton {
+  GoogleAuthButton({
     Key? key,
     required VoidCallback onPressed,
     Color? buttonColor,
@@ -19,7 +19,7 @@ class AppleAuthButton extends AuthButton {
     double? elevation,
     double? borderRadius = 8.0,
     EdgeInsets? padding,
-    String text = 'Sign in with Apple',
+    String text = 'Sign in with Google',
     TextStyle? textStyle,
     bool darkMode = false,
     Color? borderColor,
@@ -40,7 +40,7 @@ class AppleAuthButton extends AuthButton {
     double? progressIndicatorStrokeWidth,
     double? progressIndicatorValue,
   }) : super(
-          key: key ?? ValueKey('AppleAuthButton'),
+          key: key ?? ValueKey('GoogleAuthButton'),
           onPressed: onPressed,
           buttonColor: buttonColor,
           splashColor: splashColor,
@@ -70,22 +70,16 @@ class AppleAuthButton extends AuthButton {
         );
 
   @override
-  Color? getProgressIndicatorValueColor() {
-    if (style == AuthButtonStyle.secondary) return Colors.black;
-  }
-
-  @override
   String getIconUrl() {
-    if (iconStyle == AuthIconStyle.outlined)
-      return darkMode ? AuthIcons.appleWhite[1] : AuthIcons.apple[1];
-    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.apple[2];
-    return darkMode ? AuthIcons.appleWhite[0] : AuthIcons.apple[0];
+    if (iconStyle == AuthIconStyle.outlined) return AuthIcons.google[1];
+    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.google[2];
+    return AuthIcons.google[0];
   }
 
   @override
   Color getButtonColor() {
     if (style == AuthButtonStyle.secondary)
-      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.black);
+      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.blue);
     return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
   }
 }

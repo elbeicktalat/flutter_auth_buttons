@@ -4,8 +4,8 @@
 
 // @dart=2.12
 
-import 'package:auth_buttons/res/shared/auth_button.dart';
-import 'package:auth_buttons/res/shared/auth_style.dart';
+import 'package:auth_buttons/src/shared/auth_button.dart';
+import 'package:auth_buttons/src/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class CustomAuthButton extends AuthButton {

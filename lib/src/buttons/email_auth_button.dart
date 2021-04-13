@@ -4,14 +4,14 @@
 
 // @dart=2.12
 
-import 'package:auth_buttons/res/shared/auth_button.dart';
-import 'package:auth_buttons/res/shared/auth_colors.dart';
-import 'package:auth_buttons/res/shared/auth_icons.dart';
-import 'package:auth_buttons/res/shared/auth_style.dart';
+import 'package:auth_buttons/src/shared/auth_button.dart';
+import 'package:auth_buttons/src/shared/auth_colors.dart';
+import 'package:auth_buttons/src/shared/auth_icons.dart';
+import 'package:auth_buttons/src/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
-class HuaweiAuthButton extends AuthButton {
-  HuaweiAuthButton({
+class EmailAuthButton extends AuthButton {
+  EmailAuthButton({
     Key? key,
     required VoidCallback onPressed,
     Color? buttonColor,
@@ -19,7 +19,7 @@ class HuaweiAuthButton extends AuthButton {
     double? elevation,
     double? borderRadius = 8.0,
     EdgeInsets? padding,
-    String text = 'Sign in with Huawei',
+    String text = 'Sign in with Email',
     TextStyle? textStyle,
     bool darkMode = false,
     Color? borderColor,
@@ -40,7 +40,7 @@ class HuaweiAuthButton extends AuthButton {
     double? progressIndicatorStrokeWidth,
     double? progressIndicatorValue,
   }) : super(
-          key: key ?? ValueKey('HuaweiAuthButton'),
+          key: key ?? ValueKey('EmailAuthButton'),
           onPressed: onPressed,
           buttonColor: buttonColor,
           splashColor: splashColor,
@@ -71,28 +71,27 @@ class HuaweiAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style == AuthButtonStyle.secondary) return Colors.red;
-    if (style != AuthButtonStyle.secondary) return Colors.red[200];
+    if (style == AuthButtonStyle.secondary) return Colors.teal;
+    if (style != AuthButtonStyle.secondary) return Colors.teal[200];
   }
 
   @override
   String getIconUrl() {
     if (iconStyle == AuthIconStyle.outlined)
-      return darkMode ? AuthIcons.huaweiWhite[1] : AuthIcons.huawei[1];
-    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.huawei[2];
+      return (darkMode) ? AuthIcons.emailWhite[1] : AuthIcons.email[1];
+    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.email[2];
     return (style == AuthButtonStyle.secondary)
-        ? AuthIcons.huawei[0]
-        : AuthIcons.huaweiWhite[0];
+        ? AuthIcons.email[0]
+        : AuthIcons.emailWhite[0];
   }
 
   @override
   Color getButtonColor() {
     if (style == AuthButtonStyle.secondary)
-      return buttonColor ??
-          (darkMode ? AuthColors.darkMode : AuthColors.huawei);
+      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.teal);
     if (iconStyle == AuthIconStyle.secondary)
       return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
-    return buttonColor ?? (darkMode ? AuthColors.darkMode : AuthColors.huawei);
+    return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.teal);
   }
 
   @override
@@ -100,7 +99,7 @@ class HuaweiAuthButton extends AuthButton {
     if (iconStyle == AuthIconStyle.secondary &&
         style != AuthButtonStyle.secondary)
       return TextStyle(
-        color: darkMode ? Colors.white : Colors.red[800],
+        color: darkMode ? Colors.white : Colors.teal[900],
         fontSize: 18,
         fontWeight: FontWeight.bold,
         letterSpacing: 0.50,

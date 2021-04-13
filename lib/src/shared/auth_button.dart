@@ -4,9 +4,9 @@
 
 // @dart=2.12
 
-import 'package:auth_buttons/res/shared/auth_style.dart';
-import 'package:auth_buttons/res/shared/button_contents.dart';
-import 'package:auth_buttons/res/shared/shared_button.dart';
+import 'package:auth_buttons/src/shared/auth_style.dart';
+import 'package:auth_buttons/src/shared/button_contents.dart';
+import 'package:auth_buttons/src/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
 abstract class AuthButton extends StatefulWidget {

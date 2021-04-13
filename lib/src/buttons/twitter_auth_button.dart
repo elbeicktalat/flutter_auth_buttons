@@ -4,14 +4,14 @@
 
 // @dart=2.12
 
-import 'package:auth_buttons/res/shared/auth_button.dart';
-import 'package:auth_buttons/res/shared/auth_colors.dart';
-import 'package:auth_buttons/res/shared/auth_icons.dart';
-import 'package:auth_buttons/res/shared/auth_style.dart';
+import 'package:auth_buttons/src/shared/auth_button.dart';
+import 'package:auth_buttons/src/shared/auth_colors.dart';
+import 'package:auth_buttons/src/shared/auth_icons.dart';
+import 'package:auth_buttons/src/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
-class GoogleAuthButton extends AuthButton {
-  GoogleAuthButton({
+class TwitterAuthButton extends AuthButton {
+  TwitterAuthButton({
     Key? key,
     required VoidCallback onPressed,
     Color? buttonColor,
@@ -19,7 +19,7 @@ class GoogleAuthButton extends AuthButton {
     double? elevation,
     double? borderRadius = 8.0,
     EdgeInsets? padding,
-    String text = 'Sign in with Google',
+    String text = 'Sign in with Twitter',
     TextStyle? textStyle,
     bool darkMode = false,
     Color? borderColor,
@@ -40,7 +40,7 @@ class GoogleAuthButton extends AuthButton {
     double? progressIndicatorStrokeWidth,
     double? progressIndicatorValue,
   }) : super(
-          key: key ?? ValueKey('GoogleAuthButton'),
+          key: key ?? ValueKey('TwitterAuthButton'),
           onPressed: onPressed,
           buttonColor: buttonColor,
           splashColor: splashColor,
@@ -70,16 +70,48 @@ class GoogleAuthButton extends AuthButton {
         );
 
   @override
+  Color? getProgressIndicatorValueColor() {
+    if (style == AuthButtonStyle.secondary) return Colors.blue;
+    if (style != AuthButtonStyle.secondary) return Colors.blue[200];
+  }
+
+  @override
   String getIconUrl() {
-    if (iconStyle == AuthIconStyle.outlined) return AuthIcons.google[1];
-    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.google[2];
-    return AuthIcons.google[0];
+    if (style == AuthButtonStyle.secondary)
+      return (darkMode)
+          ? (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.twitterWhite[1]
+              : AuthIcons.twitterWhite[0]
+          : (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.twitter[1]
+              : AuthIcons.twitter[0];
+
+    if (iconStyle == AuthIconStyle.outlined)
+      return (darkMode)
+          ? (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.twitter[1]
+              : AuthIcons.twitter[0]
+          : (iconStyle == AuthIconStyle.outlined)
+              ? AuthIcons.twitterWhite[1]
+              : AuthIcons.twitterWhite[0];
+
+    return (darkMode) ? AuthIcons.twitter[0] : AuthIcons.twitterWhite[0];
   }
 
   @override
   Color getButtonColor() {
     if (style == AuthButtonStyle.secondary)
       return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.blue);
-    return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
+    return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.blue);
+  }
+
+  @override
+  TextStyle getTextStyle() {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      letterSpacing: 0.50,
+    );
   }
 }

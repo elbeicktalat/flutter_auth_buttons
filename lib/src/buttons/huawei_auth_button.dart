@@ -4,14 +4,14 @@
 
 // @dart=2.12
 
-import 'package:auth_buttons/res/shared/auth_button.dart';
-import 'package:auth_buttons/res/shared/auth_colors.dart';
-import 'package:auth_buttons/res/shared/auth_icons.dart';
-import 'package:auth_buttons/res/shared/auth_style.dart';
+import 'package:auth_buttons/src/shared/auth_button.dart';
+import 'package:auth_buttons/src/shared/auth_colors.dart';
+import 'package:auth_buttons/src/shared/auth_icons.dart';
+import 'package:auth_buttons/src/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
-class TwitterAuthButton extends AuthButton {
-  TwitterAuthButton({
+class HuaweiAuthButton extends AuthButton {
+  HuaweiAuthButton({
     Key? key,
     required VoidCallback onPressed,
     Color? buttonColor,
@@ -19,7 +19,7 @@ class TwitterAuthButton extends AuthButton {
     double? elevation,
     double? borderRadius = 8.0,
     EdgeInsets? padding,
-    String text = 'Sign in with Twitter',
+    String text = 'Sign in with Huawei',
     TextStyle? textStyle,
     bool darkMode = false,
     Color? borderColor,
@@ -40,7 +40,7 @@ class TwitterAuthButton extends AuthButton {
     double? progressIndicatorStrokeWidth,
     double? progressIndicatorValue,
   }) : super(
-          key: key ?? ValueKey('TwitterAuthButton'),
+          key: key ?? ValueKey('HuaweiAuthButton'),
           onPressed: onPressed,
           buttonColor: buttonColor,
           splashColor: splashColor,
@@ -71,42 +71,40 @@ class TwitterAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style == AuthButtonStyle.secondary) return Colors.blue;
-    if (style != AuthButtonStyle.secondary) return Colors.blue[200];
+    if (style == AuthButtonStyle.secondary) return Colors.red;
+    if (style != AuthButtonStyle.secondary) return Colors.red[200];
   }
 
   @override
   String getIconUrl() {
-    if (style == AuthButtonStyle.secondary)
-      return (darkMode)
-          ? (iconStyle == AuthIconStyle.outlined)
-              ? AuthIcons.twitterWhite[1]
-              : AuthIcons.twitterWhite[0]
-          : (iconStyle == AuthIconStyle.outlined)
-              ? AuthIcons.twitter[1]
-              : AuthIcons.twitter[0];
-
     if (iconStyle == AuthIconStyle.outlined)
-      return (darkMode)
-          ? (iconStyle == AuthIconStyle.outlined)
-              ? AuthIcons.twitter[1]
-              : AuthIcons.twitter[0]
-          : (iconStyle == AuthIconStyle.outlined)
-              ? AuthIcons.twitterWhite[1]
-              : AuthIcons.twitterWhite[0];
-
-    return (darkMode) ? AuthIcons.twitter[0] : AuthIcons.twitterWhite[0];
+      return darkMode ? AuthIcons.huaweiWhite[1] : AuthIcons.huawei[1];
+    if (iconStyle == AuthIconStyle.secondary) return AuthIcons.huawei[2];
+    return (style == AuthButtonStyle.secondary)
+        ? AuthIcons.huawei[0]
+        : AuthIcons.huaweiWhite[0];
   }
 
   @override
   Color getButtonColor() {
     if (style == AuthButtonStyle.secondary)
-      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.blue);
-    return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.blue);
+      return buttonColor ??
+          (darkMode ? AuthColors.darkMode : AuthColors.huawei);
+    if (iconStyle == AuthIconStyle.secondary)
+      return buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.white);
+    return buttonColor ?? (darkMode ? AuthColors.darkMode : AuthColors.huawei);
   }
 
   @override
   TextStyle getTextStyle() {
+    if (iconStyle == AuthIconStyle.secondary &&
+        style != AuthButtonStyle.secondary)
+      return TextStyle(
+        color: darkMode ? Colors.white : Colors.red[800],
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 0.50,
+      );
     return TextStyle(
       color: Colors.white,
       fontSize: 18,
