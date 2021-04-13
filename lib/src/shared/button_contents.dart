@@ -8,25 +8,7 @@ import 'package:auth_buttons/src/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class ButtonContents extends StatelessWidget {
-  final Key? key;
-  final double? iconSize;
-  final String text;
-  final String iconUrl;
-  final TextStyle? textStyle;
-  final bool darkMode;
-  final double? separator;
-  final Color? textColor;
-  final bool rtl;
-  final double? borderRadius;
-  final Color? iconBackground;
-  final AuthButtonStyle? style;
-  final bool isLoading;
-  final Color? progressIndicatorColor;
-  final Color? progressIndicatorValueColor;
-  final double? progressIndicatorStrokeWidth;
-  final double? progressIndicatorValue;
-
-  ButtonContents({
+  const ButtonContents({
     this.key,
     this.iconSize,
     this.text = '',
@@ -46,6 +28,24 @@ class ButtonContents extends StatelessWidget {
     this.progressIndicatorValue,
   });
 
+  final Key? key;
+  final double? iconSize;
+  final String text;
+  final String iconUrl;
+  final TextStyle? textStyle;
+  final bool darkMode;
+  final double? separator;
+  final Color? textColor;
+  final bool rtl;
+  final double? borderRadius;
+  final Color? iconBackground;
+  final AuthButtonStyle? style;
+  final bool isLoading;
+  final Color? progressIndicatorColor;
+  final Color? progressIndicatorValueColor;
+  final double? progressIndicatorStrokeWidth;
+  final double? progressIndicatorValue;
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -53,15 +53,16 @@ class ButtonContents extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       textDirection: rtl ? TextDirection.rtl : null,
-      children: [
+      children: <Widget>[
         Container(
-          padding:
-              (style == AuthButtonStyle.secondary) ? EdgeInsets.all(4.0) : null,
+          padding: (style == AuthButtonStyle.secondary)
+              ? const EdgeInsets.all(4.0)
+              : null,
           decoration: BoxDecoration(
             color: iconBackground,
             borderRadius: BorderRadius.circular(borderRadius ?? 8.0),
           ),
-          child: (isLoading)
+          child: isLoading
               ? CircularProgressIndicator(
                   backgroundColor: progressIndicatorColor,
                   strokeWidth: progressIndicatorStrokeWidth ?? 4.0,

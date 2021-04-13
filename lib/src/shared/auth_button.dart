@@ -10,6 +10,36 @@ import 'package:auth_buttons/src/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
 abstract class AuthButton extends StatefulWidget {
+  const AuthButton({
+    this.key,
+    required this.onPressed,
+    this.buttonColor,
+    this.splashColor,
+    this.elevation,
+    this.borderRadius,
+    this.padding,
+    required this.text,
+    this.textStyle,
+    this.darkMode = false,
+    this.borderColor,
+    this.borderWidth,
+    this.style,
+    this.width,
+    this.height,
+    this.iconSize,
+    this.separator,
+    this.rtl = false,
+    this.iconBackground,
+    this.iconStyle,
+    this.onLongPress,
+    this.shadowColor,
+    this.isLoading = false,
+    this.progressIndicatorColor,
+    this.progressIndicatorValueColor,
+    this.progressIndicatorStrokeWidth = 4.0,
+    this.progressIndicatorValue,
+  });
+
   final Key? key;
 
   ///**[onPressed]** is a void function well be called when the button pressed.
@@ -213,36 +243,6 @@ abstract class AuthButton extends StatefulWidget {
   final double? progressIndicatorStrokeWidth;
   final double? progressIndicatorValue;
 
-  AuthButton({
-    this.key,
-    required this.onPressed,
-    this.buttonColor,
-    this.splashColor,
-    this.elevation,
-    this.borderRadius,
-    this.padding,
-    required this.text,
-    this.textStyle,
-    this.darkMode = false,
-    this.borderColor,
-    this.borderWidth,
-    this.style,
-    this.width,
-    this.height,
-    this.iconSize,
-    this.separator,
-    this.rtl = false,
-    this.iconBackground,
-    this.iconStyle,
-    this.onLongPress,
-    this.shadowColor,
-    this.isLoading = false,
-    this.progressIndicatorColor,
-    this.progressIndicatorValueColor,
-    this.progressIndicatorStrokeWidth = 4.0,
-    this.progressIndicatorValue,
-  });
-
   Color getButtonColor() => Colors.white;
 
   @required
@@ -255,7 +255,7 @@ abstract class AuthButton extends StatefulWidget {
   TextStyle getTextStyle() {
     if (style == AuthButtonStyle.secondary)
       return textStyle ??
-          TextStyle(
+          const TextStyle(
             color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.bold,
@@ -263,7 +263,7 @@ abstract class AuthButton extends StatefulWidget {
           );
     return textStyle ??
         TextStyle(
-          color: (darkMode ? Colors.white : Colors.black),
+          color: darkMode ? Colors.white : Colors.black,
           fontSize: 18,
           fontWeight: FontWeight.bold,
           letterSpacing: 0.50,
@@ -289,7 +289,7 @@ class _AuthButtonState extends State<AuthButton> {
           height: widget.height ?? 50.0,
           onPressed: widget.onPressed,
           borderRadius: widget.borderRadius,
-          padding: widget.padding ?? EdgeInsets.all(0),
+          padding: widget.padding ?? const EdgeInsets.all(0),
           buttonColor: widget.getButtonColor(),
           splashColor: widget.splashColor,
           elevation: widget.elevation,
@@ -317,7 +317,7 @@ class _AuthButtonState extends State<AuthButton> {
           height: widget.height,
           onPressed: widget.onPressed,
           borderRadius: widget.borderRadius,
-          padding: widget.padding ?? EdgeInsets.only(right: 16.0),
+          padding: widget.padding ?? const EdgeInsets.only(right: 16.0),
           buttonColor: widget.getButtonColor(),
           splashColor: widget.splashColor,
           elevation: widget.elevation,
@@ -353,7 +353,12 @@ class _AuthButtonState extends State<AuthButton> {
           onPressed: widget.onPressed,
           borderRadius: widget.borderRadius,
           padding: widget.padding ??
-              EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0),
+              const EdgeInsets.only(
+                left: 16.0,
+                right: 16.0,
+                top: 6.0,
+                bottom: 6.0,
+              ),
           buttonColor: widget.getButtonColor(),
           splashColor: widget.splashColor,
           elevation: widget.elevation,

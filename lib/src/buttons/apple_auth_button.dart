@@ -11,7 +11,7 @@ import 'package:auth_buttons/src/shared/auth_style.dart';
 import 'package:flutter/material.dart';
 
 class AppleAuthButton extends AuthButton {
-  AppleAuthButton({
+   AppleAuthButton({
     Key? key,
     required VoidCallback onPressed,
     Color? buttonColor,

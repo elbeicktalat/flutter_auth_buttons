@@ -7,6 +7,23 @@
 import 'package:flutter/material.dart';
 
 class SharedButton extends StatelessWidget {
+  const SharedButton({
+    this.key,
+    required this.onPressed,
+    this.onLongPress,
+    this.buttonColor,
+    this.splashColor,
+    this.borderColor,
+    this.borderWidth,
+    this.elevation,
+    this.borderRadius,
+    this.padding,
+    required this.child,
+    this.width,
+    this.height,
+    this.shadowColor,
+  });
+
   final Key? key;
 
   ///[onPressed] is a void function well be called when the button pressed.
@@ -51,23 +68,6 @@ class SharedButton extends StatelessWidget {
 
   ///[shadowColor] Define the shadow color when the button is clicked.
   final Color? shadowColor;
-
-  SharedButton({
-    this.key,
-    required this.onPressed,
-    this.onLongPress,
-    this.buttonColor,
-    this.splashColor,
-    this.borderColor,
-    this.borderWidth,
-    this.elevation,
-    this.borderRadius,
-    this.padding,
-    required this.child,
-    this.width,
-    this.height,
-    this.shadowColor,
-  });
 
   @override
   Widget build(BuildContext context) {
