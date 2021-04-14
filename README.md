@@ -8,7 +8,7 @@ social networks like: Google, Facebook, Apple and too other.
 1) Add this to your packages pubspec.yaml file:
 ```yaml
 dependencies:
-  auth_buttons: ^1.0.0
+  auth_buttons: ^1.0.1
 ```
 2) Install it 
 You can install it from the command line:
@@ -28,13 +28,11 @@ We recommend you to using `show` special when you want use some button.
 
 ```dart
 import 'package:auth_buttons/auth_buttons.dart'
-    show GoogleAuthButton, AuthButtonStyle;
+    show GoogleAuthButton, AuthButtonStyle, AuthButtonType, AuthIconType;
 ```
 We also recommend you to using the latest version.
 
 ## Overview
-
-**`New`** new icons available.
 
 There are three style you can choose between them:
 
@@ -62,7 +60,9 @@ Light             |  Dark
 GoogleAuthButton(
   onPressed: () {},
   darkMode: false,
-  iconStyle: AuthIconStyle.outlined,
+  style: AuthButtonStyle(
+    iconType: AuthIconType.outlined,
+  ),
 ),
 ```
 
@@ -75,7 +75,9 @@ Light             |  Dark
 GoogleAuthButton(
   onPressed: () {},
   darkMode: false,
-  iconStyle: AuthIconStyle.secondary,
+  style: AuthButtonStyle(
+    iconType: AuthIconType.secondary,
+  ),
 ),
 ```
 
@@ -90,7 +92,9 @@ Light             |  Dark
 GoogleAuthButton(
   onPressed: () {},
   darkMode: false,
-  style: AuthButtonStyle.icon,
+  style: AuthButtonStyle(
+    buttonType: AuthButtonType.icon,
+  ),
 ),
 ```
 
@@ -103,8 +107,10 @@ Light             |  Dark
 GoogleAuthButton(
   onPressed: () {},
   darkMode: false,
-  style: AuthButtonStyle.icon,
-  iconStyle: AuthIconStyle.outlined,
+  style: AuthButtonStyle(
+    buttonType: AuthButtonType.icon,
+    iconType: AuthIconType.outlined,
+  ),
 ),
 ```
 
@@ -117,8 +123,10 @@ Light             |  Dark
 GoogleAuthButton(
   onPressed: () {},
   darkMode: false,
-  style: AuthButtonStyle.icon,
-  iconStyle: AuthIconStyle.secondary,
+  style: AuthButtonStyle(
+    buttonType: AuthButtonType.icon,
+    iconType: AuthIconType.secondary,
+  ),
 ),
 ```
 
@@ -132,8 +140,9 @@ Light             |  Dark
 GoogleAuthButton(
   onPressed: () {},
   darkMode: false,
-  style: AuthButtonStyle.secondary,
-  iconStyle: AuthIconStyle.secondary,
+  style: AuthButtonStyle(
+    buttonType: AuthButtonType.secondary,
+  ),
 ),
 ```
 
@@ -145,8 +154,10 @@ Light             |  Dark
 GoogleAuthButton(
   onPressed: () {},
   darkMode: false,
-  style: AuthButtonStyle.secondary,
-  iconStyle: AuthIconStyle.outlined,
+  style: AuthButtonStyle(
+    buttonType: AuthButtonType.secondary,
+    iconType: AuthIconType.outlined,
+  ),
 ),
 ```
 
@@ -158,8 +169,10 @@ Light             |  Dark
 GoogleAuthButton(
   onPressed: () {},
   darkMode: false,
-  style: AuthButtonStyle.secondary,
-  iconStyle: AuthIconStyle.secondary,
+  style: AuthButtonStyle(
+    buttonType: AuthButtonType.secondary,
+    iconType: AuthIconType.secondary,
+  ),
 ),
 ```
 
@@ -174,32 +187,38 @@ Full property you can passing:
 
 ```dart
 GoogleAuthButton(
-  key: ValueKey(''),
+  key: const ValueKey<String>(''),
   onPressed: () {},
-  onLongPressed: (){},
-  darkMode: false,
-  rtl: false,
-  buttonColor: Colors.white,
-  splashColor: Colors.grey,
-  shadowColor: Colors.teal,
-  borderColor: Colors.red,
-  borderRadius: 8.0,
-  borderWidth: 2.0,
-  elevation: 2.0,
-  width: 280.0,
-  height: 50.0,
-  separator: 10.0,
-  iconSize: 35.0,
-  iconBackground: Colors.transparent,
-  iconStyle: AuthIconStyle.outlined,
-  style: AuthButtonStyle.secondary,
-  padding: EdgeInsets.all(8.0),
+  onLongPress: () {},
   text: 'Sign in with Google',
-  textStyle: TextStyle(
-    color: Colors.black,
-    fontSize: 18,
-    fontWeight: FontWeight.bold,
-    letterSpacing: 0.50,
+  darkMode: false,
+  isLoading: isLoading,
+  rtl: false,
+  style: AuthButtonStyle(
+    buttonColor: Colors.white,
+    splashColor: Colors.grey.shade100,
+    shadowColor: Colors.grey,
+    borderColor: Colors.red,
+    borderRadius: 8.0,
+    borderWidth: 2.0,
+    elevation: 2.0,
+    width: 280.0,
+    height: 50.0,
+    separator: 10.0,
+    iconSize: 35.0,
+    iconBackground: Colors.transparent,
+    iconType: AuthIconType.outlined,
+    buttonType: AuthButtonType.secondary,
+    padding: const EdgeInsets.all(8.0),
+    textStyle: const TextStyle(
+      color: Colors.black,
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      letterSpacing: 0.50,
+    ),
+    progressIndicatorColor: Colors.red,
+    progressIndicatorValueColor: Colors.amber,
+    progressIndicatorStrokeWidth: 2.0,
   ),
 ),
 ```
