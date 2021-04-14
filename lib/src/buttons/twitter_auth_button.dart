@@ -44,19 +44,19 @@ class TwitterAuthButton extends AuthButton {
   String getIconUrl() {
     if (style!.buttonType == AuthButtonType.secondary)
       return darkMode
-          ? (style!.iconStyle == AuthIconStyle.outlined)
+          ? (style!.iconType == AuthIconType.outlined)
               ? AuthIcons.twitterWhite[1]
               : AuthIcons.twitterWhite[0]
-          : (style!.iconStyle == AuthIconStyle.outlined)
+          : (style!.iconType == AuthIconType.outlined)
               ? AuthIcons.twitter[1]
               : AuthIcons.twitter[0];
 
-    if (style!.iconStyle == AuthIconStyle.outlined)
+    if (style!.iconType == AuthIconType.outlined)
       return darkMode
-          ? (style!.iconStyle == AuthIconStyle.outlined)
+          ? (style!.iconType == AuthIconType.outlined)
               ? AuthIcons.twitter[1]
               : AuthIcons.twitter[0]
-          : (style!.iconStyle == AuthIconStyle.outlined)
+          : (style!.iconType == AuthIconType.outlined)
               ? AuthIcons.twitterWhite[1]
               : AuthIcons.twitterWhite[0];
 

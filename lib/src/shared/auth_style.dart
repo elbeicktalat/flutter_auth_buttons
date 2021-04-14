@@ -4,7 +4,7 @@ enum AuthButtonType {
   secondary,
 }
 
-enum AuthIconStyle {
+enum AuthIconType {
   secondary,
   outlined,
 }

@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
     const String appName = 'Auth Buttons Example';
     const bool darkMode = false;
     const AuthButtonType buttonType = AuthButtonType.secondary;
-    const AuthIconStyle authIconStyle = AuthIconStyle.outlined;
+    const AuthIconType authIconType = AuthIconType.outlined;
     return MaterialApp(
       title: appName,
       home: Scaffold(
@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
                 isLoading: isLoading,
                 style: const AuthButtonStyle(
                   buttonType: buttonType,
-                  iconStyle: authIconStyle,
+                  iconType: authIconType,
                 ),
               ),
               const Divider(),

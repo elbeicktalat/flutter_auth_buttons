@@ -42,9 +42,9 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    if (style!.iconStyle == AuthIconStyle.outlined)
+    if (style!.iconType == AuthIconType.outlined)
       return darkMode ? AuthIcons.facebookWhite[1] : AuthIcons.facebook[1];
-    if (style!.iconStyle == AuthIconStyle.secondary)
+    if (style!.iconType == AuthIconType.secondary)
       return AuthIcons.facebook[2];
     return AuthIcons.facebookWhite[0];
   }
@@ -54,7 +54,7 @@ class FacebookAuthButton extends AuthButton {
     if (style!.buttonType == AuthButtonType.secondary)
       return style!.buttonColor ??
           (darkMode ? AuthColors.darkMode : AuthColors.facebook);
-    if (style!.iconStyle == AuthIconStyle.secondary)
+    if (style!.iconType == AuthIconType.secondary)
       return style!.buttonColor ??
           (darkMode ? AuthColors.darkMode : Colors.white);
     return style!.buttonColor ??
@@ -63,7 +63,7 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
-    if (style!.iconStyle == AuthIconStyle.secondary && style == null)
+    if (style!.iconType == AuthIconType.secondary && style == null)
       return style!.textStyle ??
           TextStyle(
             color: darkMode ? Colors.white : Colors.blue[800],

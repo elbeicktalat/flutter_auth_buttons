@@ -18,7 +18,7 @@ class AuthButtonStyle {
     this.iconSize = 35.0,
     this.separator = 10.0,
     this.iconBackground,
-    this.iconStyle,
+    this.iconType,
     this.shadowColor,
     this.progressIndicatorColor,
     this.progressIndicatorValueColor,
@@ -40,7 +40,7 @@ class AuthButtonStyle {
   final double? iconSize;
   final double? separator;
   final Color? iconBackground;
-  final AuthIconStyle? iconStyle;
+  final AuthIconType? iconType;
   final Color? shadowColor;
   final Color? progressIndicatorColor;
   final Color? progressIndicatorValueColor;

@@ -40,9 +40,9 @@ class MicrosoftAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    if (style!.iconStyle == AuthIconStyle.outlined)
+    if (style!.iconType == AuthIconType.outlined)
       return AuthIcons.microsoft[1];
-    if (style!.iconStyle == AuthIconStyle.secondary)
+    if (style!.iconType == AuthIconType.secondary)
       return AuthIcons.microsoft[2];
     return AuthIcons.microsoft[0];
   }
