@@ -8,3 +8,4 @@ build/
 .idea
 android
 ios
+.vscode

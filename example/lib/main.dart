@@ -56,42 +56,70 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
+                style: const AuthButtonStyle(
+                  buttonType: buttonType,
+                  iconType: authIconType,
+                ),
               ),
               const Divider(),
               FacebookAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
+                style: const AuthButtonStyle(
+                  buttonType: buttonType,
+                  iconType: authIconType,
+                ),
               ),
               const Divider(),
               GithubAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
+                style: const AuthButtonStyle(
+                  buttonType: buttonType,
+                  iconType: authIconType,
+                ),
               ),
               const Divider(),
               MicrosoftAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
+                style: const AuthButtonStyle(
+                  buttonType: buttonType,
+                  iconType: authIconType,
+                ),
               ),
               const Divider(),
               TwitterAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
+                style: const AuthButtonStyle(
+                  buttonType: buttonType,
+                  iconType: authIconType,
+                ),
               ),
               const Divider(),
               EmailAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
+                style: const AuthButtonStyle(
+                  buttonType: buttonType,
+                  iconType: authIconType,
+                ),
               ),
               const Divider(),
               HuaweiAuthButton(
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
+                style: const AuthButtonStyle(
+                  buttonType: buttonType,
+                  iconType: authIconType,
+                ),
               ),
             ],
           ),
