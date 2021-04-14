@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     const String appName = 'Auth Buttons Example';
     const bool darkMode = false;
-    const AuthButtonStyleType authButtonStyleType = AuthButtonStyleType.icon;
+    const AuthButtonType buttonType = AuthButtonType.secondary;
     const AuthIconStyle authIconStyle = AuthIconStyle.outlined;
     return MaterialApp(
       title: appName,
@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
                 darkMode: darkMode,
                 isLoading: isLoading,
                 style: const AuthButtonStyle(
-                  authButtonStyleType: authButtonStyleType,
+                  buttonType: buttonType,
                   iconStyle: authIconStyle,
                 ),
               ),

@@ -34,15 +34,15 @@ class GithubAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style!.authButtonStyleType == AuthButtonStyleType.secondary)
+    if (style!.buttonType == AuthButtonType.secondary)
       return AuthColors.github;
-    if (style!.authButtonStyleType != AuthButtonStyleType.secondary)
+    if (style!.buttonType != AuthButtonType.secondary)
       return const Color(0xff6d7c8b);
   }
 
   @override
   String getIconUrl() {
-    return (style!.authButtonStyleType == AuthButtonStyleType.secondary)
+    return (style!.buttonType == AuthButtonType.secondary)
         ? darkMode
             ? AuthIcons.githubWhite
             : AuthIcons.github
@@ -53,7 +53,7 @@ class GithubAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    if (style!.authButtonStyleType == AuthButtonStyleType.secondary)
+    if (style!.buttonType == AuthButtonType.secondary)
       return style!.buttonColor ??
           (darkMode ? AuthColors.darkMode : AuthColors.github);
     return style!.buttonColor ??

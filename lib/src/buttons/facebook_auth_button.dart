@@ -34,9 +34,9 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style!.authButtonStyleType == AuthButtonStyleType.secondary)
+    if (style!.buttonType == AuthButtonType.secondary)
       return AuthColors.facebook;
-    if (style!.authButtonStyleType != AuthButtonStyleType.secondary)
+    if (style!.buttonType != AuthButtonType.secondary)
       return const Color(0xff567de9);
   }
 
@@ -51,7 +51,7 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    if (style!.authButtonStyleType == AuthButtonStyleType.secondary)
+    if (style!.buttonType == AuthButtonType.secondary)
       return style!.buttonColor ??
           (darkMode ? AuthColors.darkMode : AuthColors.facebook);
     if (style!.iconStyle == AuthIconStyle.secondary)

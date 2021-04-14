@@ -30,14 +30,14 @@ abstract class AuthButtonStyleButton extends StatefulWidget {
   Color getButtonColor() => Colors.white;
 
   Color getIconBackground() {
-    if (style!.authButtonStyleType == AuthButtonStyleType.secondary)
+    if (style!.buttonType == AuthButtonType.secondary)
       return style!.iconBackground ??
           (darkMode ? Colors.black26 : Colors.white);
     return style!.iconBackground ?? Colors.transparent;
   }
 
   TextStyle getTextStyle() {
-    if (style!.authButtonStyleType == AuthButtonStyleType.secondary)
+    if (style!.buttonType == AuthButtonType.secondary)
       return style!.textStyle ??
           const TextStyle(
             color: Colors.white,
@@ -62,8 +62,8 @@ abstract class AuthButtonStyleButton extends StatefulWidget {
 class _AuthButtonStyleButtonState extends State<AuthButtonStyleButton> {
   @override
   Widget build(BuildContext context) {
-    switch (widget.style!.authButtonStyleType) {
-      case AuthButtonStyleType.icon:
+    switch (widget.style!.buttonType) {
+      case AuthButtonType.icon:
         return SharedButton(
           key: widget.key,
           width: widget.style!.width ?? 50.0,
@@ -93,7 +93,7 @@ class _AuthButtonStyleButtonState extends State<AuthButtonStyleButton> {
             progressIndicatorValue: widget.style!.progressIndicatorValue,
           ),
         );
-      case AuthButtonStyleType.secondary:
+      case AuthButtonType.secondary:
         return SharedButton(
           key: widget.key,
           width: widget.style!.width,
@@ -119,7 +119,7 @@ class _AuthButtonStyleButtonState extends State<AuthButtonStyleButton> {
             borderRadius: widget.style!.borderRadius,
             iconBackground: widget.getIconBackground(),
             rtl: widget.rtl,
-            style: widget.style!.authButtonStyleType,
+            style: widget.style!.buttonType,
             isLoading: widget.isLoading,
             progressIndicatorColor: widget.style!.progressIndicatorColor,
             progressIndicatorValueColor:

@@ -34,9 +34,9 @@ class HuaweiAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style!.authButtonStyleType == AuthButtonStyleType.secondary)
+    if (style!.buttonType == AuthButtonType.secondary)
       return Colors.red;
-    if (style!.authButtonStyleType != AuthButtonStyleType.secondary)
+    if (style!.buttonType != AuthButtonType.secondary)
       return Colors.red[200];
   }
 
@@ -45,14 +45,14 @@ class HuaweiAuthButton extends AuthButton {
     if (style!.iconStyle == AuthIconStyle.outlined)
       return darkMode ? AuthIcons.huaweiWhite[1] : AuthIcons.huawei[1];
     if (style!.iconStyle == AuthIconStyle.secondary) return AuthIcons.huawei[2];
-    return (style!.authButtonStyleType == AuthButtonStyleType.secondary)
+    return (style!.buttonType == AuthButtonType.secondary)
         ? AuthIcons.huawei[0]
         : AuthIcons.huaweiWhite[0];
   }
 
   @override
   Color getButtonColor() {
-    if (style!.authButtonStyleType == AuthButtonStyleType.secondary)
+    if (style!.buttonType == AuthButtonType.secondary)
       return style!.buttonColor ??
           (darkMode ? AuthColors.darkMode : AuthColors.huawei);
     if (style!.iconStyle == AuthIconStyle.secondary)
@@ -65,7 +65,7 @@ class HuaweiAuthButton extends AuthButton {
   @override
   TextStyle getTextStyle() {
     if (style!.iconStyle == AuthIconStyle.secondary &&
-        style!.authButtonStyleType != AuthButtonStyleType.secondary)
+        style!.buttonType != AuthButtonType.secondary)
       return TextStyle(
         color: darkMode ? Colors.white : Colors.red[800],
         fontSize: 18,

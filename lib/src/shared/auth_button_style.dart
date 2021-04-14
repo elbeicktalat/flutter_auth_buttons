@@ -12,7 +12,7 @@ class AuthButtonStyle {
     this.textStyle,
     this.borderColor,
     this.borderWidth,
-    this.authButtonStyleType,
+    this.buttonType,
     this.width,
     this.height,
     this.iconSize = 35.0,
@@ -34,7 +34,7 @@ class AuthButtonStyle {
   final TextStyle? textStyle;
   final Color? borderColor;
   final double? borderWidth;
-  final AuthButtonStyleType? authButtonStyleType;
+  final AuthButtonType? buttonType;
   final double? width;
   final double? height;
   final double? iconSize;
