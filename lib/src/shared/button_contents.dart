@@ -66,8 +66,8 @@ class ButtonContents extends StatelessWidget {
               ? CircularProgressIndicator(
                   backgroundColor: progressIndicatorColor,
                   strokeWidth: progressIndicatorStrokeWidth ?? 4.0,
-                  valueColor:
-                      AlwaysStoppedAnimation(progressIndicatorValueColor),
+                  valueColor: AlwaysStoppedAnimation<Color?>(
+                      progressIndicatorValueColor),
                   value: progressIndicatorValue,
                 )
               : Image(

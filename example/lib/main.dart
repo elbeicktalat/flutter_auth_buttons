@@ -36,7 +36,7 @@ class _MyAppState extends State<MyApp> {
           color: darkMode ? const Color(0xff303030) : Colors.white,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+            children: <Widget>[
               GoogleAuthButton(
                 onPressed: () {
                   // your implementation
@@ -46,6 +46,10 @@ class _MyAppState extends State<MyApp> {
                 },
                 darkMode: darkMode,
                 isLoading: isLoading,
+                style: const AuthButtonStyle(
+                  authButtonStyleType: authButtonStyleType,
+                  iconStyle: authIconStyle,
+                ),
               ),
               const Divider(),
               AppleAuthButton(
