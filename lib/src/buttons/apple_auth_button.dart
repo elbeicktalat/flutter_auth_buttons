@@ -15,7 +15,7 @@ class AppleAuthButton extends AuthButton {
   const AppleAuthButton({
     Key? key,
     required VoidCallback onPressed,
-    VoidCallback? onLongPressed,
+    VoidCallback? onLongPress,
     String text = 'Sign in with Apple',
     bool darkMode = false,
     bool rtl = false,
@@ -24,10 +24,10 @@ class AppleAuthButton extends AuthButton {
   }) : super(
           key: key ?? const ValueKey<String>('AppleAuthButton'),
           onPressed: onPressed,
+          onLongPress: onLongPress,
           text: text,
           darkMode: darkMode,
           rtl: rtl,
-          onLongPress: onLongPressed,
           isLoading: isLoading,
           style: style,
         );

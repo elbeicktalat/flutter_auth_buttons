@@ -12,20 +12,20 @@ class CustomAuthButton extends AuthButton {
   const CustomAuthButton({
     Key? key,
     required VoidCallback onPressed,
+    VoidCallback? onLongPress,
     required String text,
+    required this.icon,
     bool darkMode = false,
     bool rtl = false,
-    VoidCallback? onLongPressed,
-    required this.icon,
     bool isLoading = false,
     AuthButtonStyle? style,
   }) : super(
           key: key,
           onPressed: onPressed,
+          onLongPress: onLongPress,
           text: text,
           darkMode: darkMode,
           rtl: rtl,
-          onLongPress: onLongPressed,
           isLoading: isLoading,
           style: style,
         );

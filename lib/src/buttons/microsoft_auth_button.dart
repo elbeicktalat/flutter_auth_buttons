@@ -15,19 +15,19 @@ class MicrosoftAuthButton extends AuthButton {
   const MicrosoftAuthButton({
     Key? key,
     required VoidCallback onPressed,
+    VoidCallback? onLongPress,
     String text = 'Sign in with Microsoft',
     bool darkMode = false,
     bool rtl = false,
-    VoidCallback? onLongPressed,
     bool isLoading = false,
     AuthButtonStyle? style,
   }) : super(
           key: key ?? const ValueKey<String>('MicrosoftAuthButton'),
           onPressed: onPressed,
+          onLongPress: onLongPress,
           text: text,
           darkMode: darkMode,
           rtl: rtl,
-          onLongPress: onLongPressed,
           isLoading: isLoading,
           style: style,
         );

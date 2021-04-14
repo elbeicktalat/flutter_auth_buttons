@@ -15,19 +15,19 @@ class GithubAuthButton extends AuthButton {
   const GithubAuthButton({
     Key? key,
     required VoidCallback onPressed,
+    VoidCallback? onLongPress,
     String text = 'Sign in with Github',
     bool darkMode = false,
     bool rtl = false,
-    VoidCallback? onLongPressed,
     bool isLoading = false,
     AuthButtonStyle? style,
   }) : super(
           key: key ?? const ValueKey<String>('GithubAuthButton'),
           onPressed: onPressed,
+          onLongPress: onLongPress,
           text: text,
           darkMode: darkMode,
           rtl: rtl,
-          onLongPress: onLongPressed,
           isLoading: isLoading,
           style: style,
         );
