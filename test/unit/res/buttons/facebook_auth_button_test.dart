@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Check the default value of', () {
-    FacebookAuthButton facebookAuthButton =
+    final FacebookAuthButton facebookAuthButton =
         FacebookAuthButton(onPressed: () {});
     test('text', () {
       expect(facebookAuthButton.text, 'Sign in with Facebook');

@@ -3,7 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Check the default value of', () {
-    HuaweiAuthButton huaweiAuthButton = HuaweiAuthButton(onPressed: () {});
+    final HuaweiAuthButton huaweiAuthButton =
+        HuaweiAuthButton(onPressed: () {});
     test('text', () {
       expect(huaweiAuthButton.text, 'Sign in with Huawei');
     });

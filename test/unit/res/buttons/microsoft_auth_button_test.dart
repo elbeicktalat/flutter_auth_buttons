@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   group('Check the default value of', () {
-    MicrosoftAuthButton microsoftAuthButton =
+    final MicrosoftAuthButton microsoftAuthButton =
         MicrosoftAuthButton(onPressed: () {});
     test('text', () {
       expect(microsoftAuthButton.text, 'Sign in with Microsoft');
