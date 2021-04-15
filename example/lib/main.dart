@@ -11,13 +11,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  bool isLoading;
-
-  @override
-  void initState() {
-    isLoading = false;
-    super.initState();
-  }
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
