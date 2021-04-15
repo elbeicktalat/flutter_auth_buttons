@@ -63,34 +63,13 @@ abstract class AuthButtonStyleButton extends StatefulWidget {
   @override
   _AuthButtonStyleButtonState createState() => _AuthButtonStyleButtonState();
 
-  Color getButtonColor() => Colors.white;
+  Color getButtonColor();
 
-  Color getIconBackground() {
-    if (style!.buttonType == AuthButtonType.secondary)
-      return style!.iconBackground ??
-          (darkMode ? Colors.black26 : Colors.white);
-    return style!.iconBackground ?? Colors.transparent;
-  }
+  Color getIconBackground();
 
-  TextStyle getTextStyle() {
-    if (style!.buttonType == AuthButtonType.secondary)
-      return style!.textStyle ??
-          const TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 0.50,
-          );
-    return style!.textStyle ??
-        TextStyle(
-          color: darkMode ? Colors.white : Colors.black,
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 0.50,
-        );
-  }
+  TextStyle getTextStyle();
 
-  String getIconUrl() => '';
+  String? getIconUrl();
 
   Color? getProgressIndicatorValueColor() => Colors.blue;
 }
@@ -118,7 +97,7 @@ class _AuthButtonStyleButtonState extends State<AuthButtonStyleButton> {
           ),
           child: ButtonContents(
             key: widget.key,
-            iconUrl: widget.getIconUrl(),
+            iconUrl: widget.getIconUrl()!,
             isLoading: widget.isLoading,
             style: AuthButtonStyle(
               iconSize: widget.style!.iconSize,
@@ -153,7 +132,7 @@ class _AuthButtonStyleButtonState extends State<AuthButtonStyleButton> {
           ),
           child: ButtonContents(
             key: widget.key,
-            iconUrl: widget.getIconUrl(),
+            iconUrl: widget.getIconUrl()!,
             text: widget.text!,
             darkMode: widget.darkMode,
             rtl: widget.rtl,
@@ -201,7 +180,7 @@ class _AuthButtonStyleButtonState extends State<AuthButtonStyleButton> {
           ),
           child: ButtonContents(
             key: widget.key,
-            iconUrl: widget.getIconUrl(),
+            iconUrl: widget.getIconUrl()!,
             text: widget.text!,
             darkMode: widget.darkMode,
             rtl: widget.rtl,
