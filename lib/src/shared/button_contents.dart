@@ -3,46 +3,28 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/shared/auth_style.dart';
+import 'package:auth_buttons/src/shared/auth_button_style.dart';
 import 'package:flutter/material.dart';
 
 class ButtonContents extends StatelessWidget {
   const ButtonContents({
-    this.key,
-    this.iconSize,
+    Key? key,
     this.text = '',
     this.iconUrl = '',
-    this.textStyle,
     this.darkMode = false,
-    this.separator,
-    this.textColor,
     this.rtl = false,
-    this.borderRadius,
-    this.iconBackground,
-    this.style,
     this.isLoading = false,
-    this.progressIndicatorColor,
-    this.progressIndicatorValueColor,
-    this.progressIndicatorStrokeWidth = 4.0,
-    this.progressIndicatorValue,
-  });
+    this.buttonType,
+    this.style,
+  }) : super(key: key);
 
-  final Key? key;
-  final double? iconSize;
   final String text;
   final String iconUrl;
-  final TextStyle? textStyle;
   final bool darkMode;
-  final double? separator;
-  final Color? textColor;
   final bool rtl;
-  final double? borderRadius;
-  final Color? iconBackground;
-  final AuthButtonType? style;
   final bool isLoading;
-  final Color? progressIndicatorColor;
-  final Color? progressIndicatorValueColor;
-  final double? progressIndicatorStrokeWidth;
-  final double? progressIndicatorValue;
+  final AuthButtonType? buttonType;
+  final AuthButtonStyle? style;
 
   @override
   Widget build(BuildContext context) {
@@ -53,35 +35,35 @@ class ButtonContents extends StatelessWidget {
       textDirection: rtl ? TextDirection.rtl : null,
       children: <Widget>[
         Container(
-          padding: (style == AuthButtonType.secondary)
+          padding: (buttonType == AuthButtonType.secondary)
               ? const EdgeInsets.all(4.0)
               : null,
           decoration: BoxDecoration(
-            color: iconBackground,
-            borderRadius: BorderRadius.circular(borderRadius ?? 8.0),
+            color: style!.iconBackground,
+            borderRadius: BorderRadius.circular(style!.borderRadius ?? 8.0),
           ),
           child: isLoading
               ? CircularProgressIndicator(
-                  backgroundColor: progressIndicatorColor,
-                  strokeWidth: progressIndicatorStrokeWidth ?? 4.0,
+                  backgroundColor: style!.progressIndicatorColor,
+                  strokeWidth: style!.progressIndicatorStrokeWidth ?? 4.0,
                   valueColor: AlwaysStoppedAnimation<Color?>(
-                      progressIndicatorValueColor),
-                  value: progressIndicatorValue,
+                      style!.progressIndicatorValueColor),
+                  value: style!.progressIndicatorValue,
                 )
               : Image(
                   image: ExactAssetImage(
                     iconUrl,
                   ),
-                  width: iconSize,
-                  height: iconSize,
+                  width: style!.iconSize,
+                  height: style!.iconSize,
                 ),
         ),
         SizedBox(
-          width: separator,
+          width: style!.separator,
         ),
         Text(
           text,
-          style: textStyle,
+          style: style!.textStyle,
         ),
       ],
     );

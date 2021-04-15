@@ -60,7 +60,8 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
-    if (style!.iconType == AuthIconType.secondary && style == null)
+    if (style!.iconType == AuthIconType.secondary &&
+        style!.buttonType != AuthButtonType.secondary)
       return style!.textStyle ??
           TextStyle(
             color: darkMode ? Colors.white : Colors.blue[800],

@@ -102,108 +102,122 @@ class _AuthButtonStyleButtonState extends State<AuthButtonStyleButton> {
       case AuthButtonType.icon:
         return SharedButton(
           key: widget.key,
-          width: widget.style!.width ?? 50.0,
-          height: widget.style!.height ?? 50.0,
           onPressed: widget.onPressed!,
-          borderRadius: widget.style!.borderRadius,
-          padding: widget.style!.padding ?? const EdgeInsets.all(0),
-          buttonColor: widget.getButtonColor(),
-          splashColor: widget.style!.splashColor,
-          elevation: widget.style!.elevation,
-          borderColor: widget.style!.borderColor,
-          borderWidth: widget.style!.borderWidth ?? 2.0,
           onLongPress: widget.onLongPress,
-          shadowColor: widget.style!.shadowColor,
+          style: AuthButtonStyle(
+            width: widget.style!.width ?? 50.0,
+            height: widget.style!.height ?? 50.0,
+            borderRadius: widget.style!.borderRadius,
+            padding: widget.style!.padding ?? const EdgeInsets.all(0),
+            buttonColor: widget.getButtonColor(),
+            splashColor: widget.style!.splashColor,
+            elevation: widget.style!.elevation,
+            borderColor: widget.style!.borderColor,
+            borderWidth: widget.style!.borderWidth ?? 2.0,
+            shadowColor: widget.style!.shadowColor,
+          ),
           child: ButtonContents(
             key: widget.key,
             iconUrl: widget.getIconUrl(),
-            iconSize: widget.style!.iconSize,
-            separator: 0.0,
             isLoading: widget.isLoading,
-            progressIndicatorColor: widget.style!.progressIndicatorColor,
-            progressIndicatorValueColor:
-                widget.style!.progressIndicatorValueColor ??
-                    widget.getProgressIndicatorValueColor(),
-            progressIndicatorStrokeWidth:
-                widget.style!.progressIndicatorStrokeWidth,
-            progressIndicatorValue: widget.style!.progressIndicatorValue,
+            style: AuthButtonStyle(
+              iconSize: widget.style!.iconSize,
+              separator: 0.0,
+              progressIndicatorColor: widget.style!.progressIndicatorColor,
+              progressIndicatorValueColor:
+                  widget.style!.progressIndicatorValueColor ??
+                      widget.getProgressIndicatorValueColor(),
+              progressIndicatorStrokeWidth:
+                  widget.style!.progressIndicatorStrokeWidth,
+              progressIndicatorValue: widget.style!.progressIndicatorValue,
+            ),
           ),
         );
       case AuthButtonType.secondary:
         return SharedButton(
           key: widget.key,
-          width: widget.style!.width,
-          height: widget.style!.height,
           onPressed: widget.onPressed!,
-          borderRadius: widget.style!.borderRadius,
-          padding: widget.style!.padding ?? const EdgeInsets.only(right: 16.0),
-          buttonColor: widget.getButtonColor(),
-          splashColor: widget.style!.splashColor,
-          elevation: widget.style!.elevation,
-          borderColor: widget.style!.borderColor,
-          borderWidth: widget.style!.borderWidth,
           onLongPress: widget.onLongPress,
-          shadowColor: widget.style!.shadowColor,
+          style: AuthButtonStyle(
+            width: widget.style!.width,
+            height: widget.style!.height,
+            borderRadius: widget.style!.borderRadius,
+            padding:
+                widget.style!.padding ?? const EdgeInsets.only(right: 16.0),
+            buttonColor: widget.getButtonColor(),
+            splashColor: widget.style!.splashColor,
+            elevation: widget.style!.elevation,
+            borderColor: widget.style!.borderColor,
+            borderWidth: widget.style!.borderWidth,
+            shadowColor: widget.style!.shadowColor,
+          ),
           child: ButtonContents(
             key: widget.key,
             iconUrl: widget.getIconUrl(),
             text: widget.text!,
-            textStyle: widget.getTextStyle(),
-            iconSize: widget.style!.iconSize,
-            separator: widget.style!.separator,
             darkMode: widget.darkMode,
-            borderRadius: widget.style!.borderRadius,
-            iconBackground: widget.getIconBackground(),
             rtl: widget.rtl,
-            style: widget.style!.buttonType,
+            buttonType: widget.style!.buttonType,
             isLoading: widget.isLoading,
-            progressIndicatorColor: widget.style!.progressIndicatorColor,
-            progressIndicatorValueColor:
-                widget.style!.progressIndicatorValueColor ??
-                    widget.getProgressIndicatorValueColor(),
-            progressIndicatorStrokeWidth:
-                widget.style!.progressIndicatorStrokeWidth,
-            progressIndicatorValue: widget.style!.progressIndicatorValue,
+            style: AuthButtonStyle(
+              textStyle: widget.getTextStyle(),
+              iconSize: widget.style!.iconSize,
+              separator: widget.style!.separator,
+              borderRadius: widget.style!.borderRadius,
+              iconBackground: widget.getIconBackground(),
+              buttonType: widget.style!.buttonType,
+              progressIndicatorColor: widget.style!.progressIndicatorColor,
+              progressIndicatorValueColor:
+                  widget.style!.progressIndicatorValueColor ??
+                      widget.getProgressIndicatorValueColor(),
+              progressIndicatorStrokeWidth:
+                  widget.style!.progressIndicatorStrokeWidth,
+              progressIndicatorValue: widget.style!.progressIndicatorValue,
+            ),
           ),
         );
       default:
         return SharedButton(
           key: widget.key,
-          width: widget.style!.width,
-          height: widget.style!.height,
           onPressed: widget.onPressed!,
-          borderRadius: widget.style!.borderRadius,
-          padding: widget.style!.padding ??
-              const EdgeInsets.only(
-                left: 16.0,
-                right: 16.0,
-                top: 12.0,
-                bottom: 12.0,
-              ),
-          buttonColor: widget.getButtonColor(),
-          splashColor: widget.style!.splashColor,
-          elevation: widget.style!.elevation,
-          borderColor: widget.style!.borderColor,
-          borderWidth: widget.style!.borderWidth,
           onLongPress: widget.onLongPress,
-          shadowColor: widget.style!.shadowColor,
+          style: AuthButtonStyle(
+            width: widget.style!.width,
+            height: widget.style!.height,
+            borderRadius: widget.style!.borderRadius,
+            padding: widget.style!.padding ??
+                const EdgeInsets.only(
+                  left: 16.0,
+                  right: 16.0,
+                  top: 12.0,
+                  bottom: 12.0,
+                ),
+            buttonColor: widget.getButtonColor(),
+            splashColor: widget.style!.splashColor,
+            elevation: widget.style!.elevation,
+            borderColor: widget.style!.borderColor,
+            borderWidth: widget.style!.borderWidth,
+            shadowColor: widget.style!.shadowColor,
+          ),
           child: ButtonContents(
             key: widget.key,
             iconUrl: widget.getIconUrl(),
             text: widget.text!,
-            textStyle: widget.getTextStyle(),
-            iconSize: widget.style!.iconSize,
-            separator: widget.style!.separator,
             darkMode: widget.darkMode,
             rtl: widget.rtl,
             isLoading: widget.isLoading,
-            progressIndicatorColor: widget.style!.progressIndicatorColor,
-            progressIndicatorValueColor:
-                widget.style!.progressIndicatorValueColor ??
-                    widget.getProgressIndicatorValueColor(),
-            progressIndicatorStrokeWidth:
-                widget.style!.progressIndicatorStrokeWidth,
-            progressIndicatorValue: widget.style!.progressIndicatorValue,
+            style: AuthButtonStyle(
+              textStyle: widget.getTextStyle(),
+              iconSize: widget.style!.iconSize,
+              separator: widget.style!.separator,
+              progressIndicatorColor: widget.style!.progressIndicatorColor,
+              progressIndicatorValueColor:
+                  widget.style!.progressIndicatorValueColor ??
+                      widget.getProgressIndicatorValueColor(),
+              progressIndicatorStrokeWidth:
+                  widget.style!.progressIndicatorStrokeWidth,
+              progressIndicatorValue: widget.style!.progressIndicatorValue,
+            ),
           ),
         );
     }

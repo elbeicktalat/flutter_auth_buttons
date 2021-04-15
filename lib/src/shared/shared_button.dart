@@ -2,26 +2,17 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 
 class SharedButton extends StatelessWidget {
   const SharedButton({
     Key? key,
     required this.onPressed,
-    this.onLongPress,
-    this.buttonColor,
-    this.splashColor,
-    this.borderColor,
-    this.borderWidth,
-    this.elevation,
-    this.borderRadius,
-    this.padding,
+    required this.onLongPress,
     required this.child,
-    this.width,
-    this.height,
-    this.shadowColor,
+    required this.style,
   }) : super(key: key);
-
 
   ///[onPressed] is a void function well be called when the button pressed.
   final VoidCallback onPressed;
@@ -30,70 +21,41 @@ class SharedButton extends StatelessWidget {
   /// is pressed for long time.
   final VoidCallback? onLongPress;
 
-  ///[buttonColor] Define the button color, default value [Colors.white].
-  final Color? buttonColor;
-
-  ///[splashColor] Define the color when the button onPressed,
-  ///the default value is [Colors.grey].
-  final Color? splashColor;
-
-  ///[borderColor] Define the color border around the button,
-  ///the default value is [null].
-  final Color? borderColor;
-
-  ///[borderWidth] Define the border width around the button,
-  ///the default value is [null].
-  final double? borderWidth;
-
-  ///[elevation] Define the elevation button, the default value is [2.0].
-  final double? elevation;
-
-  ///[borderRadius] Define the border radius, the default value is [0.0].
-  final double? borderRadius;
-
-  ///[padding] Define the button padding, the default value is [null].
-  final EdgeInsets? padding;
-
-  ///[child] .
+  ///[child] is A Widget which will be put inside of this widget.
   final Widget child;
 
-  ///[width] Define the button width.
-  final double? width;
-
-  ///[height] Define the button height.
-  final double? height;
-
-  ///[shadowColor] Define the shadow color when the button is clicked.
-  final Color? shadowColor;
+  ///**[style]** define the entire button style, like buttonColor, iconSize,
+  /// width, and other.
+  final AuthButtonStyle? style;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       key: key,
-      width: width,
-      height: height,
+      width: style!.width,
+      height: style!.height,
       child: ElevatedButton(
         key: key,
         onPressed: onPressed,
         onLongPress: onLongPress,
         child: child,
         style: ButtonStyle(
-          padding: MaterialStateProperty.all(padding),
-          backgroundColor: MaterialStateProperty.all(buttonColor),
-          elevation: MaterialStateProperty.all(elevation),
+          padding: MaterialStateProperty.all(style!.padding),
+          backgroundColor: MaterialStateProperty.all(style!.buttonColor),
+          elevation: MaterialStateProperty.all(style!.elevation),
           side: MaterialStateProperty.all(
             BorderSide(
-              width: borderWidth ?? 2.0,
-              color: borderColor ?? Colors.transparent,
+              width: style!.borderWidth ?? 2.0,
+              color: style!.borderColor ?? Colors.transparent,
             ),
           ),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(borderRadius ?? 0.0),
+              borderRadius: BorderRadius.circular(style!.borderRadius ?? 0.0),
             ),
           ),
-          shadowColor: MaterialStateProperty.all(shadowColor),
-          overlayColor: MaterialStateProperty.all(splashColor),
+          shadowColor: MaterialStateProperty.all(style!.shadowColor),
+          overlayColor: MaterialStateProperty.all(style!.splashColor),
         ),
       ),
     );
