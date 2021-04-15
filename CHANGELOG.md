@@ -1,3 +1,8 @@
+### [1.0.1] - 15 Apr 2021
+- Show a `CircularProgressIndicator` when the `isLoadig` is true.
+- Rename the `AuthButtonStyle` to `AuthButtonType`.
+- Rename the `AuthIconStyle` to `AuthIconType`.
+- Make all styling staff below the `AuthButtonStyle` to be more orginized then before.
 ### [1.0.0] - 01 Mar 2021
 - Migration to sound null safety
 - Migration to ElevateButton instead of RaisedButton.
