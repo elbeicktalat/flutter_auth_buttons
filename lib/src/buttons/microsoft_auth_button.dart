@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.12
-
 import 'package:auth_buttons/src/shared/auth_button.dart';
 import 'package:auth_buttons/src/shared/auth_colors.dart';
 import 'package:auth_buttons/src/shared/auth_button_style.dart';
@@ -34,14 +32,12 @@ class MicrosoftAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style!.buttonType == AuthButtonType.secondary)
-      return Colors.amber;
+    if (style!.buttonType == AuthButtonType.secondary) return Colors.amber;
   }
 
   @override
   String getIconUrl() {
-    if (style!.iconType == AuthIconType.outlined)
-      return AuthIcons.microsoft[1];
+    if (style!.iconType == AuthIconType.outlined) return AuthIcons.microsoft[1];
     if (style!.iconType == AuthIconType.secondary)
       return AuthIcons.microsoft[2];
     return AuthIcons.microsoft[0];

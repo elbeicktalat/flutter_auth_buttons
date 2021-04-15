@@ -2,8 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.12
-
 import 'package:auth_buttons/src/shared/auth_button.dart';
 import 'package:auth_buttons/src/shared/auth_colors.dart';
 import 'package:auth_buttons/src/shared/auth_button_style.dart';
@@ -34,10 +32,8 @@ class HuaweiAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() {
-    if (style!.buttonType == AuthButtonType.secondary)
-      return Colors.red;
-    if (style!.buttonType != AuthButtonType.secondary)
-      return Colors.red[200];
+    if (style!.buttonType == AuthButtonType.secondary) return Colors.red;
+    if (style!.buttonType != AuthButtonType.secondary) return Colors.red[200];
   }
 
   @override

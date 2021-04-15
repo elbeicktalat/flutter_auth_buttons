@@ -2,13 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-// @dart=2.12
-
 import 'package:flutter/material.dart';
 
 class SharedButton extends StatelessWidget {
   const SharedButton({
-    this.key,
+    Key? key,
     required this.onPressed,
     this.onLongPress,
     this.buttonColor,
@@ -22,9 +20,8 @@ class SharedButton extends StatelessWidget {
     this.width,
     this.height,
     this.shadowColor,
-  });
+  }) : super(key: key);
 
-  final Key? key;
 
   ///[onPressed] is a void function well be called when the button pressed.
   final VoidCallback onPressed;
