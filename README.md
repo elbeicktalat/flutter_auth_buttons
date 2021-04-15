@@ -34,17 +34,17 @@ We also recommend you to using the latest version.
 
 ## Overview
 
-There are three style you can choose between them:
+There are three Types you can choose between them:
 
-1. [Default](#default-style)
-1. [Icon](#icon-style)
-1. [Secondary](#secondary-style)
+1. [Default](#default-type)
+1. [Icon](#icon-type)
+1. [Secondary](#secondary-type)
   
 ## Using
  
 You need to use just the following code: 
 
-### Default style
+### Default Type
 
 ```dart
 GoogleAuthButton(
@@ -86,7 +86,7 @@ Light             |  Dark
 ![](./doc/readme_assets/default-button-secondary-icon.png)  |  ![](./doc/readme_assets/dark-default-button-secondary-icon.png)
 
 
-### Icon Style
+### Icon Type
 
 ```dart
 GoogleAuthButton(
@@ -134,7 +134,7 @@ Light             |  Dark
 :-------------------------:|:-------------------------:
 ![](./doc/readme_assets/icon-button-secondary-icon.png)  |  ![](./doc/readme_assets/dark-icon-button-secondary-icon.png)
 
-### Secondary Style
+### Secondary Secondary
 
 ```dart
 GoogleAuthButton(
