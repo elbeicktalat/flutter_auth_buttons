@@ -8,7 +8,7 @@ import 'package:auth_buttons/src/shared/button_contents.dart';
 import 'package:auth_buttons/src/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
-abstract class AuthButtonStyleButton extends StatefulWidget {
+abstract class AuthButtonStyleButton extends StatelessWidget {
   const AuthButtonStyleButton({
     Key? key,
     required this.onPressed,
@@ -60,9 +60,6 @@ abstract class AuthButtonStyleButton extends StatefulWidget {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/rtl.png)
   final bool rtl;
 
-  @override
-  _AuthButtonStyleButtonState createState() => _AuthButtonStyleButtonState();
-
   Color getButtonColor();
 
   Color getIconBackground();
@@ -72,130 +69,121 @@ abstract class AuthButtonStyleButton extends StatefulWidget {
   String? getIconUrl();
 
   Color? getProgressIndicatorValueColor() => Colors.blue;
-}
 
-class _AuthButtonStyleButtonState extends State<AuthButtonStyleButton> {
   @override
   Widget build(BuildContext context) {
-    switch (widget.style!.buttonType) {
+    switch (style!.buttonType) {
       case AuthButtonType.icon:
         return SharedButton(
-          key: widget.key,
-          onPressed: widget.onPressed!,
-          onLongPress: widget.onLongPress,
+          key: key,
+          onPressed: onPressed!,
+          onLongPress: onLongPress,
           style: AuthButtonStyle(
-            width: widget.style!.width ?? 50.0,
-            height: widget.style!.height ?? 50.0,
-            borderRadius: widget.style!.borderRadius,
-            padding: widget.style!.padding ?? const EdgeInsets.all(0),
-            buttonColor: widget.getButtonColor(),
-            splashColor: widget.style!.splashColor,
-            elevation: widget.style!.elevation,
-            borderColor: widget.style!.borderColor,
-            borderWidth: widget.style!.borderWidth ?? 2.0,
-            shadowColor: widget.style!.shadowColor,
+            width: style!.width ?? 50.0,
+            height: style!.height ?? 50.0,
+            borderRadius: style!.borderRadius,
+            padding: style!.padding ?? const EdgeInsets.all(0),
+            buttonColor: getButtonColor(),
+            splashColor: style!.splashColor,
+            elevation: style!.elevation,
+            borderColor: style!.borderColor,
+            borderWidth: style!.borderWidth ?? 2.0,
+            shadowColor: style!.shadowColor,
           ),
           child: ButtonContents(
-            key: widget.key,
-            iconUrl: widget.getIconUrl()!,
-            isLoading: widget.isLoading,
+            key: key,
+            iconUrl: getIconUrl()!,
+            isLoading: isLoading,
             style: AuthButtonStyle(
-              iconSize: widget.style!.iconSize,
+              iconSize: style!.iconSize,
               separator: 0.0,
-              progressIndicatorColor: widget.style!.progressIndicatorColor,
-              progressIndicatorValueColor:
-                  widget.style!.progressIndicatorValueColor ??
-                      widget.getProgressIndicatorValueColor(),
-              progressIndicatorStrokeWidth:
-                  widget.style!.progressIndicatorStrokeWidth,
-              progressIndicatorValue: widget.style!.progressIndicatorValue,
+              progressIndicatorColor: style!.progressIndicatorColor,
+              progressIndicatorValueColor: style!.progressIndicatorValueColor ??
+                  getProgressIndicatorValueColor(),
+              progressIndicatorStrokeWidth: style!.progressIndicatorStrokeWidth,
+              progressIndicatorValue: style!.progressIndicatorValue,
             ),
           ),
         );
       case AuthButtonType.secondary:
         return SharedButton(
-          key: widget.key,
-          onPressed: widget.onPressed!,
-          onLongPress: widget.onLongPress,
+          key: key,
+          onPressed: onPressed!,
+          onLongPress: onLongPress,
           style: AuthButtonStyle(
-            width: widget.style!.width,
-            height: widget.style!.height,
-            borderRadius: widget.style!.borderRadius,
-            padding:
-                widget.style!.padding ?? const EdgeInsets.only(right: 16.0),
-            buttonColor: widget.getButtonColor(),
-            splashColor: widget.style!.splashColor,
-            elevation: widget.style!.elevation,
-            borderColor: widget.style!.borderColor,
-            borderWidth: widget.style!.borderWidth,
-            shadowColor: widget.style!.shadowColor,
+            width: style!.width,
+            height: style!.height,
+            borderRadius: style!.borderRadius,
+            padding: style!.padding ?? const EdgeInsets.only(right: 16.0),
+            buttonColor: getButtonColor(),
+            splashColor: style!.splashColor,
+            elevation: style!.elevation,
+            borderColor: style!.borderColor,
+            borderWidth: style!.borderWidth,
+            shadowColor: style!.shadowColor,
           ),
           child: ButtonContents(
-            key: widget.key,
-            iconUrl: widget.getIconUrl()!,
-            text: widget.text!,
-            darkMode: widget.darkMode,
-            rtl: widget.rtl,
-            buttonType: widget.style!.buttonType,
-            isLoading: widget.isLoading,
+            key: key,
+            iconUrl: getIconUrl()!,
+            text: text!,
+            darkMode: darkMode,
+            rtl: rtl,
+            buttonType: style!.buttonType,
+            isLoading: isLoading,
             style: AuthButtonStyle(
-              textStyle: widget.getTextStyle(),
-              iconSize: widget.style!.iconSize,
-              separator: widget.style!.separator,
-              borderRadius: widget.style!.borderRadius,
-              iconBackground: widget.getIconBackground(),
-              buttonType: widget.style!.buttonType,
-              progressIndicatorColor: widget.style!.progressIndicatorColor,
-              progressIndicatorValueColor:
-                  widget.style!.progressIndicatorValueColor ??
-                      widget.getProgressIndicatorValueColor(),
-              progressIndicatorStrokeWidth:
-                  widget.style!.progressIndicatorStrokeWidth,
-              progressIndicatorValue: widget.style!.progressIndicatorValue,
+              textStyle: getTextStyle(),
+              iconSize: style!.iconSize,
+              separator: style!.separator,
+              borderRadius: style!.borderRadius,
+              iconBackground: getIconBackground(),
+              buttonType: style!.buttonType,
+              progressIndicatorColor: style!.progressIndicatorColor,
+              progressIndicatorValueColor: style!.progressIndicatorValueColor ??
+                  getProgressIndicatorValueColor(),
+              progressIndicatorStrokeWidth: style!.progressIndicatorStrokeWidth,
+              progressIndicatorValue: style!.progressIndicatorValue,
             ),
           ),
         );
       default:
         return SharedButton(
-          key: widget.key,
-          onPressed: widget.onPressed!,
-          onLongPress: widget.onLongPress,
+          key: key,
+          onPressed: onPressed!,
+          onLongPress: onLongPress,
           style: AuthButtonStyle(
-            width: widget.style!.width,
-            height: widget.style!.height,
-            borderRadius: widget.style!.borderRadius,
-            padding: widget.style!.padding ??
+            width: style!.width,
+            height: style!.height,
+            borderRadius: style!.borderRadius,
+            padding: style!.padding ??
                 const EdgeInsets.only(
                   left: 16.0,
                   right: 16.0,
                   top: 12.0,
                   bottom: 12.0,
                 ),
-            buttonColor: widget.getButtonColor(),
-            splashColor: widget.style!.splashColor,
-            elevation: widget.style!.elevation,
-            borderColor: widget.style!.borderColor,
-            borderWidth: widget.style!.borderWidth,
-            shadowColor: widget.style!.shadowColor,
+            buttonColor: getButtonColor(),
+            splashColor: style!.splashColor,
+            elevation: style!.elevation,
+            borderColor: style!.borderColor,
+            borderWidth: style!.borderWidth,
+            shadowColor: style!.shadowColor,
           ),
           child: ButtonContents(
-            key: widget.key,
-            iconUrl: widget.getIconUrl()!,
-            text: widget.text!,
-            darkMode: widget.darkMode,
-            rtl: widget.rtl,
-            isLoading: widget.isLoading,
+            key: key,
+            iconUrl: getIconUrl()!,
+            text: text!,
+            darkMode: darkMode,
+            rtl: rtl,
+            isLoading: isLoading,
             style: AuthButtonStyle(
-              textStyle: widget.getTextStyle(),
-              iconSize: widget.style!.iconSize,
-              separator: widget.style!.separator,
-              progressIndicatorColor: widget.style!.progressIndicatorColor,
-              progressIndicatorValueColor:
-                  widget.style!.progressIndicatorValueColor ??
-                      widget.getProgressIndicatorValueColor(),
-              progressIndicatorStrokeWidth:
-                  widget.style!.progressIndicatorStrokeWidth,
-              progressIndicatorValue: widget.style!.progressIndicatorValue,
+              textStyle: getTextStyle(),
+              iconSize: style!.iconSize,
+              separator: style!.separator,
+              progressIndicatorColor: style!.progressIndicatorColor,
+              progressIndicatorValueColor: style!.progressIndicatorValueColor ??
+                  getProgressIndicatorValueColor(),
+              progressIndicatorStrokeWidth: style!.progressIndicatorStrokeWidth,
+              progressIndicatorValue: style!.progressIndicatorValue,
             ),
           ),
         );
