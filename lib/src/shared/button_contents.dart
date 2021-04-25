@@ -43,12 +43,15 @@ class ButtonContents extends StatelessWidget {
             borderRadius: BorderRadius.circular(style!.borderRadius ?? 8.0),
           ),
           child: isLoading
-              ? CircularProgressIndicator(
-                  backgroundColor: style!.progressIndicatorColor,
-                  strokeWidth: style!.progressIndicatorStrokeWidth ?? 4.0,
-                  valueColor: AlwaysStoppedAnimation<Color?>(
-                      style!.progressIndicatorValueColor),
-                  value: style!.progressIndicatorValue,
+              ? SizedBox(
+                  width: style!.iconSize,
+                  height: style!.iconSize,
+                  child: CircularProgressIndicator(
+                    backgroundColor: style!.progressIndicatorColor,
+                    strokeWidth: style!.progressIndicatorStrokeWidth ?? 4.0,
+                    valueColor: AlwaysStoppedAnimation<Color?>(style!.progressIndicatorValueColor),
+                    value: style!.progressIndicatorValue,
+                  ),
                 )
               : Image(
                   image: ExactAssetImage(
