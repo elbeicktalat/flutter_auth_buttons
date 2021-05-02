@@ -8,7 +8,6 @@ class AuthIcons {
     'packages/auth_buttons/images/outlined/google.png',
     'packages/auth_buttons/images/secondary/google.png',
   ];
-  //Todo: update the facebook icon color.
   static const List<String> facebook = <String>[
     'packages/auth_buttons/images/default/facebook.png',
     'packages/auth_buttons/images/outlined/facebook.png',
