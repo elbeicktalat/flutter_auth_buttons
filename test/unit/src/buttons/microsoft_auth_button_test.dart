@@ -11,8 +11,8 @@ void main() {
     test('darkMode', () {
       expect(microsoftAuthButton.darkMode, false);
     });
-    test('style', () {
-      expect(microsoftAuthButton.style, null);
+    test('Button type', () {
+      expect(microsoftAuthButton.style!.buttonType, null);
     });
     test('rtl', () {
       expect(microsoftAuthButton.rtl, false);

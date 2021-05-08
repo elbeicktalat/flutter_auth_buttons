@@ -10,8 +10,8 @@ void main() {
     test('darkMode', () {
       expect(emailAuthButton.darkMode, false);
     });
-    test('style', () {
-      expect(emailAuthButton.style, null);
+    test('Button type', () {
+      expect(emailAuthButton.style!.buttonType, null);
     });
     test('rtl', () {
       expect(emailAuthButton.rtl, false);

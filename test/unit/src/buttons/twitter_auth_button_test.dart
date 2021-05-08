@@ -11,8 +11,8 @@ void main() {
     test('darkMode', () {
       expect(twitterAuthButton.darkMode, false);
     });
-    test('style', () {
-      expect(twitterAuthButton.style, null);
+    test('Button type', () {
+      expect(twitterAuthButton.style!.buttonType, null);
     });
     test('rtl', () {
       expect(twitterAuthButton.rtl, false);

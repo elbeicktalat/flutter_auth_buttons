@@ -10,8 +10,8 @@ void main() {
     test('darkMode', () {
       expect(appleAuthButton.darkMode, false);
     });
-    test('style', () {
-      expect(appleAuthButton.style, null);
+    test('Button type', () {
+      expect(appleAuthButton.style!.buttonType, null);
     });
     test('rtl', () {
       expect(appleAuthButton.rtl, false);

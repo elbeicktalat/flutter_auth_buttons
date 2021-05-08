@@ -11,8 +11,8 @@ void main() {
     test('darkMode', () {
       expect(googleAuthButton.darkMode, false);
     });
-    test('style', () {
-      expect(googleAuthButton.style, null);
+    test('Button type', () {
+      expect(googleAuthButton.style!.buttonType, null);
     });
     test('rtl', () {
       expect(googleAuthButton.rtl, false);

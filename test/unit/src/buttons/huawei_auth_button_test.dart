@@ -11,8 +11,8 @@ void main() {
     test('darkMode', () {
       expect(huaweiAuthButton.darkMode, false);
     });
-    test('style', () {
-      expect(huaweiAuthButton.style, null);
+    test('Button type', () {
+      expect(huaweiAuthButton.style!.buttonType, null);
     });
     test('rtl', () {
       expect(huaweiAuthButton.rtl, false);

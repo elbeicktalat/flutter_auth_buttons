@@ -11,8 +11,8 @@ void main() {
     test('darkMode', () {
       expect(githubAuthButton.darkMode, false);
     });
-    test('style', () {
-      expect(githubAuthButton.style, null);
+    test('Button type', () {
+      expect(githubAuthButton.style!.buttonType, null);
     });
     test('rtl', () {
       expect(githubAuthButton.rtl, false);

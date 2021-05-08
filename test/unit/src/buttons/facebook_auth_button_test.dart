@@ -11,8 +11,8 @@ void main() {
     test('darkMode', () {
       expect(facebookAuthButton.darkMode, false);
     });
-    test('style', () {
-      expect(facebookAuthButton.style, null);
+    test('Button type', () {
+      expect(facebookAuthButton.style!.buttonType, null);
     });
     test('rtl', () {
       expect(facebookAuthButton.rtl, false);
