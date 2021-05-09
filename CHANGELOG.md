@@ -1,3 +1,6 @@
+### [1.0.1+1] - 09 May 2021
+- Pass static analytics.
+- Fix `CircularProgressIndicator` size.
 ### [1.0.1] - 15 Apr 2021
 - Show a `CircularProgressIndicator` when the `isLoadig` is true.
 - Rename the `AuthButtonStyle` to `AuthButtonType`.
