@@ -12,18 +12,32 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool isLoading = false;
+  bool darkMode = true;
 
   @override
   Widget build(BuildContext context) {
     const String appName = 'Auth Buttons Example';
-    const bool darkMode = false;
     const AuthButtonType? buttonType = AuthButtonType.secondary;
     const AuthIconType? authIconType = AuthIconType.outlined;
     return MaterialApp(
       title: appName,
+      themeMode: (darkMode) ? ThemeMode.dark : ThemeMode.light,
+      darkTheme: ThemeData(
+        brightness: Brightness.dark,
+      ),
       home: Scaffold(
         appBar: AppBar(
           title: const Text(appName),
+          actions: [
+            Switch(
+              value: darkMode,
+              onChanged: (value) {
+                setState(() {
+                  darkMode = value;
+                });
+              },
+            ),
+          ],
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -32,7 +46,6 @@ class _MyAppState extends State<MyApp> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   GoogleAuthButton(
                     onPressed: () {
