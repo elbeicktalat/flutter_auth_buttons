@@ -1,3 +1,5 @@
+### [1.0.1+2] - 10 May 2021
+- Pass static analytics.
 ### [1.0.1+1] - 09 May 2021
 - Pass static analytics.
 - Fix `CircularProgressIndicator` size.
