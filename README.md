@@ -1,6 +1,6 @@
 # auth_buttons
-[![Pub Version](https://img.shields.io/pub/v/auth_buttons?color=blue&logo=dart)](https://pub.dev/packages/auth_buttons)
 [![Github stars](https://img.shields.io/github/stars/elbeicktalat/flutter_auth_buttons?logo=github)](https://github.com/elbeicktalat/flutter_auth_buttons)
+[![Pub Version](https://img.shields.io/pub/v/auth_buttons?color=blue&logo=dart)](https://pub.dev/packages/auth_buttons)
 
 Auth Buttons is a flutter widget library, include buttons for authenticating with the most popular 
 social networks like: Google, Facebook, Apple and too other.
@@ -9,7 +9,7 @@ social networks like: Google, Facebook, Apple and too other.
 1) Add this to your packages pubspec.yaml file:
 ```yaml
 dependencies:
-  auth_buttons: ^1.0.1
+  auth_buttons: ^1.0.1+3
 ```
 2) Install it 
 You can install it from the command line:
