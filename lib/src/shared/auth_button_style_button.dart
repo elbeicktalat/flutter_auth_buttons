@@ -155,12 +155,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
             height: style!.height,
             borderRadius: style!.borderRadius,
             padding: style!.padding ??
-                const EdgeInsets.only(
-                  left: 16.0,
-                  right: 16.0,
-                  top: 12.0,
-                  bottom: 12.0,
-                ),
+                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
             buttonColor: getButtonColor(),
             splashColor: style!.splashColor,
             elevation: style!.elevation,
