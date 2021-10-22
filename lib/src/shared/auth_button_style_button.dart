@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/shared/auth_button_style.dart';
-import 'package:auth_buttons/src/shared/auth_style.dart';
+import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:auth_buttons/src/shared/button_contents.dart';
 import 'package:auth_buttons/src/shared/shared_button.dart';
 import 'package:flutter/material.dart';
