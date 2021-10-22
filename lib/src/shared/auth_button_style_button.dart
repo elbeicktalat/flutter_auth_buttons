@@ -66,9 +66,9 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
 
   TextStyle getTextStyle();
 
-  String? getIconUrl();
+  String getIconUrl();
 
-  Color? getProgressIndicatorValueColor() => Colors.blue;
+  Color? getProgressIndicatorValueColor();
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +92,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
           ),
           child: ButtonContents(
             key: key,
-            iconUrl: getIconUrl()!,
+            iconUrl: getIconUrl(),
             isLoading: isLoading,
             style: AuthButtonStyle(
               iconSize: style!.iconSize,
@@ -124,7 +124,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
           ),
           child: ButtonContents(
             key: key,
-            iconUrl: getIconUrl()!,
+            iconUrl: getIconUrl(),
             text: text!,
             darkMode: darkMode,
             rtl: rtl,
@@ -165,7 +165,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
           ),
           child: ButtonContents(
             key: key,
-            iconUrl: getIconUrl()!,
+            iconUrl: getIconUrl(),
             text: text!,
             darkMode: darkMode,
             rtl: rtl,
