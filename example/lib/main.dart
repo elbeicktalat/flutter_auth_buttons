@@ -17,7 +17,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     const String appName = 'Auth Buttons Example';
-    const AuthButtonType? buttonType = AuthButtonType.secondary;
+    const AuthButtonType? buttonType = AuthButtonType.icon;
     const AuthIconType? authIconType = AuthIconType.outlined;
     return MaterialApp(
       title: appName,
