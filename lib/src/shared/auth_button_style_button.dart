@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/shared/auth_button_secondary.dart';
 import 'package:auth_buttons/src/shared/auth_button_style.dart';
 import 'package:auth_buttons/src/shared/auth_icon_button.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
@@ -87,44 +88,19 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
           progressIndicatorValueColor: getProgressIndicatorValueColor(),
         );
       case AuthButtonType.secondary:
-        return SharedButton(
-          key: key,
-          onPressed: onPressed!,
+        return AuthButtonSecondary(
+          onPressed: onPressed,
           onLongPress: onLongPress,
-          style: AuthButtonStyle(
-            width: style!.width,
-            height: style!.height,
-            borderRadius: style!.borderRadius,
-            padding: style!.padding ?? const EdgeInsets.only(right: 16.0),
-            buttonColor: getButtonColor(),
-            splashColor: style!.splashColor,
-            elevation: style!.elevation,
-            borderColor: style!.borderColor,
-            borderWidth: style!.borderWidth,
-            shadowColor: style!.shadowColor,
-          ),
-          child: ButtonContents(
-            key: key,
-            iconUrl: getIconUrl(),
-            text: text!,
-            darkMode: darkMode,
-            rtl: rtl,
-            buttonType: style!.buttonType,
-            isLoading: isLoading,
-            style: AuthButtonStyle(
-              textStyle: getTextStyle(),
-              iconSize: style!.iconSize,
-              separator: style!.separator,
-              borderRadius: style!.borderRadius,
-              iconBackground: getIconBackground(),
-              buttonType: style!.buttonType,
-              progressIndicatorColor: style!.progressIndicatorColor,
-              progressIndicatorValueColor: style!.progressIndicatorValueColor ??
-                  getProgressIndicatorValueColor(),
-              progressIndicatorStrokeWidth: style!.progressIndicatorStrokeWidth,
-              progressIndicatorValue: style!.progressIndicatorValue,
-            ),
-          ),
+          style: style,
+          darkMode: darkMode,
+          isLoading: isLoading,
+          rtl: rtl,
+          text: text!,
+          textStyle: getTextStyle(),
+          buttonColor: getButtonColor(),
+          iconUrl: getIconUrl(),
+          progressIndicatorValueColor: getProgressIndicatorValueColor(),
+          iconBackground: getIconBackground(),
         );
       default:
         return SharedButton(
