@@ -10,6 +10,9 @@ abstract class BaseAuthButton extends StatelessWidget {
     required this.darkMode,
     required this.isLoading,
     required this.rtl,
+    required this.buttonColor,
+    required this.iconUrl,
+    required this.progressIndicatorValueColor,
   }) : super(key: key);
 
   final VoidCallback? onPressed;
@@ -18,6 +21,9 @@ abstract class BaseAuthButton extends StatelessWidget {
   final bool darkMode;
   final bool isLoading;
   final bool rtl;
+  final Color buttonColor;
+  final String iconUrl;
+  final Color? progressIndicatorValueColor;
 
   Color getButtonColor();
 
