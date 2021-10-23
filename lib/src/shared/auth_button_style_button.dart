@@ -4,10 +4,9 @@
 
 import 'package:auth_buttons/src/shared/auth_button_secondary.dart';
 import 'package:auth_buttons/src/shared/auth_button_style.dart';
+import 'package:auth_buttons/src/shared/auth_default_button.dart';
 import 'package:auth_buttons/src/shared/auth_icon_button.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
-import 'package:auth_buttons/src/shared/button_contents.dart';
-import 'package:auth_buttons/src/shared/shared_button.dart';
 import 'package:flutter/material.dart';
 
 abstract class AuthButtonStyleButton extends StatelessWidget {
@@ -103,41 +102,18 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
           iconBackground: getIconBackground(),
         );
       default:
-        return SharedButton(
-          key: key,
-          onPressed: onPressed!,
+        return AuthDefaultButton(
+          onPressed: onPressed,
           onLongPress: onLongPress,
-          style: AuthButtonStyle(
-            width: style!.width,
-            height: style!.height,
-            borderRadius: style!.borderRadius,
-            padding: style!.padding ??
-                const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
-            buttonColor: getButtonColor(),
-            splashColor: style!.splashColor,
-            elevation: style!.elevation,
-            borderColor: style!.borderColor,
-            borderWidth: style!.borderWidth,
-            shadowColor: style!.shadowColor,
-          ),
-          child: ButtonContents(
-            key: key,
-            iconUrl: getIconUrl(),
-            text: text!,
-            darkMode: darkMode,
-            rtl: rtl,
-            isLoading: isLoading,
-            style: AuthButtonStyle(
-              textStyle: getTextStyle(),
-              iconSize: style!.iconSize,
-              separator: style!.separator,
-              progressIndicatorColor: style!.progressIndicatorColor,
-              progressIndicatorValueColor: style!.progressIndicatorValueColor ??
-                  getProgressIndicatorValueColor(),
-              progressIndicatorStrokeWidth: style!.progressIndicatorStrokeWidth,
-              progressIndicatorValue: style!.progressIndicatorValue,
-            ),
-          ),
+          style: style,
+          darkMode: darkMode,
+          isLoading: isLoading,
+          rtl: rtl,
+          text: text!,
+          buttonColor: getButtonColor(),
+          iconUrl: getIconUrl(),
+          progressIndicatorValueColor: getProgressIndicatorValueColor(),
+          textStyle: getTextStyle(),
         );
     }
   }
