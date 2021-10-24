@@ -43,7 +43,7 @@ class GoogleAuthButton extends AuthButton {
   Color getButtonColor() {
     if (style!.buttonType == AuthButtonType.secondary)
       return style!.buttonColor ??
-          (darkMode ? AuthColors.darkMode : AuthColors.googleSecondary);
+          (darkMode ? AuthColors.darkMode : Colors.blue);
     return style!.buttonColor ??
         (darkMode ? AuthColors.darkMode : Colors.white);
   }
