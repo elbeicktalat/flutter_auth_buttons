@@ -14,8 +14,8 @@ class ButtonContents extends StatelessWidget {
     this.darkMode = false,
     this.rtl = false,
     this.isLoading = false,
-    this.buttonType,
     this.style,
+    this.textStyle,
   }) : super(key: key);
 
   final String text;
@@ -23,8 +23,8 @@ class ButtonContents extends StatelessWidget {
   final bool darkMode;
   final bool rtl;
   final bool isLoading;
-  final AuthButtonType? buttonType;
   final AuthButtonStyle? style;
+  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class ButtonContents extends StatelessWidget {
       textDirection: rtl ? TextDirection.rtl : null,
       children: <Widget>[
         Container(
-          padding: (buttonType == AuthButtonType.secondary)
+          padding: (style!.buttonType == AuthButtonType.secondary)
               ? const EdgeInsets.all(4.0)
               : null,
           decoration: BoxDecoration(
@@ -67,7 +67,7 @@ class ButtonContents extends StatelessWidget {
         ),
         Text(
           text,
-          style: style!.textStyle,
+          style: textStyle,
         ),
       ],
     );
