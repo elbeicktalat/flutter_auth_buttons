@@ -60,10 +60,9 @@ class AuthButtonSecondary extends BaseAuthButton {
         text: text,
         darkMode: darkMode,
         rtl: rtl,
-        buttonType: style!.buttonType,
         isLoading: isLoading,
+        textStyle: getTextStyle(),
         style: AuthButtonStyle(
-          textStyle: getTextStyle(),
           iconSize: style!.iconSize,
           separator: style!.separator,
           borderRadius: style!.borderRadius,

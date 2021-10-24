@@ -15,6 +15,7 @@ class TwitterAuthButton extends AuthButton {
     required VoidCallback onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Twitter',
+    TextStyle? textStyle,
     bool darkMode = false,
     bool rtl = false,
     bool isLoading = false,
@@ -24,6 +25,7 @@ class TwitterAuthButton extends AuthButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           text: text,
+          textStyle: textStyle,
           darkMode: darkMode,
           rtl: rtl,
           isLoading: isLoading,
@@ -69,7 +71,7 @@ class TwitterAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
-    return style!.textStyle ??
+    return textStyle ??
         const TextStyle(
           color: Colors.white,
           fontSize: 18,

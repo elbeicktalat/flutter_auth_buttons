@@ -15,6 +15,7 @@ class GoogleAuthButton extends AuthButton {
     required VoidCallback onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Google',
+    TextStyle? textStyle,
     bool darkMode = false,
     bool rtl = false,
     bool isLoading = false,
@@ -24,6 +25,7 @@ class GoogleAuthButton extends AuthButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           text: text,
+          textStyle: textStyle,
           darkMode: darkMode,
           rtl: rtl,
           isLoading: isLoading,
@@ -41,7 +43,7 @@ class GoogleAuthButton extends AuthButton {
   Color getButtonColor() {
     if (style!.buttonType == AuthButtonType.secondary)
       return style!.buttonColor ??
-          (darkMode ? AuthColors.darkMode : Colors.blue);
+          (darkMode ? AuthColors.darkMode : AuthColors.googleSecondary);
     return style!.buttonColor ??
         (darkMode ? AuthColors.darkMode : Colors.white);
   }

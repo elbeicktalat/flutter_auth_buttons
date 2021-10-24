@@ -17,12 +17,14 @@ class AuthButton extends AuthButtonStyleButton {
     bool darkMode = false,
     bool isLoading = false,
     bool rtl = false,
+    TextStyle? textStyle,
   }) : super(
           key: key,
           onPressed: onPressed,
           onLongPress: onLongPress,
           style: style ?? const AuthButtonStyle(),
           text: text,
+          textStyle: textStyle,
           darkMode: darkMode,
           isLoading: isLoading,
           rtl: rtl,
@@ -42,14 +44,14 @@ class AuthButton extends AuthButtonStyleButton {
   @override
   TextStyle getTextStyle() {
     if (style!.buttonType == AuthButtonType.secondary)
-      return style!.textStyle ??
+      return textStyle ??
           const TextStyle(
             color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.bold,
             letterSpacing: 0.50,
           );
-    return style!.textStyle ??
+    return textStyle ??
         TextStyle(
           color: darkMode ? Colors.white : Colors.black,
           fontSize: 18,
