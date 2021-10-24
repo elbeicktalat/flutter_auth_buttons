@@ -13,7 +13,6 @@ class AuthButtonStyle {
     this.elevation = 2.0,
     this.borderRadius = 8.0,
     this.padding,
-    this.textStyle,
     this.borderColor,
     this.borderWidth,
     this.buttonType,
@@ -72,22 +71,6 @@ class AuthButtonStyle {
   /// EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0)
   /// ```
   final EdgeInsets? padding;
-
-  ///**[textStyle]** Define the text style.
-  ///
-  ///You can customise the text style how you prefer example:
-  /// ```dart
-  ///textStyle: TextStyle(
-  ///   color: Colors.red[800],
-  ///   fontSize: 16.0,
-  ///   fontWeight: FontWeight.bold,
-  ///   fontStyle: FontStyle.italic,
-  ///   letterSpacing: 2.0,
-  /// ),
-  /// ```
-  /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/text-style.png)
-  final TextStyle? textStyle;
 
   ///**[borderColor]** Define the border color around the button.
   ///
