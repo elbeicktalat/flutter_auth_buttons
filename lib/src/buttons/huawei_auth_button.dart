@@ -15,6 +15,7 @@ class HuaweiAuthButton extends AuthButton {
     required VoidCallback onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Huawei',
+    TextStyle? textStyle,
     bool darkMode = false,
     bool rtl = false,
     bool isLoading = false,
@@ -24,6 +25,7 @@ class HuaweiAuthButton extends AuthButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           text: text,
+          textStyle: textStyle,
           darkMode: darkMode,
           rtl: rtl,
           isLoading: isLoading,
@@ -68,7 +70,7 @@ class HuaweiAuthButton extends AuthButton {
         fontWeight: FontWeight.bold,
         letterSpacing: 0.50,
       );
-    return style!.textStyle ??
+    return textStyle ??
         const TextStyle(
           color: Colors.white,
           fontSize: 18,
