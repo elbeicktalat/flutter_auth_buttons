@@ -29,6 +29,54 @@ class AuthButtonStyle {
     this.progressIndicatorValue,
   });
 
+  AuthButtonStyle copyWith({
+    Color? buttonColor,
+    Color? splashColor,
+    double? elevation,
+    double? borderRadius,
+    EdgeInsets? padding,
+    Color? borderColor,
+    double? borderWidth,
+    AuthButtonType? buttonType,
+    double? width,
+    double? height,
+    double? iconSize,
+    double? separator,
+    Color? iconBackground,
+    AuthIconType? iconType,
+    Color? shadowColor,
+    Color? progressIndicatorColor,
+    Color? progressIndicatorValueColor,
+    double? progressIndicatorStrokeWidth,
+    double? progressIndicatorValue,
+  }) {
+    return AuthButtonStyle(
+      buttonColor: buttonColor ?? this.buttonColor,
+      splashColor: splashColor ?? this.splashColor,
+      elevation: elevation ?? this.elevation,
+      borderRadius: borderRadius ?? this.borderRadius,
+      padding: padding ?? this.padding,
+      borderColor: borderColor ?? this.borderColor,
+      borderWidth: borderWidth ?? this.borderWidth,
+      buttonType: buttonType ?? this.buttonType,
+      width: width ?? this.width,
+      height: height ?? this.height,
+      iconSize: iconSize ?? this.iconSize,
+      separator: separator ?? this.separator,
+      iconBackground: iconBackground ?? this.iconBackground,
+      iconType: iconType ?? this.iconType,
+      shadowColor: shadowColor ?? this.shadowColor,
+      progressIndicatorColor:
+          progressIndicatorColor ?? this.progressIndicatorColor,
+      progressIndicatorValueColor:
+          progressIndicatorValueColor ?? this.progressIndicatorValueColor,
+      progressIndicatorStrokeWidth:
+          progressIndicatorStrokeWidth ?? this.progressIndicatorStrokeWidth,
+      progressIndicatorValue:
+          progressIndicatorValue ?? this.progressIndicatorValue,
+    );
+  }
+
   ///**[buttonColor]** Define the button color.
   /// The default value is [white] if the [darkMode] = [false].
   /// else the value is [Color(0xff424242)].
