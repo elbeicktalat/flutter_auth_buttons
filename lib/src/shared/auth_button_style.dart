@@ -29,6 +29,8 @@ class AuthButtonStyle {
     this.progressIndicatorValue,
   });
 
+  /// Returns a copy of this AuthButtonStyle with the given fields replaced with
+  /// the new values.
   AuthButtonStyle copyWith({
     Color? buttonColor,
     Color? splashColor,
@@ -74,6 +76,43 @@ class AuthButtonStyle {
           progressIndicatorStrokeWidth ?? this.progressIndicatorStrokeWidth,
       progressIndicatorValue:
           progressIndicatorValue ?? this.progressIndicatorValue,
+    );
+  }
+
+  /// Returns a copy of this AuthButtonStyle where the non-null fields in [style]
+  /// have replaced the corresponding null fields in this AuthButtonStyle.
+  ///
+  /// In other words, [style] is used to fill in unspecified (null) fields
+  /// this AuthButtonStyle.
+  ///
+  /// unlike [copyWith()] where replaces the given fields with new values,
+  /// this method will assign the given values only if values is null.
+  AuthButtonStyle merge(AuthButtonStyle? style) {
+    if (style == null) return this;
+    return copyWith(
+      buttonColor: buttonColor ?? style.buttonColor,
+      splashColor: splashColor ?? style.splashColor,
+      elevation: elevation ?? style.elevation,
+      borderRadius: borderRadius ?? style.borderRadius,
+      padding: padding ?? style.padding,
+      borderColor: borderColor ?? style.borderColor,
+      borderWidth: borderWidth ?? style.borderWidth,
+      buttonType: buttonType ?? style.buttonType,
+      width: width ?? style.width,
+      height: height ?? style.height,
+      iconSize: iconSize ?? style.iconSize,
+      separator: separator ?? style.separator,
+      iconBackground: iconBackground ?? style.iconBackground,
+      iconType: iconType ?? style.iconType,
+      shadowColor: shadowColor ?? style.shadowColor,
+      progressIndicatorColor:
+          progressIndicatorColor ?? style.progressIndicatorColor,
+      progressIndicatorValueColor:
+          progressIndicatorValueColor ?? style.progressIndicatorValueColor,
+      progressIndicatorStrokeWidth:
+          progressIndicatorStrokeWidth ?? style.progressIndicatorStrokeWidth,
+      progressIndicatorValue:
+          progressIndicatorValue ?? style.progressIndicatorValue,
     );
   }
 
