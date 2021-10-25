@@ -3,10 +3,11 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/utils/auth_style.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 @immutable
-class AuthButtonStyle {
+class AuthButtonStyle with Diagnosticable {
   const AuthButtonStyle({
     this.buttonColor,
     this.splashColor,
@@ -165,4 +166,158 @@ class AuthButtonStyle {
   final Color? progressIndicatorValueColor;
   final double? progressIndicatorStrokeWidth;
   final double? progressIndicatorValue;
+
+  /// Returns a copy of this AuthButtonStyle with the given fields replaced with
+  /// the new values.
+  AuthButtonStyle copyWith({
+    Color? buttonColor,
+    Color? splashColor,
+    double? elevation,
+    double? borderRadius,
+    EdgeInsets? padding,
+    Color? borderColor,
+    double? borderWidth,
+    AuthButtonType? buttonType,
+    double? width,
+    double? height,
+    double? iconSize,
+    double? separator,
+    Color? iconBackground,
+    AuthIconType? iconType,
+    Color? shadowColor,
+    Color? progressIndicatorColor,
+    Color? progressIndicatorValueColor,
+    double? progressIndicatorStrokeWidth,
+    double? progressIndicatorValue,
+  }) {
+    return AuthButtonStyle(
+      buttonColor: buttonColor ?? this.buttonColor,
+      splashColor: splashColor ?? this.splashColor,
+      elevation: elevation ?? this.elevation,
+      borderRadius: borderRadius ?? this.borderRadius,
+      padding: padding ?? this.padding,
+      borderColor: borderColor ?? this.borderColor,
+      borderWidth: borderWidth ?? this.borderWidth,
+      buttonType: buttonType ?? this.buttonType,
+      width: width ?? this.width,
+      height: height ?? this.height,
+      iconSize: iconSize ?? this.iconSize,
+      separator: separator ?? this.separator,
+      iconBackground: iconBackground ?? this.iconBackground,
+      iconType: iconType ?? this.iconType,
+      shadowColor: shadowColor ?? this.shadowColor,
+      progressIndicatorColor: progressIndicatorColor ?? this.progressIndicatorColor,
+      progressIndicatorValueColor: progressIndicatorValueColor ?? this.progressIndicatorValueColor,
+      progressIndicatorStrokeWidth: progressIndicatorStrokeWidth ?? this.progressIndicatorStrokeWidth,
+      progressIndicatorValue: progressIndicatorValue ?? this.progressIndicatorValue,
+    );
+  }
+
+  /// Returns a copy of this AuthButtonStyle where the non-null fields in [style]
+  /// have replaced the corresponding null fields in this AuthButtonStyle.
+  ///
+  /// In other words, [style] is used to fill in unspecified (null) fields
+  /// this AuthButtonStyle.
+  ///
+  /// unlike [copyWith()] where replaces the given fields with new values,
+  /// this method will assign the given values only if values is null.
+  AuthButtonStyle merge(AuthButtonStyle? style) {
+    if (style == null) return this;
+    return copyWith(
+      buttonColor: buttonColor ?? style.buttonColor,
+      splashColor: splashColor ?? style.splashColor,
+      elevation: elevation ?? style.elevation,
+      borderRadius: borderRadius ?? style.borderRadius,
+      padding: padding ?? style.padding,
+      borderColor: borderColor ?? style.borderColor,
+      borderWidth: borderWidth ?? style.borderWidth,
+      buttonType: buttonType ?? style.buttonType,
+      width: width ?? style.width,
+      height: height ?? style.height,
+      iconSize: iconSize ?? style.iconSize,
+      separator: separator ?? style.separator,
+      iconBackground: iconBackground ?? style.iconBackground,
+      iconType: iconType ?? style.iconType,
+      shadowColor: shadowColor ?? style.shadowColor,
+      progressIndicatorColor: progressIndicatorColor ?? style.progressIndicatorColor,
+      progressIndicatorValueColor: progressIndicatorValueColor ?? style.progressIndicatorValueColor,
+      progressIndicatorStrokeWidth: progressIndicatorStrokeWidth ?? style.progressIndicatorStrokeWidth,
+      progressIndicatorValue: progressIndicatorValue ?? style.progressIndicatorValue,
+    );
+  }
+
+  @override
+  int get hashCode {
+    return hashValues(
+      buttonColor,
+      splashColor,
+      elevation,
+      borderRadius,
+      padding,
+      borderColor,
+      borderWidth,
+      buttonType,
+      width,
+      height,
+      iconSize,
+      separator,
+      iconBackground,
+      iconType,
+      shadowColor,
+      progressIndicatorColor,
+      progressIndicatorValueColor,
+      progressIndicatorStrokeWidth,
+      progressIndicatorValue,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other.runtimeType != runtimeType) return false;
+    return other is AuthButtonStyle &&
+        other.buttonColor == buttonColor &&
+        other.splashColor == splashColor &&
+        other.elevation == elevation &&
+        other.borderRadius == borderRadius &&
+        other.padding == padding &&
+        other.borderColor == borderColor &&
+        other.borderWidth == borderWidth &&
+        other.buttonType == buttonType &&
+        other.width == width &&
+        other.height == height &&
+        other.iconSize == iconSize &&
+        other.separator == separator &&
+        other.iconBackground == iconBackground &&
+        other.iconType == iconType &&
+        other.shadowColor == shadowColor &&
+        other.progressIndicatorColor == progressIndicatorColor &&
+        other.progressIndicatorValueColor == progressIndicatorValueColor &&
+        other.progressIndicatorStrokeWidth == progressIndicatorStrokeWidth &&
+        other.progressIndicatorValue == progressIndicatorValue;
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<Color?>('buttonColor', buttonColor, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('splashColor', splashColor, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('elevation', elevation, defaultValue: 2.0));
+    properties.add(DiagnosticsProperty<double?>('borderRadius', borderRadius, defaultValue: 8.0));
+    properties.add(DiagnosticsProperty<EdgeInsets?>('padding', padding, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('borderColor', borderColor, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('borderWidth', borderWidth, defaultValue: null));
+    properties.add(DiagnosticsProperty<AuthButtonType?>('buttonType', buttonType, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('width', width, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('height', height, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('iconSize', iconSize, defaultValue: 35.0));
+    properties.add(DiagnosticsProperty<double?>('separator', separator, defaultValue: 10.0));
+    properties.add(DiagnosticsProperty<Color?>('iconBackground', iconBackground, defaultValue: null));
+    properties.add(DiagnosticsProperty<AuthIconType?>('iconType', iconType, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('shadowColor', shadowColor, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('progressIndicatorColor', progressIndicatorColor, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('progressIndicatorValueColor', progressIndicatorValueColor, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('progressIndicatorStrokeWidth', progressIndicatorStrokeWidth, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('progressIndicatorValue', progressIndicatorValue, defaultValue: null));
+  }
 }
