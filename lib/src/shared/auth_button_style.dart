@@ -252,4 +252,55 @@ class AuthButtonStyle {
   final Color? progressIndicatorValueColor;
   final double? progressIndicatorStrokeWidth;
   final double? progressIndicatorValue;
+
+  @override
+  int get hashCode {
+    return hashValues(
+      buttonColor,
+      splashColor,
+      elevation,
+      borderRadius,
+      padding,
+      borderColor,
+      borderWidth,
+      buttonType,
+      width,
+      height,
+      iconSize,
+      separator,
+      iconBackground,
+      iconType,
+      shadowColor,
+      progressIndicatorColor,
+      progressIndicatorValueColor,
+      progressIndicatorStrokeWidth,
+      progressIndicatorValue,
+    );
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other.runtimeType != runtimeType) return false;
+    return other is AuthButtonStyle &&
+        other.buttonColor == buttonColor &&
+        other.splashColor == splashColor &&
+        other.elevation == elevation &&
+        other.borderRadius == borderRadius &&
+        other.padding == padding &&
+        other.borderColor == borderColor &&
+        other.borderWidth == borderWidth &&
+        other.buttonType == buttonType &&
+        other.width == width &&
+        other.height == height &&
+        other.iconSize == iconSize &&
+        other.separator == separator &&
+        other.iconBackground == iconBackground &&
+        other.iconType == iconType &&
+        other.shadowColor == shadowColor &&
+        other.progressIndicatorColor == progressIndicatorColor &&
+        other.progressIndicatorValueColor == progressIndicatorValueColor &&
+        other.progressIndicatorStrokeWidth == progressIndicatorStrokeWidth &&
+        other.progressIndicatorValue == progressIndicatorValue;
+  }
 }
