@@ -19,7 +19,7 @@ class AuthButtonStyle with Diagnosticable {
     this.buttonType,
     this.width,
     this.height,
-    this.iconSize = 35.0,
+    this.iconSize = 30.0,
     this.separator,
     this.iconBackground,
     this.iconType,
@@ -310,7 +310,7 @@ class AuthButtonStyle with Diagnosticable {
     properties.add(DiagnosticsProperty<AuthButtonType?>('buttonType', buttonType, defaultValue: null));
     properties.add(DiagnosticsProperty<double?>('width', width, defaultValue: null));
     properties.add(DiagnosticsProperty<double?>('height', height, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('iconSize', iconSize, defaultValue: 35.0));
+    properties.add(DiagnosticsProperty<double?>('iconSize', iconSize, defaultValue: 30.0));
     properties.add(DiagnosticsProperty<double?>('separator', separator, defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('iconBackground', iconBackground, defaultValue: null));
     properties.add(DiagnosticsProperty<AuthIconType?>('iconType', iconType, defaultValue: null));
