@@ -36,11 +36,11 @@ class ButtonContents extends StatelessWidget {
       children: <Widget>[
         Container(
           padding: (style!.buttonType == AuthButtonType.secondary)
-              ? const EdgeInsets.all(4.0)
+              ? const EdgeInsets.all(5.0)
               : null,
           decoration: BoxDecoration(
             color: style!.iconBackground,
-            borderRadius: BorderRadius.circular(style!.borderRadius ?? 8.0),
+            borderRadius: BorderRadius.circular(style!.borderRadius ?? 0.0),
           ),
           child: isLoading
               ? SizedBox(
