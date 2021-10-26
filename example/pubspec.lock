@@ -96,7 +96,7 @@ packages:
     source: sdk
     version: "0.0.0"
   google_fonts:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: google_fonts
       url: "https://pub.dartlang.org"
