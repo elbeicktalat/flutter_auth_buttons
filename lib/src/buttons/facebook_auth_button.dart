@@ -79,4 +79,11 @@ class FacebookAuthButton extends AuthButton {
           letterSpacing: 0.50,
         );
   }
+
+  @override
+  AuthButtonStyle? getButtonStyle() {
+    return style!.merge(
+      AuthButtonStyle(),
+    );
+  }
 }

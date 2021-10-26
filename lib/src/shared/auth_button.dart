@@ -7,7 +7,7 @@ import 'package:auth_buttons/src/shared/auth_button_style_button.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
-class AuthButton extends AuthButtonStyleButton {
+abstract class AuthButton extends AuthButtonStyleButton {
   const AuthButton({
     Key? key,
     required VoidCallback? onPressed,

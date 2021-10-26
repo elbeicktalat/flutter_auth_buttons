@@ -88,6 +88,8 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
 
   Color? getProgressIndicatorValueColor();
 
+  AuthButtonStyle? getButtonStyle();
+
   @override
   Widget build(BuildContext context) {
     switch (style!.buttonType) {
@@ -95,7 +97,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
         return AuthIconButton(
           onPressed: onPressed,
           onLongPress: onLongPress,
-          style: style,
+          style: getButtonStyle(),
           darkMode: darkMode,
           isLoading: isLoading,
           rtl: rtl,
@@ -107,7 +109,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
         return AuthButtonSecondary(
           onPressed: onPressed,
           onLongPress: onLongPress,
-          style: style,
+          style: getButtonStyle(),
           darkMode: darkMode,
           isLoading: isLoading,
           rtl: rtl,
@@ -122,7 +124,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
         return AuthDefaultButton(
           onPressed: onPressed,
           onLongPress: onLongPress,
-          style: style,
+          style: getButtonStyle(),
           darkMode: darkMode,
           isLoading: isLoading,
           rtl: rtl,

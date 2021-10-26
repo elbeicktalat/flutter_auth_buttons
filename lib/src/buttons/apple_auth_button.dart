@@ -53,4 +53,11 @@ class AppleAuthButton extends AuthButton {
     return style!.buttonColor ??
         (darkMode ? AuthColors.darkMode : Colors.white);
   }
+
+  @override
+  AuthButtonStyle? getButtonStyle() {
+    return style!.merge(
+      AuthButtonStyle(),
+    );
+  }
 }
