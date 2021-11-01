@@ -7,7 +7,6 @@ import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/shared/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
-import 'package:auth_buttons/src/utils/smart_color.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -80,7 +79,7 @@ class MicrosoftAuthButton extends AuthButton {
         separator: 12.0,
         padding: EdgeInsets.symmetric(horizontal: 12.0),
         borderWidth: 1.0,
-        borderColor: Color(0xffc8c8c8),
+        borderColor: Color(0xff8c8c8c),
       ),
     );
   }
@@ -90,7 +89,7 @@ class MicrosoftAuthButton extends AuthButton {
     //Note: Microsoft uses the Segoe UI fonts,
     // but is not available in google fonts for the moment (26/10/2021).
     return GoogleFonts.lato(
-      color: Colors.black.smartColor(darkMode),
+      color: darkMode ?  Colors.white : Color(0xff5e5e5e),
       fontSize: 16.0,
       fontWeight: FontWeight.w600,
     );
