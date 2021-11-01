@@ -36,8 +36,7 @@ class FacebookAuthButton extends AuthButton {
   Color? getProgressIndicatorValueColor() {
     if (style!.buttonType == AuthButtonType.secondary)
       return AuthColors.facebook;
-    if (style!.buttonType != AuthButtonType.secondary)
-      return const Color(0xff567de9);
+    if (style!.buttonType != AuthButtonType.secondary) return Colors.white;
   }
 
   @override
@@ -45,6 +44,8 @@ class FacebookAuthButton extends AuthButton {
     if (style!.iconType == AuthIconType.outlined)
       return darkMode ? AuthIcons.facebookWhite[1] : AuthIcons.facebook[1];
     if (style!.iconType == AuthIconType.secondary) return AuthIcons.facebook[2];
+    if (style!.buttonType == AuthButtonType.secondary)
+      return darkMode ? AuthIcons.facebookWhite[0] : AuthIcons.facebook[0];
     return AuthIcons.facebookWhite[0];
   }
 
@@ -78,5 +79,32 @@ class FacebookAuthButton extends AuthButton {
           fontWeight: FontWeight.bold,
           letterSpacing: 0.50,
         );
+  }
+
+  @override
+  AuthButtonStyle? getButtonStyle() {
+    if (style!.buttonType == AuthButtonType.icon)
+      return style!.merge(
+        AuthButtonStyle(
+          width: 50.0,
+          height: 50.0,
+          borderRadius: 8.0,
+        ),
+      );
+    if (style!.buttonType == AuthButtonType.secondary)
+      return style!.merge(
+        AuthButtonStyle(
+          separator: 12.0,
+          height: 40.0,
+          borderRadius: 8.0,
+        ),
+      );
+    return style!.merge(
+      AuthButtonStyle(
+        separator: 12.0,
+        height: 40.0,
+        borderRadius: 8.0,
+      ),
+    );
   }
 }

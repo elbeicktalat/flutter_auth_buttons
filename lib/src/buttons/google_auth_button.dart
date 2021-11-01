@@ -7,7 +7,9 @@ import 'package:auth_buttons/src/shared/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
+import 'package:auth_buttons/src/utils/smart_color.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class GoogleAuthButton extends AuthButton {
   const GoogleAuthButton({
@@ -46,5 +48,51 @@ class GoogleAuthButton extends AuthButton {
           (darkMode ? AuthColors.darkMode : Colors.blue);
     return style!.buttonColor ??
         (darkMode ? AuthColors.darkMode : Colors.white);
+  }
+
+  @override
+  AuthButtonStyle? getButtonStyle() {
+    if (style!.buttonType == AuthButtonType.icon)
+      return style!.merge(
+        AuthButtonStyle(
+          width: 50.0,
+          height: 50.0,
+          borderRadius: 8.0,
+        ),
+      );
+    if (style!.buttonType == AuthButtonType.secondary)
+      return style!.merge(
+        AuthButtonStyle(
+          separator: 24.0,
+          height: 40.0,
+          borderRadius: 8.0,
+        ),
+      );
+    return style!.merge(
+      AuthButtonStyle(
+        separator: 24.0,
+        height: 40.0,
+        borderRadius: 8.0,
+      ),
+    );
+  }
+
+  @override
+  TextStyle getTextStyle() {
+    if (style!.buttonType == AuthButtonType.secondary)
+      return textStyle ??
+          GoogleFonts.roboto(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w500,
+            letterSpacing: 0.50,
+          );
+    return textStyle ??
+        GoogleFonts.roboto(
+          color: Colors.black.smartColor(darkMode),
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+          letterSpacing: 0.50,
+        );
   }
 }

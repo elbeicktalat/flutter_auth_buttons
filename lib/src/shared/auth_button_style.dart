@@ -11,16 +11,16 @@ class AuthButtonStyle with Diagnosticable {
   const AuthButtonStyle({
     this.buttonColor,
     this.splashColor,
-    this.elevation = 2.0,
-    this.borderRadius = 8.0,
+    this.elevation,
+    this.borderRadius,
     this.padding,
     this.borderColor,
     this.borderWidth,
     this.buttonType,
     this.width,
     this.height,
-    this.iconSize = 35.0,
-    this.separator = 10.0,
+    this.iconSize = 30.0,
+    this.separator,
     this.iconBackground,
     this.iconType,
     this.shadowColor,
@@ -302,16 +302,16 @@ class AuthButtonStyle with Diagnosticable {
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty<Color?>('buttonColor', buttonColor, defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('splashColor', splashColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('elevation', elevation, defaultValue: 2.0));
-    properties.add(DiagnosticsProperty<double?>('borderRadius', borderRadius, defaultValue: 8.0));
+    properties.add(DiagnosticsProperty<double?>('elevation', elevation, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('borderRadius', borderRadius, defaultValue: null));
     properties.add(DiagnosticsProperty<EdgeInsets?>('padding', padding, defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('borderColor', borderColor, defaultValue: null));
     properties.add(DiagnosticsProperty<double?>('borderWidth', borderWidth, defaultValue: null));
     properties.add(DiagnosticsProperty<AuthButtonType?>('buttonType', buttonType, defaultValue: null));
     properties.add(DiagnosticsProperty<double?>('width', width, defaultValue: null));
     properties.add(DiagnosticsProperty<double?>('height', height, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('iconSize', iconSize, defaultValue: 35.0));
-    properties.add(DiagnosticsProperty<double?>('separator', separator, defaultValue: 10.0));
+    properties.add(DiagnosticsProperty<double?>('iconSize', iconSize, defaultValue: 30.0));
+    properties.add(DiagnosticsProperty<double?>('separator', separator, defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('iconBackground', iconBackground, defaultValue: null));
     properties.add(DiagnosticsProperty<AuthIconType?>('iconType', iconType, defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('shadowColor', shadowColor, defaultValue: null));

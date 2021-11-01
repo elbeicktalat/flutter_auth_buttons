@@ -37,4 +37,11 @@ class CustomAuthButton extends AuthButton {
   String getIconUrl() {
     return icon;
   }
+
+  @override
+  AuthButtonStyle? getButtonStyle() {
+    return style!.merge(
+      AuthButtonStyle(),
+    );
+  }
 }
