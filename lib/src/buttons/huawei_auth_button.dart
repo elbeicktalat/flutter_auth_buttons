@@ -81,8 +81,28 @@ class HuaweiAuthButton extends AuthButton {
 
   @override
   AuthButtonStyle? getButtonStyle() {
+    if (style!.buttonType == AuthButtonType.icon)
+      return style!.merge(
+        AuthButtonStyle(
+          width: 50.0,
+          height: 50.0,
+          borderRadius: 8.0,
+        ),
+      );
+    if (style!.buttonType == AuthButtonType.secondary)
+      return style!.merge(
+        AuthButtonStyle(
+          separator: 10.0,
+          height: 40.0,
+          borderRadius: 8.0,
+        ),
+      );
     return style!.merge(
-      AuthButtonStyle(),
+      AuthButtonStyle(
+        separator: 10.0,
+        height: 40.0,
+        borderRadius: 8.0,
+      ),
     );
   }
 }
