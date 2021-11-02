@@ -2,12 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/src/shared/auth_button_secondary.dart';
-import 'package:auth_buttons/src/shared/auth_button_style.dart';
-import 'package:auth_buttons/src/shared/auth_default_button.dart';
-import 'package:auth_buttons/src/shared/auth_icon_button.dart';
-import 'package:auth_buttons/src/utils/auth_style.dart';
-import 'package:flutter/material.dart';
+import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
+import 'package:flutter/widgets.dart';
 
 abstract class AuthButtonStyleButton extends StatelessWidget {
   const AuthButtonStyleButton({
@@ -91,49 +87,5 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   AuthButtonStyle? getButtonStyle();
 
   @override
-  Widget build(BuildContext context) {
-    switch (style!.buttonType) {
-      case AuthButtonType.icon:
-        return AuthIconButton(
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          style: getButtonStyle(),
-          darkMode: darkMode,
-          isLoading: isLoading,
-          rtl: rtl,
-          iconUrl: getIconUrl(),
-          buttonColor: getButtonColor(),
-          progressIndicatorValueColor: getProgressIndicatorValueColor(),
-        );
-      case AuthButtonType.secondary:
-        return AuthButtonSecondary(
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          style: getButtonStyle(),
-          darkMode: darkMode,
-          isLoading: isLoading,
-          rtl: rtl,
-          text: text!,
-          textStyle: getTextStyle(),
-          buttonColor: getButtonColor(),
-          iconUrl: getIconUrl(),
-          progressIndicatorValueColor: getProgressIndicatorValueColor(),
-          iconBackground: getIconBackground(),
-        );
-      default:
-        return AuthDefaultButton(
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          style: getButtonStyle(),
-          darkMode: darkMode,
-          isLoading: isLoading,
-          rtl: rtl,
-          text: text!,
-          buttonColor: getButtonColor(),
-          iconUrl: getIconUrl(),
-          progressIndicatorValueColor: getProgressIndicatorValueColor(),
-          textStyle: getTextStyle(),
-        );
-    }
-  }
+  Widget build(BuildContext context);
 }

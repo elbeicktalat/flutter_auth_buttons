@@ -1,8 +1,8 @@
-import 'package:auth_buttons/src/shared/auth_button_style.dart';
+import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/material.dart';
 
-abstract class BaseAuthButton extends StatelessWidget {
-  const BaseAuthButton({
+abstract class AuthTypeButton extends StatelessWidget {
+  const AuthTypeButton({
     Key? key,
     required this.onPressed,
     required this.onLongPress,
