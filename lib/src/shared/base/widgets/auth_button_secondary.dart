@@ -1,11 +1,11 @@
-import 'package:auth_buttons/src/shared/auth_button_style.dart';
-import 'package:auth_buttons/src/shared/base_auth_button.dart';
-import 'package:auth_buttons/src/shared/button_contents.dart';
-import 'package:auth_buttons/src/shared/shared_button.dart';
+import 'package:auth_buttons/src/shared/core/contracts/auth_type_button.dart';
+import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
+import 'package:auth_buttons/src/shared/core/widgets/button_contents.dart';
+import 'package:auth_buttons/src/shared/core/widgets/shared_button.dart';
 import 'package:flutter/material.dart';
 
-class AuthDefaultButton extends BaseAuthButton {
-  AuthDefaultButton({
+class AuthButtonSecondary extends AuthTypeButton {
+  AuthButtonSecondary({
     required VoidCallback? onPressed,
     required VoidCallback? onLongPress,
     required AuthButtonStyle? style,
@@ -17,6 +17,7 @@ class AuthDefaultButton extends BaseAuthButton {
     required Color? progressIndicatorValueColor,
     required this.text,
     required this.textStyle,
+    required this.iconBackground,
   }) : super(
           onPressed: onPressed,
           onLongPress: onLongPress,
@@ -31,6 +32,7 @@ class AuthDefaultButton extends BaseAuthButton {
 
   final String text;
   final TextStyle textStyle;
+  final Color iconBackground;
 
   @override
   Widget build(BuildContext context) {
@@ -42,8 +44,7 @@ class AuthDefaultButton extends BaseAuthButton {
         width: style!.width,
         height: style!.height,
         borderRadius: style!.borderRadius,
-        padding: style!.padding ??
-            const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
+        padding: style!.padding ?? const EdgeInsets.only(right: 16.0),
         buttonColor: getButtonColor(),
         splashColor: style!.splashColor,
         elevation: style!.elevation,
@@ -62,6 +63,9 @@ class AuthDefaultButton extends BaseAuthButton {
         style: AuthButtonStyle(
           iconSize: style!.iconSize,
           separator: style!.separator,
+          borderRadius: style!.borderRadius,
+          iconBackground: getIconBackground(),
+          buttonType: style!.buttonType,
           progressIndicatorColor: style!.progressIndicatorColor,
           progressIndicatorValueColor: style!.progressIndicatorValueColor ??
               getProgressIndicatorValueColor(),
@@ -82,4 +86,6 @@ class AuthDefaultButton extends BaseAuthButton {
   Color? getProgressIndicatorValueColor() => progressIndicatorValueColor;
 
   TextStyle getTextStyle() => textStyle;
+
+  Color getIconBackground() => iconBackground;
 }
