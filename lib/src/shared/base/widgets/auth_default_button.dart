@@ -1,11 +1,11 @@
-import 'package:auth_buttons/src/shared/auth_button_style.dart';
-import 'package:auth_buttons/src/shared/base_auth_button.dart';
-import 'package:auth_buttons/src/shared/button_contents.dart';
-import 'package:auth_buttons/src/shared/shared_button.dart';
+import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
+import 'package:auth_buttons/src/shared/core/contracts/auth_type_button.dart';
+import 'package:auth_buttons/src/shared/core/widgets/button_contents.dart';
+import 'package:auth_buttons/src/shared/core/widgets/shared_button.dart';
 import 'package:flutter/material.dart';
 
-class AuthIconButton extends BaseAuthButton {
-  AuthIconButton({
+class AuthDefaultButton extends AuthTypeButton {
+  AuthDefaultButton({
     required VoidCallback? onPressed,
     required VoidCallback? onLongPress,
     required AuthButtonStyle? style,
@@ -15,6 +15,8 @@ class AuthIconButton extends BaseAuthButton {
     required Color buttonColor,
     required String iconUrl,
     required Color? progressIndicatorValueColor,
+    required this.text,
+    required this.textStyle,
   }) : super(
           onPressed: onPressed,
           onLongPress: onLongPress,
@@ -27,6 +29,9 @@ class AuthIconButton extends BaseAuthButton {
           progressIndicatorValueColor: progressIndicatorValueColor,
         );
 
+  final String text;
+  final TextStyle textStyle;
+
   @override
   Widget build(BuildContext context) {
     return SharedButton(
@@ -34,24 +39,29 @@ class AuthIconButton extends BaseAuthButton {
       onPressed: onPressed!,
       onLongPress: onLongPress,
       style: AuthButtonStyle(
-        width: style!.width ?? 50.0,
-        height: style!.height ?? 50.0,
+        width: style!.width,
+        height: style!.height,
         borderRadius: style!.borderRadius,
-        padding: style!.padding ?? const EdgeInsets.all(0),
+        padding: style!.padding ??
+            const EdgeInsets.symmetric(horizontal: 12.0, vertical: 4.0),
         buttonColor: getButtonColor(),
         splashColor: style!.splashColor,
         elevation: style!.elevation,
         borderColor: style!.borderColor,
-        borderWidth: style!.borderWidth ?? 2.0,
+        borderWidth: style!.borderWidth,
         shadowColor: style!.shadowColor,
       ),
       child: ButtonContents(
         key: key,
         iconUrl: getIconUrl(),
+        text: text,
+        darkMode: darkMode,
+        rtl: rtl,
         isLoading: isLoading,
+        textStyle: getTextStyle(),
         style: AuthButtonStyle(
           iconSize: style!.iconSize,
-          separator: 0.0,
+          separator: style!.separator,
           progressIndicatorColor: style!.progressIndicatorColor,
           progressIndicatorValueColor: style!.progressIndicatorValueColor ??
               getProgressIndicatorValueColor(),
@@ -70,4 +80,6 @@ class AuthIconButton extends BaseAuthButton {
 
   @override
   Color? getProgressIndicatorValueColor() => progressIndicatorValueColor;
+
+  TextStyle getTextStyle() => textStyle;
 }

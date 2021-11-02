@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/utils/auth_style.dart';
-import 'package:auth_buttons/src/shared/auth_button_style.dart';
+import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/material.dart';
 
 class ButtonContents extends StatelessWidget {

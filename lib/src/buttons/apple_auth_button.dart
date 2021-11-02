@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/src/shared/auth_button.dart';
+import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
-import 'package:auth_buttons/src/shared/auth_button_style.dart';
+import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:auth_buttons/src/utils/smart_color.dart';
