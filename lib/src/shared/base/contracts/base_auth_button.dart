@@ -1,3 +1,7 @@
+// Copyright (c) 2021 Talat El Beick. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:auth_buttons/src/shared/base/widgets/auth_button_secondary.dart';
 import 'package:auth_buttons/src/shared/base/widgets/auth_default_button.dart';
 import 'package:auth_buttons/src/shared/base/widgets/auth_icon_button.dart';
@@ -19,16 +23,16 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
     bool rtl = false,
     TextStyle? textStyle,
   }) : super(
-          key: key,
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          style: style ?? const AuthButtonStyle(),
-          text: text,
-          textStyle: textStyle,
-          darkMode: darkMode,
-          isLoading: isLoading,
-          rtl: rtl,
-        );
+    key: key,
+    onPressed: onPressed,
+    onLongPress: onLongPress,
+    style: style ?? const AuthButtonStyle(),
+    text: text,
+    textStyle: textStyle,
+    darkMode: darkMode,
+    isLoading: isLoading,
+    rtl: rtl,
+  );
 
   @override
   Color getButtonColor() => darkMode ? AuthColors.darkMode : Colors.white;

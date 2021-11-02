@@ -1,7 +1,11 @@
+// Copyright (c) 2021 Talat El Beick. All rights reserved.
+// Use of this source code is governed by a BSD-style license that can be
+// found in the LICENSE file.
+
 import 'package:auth_buttons/src/shared/core/contracts/auth_type_button.dart';
-import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/shared/core/widgets/button_contents.dart';
 import 'package:auth_buttons/src/shared/core/widgets/shared_button.dart';
+import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/material.dart';
 
 class AuthButtonSecondary extends AuthTypeButton {
@@ -19,16 +23,16 @@ class AuthButtonSecondary extends AuthTypeButton {
     required this.textStyle,
     required this.iconBackground,
   }) : super(
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          style: style,
-          darkMode: darkMode,
-          isLoading: isLoading,
-          rtl: rtl,
-          iconUrl: iconUrl,
-          buttonColor: buttonColor,
-          progressIndicatorValueColor: progressIndicatorValueColor,
-        );
+    onPressed: onPressed,
+    onLongPress: onLongPress,
+    style: style,
+    darkMode: darkMode,
+    isLoading: isLoading,
+    rtl: rtl,
+    iconUrl: iconUrl,
+    buttonColor: buttonColor,
+    progressIndicatorValueColor: progressIndicatorValueColor,
+  );
 
   final String text;
   final TextStyle textStyle;
