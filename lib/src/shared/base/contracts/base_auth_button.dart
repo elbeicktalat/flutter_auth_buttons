@@ -21,14 +21,12 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
     bool darkMode = false,
     bool isLoading = false,
     bool rtl = false,
-    TextStyle? textStyle,
   }) : super(
     key: key,
     onPressed: onPressed,
     onLongPress: onLongPress,
     style: style ?? const AuthButtonStyle(),
     text: text,
-    textStyle: textStyle,
     darkMode: darkMode,
     isLoading: isLoading,
     rtl: rtl,
@@ -46,14 +44,14 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
   @override
   TextStyle getTextStyle() {
     if (style!.buttonType == AuthButtonType.secondary)
-      return textStyle ??
+      return style!.textStyle ??
           const TextStyle(
             color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.bold,
             letterSpacing: 0.50,
           );
-    return textStyle ??
+    return style!.textStyle ??
         TextStyle(
           color: darkMode ? Colors.white : Colors.black,
           fontSize: 18,

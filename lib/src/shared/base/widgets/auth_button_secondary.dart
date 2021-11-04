@@ -23,16 +23,16 @@ class AuthButtonSecondary extends AuthTypeButton {
     required this.textStyle,
     required this.iconBackground,
   }) : super(
-    onPressed: onPressed,
-    onLongPress: onLongPress,
-    style: style,
-    darkMode: darkMode,
-    isLoading: isLoading,
-    rtl: rtl,
-    iconUrl: iconUrl,
-    buttonColor: buttonColor,
-    progressIndicatorValueColor: progressIndicatorValueColor,
-  );
+          onPressed: onPressed,
+          onLongPress: onLongPress,
+          style: style,
+          darkMode: darkMode,
+          isLoading: isLoading,
+          rtl: rtl,
+          iconUrl: iconUrl,
+          buttonColor: buttonColor,
+          progressIndicatorValueColor: progressIndicatorValueColor,
+        );
 
   final String text;
   final TextStyle textStyle;
@@ -63,8 +63,8 @@ class AuthButtonSecondary extends AuthTypeButton {
         darkMode: darkMode,
         rtl: rtl,
         isLoading: isLoading,
-        textStyle: getTextStyle(),
         style: AuthButtonStyle(
+          textStyle: getTextStyle(),
           iconSize: style!.iconSize,
           separator: style!.separator,
           borderRadius: style!.borderRadius,
