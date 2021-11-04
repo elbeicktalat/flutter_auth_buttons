@@ -10,6 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^0.23.0+1
   google_fonts: ^2.1.0
 
 dev_dependencies:
@@ -19,38 +20,42 @@ dev_dependencies:
 flutter:
 
   assets:
-    - packages/auth_buttons/images/default/google.png
-    - packages/auth_buttons/images/default/facebook.png
-    - packages/auth_buttons/images/default/facebook_white.png
-    - packages/auth_buttons/images/default/apple.png
-    - packages/auth_buttons/images/default/apple_white.png
-    - packages/auth_buttons/images/default/twitter.png
-    - packages/auth_buttons/images/default/twitter_white.png
-    - packages/auth_buttons/images/default/github_white.png
-    - packages/auth_buttons/images/default/github_black.png
-    - packages/auth_buttons/images/default/microsoft.png
-    - packages/auth_buttons/images/default/email.png
-    - packages/auth_buttons/images/default/email_white.png
-    - packages/auth_buttons/images/default/huawei.png
-    - packages/auth_buttons/images/default/huawei_white.png
+    - packages/auth_buttons/images/default/apple.svg
+    - packages/auth_buttons/images/default/apple_white.svg
+    - packages/auth_buttons/images/default/email.svg
+    - packages/auth_buttons/images/default/email_white.svg
+    - packages/auth_buttons/images/default/facebook.svg
+    - packages/auth_buttons/images/default/facebook_white.svg
+    - packages/auth_buttons/images/default/github_black.svg
+    - packages/auth_buttons/images/default/github_white.svg
+    - packages/auth_buttons/images/default/google.svg
+    - packages/auth_buttons/images/default/huawei.svg
+    - packages/auth_buttons/images/default/huawei_white.svg
+    - packages/auth_buttons/images/default/microsoft.svg
+    - packages/auth_buttons/images/default/twitter.svg
+    - packages/auth_buttons/images/default/twitter_white.svg
 
-    - packages/auth_buttons/images/outlined/google.png
-    - packages/auth_buttons/images/outlined/microsoft.png
-    - packages/auth_buttons/images/outlined/twitter.png
-    - packages/auth_buttons/images/outlined/twitter_white.png
-    - packages/auth_buttons/images/outlined/email.png
-    - packages/auth_buttons/images/outlined/email_white.png
-    - packages/auth_buttons/images/outlined/apple.png
-    - packages/auth_buttons/images/outlined/apple_white.png
-    - packages/auth_buttons/images/outlined/facebook.png
-    - packages/auth_buttons/images/outlined/facebook_white.png
-    - packages/auth_buttons/images/outlined/huawei.png
-    - packages/auth_buttons/images/outlined/huawei_white.png
+    - packages/auth_buttons/images/outlined/apple.svg
+    - packages/auth_buttons/images/outlined/apple_white.svg
+    - packages/auth_buttons/images/outlined/email.svg
+    - packages/auth_buttons/images/outlined/email_white.svg
+    - packages/auth_buttons/images/outlined/facebook.svg
+    - packages/auth_buttons/images/outlined/facebook_white.svg
+    - packages/auth_buttons/images/outlined/github.svg
+    - packages/auth_buttons/images/outlined/github_white.svg
+    - packages/auth_buttons/images/outlined/google.svg
+    - packages/auth_buttons/images/outlined/huawei.svg
+    - packages/auth_buttons/images/outlined/huawei_white.svg
+    - packages/auth_buttons/images/outlined/microsoft.svg
+    - packages/auth_buttons/images/outlined/twitter.svg
+    - packages/auth_buttons/images/outlined/twitter_white.svg
 
-    - packages/auth_buttons/images/secondary/google.png
-    - packages/auth_buttons/images/secondary/microsoft.png
-    - packages/auth_buttons/images/secondary/email.png
-    - packages/auth_buttons/images/secondary/email_white.png
-    - packages/auth_buttons/images/secondary/apple.png
-    - packages/auth_buttons/images/secondary/facebook.png
-    - packages/auth_buttons/images/secondary/huawei.png
+    - packages/auth_buttons/images/secondary/apple.svg
+    - packages/auth_buttons/images/secondary/email.svg
+    - packages/auth_buttons/images/secondary/email_white.svg
+    - packages/auth_buttons/images/secondary/facebook.svg
+    - packages/auth_buttons/images/secondary/github.svg
+    - packages/auth_buttons/images/secondary/google.svg
+    - packages/auth_buttons/images/secondary/huawei.svg
+    - packages/auth_buttons/images/secondary/microsoft.svg
+    - packages/auth_buttons/images/secondary/twitter.svg
