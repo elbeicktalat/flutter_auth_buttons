@@ -52,7 +52,6 @@ flutter:
 
     - packages/auth_buttons/images/secondary/apple.svg
     - packages/auth_buttons/images/secondary/email.svg
-    - packages/auth_buttons/images/secondary/email_white.svg
     - packages/auth_buttons/images/secondary/facebook.svg
     - packages/auth_buttons/images/secondary/github.svg
     - packages/auth_buttons/images/secondary/google.svg
