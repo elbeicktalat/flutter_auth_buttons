@@ -5,6 +5,7 @@
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart' show SvgPicture;
 
 class ButtonContents extends StatelessWidget {
   const ButtonContents({
@@ -54,10 +55,8 @@ class ButtonContents extends StatelessWidget {
                     value: style!.progressIndicatorValue,
                   ),
                 )
-              : Image(
-                  image: ExactAssetImage(
-                    iconUrl,
-                  ),
+              : SvgPicture.asset(
+                  iconUrl,
                   width: style!.iconSize,
                   height: style!.iconSize,
                 ),
