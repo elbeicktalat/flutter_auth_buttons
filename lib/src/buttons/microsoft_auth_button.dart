@@ -16,7 +16,6 @@ class MicrosoftAuthButton extends AuthButton {
     required VoidCallback onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Microsoft',
-    TextStyle? textStyle,
     bool darkMode = false,
     bool rtl = false,
     bool isLoading = false,
@@ -26,7 +25,6 @@ class MicrosoftAuthButton extends AuthButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           text: text,
-          textStyle: textStyle,
           darkMode: darkMode,
           rtl: rtl,
           isLoading: isLoading,
@@ -88,10 +86,11 @@ class MicrosoftAuthButton extends AuthButton {
   TextStyle getTextStyle() {
     //Note: Microsoft uses the Segoe UI fonts,
     // but is not available in google fonts for the moment (26/10/2021).
-    return GoogleFonts.lato(
-      color: darkMode ?  Colors.white : Color(0xff5e5e5e),
-      fontSize: 16.0,
-      fontWeight: FontWeight.w600,
-    );
+    return style!.textStyle ??
+        GoogleFonts.lato(
+          color: darkMode ? Colors.white : Color(0xff5e5e5e),
+          fontSize: 16.0,
+          fontWeight: FontWeight.w600,
+        );
   }
 }

@@ -15,7 +15,6 @@ class EmailAuthButton extends AuthButton {
     required VoidCallback onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Email',
-    TextStyle? textStyle,
     bool darkMode = false,
     bool rtl = false,
     bool isLoading = false,
@@ -25,7 +24,6 @@ class EmailAuthButton extends AuthButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           text: text,
-          textStyle: textStyle,
           darkMode: darkMode,
           rtl: rtl,
           isLoading: isLoading,
@@ -63,18 +61,20 @@ class EmailAuthButton extends AuthButton {
   TextStyle getTextStyle() {
     if (style!.iconType == AuthIconType.secondary &&
         style!.buttonType != AuthButtonType.secondary)
-      return TextStyle(
-        color: darkMode ? Colors.white : Colors.teal[900],
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 0.50,
-      );
-    return const TextStyle(
-      color: Colors.white,
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-      letterSpacing: 0.50,
-    );
+      return style!.textStyle ??
+          TextStyle(
+            color: darkMode ? Colors.white : Colors.teal[900],
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 0.50,
+          );
+    return style!.textStyle ??
+        const TextStyle(
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          letterSpacing: 0.50,
+        );
   }
 
   @override

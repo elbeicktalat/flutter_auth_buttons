@@ -62,8 +62,8 @@ class AuthDefaultButton extends AuthTypeButton {
         darkMode: darkMode,
         rtl: rtl,
         isLoading: isLoading,
-        textStyle: getTextStyle(),
         style: AuthButtonStyle(
+          textStyle: getTextStyle(),
           iconSize: style!.iconSize,
           separator: style!.separator,
           progressIndicatorColor: style!.progressIndicatorColor,

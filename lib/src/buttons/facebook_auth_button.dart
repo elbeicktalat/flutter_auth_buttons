@@ -15,7 +15,6 @@ class FacebookAuthButton extends AuthButton {
     required VoidCallback onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Facebook',
-    TextStyle? textStyle,
     bool darkMode = false,
     bool rtl = false,
     bool isLoading = false,
@@ -25,7 +24,6 @@ class FacebookAuthButton extends AuthButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           text: text,
-          textStyle: textStyle,
           darkMode: darkMode,
           rtl: rtl,
           isLoading: isLoading,
@@ -65,14 +63,14 @@ class FacebookAuthButton extends AuthButton {
   TextStyle getTextStyle() {
     if (style!.iconType == AuthIconType.secondary &&
         style!.buttonType != AuthButtonType.secondary)
-      return textStyle ??
+      return style!.textStyle ??
           TextStyle(
             color: darkMode ? Colors.white : Colors.blue[800],
             fontSize: 18,
             fontWeight: FontWeight.bold,
             letterSpacing: 0.50,
           );
-    return textStyle ??
+    return style!.textStyle ??
         const TextStyle(
           color: Colors.white,
           fontSize: 18,
