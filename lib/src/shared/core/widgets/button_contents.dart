@@ -15,7 +15,6 @@ class ButtonContents extends StatelessWidget {
     this.rtl = false,
     this.isLoading = false,
     this.style,
-    this.textStyle,
   }) : super(key: key);
 
   final String text;
@@ -24,7 +23,6 @@ class ButtonContents extends StatelessWidget {
   final bool rtl;
   final bool isLoading;
   final AuthButtonStyle? style;
-  final TextStyle? textStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +65,7 @@ class ButtonContents extends StatelessWidget {
         ),
         Text(
           text,
-          style: textStyle,
+          style: style!.textStyle,
         ),
       ],
     );

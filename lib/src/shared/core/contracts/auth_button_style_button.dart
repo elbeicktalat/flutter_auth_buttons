@@ -12,7 +12,6 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
     required this.onLongPress,
     required this.style,
     required this.text,
-    required this.textStyle,
     required this.darkMode,
     required this.isLoading,
     required this.rtl,
@@ -34,22 +33,6 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/text.png)
   final String? text;
-
-  ///**[textStyle]** Define the text style.
-  ///
-  ///You can customise the text style how you prefer example:
-  /// ```dart
-  ///textStyle: TextStyle(
-  ///   color: Colors.red[800],
-  ///   fontSize: 16.0,
-  ///   fontWeight: FontWeight.bold,
-  ///   fontStyle: FontStyle.italic,
-  ///   letterSpacing: 2.0,
-  /// ),
-  /// ```
-  /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/text-style.png)
-  final TextStyle? textStyle;
 
   ///**[darkMode]** Define if the theme of the button is dark or light,
   ///the default value is [false].
