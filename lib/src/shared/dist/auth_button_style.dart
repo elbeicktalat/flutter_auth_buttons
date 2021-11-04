@@ -13,6 +13,7 @@ class AuthButtonStyle with Diagnosticable {
     this.splashColor,
     this.elevation,
     this.borderRadius,
+    this.textStyle,
     this.padding,
     this.borderColor,
     this.borderWidth,
@@ -72,6 +73,22 @@ class AuthButtonStyle with Diagnosticable {
   /// EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0)
   /// ```
   final EdgeInsets? padding;
+
+  ///**[textStyle]** Define the text style.
+  ///
+  ///You can customise the text style how you prefer example:
+  /// ```dart
+  ///textStyle: TextStyle(
+  ///   color: Colors.red[800],
+  ///   fontSize: 16.0,
+  ///   fontWeight: FontWeight.bold,
+  ///   fontStyle: FontStyle.italic,
+  ///   letterSpacing: 2.0,
+  /// ),
+  /// ```
+  /// <br/>
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/text-style.png)
+  final TextStyle? textStyle;
 
   ///**[borderColor]** Define the border color around the button.
   ///
@@ -175,6 +192,7 @@ class AuthButtonStyle with Diagnosticable {
     double? elevation,
     double? borderRadius,
     EdgeInsets? padding,
+    TextStyle? textStyle,
     Color? borderColor,
     double? borderWidth,
     AuthButtonType? buttonType,
@@ -196,6 +214,7 @@ class AuthButtonStyle with Diagnosticable {
       elevation: elevation ?? this.elevation,
       borderRadius: borderRadius ?? this.borderRadius,
       padding: padding ?? this.padding,
+      textStyle: textStyle ?? this.textStyle,
       borderColor: borderColor ?? this.borderColor,
       borderWidth: borderWidth ?? this.borderWidth,
       buttonType: buttonType ?? this.buttonType,
@@ -229,6 +248,7 @@ class AuthButtonStyle with Diagnosticable {
       elevation: elevation ?? style.elevation,
       borderRadius: borderRadius ?? style.borderRadius,
       padding: padding ?? style.padding,
+      textStyle: textStyle ?? style.textStyle,
       borderColor: borderColor ?? style.borderColor,
       borderWidth: borderWidth ?? style.borderWidth,
       buttonType: buttonType ?? style.buttonType,
@@ -254,6 +274,7 @@ class AuthButtonStyle with Diagnosticable {
       elevation,
       borderRadius,
       padding,
+      textStyle,
       borderColor,
       borderWidth,
       buttonType,
@@ -281,6 +302,7 @@ class AuthButtonStyle with Diagnosticable {
         other.elevation == elevation &&
         other.borderRadius == borderRadius &&
         other.padding == padding &&
+        other.textStyle == textStyle &&
         other.borderColor == borderColor &&
         other.borderWidth == borderWidth &&
         other.buttonType == buttonType &&
@@ -300,21 +322,39 @@ class AuthButtonStyle with Diagnosticable {
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<Color?>('buttonColor', buttonColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('splashColor', splashColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('elevation', elevation, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('borderRadius', borderRadius, defaultValue: null));
-    properties.add(DiagnosticsProperty<EdgeInsets?>('padding', padding, defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('borderColor', borderColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('borderWidth', borderWidth, defaultValue: null));
-    properties.add(DiagnosticsProperty<AuthButtonType?>('buttonType', buttonType, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('width', width, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('height', height, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('iconSize', iconSize, defaultValue: 30.0));
-    properties.add(DiagnosticsProperty<double?>('separator', separator, defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('iconBackground', iconBackground, defaultValue: null));
-    properties.add(DiagnosticsProperty<AuthIconType?>('iconType', iconType, defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('shadowColor', shadowColor, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('buttonColor', buttonColor,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('splashColor', splashColor,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('elevation', elevation,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('borderRadius', borderRadius,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<EdgeInsets?>('padding', padding,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<TextStyle?>('textStyle', textStyle,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('borderColor', borderColor,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('borderWidth', borderWidth,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<AuthButtonType?>(
+        'buttonType', buttonType,
+        defaultValue: null));
+    properties
+        .add(DiagnosticsProperty<double?>('width', width, defaultValue: null));
+    properties.add(
+        DiagnosticsProperty<double?>('height', height, defaultValue: null));
+    properties.add(
+        DiagnosticsProperty<double?>('iconSize', iconSize, defaultValue: 30.0));
+    properties.add(DiagnosticsProperty<double?>('separator', separator,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('iconBackground', iconBackground,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<AuthIconType?>('iconType', iconType,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('shadowColor', shadowColor,
+        defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('progressIndicatorColor', progressIndicatorColor, defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('progressIndicatorValueColor', progressIndicatorValueColor, defaultValue: null));
     properties.add(DiagnosticsProperty<double?>('progressIndicatorStrokeWidth', progressIndicatorStrokeWidth, defaultValue: null));
