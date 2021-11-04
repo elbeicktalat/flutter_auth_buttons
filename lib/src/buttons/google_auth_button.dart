@@ -17,7 +17,6 @@ class GoogleAuthButton extends AuthButton {
     required VoidCallback onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Google',
-    TextStyle? textStyle,
     bool darkMode = false,
     bool rtl = false,
     bool isLoading = false,
@@ -27,7 +26,6 @@ class GoogleAuthButton extends AuthButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           text: text,
-          textStyle: textStyle,
           darkMode: darkMode,
           rtl: rtl,
           isLoading: isLoading,
@@ -80,14 +78,14 @@ class GoogleAuthButton extends AuthButton {
   @override
   TextStyle getTextStyle() {
     if (style!.buttonType == AuthButtonType.secondary)
-      return textStyle ??
+      return style!.textStyle ??
           GoogleFonts.roboto(
             color: Colors.white,
             fontSize: 18,
             fontWeight: FontWeight.w500,
             letterSpacing: 0.50,
           );
-    return textStyle ??
+    return style!.textStyle ??
         GoogleFonts.roboto(
           color: Colors.black.smartColor(darkMode),
           fontSize: 18,

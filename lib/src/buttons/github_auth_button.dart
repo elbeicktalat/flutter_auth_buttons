@@ -15,7 +15,6 @@ class GithubAuthButton extends AuthButton {
     required VoidCallback onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Github',
-    TextStyle? textStyle,
     bool darkMode = false,
     bool rtl = false,
     bool isLoading = false,
@@ -25,7 +24,6 @@ class GithubAuthButton extends AuthButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           text: text,
-          textStyle: textStyle,
           darkMode: darkMode,
           rtl: rtl,
           isLoading: isLoading,
@@ -61,12 +59,13 @@ class GithubAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
-    return const TextStyle(
-      color: Colors.white,
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-      letterSpacing: 0.50,
-    );
+    return style!.textStyle ??
+        const TextStyle(
+          color: Colors.white,
+          fontSize: 18,
+          fontWeight: FontWeight.bold,
+          letterSpacing: 0.50,
+        );
   }
 
   @override

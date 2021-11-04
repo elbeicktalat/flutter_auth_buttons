@@ -17,7 +17,6 @@ class AppleAuthButton extends AuthButton {
     required VoidCallback onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Apple',
-    TextStyle? textStyle,
     bool darkMode = false,
     bool rtl = false,
     bool isLoading = false,
@@ -27,7 +26,6 @@ class AppleAuthButton extends AuthButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           text: text,
-          textStyle: textStyle,
           darkMode: darkMode,
           rtl: rtl,
           isLoading: isLoading,
@@ -86,17 +84,19 @@ class AppleAuthButton extends AuthButton {
   @override
   TextStyle getTextStyle() {
     if (style!.buttonType == AuthButtonType.secondary)
-      return GoogleFonts.sourceSansPro(
-        color: Colors.white,
-        fontSize: 18,
-        fontWeight: FontWeight.w600,
-        letterSpacing: 0.50,
-      );
-    return GoogleFonts.sourceSansPro(
-      color: Colors.black.smartColor(darkMode),
-      fontSize: 18,
-      fontWeight: FontWeight.w600,
-      letterSpacing: 0.50,
-    );
+      return style!.textStyle ??
+          GoogleFonts.sourceSansPro(
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            letterSpacing: 0.50,
+          );
+    return style!.textStyle ??
+        GoogleFonts.sourceSansPro(
+          color: Colors.black.smartColor(darkMode),
+          fontSize: 18,
+          fontWeight: FontWeight.w600,
+          letterSpacing: 0.50,
+        );
   }
 }
