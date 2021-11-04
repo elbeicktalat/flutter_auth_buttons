@@ -1,0 +1,7 @@
+<svg id="microsoft" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 62.12 62.12">
+    <path d="M3,3H32.54V32.54H3Z" transform="translate(-2.96 -2.96)" fill="#f35325" />
+    <path d="M35.49,3H65.07V32.54H35.49Z" transform="translate(-2.96 -2.96)" fill="#81bc06" />
+    <path d="M3,35.49H32.54V65.07H3Z" transform="translate(-2.96 -2.96)" fill="#05a6f0" />
+    <path d="M35.49,35.49H65.07V65.07H35.49Z" transform="translate(-2.96 -2.96)" fill="#ffba08" />
+</svg>
