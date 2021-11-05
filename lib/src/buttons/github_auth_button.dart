@@ -41,13 +41,10 @@ class GithubAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    return (style!.buttonType == AuthButtonType.secondary)
-        ? darkMode
-            ? AuthIcons.githubWhite
-            : AuthIcons.github
-        : darkMode
-            ? AuthIcons.githubWhite
-            : AuthIcons.githubWhite;
+    if (style!.iconType == AuthIconType.outlined)
+      return darkMode ? AuthIcons.githubWhite[1] : AuthIcons.github[1];
+    if (style!.iconType == AuthIconType.secondary) return AuthIcons.github[2];
+    return AuthIcons.githubWhite[0];
   }
 
   @override
