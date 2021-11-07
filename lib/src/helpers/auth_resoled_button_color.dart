@@ -2,21 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/utils/auth_button_color.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
-import 'package:flutter/material.dart';
-
-class ButtonColor {
-  final Color color;
-  final Color? onSecondaryIcon;
-  final Color? onSecondaryButton;
-
-  const ButtonColor(
-    this.color, {
-    this.onSecondaryIcon,
-    this.onSecondaryButton,
-  });
-}
+import 'package:flutter/material.dart' show Color;
 
 Color resolvedButtonColor({
   required ButtonColor buttonColor,
