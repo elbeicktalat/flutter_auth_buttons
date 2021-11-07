@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
@@ -39,10 +40,14 @@ class GithubAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    if (style!.iconType == AuthIconType.outlined)
-      return darkMode ? AuthIcons.githubWhite[1] : AuthIcons.github[1];
-    if (style!.iconType == AuthIconType.secondary) return AuthIcons.github[2];
-    return AuthIcons.githubWhite[0];
+    return resolvedIconUrl(
+      iconUrl: AuthIcons.github,
+      whiteIconUrl: AuthIcons.githubWhite,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+      darkMode: this.darkMode,
+      buttonColor: getButtonColor(),
+    );
   }
 
   @override

@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
@@ -38,25 +39,14 @@ class TwitterAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    if (style!.buttonType == AuthButtonType.secondary)
-      return darkMode
-          ? (style!.iconType == AuthIconType.outlined)
-              ? AuthIcons.twitterWhite[1]
-              : AuthIcons.twitterWhite[0]
-          : (style!.iconType == AuthIconType.outlined)
-              ? AuthIcons.twitter[1]
-              : AuthIcons.twitter[0];
-
-    if (style!.iconType == AuthIconType.outlined)
-      return darkMode
-          ? (style!.iconType == AuthIconType.outlined)
-              ? AuthIcons.twitter[1]
-              : AuthIcons.twitter[0]
-          : (style!.iconType == AuthIconType.outlined)
-              ? AuthIcons.twitterWhite[1]
-              : AuthIcons.twitterWhite[0];
-
-    return darkMode ? AuthIcons.twitter[0] : AuthIcons.twitterWhite[0];
+    return resolvedIconUrl(
+      iconUrl: AuthIcons.twitter,
+      whiteIconUrl: AuthIcons.twitterWhite,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+      darkMode: this.darkMode,
+      buttonColor: getButtonColor(),
+    );
   }
 
   @override

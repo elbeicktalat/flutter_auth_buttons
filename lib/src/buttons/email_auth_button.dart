@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
@@ -38,12 +39,14 @@ class EmailAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    if (style!.iconType == AuthIconType.outlined)
-      return darkMode ? AuthIcons.emailWhite[1] : AuthIcons.email[1];
-    if (style!.iconType == AuthIconType.secondary) return AuthIcons.email[2];
-    return (style!.buttonType == AuthButtonType.secondary)
-        ? AuthIcons.email[0]
-        : AuthIcons.emailWhite[0];
+    return resolvedIconUrl(
+      iconUrl: AuthIcons.email,
+      whiteIconUrl: AuthIcons.emailWhite,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+      darkMode: this.darkMode,
+      buttonColor: getButtonColor(),
+    );
   }
 
   @override

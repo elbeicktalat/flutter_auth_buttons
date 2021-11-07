@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
@@ -39,12 +40,14 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    if (style!.iconType == AuthIconType.outlined)
-      return darkMode ? AuthIcons.facebookWhite[1] : AuthIcons.facebook[1];
-    if (style!.iconType == AuthIconType.secondary) return AuthIcons.facebook[2];
-    if (style!.buttonType == AuthButtonType.secondary)
-      return darkMode ? AuthIcons.facebookWhite[0] : AuthIcons.facebook[0];
-    return AuthIcons.facebookWhite[0];
+    return resolvedIconUrl(
+      iconUrl: AuthIcons.facebook,
+      whiteIconUrl: AuthIcons.facebookWhite,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+      darkMode: this.darkMode,
+      buttonColor: getButtonColor(),
+    );
   }
 
   @override
