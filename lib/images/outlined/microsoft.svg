@@ -1,0 +1,11 @@
+<svg id="microsoft_outlined" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 66.62 66.62">
+    <path d="M0,0H28.18V28.29H0Z" transform="translate(1.5 1.5)" fill="#f35325" stroke="#1d1d1b"
+        stroke-miterlimit="10" stroke-width="3" />
+    <path d="M35.44,0H63.62V28.29H35.44Z" transform="translate(1.5 1.5)" fill="#81bc06"
+        stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="3" />
+    <path d="M0,35.33H28.18V63.62H0Z" transform="translate(1.5 1.5)" fill="#05a6f0" stroke="#1d1d1b"
+        stroke-miterlimit="10" stroke-width="3" />
+    <path d="M35.44,35.33H63.62V63.62H35.44Z" transform="translate(1.5 1.5)" fill="#ffba08"
+        stroke="#1d1d1b" stroke-miterlimit="10" stroke-width="3" />
+</svg>

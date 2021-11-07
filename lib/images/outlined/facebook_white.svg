@@ -1,0 +1,11 @@
+<svg id="facebook_outlined_white" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 71 70.99">
+    <path
+        d="M68,34a34,34,0,1,0-39.33,33.6V43.81H20.07V34h8.64v-7.5c0-8.52,5.07-13.23,12.84-13.23a52.6,52.6,0,0,1,7.62.66v8.37H44.89c-4.23,0-5.54,2.63-5.54,5.32V34h9.43l-1.52,9.79H39.34V67.62A34,34,0,0,0,68,34Z"
+        transform="translate(1.46 1.46)" fill="#fff" stroke="#000" stroke-miterlimit="10"
+        stroke-width="3" />
+    <path
+        d="M47.26,43.81,48.77,34H39.34V27.64c0-2.69,1.31-5.32,5.54-5.32h4.29V14a52.6,52.6,0,0,0-7.62-.66c-7.77,0-12.84,4.71-12.84,13.23V34H20.07v9.79h8.64V67.62a34.45,34.45,0,0,0,10.63,0V43.81Z"
+        transform="translate(1.46 1.46)" fill="none" stroke="#000" stroke-miterlimit="10"
+        stroke-width="3" />
+</svg>
