@@ -69,6 +69,8 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
 
   AuthButtonStyle? getButtonStyle();
 
+  bool get enabled => onPressed != null || onLongPress != null;
+
   @override
   Widget build(BuildContext context);
 }
