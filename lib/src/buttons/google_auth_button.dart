@@ -14,7 +14,7 @@ import 'package:google_fonts/google_fonts.dart';
 class GoogleAuthButton extends AuthButton {
   const GoogleAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    VoidCallback? onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Google',
     bool darkMode = false,
@@ -41,6 +41,7 @@ class GoogleAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
+    if (!enabled) return AuthColors.disabled;
     if (style!.buttonType == AuthButtonType.secondary)
       return style!.buttonColor ??
           (darkMode ? AuthColors.darkMode : Colors.blue);
@@ -77,6 +78,13 @@ class GoogleAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
+    if (!enabled)
+      return GoogleFonts.roboto(
+        color: AuthColors.disabledContent,
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
+        letterSpacing: 0.50,
+      );
     if (style!.buttonType == AuthButtonType.secondary)
       return style!.textStyle ??
           GoogleFonts.roboto(

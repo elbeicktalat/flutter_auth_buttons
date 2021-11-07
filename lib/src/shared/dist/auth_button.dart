@@ -9,7 +9,7 @@ import 'package:flutter/widgets.dart';
 abstract class AuthButton extends BaseAuthButton {
   const AuthButton({
     Key? key,
-    required VoidCallback? onPressed,
+    VoidCallback? onPressed,
     VoidCallback? onLongPress,
     AuthButtonStyle? style,
     String? text,

@@ -13,7 +13,7 @@ import 'package:google_fonts/google_fonts.dart';
 class MicrosoftAuthButton extends AuthButton {
   const MicrosoftAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    VoidCallback? onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Microsoft',
     bool darkMode = false,
@@ -46,6 +46,7 @@ class MicrosoftAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
+    if (!enabled) return AuthColors.disabled;
     if (style!.buttonType == AuthButtonType.secondary)
       return style!.buttonColor ??
           (darkMode ? AuthColors.darkMode : Colors.amber);
@@ -55,6 +56,11 @@ class MicrosoftAuthButton extends AuthButton {
 
   @override
   AuthButtonStyle? getButtonStyle() {
+    if (!enabled)
+      return AuthButtonStyle(
+        height: 40.0,
+        separator: 12.0,
+      );
     if (style!.buttonType == AuthButtonType.icon)
       return style!.merge(
         AuthButtonStyle(
@@ -86,6 +92,12 @@ class MicrosoftAuthButton extends AuthButton {
   TextStyle getTextStyle() {
     //Note: Microsoft uses the Segoe UI fonts,
     // but is not available in google fonts for the moment (26/10/2021).
+    if (!enabled)
+      return GoogleFonts.lato(
+        color: AuthColors.disabledContent,
+        fontSize: 16.0,
+        fontWeight: FontWeight.w600,
+      );
     return style!.textStyle ??
         GoogleFonts.lato(
           color: darkMode ? Colors.white : Color(0xff5e5e5e),

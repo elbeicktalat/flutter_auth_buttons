@@ -65,9 +65,13 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
 
   String getIconUrl();
 
+  Color? getIconColor();
+
   Color? getProgressIndicatorValueColor();
 
   AuthButtonStyle? getButtonStyle();
+
+  bool get enabled => onPressed != null || onLongPress != null;
 
   @override
   Widget build(BuildContext context);

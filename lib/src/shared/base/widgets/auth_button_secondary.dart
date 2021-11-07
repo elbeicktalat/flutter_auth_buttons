@@ -18,18 +18,20 @@ class AuthButtonSecondary extends AuthTypeButton {
     required bool rtl,
     required Color buttonColor,
     required String iconUrl,
+    required Color? iconColor,
     required Color? progressIndicatorValueColor,
     required this.text,
     required this.textStyle,
     required this.iconBackground,
   }) : super(
-          onPressed: onPressed,
+    onPressed: onPressed,
           onLongPress: onLongPress,
           style: style,
           darkMode: darkMode,
           isLoading: isLoading,
           rtl: rtl,
           iconUrl: iconUrl,
+          iconColor: iconColor,
           buttonColor: buttonColor,
           progressIndicatorValueColor: progressIndicatorValueColor,
         );
@@ -42,7 +44,7 @@ class AuthButtonSecondary extends AuthTypeButton {
   Widget build(BuildContext context) {
     return SharedButton(
       key: key,
-      onPressed: onPressed!,
+      onPressed: onPressed,
       onLongPress: onLongPress,
       style: AuthButtonStyle(
         width: style!.width,
@@ -75,6 +77,7 @@ class AuthButtonSecondary extends AuthTypeButton {
               getProgressIndicatorValueColor(),
           progressIndicatorStrokeWidth: style!.progressIndicatorStrokeWidth,
           progressIndicatorValue: style!.progressIndicatorValue,
+          iconColor: iconColor,
         ),
       ),
     );

@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class CustomAuthButton extends AuthButton {
   const CustomAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    VoidCallback? onPressed,
     VoidCallback? onLongPress,
     required String text,
     required this.icon,

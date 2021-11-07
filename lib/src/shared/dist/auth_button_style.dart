@@ -29,6 +29,7 @@ class AuthButtonStyle with Diagnosticable {
     this.progressIndicatorValueColor,
     this.progressIndicatorStrokeWidth,
     this.progressIndicatorValue,
+    this.iconColor,
   });
 
   ///**[buttonColor]** Define the button color.
@@ -183,6 +184,7 @@ class AuthButtonStyle with Diagnosticable {
   final Color? progressIndicatorValueColor;
   final double? progressIndicatorStrokeWidth;
   final double? progressIndicatorValue;
+  final Color? iconColor;
 
   /// Returns a copy of this AuthButtonStyle with the given fields replaced with
   /// the new values.
@@ -207,6 +209,7 @@ class AuthButtonStyle with Diagnosticable {
     Color? progressIndicatorValueColor,
     double? progressIndicatorStrokeWidth,
     double? progressIndicatorValue,
+    Color? iconColor,
   }) {
     return AuthButtonStyle(
       buttonColor: buttonColor ?? this.buttonColor,
@@ -229,6 +232,7 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorValueColor: progressIndicatorValueColor ?? this.progressIndicatorValueColor,
       progressIndicatorStrokeWidth: progressIndicatorStrokeWidth ?? this.progressIndicatorStrokeWidth,
       progressIndicatorValue: progressIndicatorValue ?? this.progressIndicatorValue,
+      iconColor: iconColor ?? this.iconColor,
     );
   }
 
@@ -263,12 +267,13 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorValueColor: progressIndicatorValueColor ?? style.progressIndicatorValueColor,
       progressIndicatorStrokeWidth: progressIndicatorStrokeWidth ?? style.progressIndicatorStrokeWidth,
       progressIndicatorValue: progressIndicatorValue ?? style.progressIndicatorValue,
+      iconColor: iconColor ?? style.iconColor,
     );
   }
 
   @override
   int get hashCode {
-    return hashValues(
+    return hashList([
       buttonColor,
       splashColor,
       elevation,
@@ -289,7 +294,8 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorValueColor,
       progressIndicatorStrokeWidth,
       progressIndicatorValue,
-    );
+      iconColor,
+    ]);
   }
 
   @override
@@ -316,48 +322,33 @@ class AuthButtonStyle with Diagnosticable {
         other.progressIndicatorColor == progressIndicatorColor &&
         other.progressIndicatorValueColor == progressIndicatorValueColor &&
         other.progressIndicatorStrokeWidth == progressIndicatorStrokeWidth &&
-        other.progressIndicatorValue == progressIndicatorValue;
+        other.progressIndicatorValue == progressIndicatorValue &&
+        other.iconColor == iconColor;
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<Color?>('buttonColor', buttonColor,
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('splashColor', splashColor,
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('elevation', elevation,
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('borderRadius', borderRadius,
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<EdgeInsets?>('padding', padding,
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<TextStyle?>('textStyle', textStyle,
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('borderColor', borderColor,
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('borderWidth', borderWidth,
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<AuthButtonType?>(
-        'buttonType', buttonType,
-        defaultValue: null));
-    properties
-        .add(DiagnosticsProperty<double?>('width', width, defaultValue: null));
-    properties.add(
-        DiagnosticsProperty<double?>('height', height, defaultValue: null));
-    properties.add(
-        DiagnosticsProperty<double?>('iconSize', iconSize, defaultValue: 30.0));
-    properties.add(DiagnosticsProperty<double?>('separator', separator,
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('iconBackground', iconBackground,
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<AuthIconType?>('iconType', iconType,
-        defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('shadowColor', shadowColor,
-        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('buttonColor', buttonColor, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('splashColor', splashColor, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('elevation', elevation, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('borderRadius', borderRadius, defaultValue: null));
+    properties.add(DiagnosticsProperty<EdgeInsets?>('padding', padding, defaultValue: null));
+    properties.add(DiagnosticsProperty<TextStyle?>('textStyle', textStyle, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('borderColor', borderColor, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('borderWidth', borderWidth, defaultValue: null));
+    properties.add(DiagnosticsProperty<AuthButtonType?>('buttonType', buttonType, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('width', width, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('height', height, defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('iconSize', iconSize, defaultValue: 30.0));
+    properties.add(DiagnosticsProperty<double?>('separator', separator, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('iconBackground', iconBackground, defaultValue: null));
+    properties.add(DiagnosticsProperty<AuthIconType?>('iconType', iconType, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('shadowColor', shadowColor, defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('progressIndicatorColor', progressIndicatorColor, defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('progressIndicatorValueColor', progressIndicatorValueColor, defaultValue: null));
     properties.add(DiagnosticsProperty<double?>('progressIndicatorStrokeWidth', progressIndicatorStrokeWidth, defaultValue: null));
     properties.add(DiagnosticsProperty<double?>('progressIndicatorValue', progressIndicatorValue, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('iconColor', iconColor, defaultValue: null));
   }
 }

@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 class TwitterAuthButton extends AuthButton {
   const TwitterAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    VoidCallback? onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Twitter',
     bool darkMode = false,
@@ -61,6 +61,7 @@ class TwitterAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
+    if (!enabled) return AuthColors.disabled;
     if (style!.buttonType == AuthButtonType.secondary)
       return style!.buttonColor ??
           (darkMode ? AuthColors.darkMode : Colors.blue);
@@ -69,6 +70,13 @@ class TwitterAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
+    if (!enabled)
+      return const TextStyle(
+        color: AuthColors.disabledContent,
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 0.50,
+      );
     return style!.textStyle ??
         const TextStyle(
           color: Colors.white,
