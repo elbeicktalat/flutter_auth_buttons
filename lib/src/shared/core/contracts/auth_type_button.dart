@@ -16,6 +16,7 @@ abstract class AuthTypeButton extends StatelessWidget {
     required this.rtl,
     required this.buttonColor,
     required this.iconUrl,
+    required this.iconColor,
     required this.progressIndicatorValueColor,
   }) : super(key: key);
 
@@ -27,6 +28,7 @@ abstract class AuthTypeButton extends StatelessWidget {
   final bool rtl;
   final Color buttonColor;
   final String iconUrl;
+  final Color? iconColor;
   final Color? progressIndicatorValueColor;
 
   Color getButtonColor();
