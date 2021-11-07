@@ -57,6 +57,7 @@ class ButtonContents extends StatelessWidget {
                   iconUrl,
                   width: style!.iconSize,
                   height: style!.iconSize,
+                  color: style!.iconColor,
                 ),
         ),
         SizedBox(
