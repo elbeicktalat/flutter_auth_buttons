@@ -35,7 +35,7 @@ class AuthIconButton extends AuthTypeButton {
   Widget build(BuildContext context) {
     return SharedButton(
       key: key,
-      onPressed: onPressed!,
+      onPressed: onPressed,
       onLongPress: onLongPress,
       style: AuthButtonStyle(
         width: style!.width ?? 50.0,
