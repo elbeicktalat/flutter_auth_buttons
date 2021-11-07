@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/helpers/auth_resoled_button_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
@@ -45,12 +46,16 @@ class GoogleAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    if (!enabled) return AuthColors.disabled;
-    if (style!.buttonType == AuthButtonType.secondary)
-      return style!.buttonColor ??
-          (darkMode ? AuthColors.darkMode : Colors.blue);
-    return style!.buttonColor ??
-        (darkMode ? AuthColors.darkMode : Colors.white);
+    return resolvedButtonColor(
+      buttonColor: ButtonColor(
+        Colors.white,
+        onSecondaryButton: Colors.blue,
+      ),
+      darkMode: this.darkMode,
+      enabled: this.enabled,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+    );
   }
 
   @override
