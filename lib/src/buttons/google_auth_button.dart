@@ -47,16 +47,17 @@ class GoogleAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    return resolvedButtonColor(
-      buttonColor: ButtonColor(
-        Colors.white,
-        onSecondaryButton: Colors.blue,
-      ),
-      darkMode: this.darkMode,
-      enabled: this.enabled,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
-    );
+    return style!.buttonColor ??
+        resolvedButtonColor(
+          buttonColor: ButtonColor(
+            Colors.white,
+            onSecondaryButton: Colors.blue,
+          ),
+          darkMode: this.darkMode,
+          enabled: this.enabled,
+          buttonType: style!.buttonType,
+          iconType: style!.iconType,
+        );
   }
 
   @override

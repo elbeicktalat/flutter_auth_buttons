@@ -53,16 +53,17 @@ class HuaweiAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    return resolvedButtonColor(
-      buttonColor: ButtonColor(
-        AuthColors.huawei,
-        onSecondaryIcon: Colors.white,
-      ),
-      darkMode: this.darkMode,
-      enabled: this.enabled,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
-    );
+    return style!.buttonColor ??
+        resolvedButtonColor(
+          buttonColor: ButtonColor(
+            AuthColors.huawei,
+            onSecondaryIcon: Colors.white,
+          ),
+          darkMode: this.darkMode,
+          enabled: this.enabled,
+          buttonType: style!.buttonType,
+          iconType: style!.iconType,
+        );
   }
 
   @override

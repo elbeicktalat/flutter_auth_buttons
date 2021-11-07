@@ -54,16 +54,17 @@ class AppleAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    return resolvedButtonColor(
-      buttonColor: ButtonColor(
-        Colors.white,
-        onSecondaryButton: Colors.black,
-      ),
-      darkMode: this.darkMode,
-      enabled: this.enabled,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
-    );
+    return style!.buttonColor ??
+        resolvedButtonColor(
+          buttonColor: ButtonColor(
+            Colors.white,
+            onSecondaryButton: Colors.black,
+          ),
+          darkMode: this.darkMode,
+          enabled: this.enabled,
+          buttonType: style!.buttonType,
+          iconType: style!.iconType,
+        );
   }
 
   @override
