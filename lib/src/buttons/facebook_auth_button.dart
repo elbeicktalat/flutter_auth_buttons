@@ -49,6 +49,7 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
+    if (!enabled) return AuthColors.disabled;
     if (style!.buttonType == AuthButtonType.secondary)
       return style!.buttonColor ??
           (darkMode ? AuthColors.darkMode : AuthColors.facebook);
@@ -61,6 +62,13 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
+    if (!enabled)
+      return TextStyle(
+        color: AuthColors.disabledContent,
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 0.50,
+      );
     if (style!.iconType == AuthIconType.secondary &&
         style!.buttonType != AuthButtonType.secondary)
       return style!.textStyle ??

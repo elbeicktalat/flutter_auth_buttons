@@ -47,6 +47,7 @@ class GithubAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
+    if (!enabled) return AuthColors.disabled;
     if (style!.buttonType == AuthButtonType.secondary)
       return style!.buttonColor ??
           (darkMode ? AuthColors.darkMode : AuthColors.github);
@@ -56,6 +57,14 @@ class GithubAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
+    if (!enabled)
+      return const TextStyle(
+        color: AuthColors.disabledContent,
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 0.50,
+      );
+
     return style!.textStyle ??
         const TextStyle(
           color: Colors.white,
