@@ -22,7 +22,7 @@ String resolvedIconUrl({
     _colored = true;
   }
 
-  if (_colored) {
+  if (_colored && buttonType != AuthButtonType.secondary) {
     if (iconType == AuthIconType.outlined) {
       return whiteIconUrl[1];
     }
