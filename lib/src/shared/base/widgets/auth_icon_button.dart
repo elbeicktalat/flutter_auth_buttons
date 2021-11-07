@@ -18,15 +18,17 @@ class AuthIconButton extends AuthTypeButton {
     required bool rtl,
     required Color buttonColor,
     required String iconUrl,
+    required Color? iconColor,
     required Color? progressIndicatorValueColor,
   }) : super(
-          onPressed: onPressed,
+    onPressed: onPressed,
           onLongPress: onLongPress,
           style: style,
           darkMode: darkMode,
           isLoading: isLoading,
           rtl: rtl,
           iconUrl: iconUrl,
+          iconColor: iconColor,
           buttonColor: buttonColor,
           progressIndicatorValueColor: progressIndicatorValueColor,
         );
@@ -61,6 +63,7 @@ class AuthIconButton extends AuthTypeButton {
               getProgressIndicatorValueColor(),
           progressIndicatorStrokeWidth: style!.progressIndicatorStrokeWidth,
           progressIndicatorValue: style!.progressIndicatorValue,
+          iconColor: iconColor,
         ),
       ),
     );

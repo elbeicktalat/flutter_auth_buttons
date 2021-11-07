@@ -22,18 +22,23 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
     bool isLoading = false,
     bool rtl = false,
   }) : super(
-    key: key,
-    onPressed: onPressed,
-    onLongPress: onLongPress,
-    style: style ?? const AuthButtonStyle(),
-    text: text,
-    darkMode: darkMode,
-    isLoading: isLoading,
-    rtl: rtl,
-  );
+          key: key,
+          onPressed: onPressed,
+          onLongPress: onLongPress,
+          style: style ?? const AuthButtonStyle(),
+          text: text,
+          darkMode: darkMode,
+          isLoading: isLoading,
+          rtl: rtl,
+        );
 
   @override
   Color getButtonColor() => darkMode ? AuthColors.darkMode : Colors.white;
+
+  @override
+  Color? getIconColor() {
+    if (!enabled) return AuthColors.disabledContent;
+  }
 
   @override
   Color getIconBackground() => darkMode ? AuthColors.darkMode : Colors.white;
@@ -74,6 +79,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           iconUrl: getIconUrl(),
           buttonColor: getButtonColor(),
           progressIndicatorValueColor: getProgressIndicatorValueColor(),
+          iconColor: getIconColor(),
         );
       case AuthButtonType.secondary:
         return AuthButtonSecondary(
@@ -89,6 +95,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           iconUrl: getIconUrl(),
           progressIndicatorValueColor: getProgressIndicatorValueColor(),
           iconBackground: getIconBackground(),
+          iconColor: getIconColor(),
         );
       default:
         return AuthDefaultButton(
@@ -103,6 +110,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           iconUrl: getIconUrl(),
           progressIndicatorValueColor: getProgressIndicatorValueColor(),
           textStyle: getTextStyle(),
+          iconColor: getIconColor(),
         );
     }
   }
