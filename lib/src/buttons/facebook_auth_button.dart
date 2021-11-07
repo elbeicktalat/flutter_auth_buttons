@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 class FacebookAuthButton extends AuthButton {
   const FacebookAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    VoidCallback? onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Facebook',
     bool darkMode = false,

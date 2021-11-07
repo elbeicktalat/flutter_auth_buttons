@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 class HuaweiAuthButton extends AuthButton {
   const HuaweiAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    VoidCallback? onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Huawei',
     bool darkMode = false,

@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 class TwitterAuthButton extends AuthButton {
   const TwitterAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    VoidCallback? onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Twitter',
     bool darkMode = false,

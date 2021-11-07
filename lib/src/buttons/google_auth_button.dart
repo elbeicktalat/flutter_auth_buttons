@@ -14,7 +14,7 @@ import 'package:google_fonts/google_fonts.dart';
 class GoogleAuthButton extends AuthButton {
   const GoogleAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    VoidCallback? onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Google',
     bool darkMode = false,

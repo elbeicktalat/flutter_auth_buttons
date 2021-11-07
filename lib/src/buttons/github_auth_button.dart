@@ -12,7 +12,7 @@ import 'package:flutter/material.dart';
 class GithubAuthButton extends AuthButton {
   const GithubAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    VoidCallback? onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Github',
     bool darkMode = false,

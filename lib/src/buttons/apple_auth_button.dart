@@ -14,7 +14,7 @@ import 'package:google_fonts/google_fonts.dart';
 class AppleAuthButton extends AuthButton {
   const AppleAuthButton({
     Key? key,
-    required VoidCallback onPressed,
+    VoidCallback? onPressed,
     VoidCallback? onLongPress,
     String text = 'Sign in with Apple',
     bool darkMode = false,
