@@ -2,13 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/src/helpers/auth_button_color.dart';
-import 'package:auth_buttons/src/helpers/auth_resolved_button_color.dart';
-import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
-import 'package:auth_buttons/src/helpers/auth_resolved_text_style.dart';
-import 'package:auth_buttons/src/helpers/auth_text_color.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
+import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
@@ -42,44 +38,51 @@ class TwitterAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    return resolvedIconUrl(
-      iconUrl: AuthIcons.twitter,
-      whiteIconUrl: AuthIcons.twitterWhite,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
-      darkMode: this.darkMode,
-      buttonColor: getButtonColor(),
-    );
+    if (style!.buttonType == AuthButtonType.secondary)
+      return darkMode
+          ? (style!.iconType == AuthIconType.outlined)
+              ? AuthIcons.twitterWhite[1]
+              : AuthIcons.twitterWhite[0]
+          : (style!.iconType == AuthIconType.outlined)
+              ? AuthIcons.twitter[1]
+              : AuthIcons.twitter[0];
+
+    if (style!.iconType == AuthIconType.outlined)
+      return darkMode
+          ? (style!.iconType == AuthIconType.outlined)
+              ? AuthIcons.twitter[1]
+              : AuthIcons.twitter[0]
+          : (style!.iconType == AuthIconType.outlined)
+              ? AuthIcons.twitterWhite[1]
+              : AuthIcons.twitterWhite[0];
+
+    return darkMode ? AuthIcons.twitter[0] : AuthIcons.twitterWhite[0];
   }
 
   @override
   Color getButtonColor() {
-    return style!.buttonColor ??
-        resolvedButtonColor(
-          buttonColor: ButtonColor(
-            Colors.blue,
-            onSecondaryIcon: Colors.white,
-          ),
-          darkMode: this.darkMode,
-          enabled: this.enabled,
-          buttonType: style!.buttonType,
-          iconType: style!.iconType,
-        );
+    if (!enabled) return AuthColors.disabled;
+    if (style!.buttonType == AuthButtonType.secondary)
+      return style!.buttonColor ??
+          (darkMode ? AuthColors.darkMode : Colors.blue);
+    return style!.buttonColor ?? (darkMode ? AuthColors.darkMode : Colors.blue);
   }
 
   @override
   TextStyle getTextStyle() {
+    if (!enabled)
+      return const TextStyle(
+        color: AuthColors.disabledContent,
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 0.50,
+      );
     return style!.textStyle ??
-        resolvedTextStyle(
-          buttonType: style!.buttonType,
-          iconType: style!.iconType,
-          enabled: enabled,
+        const TextStyle(
+          color: Colors.white,
+          fontSize: 18,
           fontWeight: FontWeight.bold,
-          textColor: TextColor(
-            Colors.white,
-            onSecondaryButton: Colors.white,
-            onSecondaryIcon: darkMode ? Colors.white : Colors.blue,
-          ),
+          letterSpacing: 0.50,
         );
   }
 
