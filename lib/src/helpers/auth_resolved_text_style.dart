@@ -23,12 +23,14 @@ TextStyle _enabledTextStyle({
   String? fontFamily,
   double? fontSize,
   FontWeight? fontWeight,
+  double? letterSpacing,
 }) {
   TextStyle textStyle = GoogleFonts.getFont(
     fontFamily ?? 'Roboto',
     color: textColor!.color,
     fontSize: fontSize ?? 18.0,
     fontWeight: fontWeight,
+    letterSpacing: letterSpacing ?? 0.50,
   );
 
   if (buttonType == AuthButtonType.secondary)
@@ -52,6 +54,7 @@ TextStyle resolvedTextStyle({
   String? fontFamily,
   double? fontSize,
   FontWeight? fontWeight,
+  double? letterSpacing,
 }) {
   if (!enabled) return _disabledTextStyle();
   return _enabledTextStyle(
@@ -61,5 +64,6 @@ TextStyle resolvedTextStyle({
     fontFamily: fontFamily,
     fontSize: fontSize,
     fontWeight: fontWeight,
+    letterSpacing: letterSpacing,
   );
 }
