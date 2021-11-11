@@ -49,7 +49,7 @@ TextStyle resolvedTextStyle({
   AuthIconType? iconType,
   required bool enabled,
   TextColor? textColor,
-  required String fontFamily,
+  String? fontFamily,
   double? fontSize,
   FontWeight? fontWeight,
 }) {
