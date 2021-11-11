@@ -2,6 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/helpers/auth_button_color.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_button_color.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_text_style.dart';
+import 'package:auth_buttons/src/helpers/auth_text_color.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
@@ -38,51 +43,43 @@ class HuaweiAuthButton extends AuthButton {
 
   @override
   String getIconUrl() {
-    if (style!.iconType == AuthIconType.outlined)
-      return darkMode ? AuthIcons.huaweiWhite[1] : AuthIcons.huawei[1];
-    if (style!.iconType == AuthIconType.secondary) return AuthIcons.huawei[2];
-    return (style!.buttonType == AuthButtonType.secondary)
-        ? AuthIcons.huawei[0]
-        : AuthIcons.huaweiWhite[0];
+    return resolvedIconUrl(
+      iconUrl: AuthIcons.huawei,
+      whiteIconUrl: AuthIcons.huaweiWhite,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+      darkMode: this.darkMode,
+      buttonColor: getButtonColor(),
+    );
   }
 
   @override
   Color getButtonColor() {
-    if (!enabled) return AuthColors.disabled;
-    if (style!.buttonType == AuthButtonType.secondary)
-      return style!.buttonColor ??
-          (darkMode ? AuthColors.darkMode : AuthColors.huawei);
-    if (style!.iconType == AuthIconType.secondary)
-      return style!.buttonColor ??
-          (darkMode ? AuthColors.darkMode : Colors.white);
     return style!.buttonColor ??
-        (darkMode ? AuthColors.darkMode : AuthColors.huawei);
+        resolvedButtonColor(
+          buttonColor: ButtonColor(
+            AuthColors.huawei,
+            onSecondaryIcon: Colors.white,
+          ),
+          darkMode: this.darkMode,
+          enabled: this.enabled,
+          buttonType: style!.buttonType,
+          iconType: style!.iconType,
+        );
   }
 
   @override
   TextStyle getTextStyle() {
-    if (!enabled)
-      return TextStyle(
-        color: AuthColors.disabledContent,
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 0.50,
-      );
-
-    if (style!.iconType == AuthIconType.secondary &&
-        style!.buttonType != AuthButtonType.secondary)
-      return TextStyle(
-        color: darkMode ? Colors.white : Colors.red[800],
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 0.50,
-      );
     return style!.textStyle ??
-        const TextStyle(
-          color: Colors.white,
-          fontSize: 18,
+        resolvedTextStyle(
+          buttonType: style!.buttonType,
+          iconType: style!.iconType,
+          enabled: enabled,
           fontWeight: FontWeight.bold,
-          letterSpacing: 0.50,
+          textColor: TextColor(
+            Colors.white,
+            onSecondaryIcon: darkMode ? Colors.white : Colors.red[800],
+          ),
         );
   }
 

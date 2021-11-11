@@ -30,6 +30,7 @@ class AuthIcons {
   static const List<String> twitter = <String>[
     'packages/auth_buttons/images/default/twitter.svg',
     'packages/auth_buttons/images/outlined/twitter.svg',
+    'packages/auth_buttons/images/secondary/twitter.svg',
   ];
   static const List<String> twitterWhite = <String>[
     'packages/auth_buttons/images/default/twitter_white.svg',
