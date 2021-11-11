@@ -79,7 +79,7 @@ class GithubAuthButton extends AuthButton {
           fontWeight: FontWeight.bold,
           textColor: TextColor(
             Colors.white,
-            onSecondaryIcon: AuthColors.github,
+            onSecondaryIcon: darkMode ? Colors.white : AuthColors.github,
           ),
         );
   }

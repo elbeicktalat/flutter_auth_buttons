@@ -78,7 +78,7 @@ class TwitterAuthButton extends AuthButton {
           textColor: TextColor(
             Colors.white,
             onSecondaryButton: Colors.white,
-            onSecondaryIcon: Colors.blue,
+            onSecondaryIcon: darkMode ? Colors.white : Colors.blue,
           ),
         );
   }
