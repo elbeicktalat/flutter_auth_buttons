@@ -36,6 +36,11 @@ TextStyle _enabledTextStyle({
       color: textColor.onSecondaryButton,
     );
 
+  if (iconType == AuthIconType.secondary)
+    return textStyle.copyWith(
+      color: textColor.onSecondaryIcon,
+    );
+
   return textStyle;
 }
 
