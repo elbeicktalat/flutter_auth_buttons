@@ -5,6 +5,8 @@
 import 'package:auth_buttons/src/helpers/auth_button_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_button_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_text_style.dart';
+import 'package:auth_buttons/src/helpers/auth_text_color.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
@@ -69,28 +71,16 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
-    if (!enabled)
-      return TextStyle(
-        color: AuthColors.disabledContent,
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 0.50,
-      );
-    if (style!.iconType == AuthIconType.secondary &&
-        style!.buttonType != AuthButtonType.secondary)
-      return style!.textStyle ??
-          TextStyle(
-            color: darkMode ? Colors.white : Colors.blue[800],
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 0.50,
-          );
     return style!.textStyle ??
-        const TextStyle(
-          color: Colors.white,
-          fontSize: 18,
+        resolvedTextStyle(
+          buttonType: style!.buttonType,
+          iconType: style!.iconType,
+          enabled: enabled,
           fontWeight: FontWeight.bold,
-          letterSpacing: 0.50,
+          textColor: TextColor(
+            Colors.white,
+            onSecondaryIcon: darkMode ? Colors.white : Colors.blue[800],
+          ),
         );
   }
 

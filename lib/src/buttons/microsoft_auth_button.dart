@@ -5,13 +5,13 @@
 import 'package:auth_buttons/src/helpers/auth_button_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_button_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_text_style.dart';
+import 'package:auth_buttons/src/helpers/auth_text_color.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
-import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MicrosoftAuthButton extends AuthButton {
   const MicrosoftAuthButton({
@@ -101,19 +101,18 @@ class MicrosoftAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
-    //Note: Microsoft uses the Segoe UI fonts,
-    // but is not available in google fonts for the moment (26/10/2021).
-    if (!enabled)
-      return GoogleFonts.lato(
-        color: AuthColors.disabledContent,
-        fontSize: 16.0,
-        fontWeight: FontWeight.w600,
-      );
     return style!.textStyle ??
-        GoogleFonts.lato(
-          color: darkMode ? Colors.white : Color(0xff5e5e5e),
+        resolvedTextStyle(
+          buttonType: style!.buttonType,
+          iconType: style!.iconType,
+          enabled: enabled,
+          fontFamily: 'Lato',
           fontSize: 16.0,
           fontWeight: FontWeight.w600,
+          textColor: TextColor(
+            darkMode ? Colors.white : Color(0xff5e5e5e),
+            onSecondaryButton: Colors.white,
+          ),
         );
   }
 }

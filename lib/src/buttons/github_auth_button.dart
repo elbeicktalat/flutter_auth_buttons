@@ -5,6 +5,8 @@
 import 'package:auth_buttons/src/helpers/auth_button_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_button_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_text_style.dart';
+import 'package:auth_buttons/src/helpers/auth_text_color.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
@@ -58,6 +60,7 @@ class GithubAuthButton extends AuthButton {
         resolvedButtonColor(
           buttonColor: ButtonColor(
             AuthColors.github,
+            onSecondaryIcon: Colors.white,
           ),
           darkMode: this.darkMode,
           enabled: this.enabled,
@@ -68,20 +71,16 @@ class GithubAuthButton extends AuthButton {
 
   @override
   TextStyle getTextStyle() {
-    if (!enabled)
-      return const TextStyle(
-        color: AuthColors.disabledContent,
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 0.50,
-      );
-
     return style!.textStyle ??
-        const TextStyle(
-          color: Colors.white,
-          fontSize: 18,
+        resolvedTextStyle(
+          buttonType: style!.buttonType,
+          iconType: style!.iconType,
+          enabled: enabled,
           fontWeight: FontWeight.bold,
-          letterSpacing: 0.50,
+          textColor: TextColor(
+            Colors.white,
+            onSecondaryIcon: AuthColors.github,
+          ),
         );
   }
 
