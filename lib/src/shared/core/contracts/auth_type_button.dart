@@ -31,10 +31,13 @@ abstract class AuthTypeButton extends StatelessWidget {
   final Color? iconColor;
   final Color? progressIndicatorValueColor;
 
+  /// {@macro getButtonColor}
   Color getButtonColor();
 
+  /// {@macro getIconUrl}
   String getIconUrl();
 
+  /// {@macro getProgressIndicatorValueColor}
   Color? getProgressIndicatorValueColor();
 
   @override

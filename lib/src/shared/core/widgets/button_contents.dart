@@ -18,11 +18,26 @@ class ButtonContents extends StatelessWidget {
     this.style,
   }) : super(key: key);
 
+  /// {@macro text}
   final String text;
+
+  /// {@template iconUrl}
+  ///
+  ///**[iconUrl]** define the icon resource.
+  ///
+  /// {@endtemplate}
   final String iconUrl;
+
+  /// {@macro darkMode}
   final bool darkMode;
+
+  /// {@macro rtl}
   final bool rtl;
+
+  /// {@macro isLoading}
   final bool isLoading;
+
+  /// {@macro style}
   final AuthButtonStyle? style;
 
   @override

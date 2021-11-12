@@ -14,18 +14,16 @@ class SharedButton extends StatelessWidget {
     required this.style,
   }) : super(key: key);
 
-  ///[onPressed] is a void function well be called when the button pressed.
+  /// {@macro onPressed}
   final VoidCallback? onPressed;
 
-  ///[onPressed] is a void function well be called when the button
-  /// is pressed for long time.
+  /// {@macro onLongPress}
   final VoidCallback? onLongPress;
 
   ///[child] is A Widget which will be put inside of this widget.
   final Widget child;
 
-  ///**[style]** define the entire button style, like buttonColor, iconSize,
-  /// width, and other.
+  /// {@macro style}
   final AuthButtonStyle? style;
 
   @override
