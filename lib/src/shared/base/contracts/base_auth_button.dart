@@ -38,6 +38,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
   @override
   Color? getIconColor() {
     if (!enabled) return AuthColors.disabledContent;
+    return style!.iconColor;
   }
 
   @override
