@@ -14,6 +14,16 @@ import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
+///create facebook authentication button with multiple styles.
+///
+/// default style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/facebook.png)
+///
+/// secondary style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/facebook-secondary.png)
+///
+/// icon style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/facebook-icon.png)
 class FacebookAuthButton extends AuthButton {
   const FacebookAuthButton({
     Key? key,
