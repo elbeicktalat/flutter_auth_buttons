@@ -24,7 +24,7 @@ class AuthButtonSecondary extends AuthTypeButton {
     required this.textStyle,
     required this.iconBackground,
   }) : super(
-    onPressed: onPressed,
+          onPressed: onPressed,
           onLongPress: onLongPress,
           style: style,
           darkMode: darkMode,
@@ -36,8 +36,13 @@ class AuthButtonSecondary extends AuthTypeButton {
           progressIndicatorValueColor: progressIndicatorValueColor,
         );
 
+  ///{@macro text}
   final String text;
+
+  ///{@macro textStyle}
   final TextStyle textStyle;
+
+  ///{@macro iconBackground}
   final Color iconBackground;
 
   @override

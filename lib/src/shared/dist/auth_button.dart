@@ -6,6 +6,7 @@ import 'package:auth_buttons/src/shared/base/contracts/base_auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/widgets.dart';
 
+///**[AuthButton]** a contract which all auth buttons should inherit.
 abstract class AuthButton extends BaseAuthButton {
   const AuthButton({
     Key? key,

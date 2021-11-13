@@ -13,6 +13,16 @@ import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
+///create google authentication button with multiple styles.
+///
+/// default style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
+///
+/// secondary style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google-secondary.png)
+///
+/// icon style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google-icon.png)
 class GoogleAuthButton extends AuthButton {
   const GoogleAuthButton({
     Key? key,

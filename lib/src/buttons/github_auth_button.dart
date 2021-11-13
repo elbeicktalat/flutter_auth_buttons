@@ -14,6 +14,16 @@ import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
+///create github authentication button with multiple styles.
+///
+/// default style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/github.png)
+///
+/// secondary style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/github-secondary.png)
+///
+/// icon style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/github-icon.png)
 class GithubAuthButton extends AuthButton {
   const GithubAuthButton({
     Key? key,

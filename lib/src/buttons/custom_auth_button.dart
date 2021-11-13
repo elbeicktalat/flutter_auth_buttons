@@ -6,6 +6,10 @@ import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/material.dart';
 
+/// Allows you to create your custom authentication button,
+/// which will be similar to others in auth_button library.
+///
+/// You have to provide your own colors and other stuff.
 class CustomAuthButton extends AuthButton {
   const CustomAuthButton({
     Key? key,

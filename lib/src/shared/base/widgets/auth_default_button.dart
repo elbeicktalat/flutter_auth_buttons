@@ -23,7 +23,7 @@ class AuthDefaultButton extends AuthTypeButton {
     required this.text,
     required this.textStyle,
   }) : super(
-    onPressed: onPressed,
+          onPressed: onPressed,
           onLongPress: onLongPress,
           style: style,
           darkMode: darkMode,
@@ -35,7 +35,10 @@ class AuthDefaultButton extends AuthTypeButton {
           progressIndicatorValueColor: progressIndicatorValueColor,
         );
 
+  ///{@macro text}
   final String text;
+
+  ///{@macro textStyle}
   final TextStyle textStyle;
 
   @override
@@ -88,5 +91,10 @@ class AuthDefaultButton extends AuthTypeButton {
   @override
   Color? getProgressIndicatorValueColor() => progressIndicatorValueColor;
 
+  /// {@template getTextStyle}
+  ///
+  /// **[getTextStyle()]** a method which returns the **textStyle**.
+  ///
+  /// {@endtemplate}
   TextStyle getTextStyle() => textStyle;
 }

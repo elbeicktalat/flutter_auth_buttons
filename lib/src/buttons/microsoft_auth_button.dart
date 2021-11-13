@@ -13,6 +13,16 @@ import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
+///create microsoft authentication button with multiple styles.
+///
+/// default style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/microsoft.png)
+///
+/// secondary style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/microsoft-secondary.png)
+///
+/// icon style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/microsoft-icon.png)
 class MicrosoftAuthButton extends AuthButton {
   const MicrosoftAuthButton({
     Key? key,

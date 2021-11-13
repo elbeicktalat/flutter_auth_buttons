@@ -13,6 +13,16 @@ import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
+///create twitter authentication button with multiple styles.
+///
+/// default style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/twitter.png)
+///
+/// secondary style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/twitter-secondary.png)
+///
+/// icon style.
+///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/twitter-icon.png)
 class TwitterAuthButton extends AuthButton {
   const TwitterAuthButton({
     Key? key,
