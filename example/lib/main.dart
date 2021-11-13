@@ -18,11 +18,12 @@ class _MyAppState extends State<MyApp> {
   bool isLoading = false;
   bool darkMode = true;
 
+  AuthButtonType? buttonType;
+  AuthIconType? iconType;
+
   @override
   Widget build(BuildContext context) {
     const String appName = 'Auth Buttons Example';
-    const AuthButtonType? buttonType = null;
-    const AuthIconType? authIconType = null;
     Divider _divider = Divider(height: 24);
     return MaterialApp(
       title: appName,
@@ -46,7 +47,9 @@ class _MyAppState extends State<MyApp> {
         ),
         body: SingleChildScrollView(
           child: Column(
-            children: <Widget>[
+            children: [
+              _chooseButtonType(),
+              _chooseIconType(),
               SizedBox(height: 24),
               GoogleAuthButton(
                 onPressed: () {
@@ -57,9 +60,9 @@ class _MyAppState extends State<MyApp> {
                 },
                 darkMode: darkMode,
                 isLoading: isLoading,
-                style: const AuthButtonStyle(
+                style: AuthButtonStyle(
                   buttonType: buttonType,
-                  iconType: authIconType,
+                  iconType: iconType,
                 ),
               ),
               _divider,
@@ -67,9 +70,9 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
-                style: const AuthButtonStyle(
+                style: AuthButtonStyle(
                   buttonType: buttonType,
-                  iconType: authIconType,
+                  iconType: iconType,
                 ),
               ),
               _divider,
@@ -77,9 +80,9 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
-                style: const AuthButtonStyle(
+                style: AuthButtonStyle(
                   buttonType: buttonType,
-                  iconType: authIconType,
+                  iconType: iconType,
                 ),
               ),
               _divider,
@@ -87,9 +90,9 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
-                style: const AuthButtonStyle(
+                style: AuthButtonStyle(
                   buttonType: buttonType,
-                  iconType: authIconType,
+                  iconType: iconType,
                 ),
               ),
               _divider,
@@ -97,9 +100,9 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
-                style: const AuthButtonStyle(
+                style: AuthButtonStyle(
                   buttonType: buttonType,
-                  iconType: authIconType,
+                  iconType: iconType,
                 ),
               ),
               _divider,
@@ -107,9 +110,9 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
-                style: const AuthButtonStyle(
+                style: AuthButtonStyle(
                   buttonType: buttonType,
-                  iconType: authIconType,
+                  iconType: iconType,
                 ),
               ),
               _divider,
@@ -117,9 +120,9 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
-                style: const AuthButtonStyle(
+                style: AuthButtonStyle(
                   buttonType: buttonType,
-                  iconType: authIconType,
+                  iconType: iconType,
                 ),
               ),
               _divider,
@@ -127,15 +130,125 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () {},
                 darkMode: darkMode,
                 isLoading: isLoading,
-                style: const AuthButtonStyle(
+                style: AuthButtonStyle(
                   buttonType: buttonType,
-                  iconType: authIconType,
+                  iconType: iconType,
                 ),
               ),
               SizedBox(height: 24),
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget _chooseButtonType() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Auth Button Types',
+            style: TextStyle(
+              fontSize: 24,
+            ),
+          ),
+          Row(
+            children: [
+              Row(
+                children: [
+                  Text('default'),
+                  Radio<AuthButtonType?>(
+                    value: null,
+                    groupValue: buttonType,
+                    onChanged: (AuthButtonType? value) {
+                      setState(() {
+                        buttonType = value;
+                      });
+                    },
+                  ),
+                  Text('secondary'),
+                  Radio<AuthButtonType>(
+                    value: AuthButtonType.secondary,
+                    groupValue: buttonType,
+                    onChanged: (AuthButtonType? value) {
+                      setState(() {
+                        buttonType = value;
+                      });
+                    },
+                  ),
+                  Text('icon'),
+                  Radio<AuthButtonType>(
+                    value: AuthButtonType.icon,
+                    groupValue: buttonType,
+                    onChanged: (AuthButtonType? value) {
+                      setState(() {
+                        buttonType = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _chooseIconType() {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Auth Icon Types',
+            style: TextStyle(
+              fontSize: 24,
+            ),
+          ),
+          Row(
+            children: [
+              Row(
+                children: [
+                  Text('default'),
+                  Radio<AuthIconType?>(
+                    value: null,
+                    groupValue: iconType,
+                    onChanged: (AuthIconType? value) {
+                      setState(() {
+                        iconType = value;
+                      });
+                    },
+                  ),
+                  Text('outlined'),
+                  Radio<AuthIconType?>(
+                    value: AuthIconType.outlined,
+                    groupValue: iconType,
+                    onChanged: (AuthIconType? value) {
+                      setState(() {
+                        iconType = value;
+                      });
+                    },
+                  ),
+                  Text('secondary'),
+                  Radio<AuthIconType?>(
+                    value: AuthIconType.secondary,
+                    groupValue: iconType,
+                    onChanged: (AuthIconType? value) {
+                      setState(() {
+                        iconType = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
