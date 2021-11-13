@@ -45,9 +45,7 @@ class MicrosoftAuthButton extends AuthButton {
         );
 
   @override
-  Color? getProgressIndicatorValueColor() {
-    if (style!.buttonType == AuthButtonType.secondary) return Colors.amber;
-  }
+  Color? getProgressIndicatorValueColor() => Colors.amber;
 
   @override
   String getIconUrl() {
