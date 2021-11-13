@@ -9,7 +9,7 @@ social networks like: Google, Facebook, Apple and too other.
 1) Add this to your packages pubspec.yaml file:
 ```yaml
 dependencies:
-  auth_buttons: ^1.0.1+3
+  auth_buttons: ^2.0.0
 ```
 2) Install it 
 You can install it from the command line:
@@ -55,7 +55,7 @@ GoogleAuthButton(
 ```
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![](./doc/readme_assets/default-button-default-icon.png)  |  ![](./doc/readme_assets/dark-default-button-default-icon.png)
+![default-button-default-icon](./doc/readme_assets/default-button-default-icon.png)  |  ![dark-default-button-default-icon](./doc/readme_assets/dark-default-button-default-icon.png)
 
 ```dart
 GoogleAuthButton(
@@ -69,7 +69,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![](./doc/readme_assets/default-button-outlined-icon.png)  |  ![](./doc/readme_assets/dark-default-button-outlined-icon.png)
+![default-button-outlined-icon](./doc/readme_assets/default-button-outlined-icon.png)  |  ![dark-default-button-outlined-icon](./doc/readme_assets/dark-default-button-outlined-icon.png)
 
 
 ```dart
@@ -84,7 +84,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![](./doc/readme_assets/default-button-secondary-icon.png)  |  ![](./doc/readme_assets/dark-default-button-secondary-icon.png)
+![default-button-secondary-icon](./doc/readme_assets/default-button-secondary-icon.png)  |  ![dark-default-button-secondary-icon](./doc/readme_assets/dark-default-button-secondary-icon.png)
 
 
 ### Icon Type
@@ -101,7 +101,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![](./doc/readme_assets/icon-button-default-icon.png)  |  ![](./doc/readme_assets/dark-icon-button-default-icon.png)
+![icon-button-default-icon](./doc/readme_assets/icon-button-default-icon.png)  |  ![dark-icon-button-default-icon](./doc/readme_assets/dark-icon-button-default-icon.png)
 
 
 ```dart
@@ -117,7 +117,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![](./doc/readme_assets/icon-button-outlined-icon.png)  |  ![](./doc/readme_assets/dark-icon-button-outlined-icon.png)
+![icon-button-outlined-icon](./doc/readme_assets/icon-button-outlined-icon.png)  |  ![dark-icon-button-outlined-icon](./doc/readme_assets/dark-icon-button-outlined-icon.png)
 
 
 ```dart
@@ -133,7 +133,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![](./doc/readme_assets/icon-button-secondary-icon.png)  |  ![](./doc/readme_assets/dark-icon-button-secondary-icon.png)
+![icon-button-secondary-icon](./doc/readme_assets/icon-button-secondary-icon.png)  |  ![dark-icon-button-secondary-icon](./doc/readme_assets/dark-icon-button-secondary-icon.png)
 
 ### Secondary Secondary
 
@@ -149,7 +149,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![](./doc/readme_assets/secondary-button-default-icon.png)  |  ![](./doc/readme_assets/dark-secondary-button-default-icon.png)
+![secondary-button-default-icon](./doc/readme_assets/secondary-button-default-icon.png)  |  ![dark-secondary-button-default-icon](./doc/readme_assets/dark-secondary-button-default-icon.png)
 
 ```dart
 GoogleAuthButton(
@@ -164,7 +164,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![](./doc/readme_assets/secondary-button-outlined-icon.png)  |  ![](./doc/readme_assets/dark-secondary-button-outlined-icon.png)
+![secondary-button-outlined-icon](./doc/readme_assets/secondary-button-outlined-icon.png)  |  ![dark-secondary-button-outlined-icon](./doc/readme_assets/dark-secondary-button-outlined-icon.png)
 
 ```dart
 GoogleAuthButton(
@@ -179,7 +179,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![](./doc/readme_assets/secondary-button-secondary-icon.png)  |  ![](./doc/readme_assets/dark-secondary-button-secondary-icon.png)
+![secondary-button-secondary-icon](./doc/readme_assets/secondary-button-secondary-icon.png)  |  ![dark-secondary-button-secondary-icon](./doc/readme_assets/dark-secondary-button-secondary-icon.png)
 
 Do same think with the other buttons, when you want customize any button 
 you can do it just passing a property which you want.
@@ -209,17 +209,18 @@ GoogleAuthButton(
     iconSize: 35.0,
     iconBackground: Colors.transparent,
     iconType: AuthIconType.outlined,
+    iconColor: Colors.red,
     buttonType: AuthButtonType.secondary,
     padding: const EdgeInsets.all(8.0),
+    progressIndicatorColor: Colors.red,
+    progressIndicatorValueColor: Colors.amber,
+    progressIndicatorStrokeWidth: 2.0,
     textStyle: const TextStyle(
       color: Colors.black,
       fontSize: 18,
       fontWeight: FontWeight.bold,
       letterSpacing: 0.50,
     ),
-    progressIndicatorColor: Colors.red,
-    progressIndicatorValueColor: Colors.amber,
-    progressIndicatorStrokeWidth: 2.0,
   ),
 ),
 ```
