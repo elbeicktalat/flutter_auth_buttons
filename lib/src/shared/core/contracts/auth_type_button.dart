@@ -14,10 +14,7 @@ abstract class AuthTypeButton extends StatelessWidget {
     required this.darkMode,
     required this.isLoading,
     required this.rtl,
-    required this.buttonColor,
     required this.iconUrl,
-    required this.iconColor,
-    required this.progressIndicatorValueColor,
   }) : super(key: key);
 
   final VoidCallback? onPressed;
@@ -26,19 +23,10 @@ abstract class AuthTypeButton extends StatelessWidget {
   final bool darkMode;
   final bool isLoading;
   final bool rtl;
-  final Color buttonColor;
   final String iconUrl;
-  final Color? iconColor;
-  final Color? progressIndicatorValueColor;
-
-  /// {@macro getButtonColor}
-  Color getButtonColor();
 
   /// {@macro getIconUrl}
   String getIconUrl();
-
-  /// {@macro getProgressIndicatorValueColor}
-  Color? getProgressIndicatorValueColor();
 
   @override
   Widget build(BuildContext context);
