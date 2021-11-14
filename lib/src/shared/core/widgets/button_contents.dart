@@ -68,11 +68,13 @@ class ButtonContents extends StatelessWidget {
                     value: style!.progressIndicatorValue,
                   ),
                 )
-              : SvgPicture.asset(
-                  iconUrl,
+              : SizedBox(
                   width: style!.iconSize,
                   height: style!.iconSize,
-                  color: style!.iconColor,
+                  child: SvgPicture.asset(
+                    iconUrl,
+                    color: style!.iconColor,
+                  ),
                 ),
         ),
         SizedBox(
