@@ -36,7 +36,7 @@ We also recommend you to using the latest version.
 ## Overview
 
 From the version `2.0.0` disabled state is supported.
-1. [Enabled](#enabeld-state)
+1. [Enabled](#enabled-state)
 1. [Default](#disabled-state)
 
 There are three Types you can choose between them:
@@ -46,7 +46,9 @@ There are three Types you can choose between them:
 1. [Secondary](#secondary-type)
   
 ## Using
- 
+
+### Enabled State.
+
 You need to use just the following code: 
 
 ### Default Type
