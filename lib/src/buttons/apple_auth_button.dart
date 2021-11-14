@@ -44,7 +44,8 @@ class AppleAuthButton extends AuthButton {
         );
 
   @override
-  Color? getProgressIndicatorValueColor() => Colors.black;
+  Color? getProgressIndicatorValueColor() =>
+      darkMode ? Colors.grey : Colors.black;
 
   @override
   String getIconUrl() {
@@ -72,7 +73,6 @@ class AppleAuthButton extends AuthButton {
           iconType: style!.iconType,
         );
   }
-
 
   @override
   TextStyle getTextStyle() {
