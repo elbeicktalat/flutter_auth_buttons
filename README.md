@@ -37,7 +37,7 @@ We also recommend you to using the latest version.
 
 From the version `2.0.0` disabled state is supported.
 1. [Enabled](#enabled-state)
-1. [Default](#disabled-state)
+1. [Disabled](#disabled-state)
 
 There are three Types you can choose between them:
 
@@ -61,7 +61,7 @@ GoogleAuthButton(
 ```
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![default-button-default-icon](./doc/readme_assets/default-button-default-icon.png)  |  ![dark-default-button-default-icon](./doc/readme_assets/dark-default-button-default-icon.png)
+![default-button-default-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/default-button-default-icon.png)  |  ![dark-default-button-default-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-default-button-default-icon.png)
 
 ```dart
 GoogleAuthButton(
@@ -75,7 +75,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![default-button-outlined-icon](./doc/readme_assets/default-button-outlined-icon.png)  |  ![dark-default-button-outlined-icon](./doc/readme_assets/dark-default-button-outlined-icon.png)
+![default-button-outlined-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/default-button-outlined-icon.png)  |  ![dark-default-button-outlined-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-default-button-outlined-icon.png)
 
 
 ```dart
@@ -90,7 +90,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![default-button-secondary-icon](./doc/readme_assets/default-button-secondary-icon.png)  |  ![dark-default-button-secondary-icon](./doc/readme_assets/dark-default-button-secondary-icon.png)
+![default-button-secondary-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/default-button-secondary-icon.png)  |  ![dark-default-button-secondary-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-default-button-secondary-icon.png)
 
 
 ### Icon Type
@@ -107,7 +107,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![icon-button-default-icon](./doc/readme_assets/icon-button-default-icon.png)  |  ![dark-icon-button-default-icon](./doc/readme_assets/dark-icon-button-default-icon.png)
+![icon-button-default-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/icon-button-default-icon.png)  |  ![dark-icon-button-default-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-icon-button-default-icon.png)
 
 
 ```dart
@@ -123,7 +123,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![icon-button-outlined-icon](./doc/readme_assets/icon-button-outlined-icon.png)  |  ![dark-icon-button-outlined-icon](./doc/readme_assets/dark-icon-button-outlined-icon.png)
+![icon-button-outlined-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/icon-button-outlined-icon.png)  |  ![dark-icon-button-outlined-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-icon-button-outlined-icon.png)
 
 
 ```dart
@@ -139,9 +139,9 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![icon-button-secondary-icon](./doc/readme_assets/icon-button-secondary-icon.png)  |  ![dark-icon-button-secondary-icon](./doc/readme_assets/dark-icon-button-secondary-icon.png)
+![icon-button-secondary-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/icon-button-secondary-icon.png)  |  ![dark-icon-button-secondary-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-icon-button-secondary-icon.png)
 
-### Secondary Secondary
+### Secondary Type
 
 ```dart
 GoogleAuthButton(
@@ -155,7 +155,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![secondary-button-default-icon](./doc/readme_assets/secondary-button-default-icon.png)  |  ![dark-secondary-button-default-icon](./doc/readme_assets/dark-secondary-button-default-icon.png)
+![secondary-button-default-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/secondary-button-default-icon.png)  |  ![dark-secondary-button-default-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-secondary-button-default-icon.png)
 
 ```dart
 GoogleAuthButton(
@@ -170,7 +170,7 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![secondary-button-outlined-icon](./doc/readme_assets/secondary-button-outlined-icon.png)  |  ![dark-secondary-button-outlined-icon](./doc/readme_assets/dark-secondary-button-outlined-icon.png)
+![secondary-button-outlined-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/secondary-button-outlined-icon.png)  |  ![dark-secondary-button-outlined-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-secondary-button-outlined-icon.png)
 
 ```dart
 GoogleAuthButton(
@@ -185,13 +185,13 @@ GoogleAuthButton(
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![secondary-button-secondary-icon](./doc/readme_assets/secondary-button-secondary-icon.png)  |  ![dark-secondary-button-secondary-icon](./doc/readme_assets/dark-secondary-button-secondary-icon.png)
+![secondary-button-secondary-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/secondary-button-secondary-icon.png)  |  ![dark-secondary-button-secondary-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-secondary-button-secondary-icon.png)
 
 ### Disabled State
 
 Light             |  Dark
 :-------------------------:|:-------------------------:
-![disabled-buttons](./doc/readme_assets/disabled-buttons.png)  |  ![dark-disabled-buttons](./doc/readme_assets/dark-disabled-buttons.png)
+![disabled-buttons](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/disabled-buttons.png)  |  ![dark-disabled-buttons](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-disabled-buttons.png)
 
 Do same think with the other buttons, when you want customize any button 
 you can do it just passing a property which you want.
