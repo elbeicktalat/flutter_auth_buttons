@@ -1,5 +1,5 @@
 ### [2.0.0] - 14 Nov 2021
-`Visible for you`
+#### `Visible for you`
 - Follow the guidelines indications for the buttons appearance.
 - Support SVG image format.
 - Allow disabling buttons.
@@ -8,7 +8,7 @@
 - Update `icons` resources.
 - Add github secondary icon.
 - Add twitter secondary icon.
-`Visible for collaborates`
+#### `Visible for collaborates`
 - Divide shared package into three main packages.
 - Make methods more readable by using helpers functions.
 ### [1.0.1+3] - 10 May 2021
