@@ -35,6 +35,10 @@ We also recommend you to using the latest version.
 
 ## Overview
 
+From the version `2.0.0` disabled state is supported.
+1. [Enabled](#enabeld-state)
+1. [Default](#disabled-state)
+
 There are three Types you can choose between them:
 
 1. [Default](#default-type)
@@ -180,6 +184,12 @@ GoogleAuthButton(
 Light             |  Dark
 :-------------------------:|:-------------------------:
 ![secondary-button-secondary-icon](./doc/readme_assets/secondary-button-secondary-icon.png)  |  ![dark-secondary-button-secondary-icon](./doc/readme_assets/dark-secondary-button-secondary-icon.png)
+
+### Disabled State
+
+Light             |  Dark
+:-------------------------:|:-------------------------:
+![disabled-buttons](./doc/readme_assets/disabled-buttons.png)  |  ![dark-disabled-buttons](./doc/readme_assets/dark-disabled-buttons.png)
 
 Do same think with the other buttons, when you want customize any button 
 you can do it just passing a property which you want.
