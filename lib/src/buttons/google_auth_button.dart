@@ -68,7 +68,6 @@ class GoogleAuthButton extends AuthButton {
         );
   }
 
-
   @override
   TextStyle getTextStyle() {
     return style!.textStyle ??

@@ -91,5 +91,4 @@ class EmailAuthButton extends AuthButton {
           ),
         );
   }
-
 }

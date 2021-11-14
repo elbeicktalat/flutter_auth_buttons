@@ -92,5 +92,4 @@ class HuaweiAuthButton extends AuthButton {
           ),
         );
   }
-
 }
