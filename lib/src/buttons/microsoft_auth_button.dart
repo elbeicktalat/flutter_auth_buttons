@@ -10,7 +10,6 @@ import 'package:auth_buttons/src/helpers/auth_text_color.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
-import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
 ///create microsoft authentication button with multiple styles.
@@ -71,40 +70,6 @@ class MicrosoftAuthButton extends AuthButton {
           buttonType: style!.buttonType,
           iconType: style!.iconType,
         );
-  }
-
-  @override
-  AuthButtonStyle? getButtonStyle() {
-    if (!enabled)
-      return AuthButtonStyle(
-        height: 40.0,
-        separator: 12.0,
-      );
-    if (style!.buttonType == AuthButtonType.icon)
-      return style!.merge(
-        AuthButtonStyle(
-          width: 50.0,
-          height: 50.0,
-          borderWidth: 1.0,
-          borderColor: Color(0xffc8c8c8),
-        ),
-      );
-    if (style!.buttonType == AuthButtonType.secondary)
-      return style!.merge(
-        AuthButtonStyle(
-          height: 40.0,
-          separator: 12.0,
-        ),
-      );
-    return style!.merge(
-      AuthButtonStyle(
-        height: 40.0,
-        separator: 12.0,
-        padding: EdgeInsets.symmetric(horizontal: 12.0),
-        borderWidth: 1.0,
-        borderColor: Color(0xff8c8c8c),
-      ),
-    );
   }
 
   @override

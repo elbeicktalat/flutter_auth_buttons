@@ -10,7 +10,6 @@ import 'package:auth_buttons/src/helpers/auth_text_color.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
-import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
 ///create google authentication button with multiple styles.
@@ -69,32 +68,6 @@ class GoogleAuthButton extends AuthButton {
         );
   }
 
-  @override
-  AuthButtonStyle? getButtonStyle() {
-    if (style!.buttonType == AuthButtonType.icon)
-      return style!.merge(
-        AuthButtonStyle(
-          width: 50.0,
-          height: 50.0,
-          borderRadius: 8.0,
-        ),
-      );
-    if (style!.buttonType == AuthButtonType.secondary)
-      return style!.merge(
-        AuthButtonStyle(
-          separator: 24.0,
-          height: 40.0,
-          borderRadius: 8.0,
-        ),
-      );
-    return style!.merge(
-      AuthButtonStyle(
-        separator: 24.0,
-        height: 40.0,
-        borderRadius: 8.0,
-      ),
-    );
-  }
 
   @override
   TextStyle getTextStyle() {
