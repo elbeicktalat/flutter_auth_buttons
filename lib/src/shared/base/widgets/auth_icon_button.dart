@@ -16,21 +16,15 @@ class AuthIconButton extends AuthTypeButton {
     required bool darkMode,
     required bool isLoading,
     required bool rtl,
-    required Color buttonColor,
     required String iconUrl,
-    required Color? iconColor,
-    required Color? progressIndicatorValueColor,
   }) : super(
-    onPressed: onPressed,
+          onPressed: onPressed,
           onLongPress: onLongPress,
           style: style,
           darkMode: darkMode,
           isLoading: isLoading,
           rtl: rtl,
           iconUrl: iconUrl,
-          iconColor: iconColor,
-          buttonColor: buttonColor,
-          progressIndicatorValueColor: progressIndicatorValueColor,
         );
 
   @override
@@ -39,42 +33,16 @@ class AuthIconButton extends AuthTypeButton {
       key: key,
       onPressed: onPressed,
       onLongPress: onLongPress,
-      style: AuthButtonStyle(
-        width: style!.width ?? 50.0,
-        height: style!.height ?? 50.0,
-        borderRadius: style!.borderRadius,
-        padding: style!.padding ?? const EdgeInsets.all(0),
-        buttonColor: getButtonColor(),
-        splashColor: style!.splashColor,
-        elevation: style!.elevation,
-        borderColor: style!.borderColor,
-        borderWidth: style!.borderWidth ?? 2.0,
-        shadowColor: style!.shadowColor,
-      ),
+      style: style,
       child: ButtonContents(
         key: key,
         iconUrl: getIconUrl(),
         isLoading: isLoading,
-        style: AuthButtonStyle(
-          iconSize: style!.iconSize,
-          separator: 0.0,
-          progressIndicatorColor: style!.progressIndicatorColor,
-          progressIndicatorValueColor: style!.progressIndicatorValueColor ??
-              getProgressIndicatorValueColor(),
-          progressIndicatorStrokeWidth: style!.progressIndicatorStrokeWidth,
-          progressIndicatorValue: style!.progressIndicatorValue,
-          iconColor: iconColor,
-        ),
+        style: style,
       ),
     );
   }
 
   @override
-  Color getButtonColor() => buttonColor;
-
-  @override
   String getIconUrl() => iconUrl;
-
-  @override
-  Color? getProgressIndicatorValueColor() => progressIndicatorValueColor;
 }
