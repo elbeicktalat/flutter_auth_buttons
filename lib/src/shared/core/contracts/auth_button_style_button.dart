@@ -142,10 +142,31 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
 
   /// {@template getButtonStyle}
   ///
-  ///**[getButtonStyle()]** a method which returns the **style**.
+  ///**[getButtonStyle()]** returns **style** for all button types based on **AuthButtonType**.
   ///
   /// {@endtemplate}
   AuthButtonStyle? getButtonStyle();
+
+  /// {@template getDefaultButtonStyle}
+  ///
+  ///**[getDefaultButtonStyle()]** returns **style** for the **default button type**.
+  ///
+  /// {@endtemplate}
+  AuthButtonStyle? getDefaultButtonStyle();
+
+  /// {@template getSecondaryButtonStyle}
+  ///
+  ///**[getSecondaryButtonStyle()]** returns **style** for the **secondary button type**.
+  ///
+  /// {@endtemplate}
+  AuthButtonStyle? getSecondaryButtonStyle();
+
+  /// {@template getIconButtonStyle}
+  ///
+  ///**[getIconButtonStyle()]** returns **style** for the **icon button type**.
+  ///
+  /// {@endtemplate}
+  AuthButtonStyle? getIconButtonStyle();
 
   /// {@template enabled}
   ///
