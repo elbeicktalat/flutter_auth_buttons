@@ -99,12 +99,6 @@ void main() {
     });
   });
 
-  test('iconSize', () {
-    final AppleAuthButton appleAuthButton = AppleAuthButton(onPressed: () {});
-    double? iconColor = appleAuthButton.style!.iconSize;
-    expect(iconColor, 30.0);
-  });
-
   test('check text style font family', () {
     final AppleAuthButton appleAuthButton = AppleAuthButton(onPressed: () {});
     TextStyle textStyle = appleAuthButton.getTextStyle();

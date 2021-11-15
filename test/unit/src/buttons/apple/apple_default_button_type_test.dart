@@ -74,7 +74,7 @@ void main() {
 
   group('check default button style value of', () {
     AppleAuthButton appleAuthButton = AppleAuthButton(onPressed: () {});
-    AuthButtonStyle? style = appleAuthButton.getDefaultButtonStyle();
+    AuthButtonStyle? style = appleAuthButton.getButtonStyle();
     test('separator', () {
       expect(style!.separator, 16.0);
     });
@@ -84,12 +84,6 @@ void main() {
     test('borderRadius', () {
       expect(style!.borderRadius, 8.0);
     });
-  });
-
-  test('iconSize', () {
-    final AppleAuthButton appleAuthButton = AppleAuthButton(onPressed: () {});
-    double? iconColor = appleAuthButton.style!.iconSize;
-    expect(iconColor, 30.0);
   });
 
   test('check text style font family', () {
