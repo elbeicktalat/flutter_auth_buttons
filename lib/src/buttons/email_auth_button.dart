@@ -64,31 +64,57 @@ class EmailAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    return style!.buttonColor ??
-        resolvedButtonColor(
-          buttonColor: ButtonColor(
-            Colors.teal,
-            onSecondaryIcon: Colors.white,
-          ),
-          darkMode: this.darkMode,
-          enabled: this.enabled,
-          buttonType: style!.buttonType,
-          iconType: style!.iconType,
-        );
+    return resolvedButtonColor(
+      buttonColor: ButtonColor(
+        Colors.teal,
+        onSecondaryIcon: Colors.white,
+      ),
+      darkMode: this.darkMode,
+      enabled: this.enabled,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+    );
   }
 
   @override
   TextStyle getTextStyle() {
-    return style!.textStyle ??
-        resolvedTextStyle(
-          buttonType: style!.buttonType,
-          iconType: style!.iconType,
-          enabled: enabled,
-          fontWeight: FontWeight.w600,
-          textColor: TextColor(
-            Colors.white,
-            onSecondaryIcon: darkMode ? Colors.white : Colors.teal[900],
-          ),
-        );
+    return resolvedTextStyle(
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+      enabled: enabled,
+      fontWeight: FontWeight.w600,
+      textColor: TextColor(
+        Colors.white,
+        onSecondaryIcon: darkMode ? Colors.white : Colors.teal[900],
+      ),
+    );
+  }
+
+  @override
+  AuthButtonStyle? getButtonStyle() {
+    if (style!.buttonType == AuthButtonType.icon)
+      return style!.merge(
+        AuthButtonStyle(
+          width: 50.0,
+          height: 50.0,
+          borderRadius: 8.0,
+          padding: EdgeInsets.zero,
+        ),
+      );
+    if (style!.buttonType == AuthButtonType.secondary)
+      return style!.merge(
+        AuthButtonStyle(
+          separator: 12.0,
+          height: 40.0,
+          borderRadius: 8.0,
+        ),
+      );
+    return style!.merge(
+      AuthButtonStyle(
+        separator: 12.0,
+        height: 40.0,
+        borderRadius: 8.0,
+      ),
+    );
   }
 }

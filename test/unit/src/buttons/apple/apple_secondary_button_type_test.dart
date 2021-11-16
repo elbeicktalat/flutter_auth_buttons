@@ -61,7 +61,7 @@ void main() {
       });
       test('iconBackground', () {
         Color? iconBackground = appleAuthButton.getIconBackground();
-        expect(iconBackground, Colors.white);
+        expect(iconBackground, Colors.black12);
       });
       test('iconColor', () {
         Color? iconColor = appleAuthButton.getIconColor();
