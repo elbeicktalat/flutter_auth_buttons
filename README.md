@@ -9,7 +9,7 @@ social networks like: Google, Facebook, Apple and too other.
 1) Add this to your packages pubspec.yaml file:
 ```yaml
 dependencies:
-  auth_buttons: ^2.0.0
+  auth_buttons: <^last>
 ```
 2) Install it 
 You can install it from the command line:
