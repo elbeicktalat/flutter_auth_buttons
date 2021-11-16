@@ -102,7 +102,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   /// [iconBackground](https://pub.dev/documentation/auth_buttons/latest/auth_buttons/AuthButtonStyle/iconBackground.html)
   ///
   /// {@endtemplate}
-  Color getIconBackground();
+  Color? getIconBackground();
 
   /// {@template getTextStyle}
   ///
