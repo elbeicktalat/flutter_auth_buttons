@@ -1,3 +1,12 @@
+### [2.0.2] - 16 Nov 2021
+#### `Visible for you`
+- Buttons are identical as screenshots.
+#### `Visible for collaborates`
+- Remove the implementations of button style in base package.
+- No more need to check if style is null.
+- Add more then 300 unit tests.
+### [2.0.1] - 14 Nov 2021
+- Show screenshots in the readme.
 ### [2.0.0] - 14 Nov 2021
 #### `Visible for you`
 - Follow the guidelines indications for the buttons appearance.
