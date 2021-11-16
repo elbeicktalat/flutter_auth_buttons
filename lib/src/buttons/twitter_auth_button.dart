@@ -64,32 +64,58 @@ class TwitterAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    return style!.buttonColor ??
-        resolvedButtonColor(
-          buttonColor: ButtonColor(
-            Colors.blue,
-            onSecondaryIcon: Colors.white,
-          ),
-          darkMode: this.darkMode,
-          enabled: this.enabled,
-          buttonType: style!.buttonType,
-          iconType: style!.iconType,
-        );
+    return resolvedButtonColor(
+      buttonColor: ButtonColor(
+        Colors.blue,
+        onSecondaryIcon: Colors.white,
+      ),
+      darkMode: this.darkMode,
+      enabled: this.enabled,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+    );
   }
 
   @override
   TextStyle getTextStyle() {
-    return style!.textStyle ??
-        resolvedTextStyle(
-          buttonType: style!.buttonType,
-          iconType: style!.iconType,
-          enabled: enabled,
-          fontWeight: FontWeight.bold,
-          textColor: TextColor(
-            Colors.white,
-            onSecondaryButton: Colors.white,
-            onSecondaryIcon: darkMode ? Colors.white : Colors.blue,
-          ),
-        );
+    return resolvedTextStyle(
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+      enabled: enabled,
+      fontWeight: FontWeight.bold,
+      textColor: TextColor(
+        Colors.white,
+        onSecondaryButton: Colors.white,
+        onSecondaryIcon: darkMode ? Colors.white : Colors.blue,
+      ),
+    );
+  }
+
+  @override
+  AuthButtonStyle? getButtonStyle() {
+    if (style!.buttonType == AuthButtonType.icon)
+      return style!.merge(
+        AuthButtonStyle(
+          width: 50.0,
+          height: 50.0,
+          borderRadius: 8.0,
+          padding: EdgeInsets.zero,
+        ),
+      );
+    if (style!.buttonType == AuthButtonType.secondary)
+      return style!.merge(
+        AuthButtonStyle(
+          separator: 12.0,
+          height: 40.0,
+          borderRadius: 8.0,
+        ),
+      );
+    return style!.merge(
+      AuthButtonStyle(
+        separator: 12.0,
+        height: 40.0,
+        borderRadius: 8.0,
+      ),
+    );
   }
 }

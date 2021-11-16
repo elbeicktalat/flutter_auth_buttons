@@ -10,6 +10,7 @@ import 'package:auth_buttons/src/helpers/auth_text_color.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
+import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
 ///create apple authentication button with multiple styles.
@@ -61,32 +62,58 @@ class AppleAuthButton extends AuthButton {
 
   @override
   Color getButtonColor() {
-    return style!.buttonColor ??
-        resolvedButtonColor(
-          buttonColor: ButtonColor(
-            Colors.white,
-            onSecondaryButton: Colors.black,
-          ),
-          darkMode: this.darkMode,
-          enabled: this.enabled,
-          buttonType: style!.buttonType,
-          iconType: style!.iconType,
-        );
+    return resolvedButtonColor(
+      buttonColor: ButtonColor(
+        Colors.white,
+        onSecondaryButton: Colors.black,
+      ),
+      darkMode: this.darkMode,
+      enabled: this.enabled,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+    );
   }
 
   @override
   TextStyle getTextStyle() {
-    return style!.textStyle ??
-        resolvedTextStyle(
-          buttonType: style!.buttonType,
-          iconType: style!.iconType,
-          enabled: enabled,
-          fontFamily: 'Source Sans Pro',
-          fontWeight: FontWeight.w600,
-          textColor: TextColor(
-            darkMode ? Colors.white : Colors.black,
-            onSecondaryButton: Colors.white,
-          ),
-        );
+    return resolvedTextStyle(
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+      enabled: enabled,
+      fontFamily: 'Source Sans Pro',
+      fontWeight: FontWeight.w600,
+      textColor: TextColor(
+        darkMode ? Colors.white : Colors.black,
+        onSecondaryButton: Colors.white,
+      ),
+    );
+  }
+
+  @override
+  AuthButtonStyle? getButtonStyle() {
+    if (style!.buttonType == AuthButtonType.icon)
+      return style!.merge(
+        AuthButtonStyle(
+          width: 50,
+          height: 50,
+          borderRadius: 8.0,
+          padding: EdgeInsets.zero,
+        ),
+      );
+    if (style!.buttonType == AuthButtonType.secondary)
+      return style!.merge(
+        AuthButtonStyle(
+          separator: 16.0,
+          height: 40.0,
+          borderRadius: 8.0,
+        ),
+      );
+    return style!.merge(
+      AuthButtonStyle(
+        separator: 16.0,
+        height: 40.0,
+        borderRadius: 8.0,
+      ),
+    );
   }
 }

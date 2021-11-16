@@ -83,7 +83,7 @@ void main() {
       expect(style!.height, 50.0);
     });
     test('borderRadius', () {
-      expect(style!.borderRadius, 0.0);
+      expect(style!.borderRadius, null);
     });
     test('borderWidth', () {
       expect(style!.borderWidth, 1.0);

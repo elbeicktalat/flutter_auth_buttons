@@ -102,7 +102,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   /// [iconBackground](https://pub.dev/documentation/auth_buttons/latest/auth_buttons/AuthButtonStyle/iconBackground.html)
   ///
   /// {@endtemplate}
-  Color getIconBackground();
+  Color? getIconBackground();
 
   /// {@template getTextStyle}
   ///
@@ -146,27 +146,6 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   ///
   /// {@endtemplate}
   AuthButtonStyle? getButtonStyle();
-
-  /// {@template getDefaultButtonStyle}
-  ///
-  ///**[getDefaultButtonStyle()]** returns **style** for the **default button type**.
-  ///
-  /// {@endtemplate}
-  AuthButtonStyle? getDefaultButtonStyle();
-
-  /// {@template getSecondaryButtonStyle}
-  ///
-  ///**[getSecondaryButtonStyle()]** returns **style** for the **secondary button type**.
-  ///
-  /// {@endtemplate}
-  AuthButtonStyle? getSecondaryButtonStyle();
-
-  /// {@template getIconButtonStyle}
-  ///
-  ///**[getIconButtonStyle()]** returns **style** for the **icon button type**.
-  ///
-  /// {@endtemplate}
-  AuthButtonStyle? getIconButtonStyle();
 
   /// {@template enabled}
   ///

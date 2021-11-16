@@ -94,7 +94,7 @@ void main() {
       expect(style!.height, 40.0);
     });
     test('borderRadius', () {
-      expect(style!.borderRadius, 0.0);
+      expect(style!.borderRadius, null);
     });
   });
 
