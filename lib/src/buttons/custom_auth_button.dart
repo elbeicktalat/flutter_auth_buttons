@@ -17,7 +17,7 @@ class CustomAuthButton extends AuthButton {
     VoidCallback? onPressed,
     VoidCallback? onLongPress,
     required String text,
-    required this.icon,
+    required this.iconUrl,
     bool darkMode = false,
     bool rtl = false,
     bool isLoading = false,
@@ -33,18 +33,26 @@ class CustomAuthButton extends AuthButton {
           style: style,
         );
 
-  ///[icon] Define the icon.
-  final String icon;
+  ///[iconUrl] Define the iconUrl.
+  final String iconUrl;
 
   @override
   AuthIcon getIcon() {
-    return AuthIcon(icon, color: style!.iconColor, iconSize: style!.iconSize);
+    return AuthIcon(
+      iconUrl,
+      color: style!.iconColor,
+      iconSize: style!.iconSize,
+    );
   }
 
   @override
   AuthButtonStyle? getButtonStyle() {
     return style!.merge(
-      AuthButtonStyle(),
+      AuthButtonStyle(
+        separator: 10.0,
+        height: 40.0,
+        borderRadius: 8.0,
+      ),
     );
   }
 }
