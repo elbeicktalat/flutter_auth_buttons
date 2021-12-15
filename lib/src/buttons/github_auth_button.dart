@@ -7,6 +7,7 @@ import 'package:auth_buttons/src/helpers/auth_resolved_button_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_text_style.dart';
 import 'package:auth_buttons/src/helpers/auth_text_color.dart';
+import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
@@ -54,14 +55,16 @@ class GithubAuthButton extends AuthButton {
   }
 
   @override
-  String getIconUrl() {
+  AuthIcon getIcon() {
     return resolvedIconUrl(
-      iconUrl: AuthIcons.github,
-      whiteIconUrl: AuthIcons.githubWhite,
       buttonType: style!.buttonType,
       iconType: style!.iconType,
-      darkMode: this.darkMode,
       buttonColor: getButtonColor(),
+      iconUrl: AuthIcons.github,
+      iconColor: style!.iconColor,
+      iconSize: style!.iconSize,
+      darkMode: this.darkMode,
+      canBeWhite: true,
     );
   }
 

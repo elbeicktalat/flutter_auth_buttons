@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/material.dart';
@@ -36,8 +37,8 @@ class CustomAuthButton extends AuthButton {
   final String icon;
 
   @override
-  String getIconUrl() {
-    return icon;
+  AuthIcon getIcon() {
+    return AuthIcon(icon, color: style!.iconColor, iconSize: style!.iconSize);
   }
 
   @override
