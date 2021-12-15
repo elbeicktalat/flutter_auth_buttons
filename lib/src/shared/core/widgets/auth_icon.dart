@@ -2,16 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AuthIcon extends StatelessWidget {
-  AuthIcon(this.iconUrl, {Key? key}) : super(key: key);
+  AuthIcon(
+    this.iconUrl, {
+    Key? key,
+    this.color,
+    this.iconSize,
+  }) : super(key: key);
 
-  final double? iconSize = const AuthButtonStyle().iconSize;
-  final Color? iconColor = const AuthButtonStyle().iconColor;
   final String iconUrl;
+  final Color? color;
+  final double? iconSize;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,7 @@ class AuthIcon extends StatelessWidget {
       height: iconSize,
       child: SvgPicture.asset(
         iconUrl,
-        color: iconColor,
+        color: color,
       ),
     );
   }
