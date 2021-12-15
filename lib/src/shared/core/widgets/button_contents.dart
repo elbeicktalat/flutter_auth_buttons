@@ -2,10 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart' show SvgPicture;
 
 class ButtonContents extends StatelessWidget {
   const ButtonContents({
@@ -68,14 +68,7 @@ class ButtonContents extends StatelessWidget {
                     value: style!.progressIndicatorValue,
                   ),
                 )
-              : SizedBox(
-                  width: style!.iconSize,
-                  height: style!.iconSize,
-                  child: SvgPicture.asset(
-                    iconUrl,
-                    color: style!.iconColor,
-                  ),
-                ),
+              : AuthIcon(iconUrl),
         ),
         SizedBox(
           width: style!.separator,
