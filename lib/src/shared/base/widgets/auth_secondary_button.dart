@@ -8,8 +8,8 @@ import 'package:auth_buttons/src/shared/core/widgets/shared_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/material.dart';
 
-class AuthButtonSecondary extends AuthTypeButton {
-  AuthButtonSecondary({
+class AuthSecondaryButton extends AuthTypeButton {
+  AuthSecondaryButton({
     required VoidCallback? onPressed,
     required VoidCallback? onLongPress,
     required AuthButtonStyle? style,

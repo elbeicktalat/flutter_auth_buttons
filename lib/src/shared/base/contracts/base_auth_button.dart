@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/src/shared/base/widgets/auth_button_secondary.dart';
 import 'package:auth_buttons/src/shared/base/widgets/auth_default_button.dart';
 import 'package:auth_buttons/src/shared/base/widgets/auth_icon_button.dart';
+import 'package:auth_buttons/src/shared/base/widgets/auth_secondary_button.dart';
 import 'package:auth_buttons/src/shared/core/contracts/auth_button_style_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
@@ -90,7 +90,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           ),
         );
       case AuthButtonType.secondary:
-        return AuthButtonSecondary(
+        return AuthSecondaryButton(
           onPressed: onPressed,
           onLongPress: onLongPress,
           darkMode: darkMode,
