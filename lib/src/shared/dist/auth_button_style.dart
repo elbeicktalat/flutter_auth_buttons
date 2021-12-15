@@ -6,6 +6,7 @@ import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+///[AuthButtonStyle] holds all visual properties which can have a auth button.
 @immutable
 class AuthButtonStyle with Diagnosticable {
   const AuthButtonStyle({
