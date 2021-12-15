@@ -21,34 +21,22 @@ flutter:
 
   assets:
     - packages/auth_buttons/images/default/apple.svg
-    - packages/auth_buttons/images/default/apple_white.svg
     - packages/auth_buttons/images/default/email.svg
-    - packages/auth_buttons/images/default/email_white.svg
     - packages/auth_buttons/images/default/facebook.svg
-    - packages/auth_buttons/images/default/facebook_white.svg
     - packages/auth_buttons/images/default/github_black.svg
-    - packages/auth_buttons/images/default/github_white.svg
     - packages/auth_buttons/images/default/google.svg
     - packages/auth_buttons/images/default/huawei.svg
-    - packages/auth_buttons/images/default/huawei_white.svg
     - packages/auth_buttons/images/default/microsoft.svg
     - packages/auth_buttons/images/default/twitter.svg
-    - packages/auth_buttons/images/default/twitter_white.svg
 
     - packages/auth_buttons/images/outlined/apple.svg
-    - packages/auth_buttons/images/outlined/apple_white.svg
     - packages/auth_buttons/images/outlined/email.svg
-    - packages/auth_buttons/images/outlined/email_white.svg
     - packages/auth_buttons/images/outlined/facebook.svg
-    - packages/auth_buttons/images/outlined/facebook_white.svg
     - packages/auth_buttons/images/outlined/github.svg
-    - packages/auth_buttons/images/outlined/github_white.svg
     - packages/auth_buttons/images/outlined/google.svg
     - packages/auth_buttons/images/outlined/huawei.svg
-    - packages/auth_buttons/images/outlined/huawei_white.svg
     - packages/auth_buttons/images/outlined/microsoft.svg
     - packages/auth_buttons/images/outlined/twitter.svg
-    - packages/auth_buttons/images/outlined/twitter_white.svg
 
     - packages/auth_buttons/images/secondary/apple.svg
     - packages/auth_buttons/images/secondary/email.svg
