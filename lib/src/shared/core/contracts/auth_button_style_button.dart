@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/widgets.dart';
 
@@ -119,7 +120,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   ///**[getIconUrl()]** a method which returns the **iconUrl**.
   ///
   /// {@endtemplate}
-  String getIconUrl();
+  AuthIcon getIcon();
 
   /// {@template getIconColor}
   ///

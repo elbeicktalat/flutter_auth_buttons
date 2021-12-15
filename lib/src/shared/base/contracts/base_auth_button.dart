@@ -79,7 +79,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           darkMode: darkMode,
           isLoading: isLoading,
           rtl: rtl,
-          iconUrl: getIconUrl(),
+          authIcon: getIcon(),
           style: getButtonStyle()!.merge(
             AuthButtonStyle(
               buttonColor: getButtonColor(),
@@ -97,7 +97,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           isLoading: isLoading,
           rtl: rtl,
           text: text!,
-          iconUrl: getIconUrl(),
+          authIcon: getIcon(),
           style: getButtonStyle()!.merge(
             AuthButtonStyle(
               padding: style!.padding ?? const EdgeInsets.only(right: 16.0),
@@ -117,7 +117,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           isLoading: isLoading,
           rtl: rtl,
           text: text!,
-          iconUrl: getIconUrl(),
+          authIcon: getIcon(),
           style: getButtonStyle()!.merge(
             AuthButtonStyle(
               buttonColor: getButtonColor(),

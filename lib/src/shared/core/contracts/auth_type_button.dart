@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ abstract class AuthTypeButton extends StatelessWidget {
     required this.darkMode,
     required this.isLoading,
     required this.rtl,
-    required this.iconUrl,
+    required this.authIcon,
   }) : super(key: key);
 
   final VoidCallback? onPressed;
@@ -23,10 +24,10 @@ abstract class AuthTypeButton extends StatelessWidget {
   final bool darkMode;
   final bool isLoading;
   final bool rtl;
-  final String iconUrl;
+  final AuthIcon authIcon;
 
   /// {@macro getIconUrl}
-  String getIconUrl();
+  AuthIcon getIcon();
 
   @override
   Widget build(BuildContext context);

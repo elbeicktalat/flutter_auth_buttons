@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/shared/core/contracts/auth_type_button.dart';
+import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/core/widgets/button_contents.dart';
 import 'package:auth_buttons/src/shared/core/widgets/shared_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
@@ -16,15 +17,15 @@ class AuthIconButton extends AuthTypeButton {
     required bool darkMode,
     required bool isLoading,
     required bool rtl,
-    required String iconUrl,
+    required AuthIcon authIcon,
   }) : super(
-          onPressed: onPressed,
+    onPressed: onPressed,
           onLongPress: onLongPress,
           style: style,
           darkMode: darkMode,
           isLoading: isLoading,
           rtl: rtl,
-          iconUrl: iconUrl,
+          authIcon: authIcon,
         );
 
   @override
@@ -36,7 +37,7 @@ class AuthIconButton extends AuthTypeButton {
       style: style,
       child: ButtonContents(
         key: key,
-        iconUrl: getIconUrl(),
+        authIcon: getIcon(),
         isLoading: isLoading,
         style: style,
       ),
@@ -44,5 +45,5 @@ class AuthIconButton extends AuthTypeButton {
   }
 
   @override
-  String getIconUrl() => iconUrl;
+  AuthIcon getIcon() => authIcon;
 }

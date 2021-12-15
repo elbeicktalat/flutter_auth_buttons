@@ -11,7 +11,7 @@ class ButtonContents extends StatelessWidget {
   const ButtonContents({
     Key? key,
     this.text = '',
-    this.iconUrl = '',
+    required this.authIcon,
     this.darkMode = false,
     this.rtl = false,
     this.isLoading = false,
@@ -26,7 +26,7 @@ class ButtonContents extends StatelessWidget {
   ///**[iconUrl]** define the icon resource.
   ///
   /// {@endtemplate}
-  final String iconUrl;
+  final AuthIcon authIcon;
 
   /// {@macro darkMode}
   final bool darkMode;
@@ -68,7 +68,7 @@ class ButtonContents extends StatelessWidget {
                     value: style!.progressIndicatorValue,
                   ),
                 )
-              : AuthIcon(iconUrl),
+              : authIcon,
         ),
         SizedBox(
           width: style!.separator,
