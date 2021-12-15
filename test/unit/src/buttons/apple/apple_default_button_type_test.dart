@@ -4,6 +4,7 @@
 
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:auth_buttons/src/buttons/apple_auth_button.dart';
+import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:flutter/material.dart';
@@ -16,8 +17,8 @@ void main() {
 
     group('check icon style value of', () {
       test('iconUrl', () {
-        String iconUrl = appleAuthButton.getIconUrl();
-        expect(iconUrl, AuthIcons.apple[0]);
+        AuthIcon icon = appleAuthButton.getIcon();
+        expect(icon.iconUrl, AuthIcons.apple[0]);
       });
       test('iconBackground', () {
         Color? iconBackground = appleAuthButton.getIconBackground();
@@ -48,8 +49,8 @@ void main() {
 
     group('check icon style value of', () {
       test('iconUrl', () {
-        String iconUrl = appleAuthButton.getIconUrl();
-        expect(iconUrl, AuthIcons.appleWhite[0]);
+        AuthIcon icon = appleAuthButton.getIcon();
+        expect(icon.iconUrl, AuthIcons.apple[0]);
       });
       test('iconBackground', () {
         Color? iconBackground = appleAuthButton.getIconBackground();

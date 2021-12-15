@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/auth_buttons.dart';
+import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +21,8 @@ void main() {
 
     group('check icon style value of', () {
       test('iconUrl', () {
-        String iconUrl = githubAuthButton.getIconUrl();
-        expect(iconUrl, AuthIcons.github[0]);
+        AuthIcon icon = githubAuthButton.getIcon();
+        expect(icon.iconUrl, AuthIcons.github[0]);
       });
       test('iconBackground', () {
         Color? iconBackground = githubAuthButton.getIconBackground();
@@ -55,8 +56,8 @@ void main() {
 
     group('check icon style value of', () {
       test('iconUrl', () {
-        String iconUrl = githubAuthButton.getIconUrl();
-        expect(iconUrl, AuthIcons.githubWhite[0]);
+        AuthIcon icon = githubAuthButton.getIcon();
+        expect(icon.iconUrl, AuthIcons.github[0]);
       });
       test('iconBackground', () {
         Color? iconBackground = githubAuthButton.getIconBackground();

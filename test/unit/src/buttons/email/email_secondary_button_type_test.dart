@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/auth_buttons.dart';
+import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +21,8 @@ void main() {
 
     group('check icon style value of', () {
       test('iconUrl', () {
-        String iconUrl = emailAuthButton.getIconUrl();
-        expect(iconUrl, AuthIcons.email[0]);
+        AuthIcon icon = emailAuthButton.getIcon();
+        expect(icon.iconUrl, AuthIcons.email[0]);
       });
       test('iconBackground', () {
         Color? iconBackground = emailAuthButton.getIconBackground();
@@ -55,8 +56,8 @@ void main() {
 
     group('check icon style value of', () {
       test('iconUrl', () {
-        String iconUrl = emailAuthButton.getIconUrl();
-        expect(iconUrl, AuthIcons.emailWhite[0]);
+        AuthIcon icon = emailAuthButton.getIcon();
+        expect(icon.iconUrl, AuthIcons.email[0]);
       });
       test('iconBackground', () {
         Color? iconBackground = emailAuthButton.getIconBackground();
