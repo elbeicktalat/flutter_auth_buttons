@@ -2,53 +2,57 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
-String resolvedIconUrl({
-  AuthButtonType? buttonType,
-  AuthIconType? iconType,
-  Color? buttonColor,
-  bool darkMode = false,
+AuthIcon resolvedIconUrl({
+  required AuthButtonType? buttonType,
+  required AuthIconType? iconType,
+  required Color? buttonColor,
   required List<String> iconUrl,
-  List<String>? whiteIconUrl,
+  required Color? iconColor,
+  required double? iconSize,
+  bool darkMode = false,
+  bool canBeWhite = false,
 }) {
-  if (whiteIconUrl == null) {
-    whiteIconUrl = iconUrl;
-  }
-
-  bool _colored = false;
+  bool _buttonIsColored = false;
   if (buttonColor != Colors.white || buttonColor != Color(0xffffffff)) {
-    _colored = true;
+    _buttonIsColored = true;
   }
 
-  if (_colored && buttonType != AuthButtonType.secondary) {
+  Color? _color = iconColor;
+  if (canBeWhite && _buttonIsColored) {
+    _color = iconColor ?? Colors.white;
+  }
+
+  if (_buttonIsColored && buttonType != AuthButtonType.secondary) {
     if (iconType == AuthIconType.outlined) {
-      return whiteIconUrl[1];
+      return AuthIcon(iconUrl[1], color: _color, iconSize: iconSize);
     }
     if (iconType == AuthIconType.secondary) {
-      return iconUrl[2];
+      return AuthIcon(iconUrl[2]);
     }
-    return whiteIconUrl[0];
+    return AuthIcon(iconUrl[0], color: _color, iconSize: iconSize);
   }
 
   //for secondary buttons.
   if (buttonType == AuthButtonType.secondary) {
     if (iconType == AuthIconType.outlined) {
-      return darkMode ? whiteIconUrl[1] : iconUrl[1];
+      return AuthIcon(iconUrl[1], color: _color, iconSize: iconSize);
     }
     if (iconType == AuthIconType.secondary) {
-      return iconUrl[2];
+      return AuthIcon(iconUrl[2]);
     }
-    return darkMode ? whiteIconUrl[0] : iconUrl[0];
+    return AuthIcon(iconUrl[0], color: _color, iconSize: iconSize);
   }
 
   //for default & icon buttons.
   if (iconType == AuthIconType.outlined) {
-    return darkMode ? whiteIconUrl[1] : iconUrl[1];
+    return AuthIcon(iconUrl[1], color: _color, iconSize: iconSize);
   }
   if (iconType == AuthIconType.secondary) {
-    return iconUrl[2];
+    return AuthIcon(iconUrl[2]);
   }
-  return darkMode ? whiteIconUrl[0] : iconUrl[0];
+  return AuthIcon(iconUrl[0], color: _color, iconSize: iconSize);
 }
