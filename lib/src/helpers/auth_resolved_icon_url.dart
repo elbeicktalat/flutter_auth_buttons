@@ -22,7 +22,7 @@ AuthIcon resolvedIconUrl({
   }
 
   Color? _color = iconColor;
-  if (canBeWhite && _buttonIsColored) {
+  if (canBeWhite && _buttonIsColored && iconType != AuthIconType.secondary) {
     _color = iconColor ?? Colors.white;
   }
 
@@ -31,7 +31,7 @@ AuthIcon resolvedIconUrl({
       return AuthIcon(iconUrl[1], color: _color, iconSize: iconSize);
     }
     if (iconType == AuthIconType.secondary) {
-      return AuthIcon(iconUrl[2]);
+      return AuthIcon(iconUrl[2], color: _color, iconSize: iconSize);
     }
     return AuthIcon(iconUrl[0], color: _color, iconSize: iconSize);
   }
