@@ -5,6 +5,8 @@
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 
+///[SharedButton] The button common for all auth buttons,
+/// no mater **buttonType** all buttons use this.
 class SharedButton extends StatelessWidget {
   const SharedButton({
     Key? key,

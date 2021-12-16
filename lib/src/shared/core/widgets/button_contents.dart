@@ -21,9 +21,9 @@ class ButtonContents extends StatelessWidget {
   /// {@macro text}
   final String text;
 
-  /// {@template iconUrl}
+  /// {@template authIcon}
   ///
-  ///**[iconUrl]** define the icon resource.
+  ///**[authIcon]** Define the icon to display.
   ///
   /// {@endtemplate}
   final AuthIcon authIcon;

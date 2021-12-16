@@ -18,15 +18,28 @@ abstract class AuthTypeButton extends StatelessWidget {
     required this.authIcon,
   }) : super(key: key);
 
+  /// {@macro onPressed}
   final VoidCallback? onPressed;
+
+  /// {@macro onLongPress}
   final VoidCallback? onLongPress;
+
+  /// {@macro style}
   final AuthButtonStyle? style;
+
+  /// {@macro darkMode}
   final bool darkMode;
+
+  /// {@macro isLoading}
   final bool isLoading;
+
+  /// {@macro rtl}
   final bool rtl;
+
+  /// {@macro authIcon}
   final AuthIcon authIcon;
 
-  /// {@macro getIconUrl}
+  /// {@macro getIcon}
   AuthIcon getIcon();
 
   @override

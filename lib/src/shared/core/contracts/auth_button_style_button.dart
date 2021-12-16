@@ -115,9 +115,9 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   /// {@endtemplate}
   TextStyle getTextStyle();
 
-  /// {@template getIconUrl}
+  /// {@template getIcon}
   ///
-  ///**[getIconUrl()]** a method which returns the **iconUrl**.
+  ///**[getIcon()]** a method which returns the **authIcon**.
   ///
   /// {@endtemplate}
   AuthIcon getIcon();
