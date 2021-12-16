@@ -157,12 +157,17 @@ class AuthButtonStyle with Diagnosticable {
   ///
   /// This is the default Type:
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
   ///
   ///```dart
   ///buttonType: AuthButtonType.icon,
   ///```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-icon.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google-icon.png)
+  ///
+  ///```dart
+  ///buttonType: AuthButtonType.secondary,
+  ///```
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google-secondary.png)
   ///
   /// {@endtemplate}
   final AuthButtonType? buttonType;
@@ -225,15 +230,15 @@ class AuthButtonStyle with Diagnosticable {
   ///
   /// This's the **default** icon.
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/default/google.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/default/google.svg)
   ///
   ///when the **[iconType]** is equal to **[AuthIconType.outlined]**
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/outlined/google.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/outlined/google.svg)
   ///
   ///when the **[iconType]** is equal to **[AuthIconType.secondary]**
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/secondary/google.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/secondary/google.svg)
   ///
   /// {@endtemplate}
   final AuthIconType? iconType;
