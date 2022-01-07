@@ -1,4 +1,4 @@
-// Copyright (c) 2021 Talat El Beick. All rights reserved.
+// Copyright (c) 2022 Talat El Beick. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
@@ -20,7 +20,7 @@ class AuthSecondaryButton extends AuthTypeButton {
     required AuthIcon authIcon,
     required this.text,
   }) : super(
-    onPressed: onPressed,
+          onPressed: onPressed,
           onLongPress: onLongPress,
           style: style,
           darkMode: darkMode,
