@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/auth_buttons.dart';
-import 'package:auth_buttons/src/buttons/apple_auth_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';

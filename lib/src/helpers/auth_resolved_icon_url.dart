@@ -14,7 +14,6 @@ AuthIcon resolvedIconUrl({
   required Color? iconColor,
   required double? iconSize,
   bool darkMode = false,
-  bool canBeWhite = false,
 }) {
   bool _buttonIsColored = false;
   if (buttonColor != Colors.white || buttonColor != Color(0xffffffff)) {
@@ -22,12 +21,12 @@ AuthIcon resolvedIconUrl({
   }
 
   Color? _color = iconColor;
-  if (canBeWhite && _buttonIsColored && iconType != AuthIconType.secondary) {
+  if (_buttonIsColored && iconType != AuthIconType.secondary) {
     _color = iconColor ?? Colors.white;
   }
 
   if (!darkMode && buttonType == AuthButtonType.secondary) {
-    _color = null;
+    _color = iconColor;
   }
 
   if (iconType == AuthIconType.secondary) {

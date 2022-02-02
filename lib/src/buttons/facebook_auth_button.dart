@@ -65,7 +65,6 @@ class FacebookAuthButton extends AuthButton {
       iconColor: style!.iconColor,
       iconSize: style!.iconSize,
       darkMode: this.darkMode,
-      canBeWhite: true,
     );
   }
 
