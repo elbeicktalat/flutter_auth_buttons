@@ -10,7 +10,8 @@ import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/material.dart';
 
 class AuthSecondaryButton extends AuthTypeButton {
-  AuthSecondaryButton({
+  const AuthSecondaryButton({
+    Key? key,
     required VoidCallback? onPressed,
     required VoidCallback? onLongPress,
     required AuthButtonStyle? style,
@@ -20,6 +21,7 @@ class AuthSecondaryButton extends AuthTypeButton {
     required AuthIcon authIcon,
     required this.text,
   }) : super(
+          key: key,
           onPressed: onPressed,
           onLongPress: onLongPress,
           style: style,

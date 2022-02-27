@@ -13,7 +13,7 @@ void main() {
   group('microsoft icon button type light mode', () {
     final MicrosoftAuthButton microsoftAuthButton = MicrosoftAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.icon,
       ),
     );
@@ -43,7 +43,7 @@ void main() {
     final MicrosoftAuthButton microsoftAuthButton = MicrosoftAuthButton(
       onPressed: () {},
       darkMode: true,
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.icon,
       ),
     );
@@ -72,7 +72,7 @@ void main() {
   group('check icon button style value of', () {
     MicrosoftAuthButton microsoftAuthButton = MicrosoftAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.icon,
       ),
     );
@@ -90,10 +90,10 @@ void main() {
       expect(style!.borderWidth, 1.0);
     });
     test('borderColor', () {
-      expect(style!.borderColor, Color(0xff8c8c8c));
+      expect(style!.borderColor, const Color(0xff8c8c8c));
     });
     test('padding', () {
-      expect(style!.padding, EdgeInsets.all(0.0));
+      expect(style!.padding, const EdgeInsets.all(0.0));
     });
   });
 }

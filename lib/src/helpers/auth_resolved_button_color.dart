@@ -14,7 +14,7 @@ Color resolvedButtonColor({
   bool enabled = true,
   bool darkMode = false,
 }) {
-  if (!enabled) return darkMode ? Color(0xff5a5a5a) : AuthColors.disabled;
+  if (!enabled) return darkMode ? const Color(0xff5a5a5a) : AuthColors.disabled;
 
   if (buttonType == AuthButtonType.secondary) {
     return darkMode

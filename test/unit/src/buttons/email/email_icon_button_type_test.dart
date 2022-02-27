@@ -13,7 +13,7 @@ void main() {
   group('email icon button type light mode', () {
     final EmailAuthButton emailAuthButton = EmailAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.icon,
       ),
     );
@@ -43,7 +43,7 @@ void main() {
     final EmailAuthButton emailAuthButton = EmailAuthButton(
       onPressed: () {},
       darkMode: true,
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.icon,
       ),
     );
@@ -72,7 +72,7 @@ void main() {
   group('check icon button style value of', () {
     EmailAuthButton emailAuthButton = EmailAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.icon,
       ),
     );
@@ -87,7 +87,7 @@ void main() {
       expect(style!.borderRadius, 8.0);
     });
     test('padding', () {
-      expect(style!.padding, EdgeInsets.all(0.0));
+      expect(style!.padding, const EdgeInsets.all(0.0));
     });
   });
 }

@@ -10,7 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 TextStyle _disabledTextStyle() {
   return _enabledTextStyle(
-    textColor: TextColor(
+    textColor: const TextColor(
       AuthColors.disabledContent,
     ),
   );
@@ -33,15 +33,17 @@ TextStyle _enabledTextStyle({
     letterSpacing: letterSpacing ?? 0.50,
   );
 
-  if (buttonType == AuthButtonType.secondary)
+  if (buttonType == AuthButtonType.secondary) {
     return textStyle.copyWith(
       color: textColor.onSecondaryButton,
     );
+  }
 
-  if (iconType == AuthIconType.secondary)
+  if (iconType == AuthIconType.secondary) {
     return textStyle.copyWith(
       color: textColor.onSecondaryIcon,
     );
+  }
 
   return textStyle;
 }

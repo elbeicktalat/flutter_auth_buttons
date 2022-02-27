@@ -14,7 +14,7 @@ void main() {
   group('google secondary button type light mode', () {
     final GoogleAuthButton googleAuthButton = GoogleAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -48,7 +48,7 @@ void main() {
   group('google secondary button type dark mode', () {
     final GoogleAuthButton googleAuthButton = GoogleAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
       darkMode: true,
@@ -83,7 +83,7 @@ void main() {
   group('google check default button style value of', () {
     GoogleAuthButton googleAuthButton = GoogleAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -102,7 +102,7 @@ void main() {
   test('google check text style font family', () {
     final GoogleAuthButton googleAuthButton = GoogleAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );

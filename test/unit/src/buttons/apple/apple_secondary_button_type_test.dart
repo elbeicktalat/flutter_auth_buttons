@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/auth_buttons.dart';
-import 'package:auth_buttons/src/buttons/apple_auth_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
@@ -15,7 +14,7 @@ void main() {
   group('apple default button type light mode', () {
     final AppleAuthButton appleAuthButton = AppleAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -50,7 +49,7 @@ void main() {
     final AppleAuthButton appleAuthButton = AppleAuthButton(
       onPressed: () {},
       darkMode: true,
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -84,7 +83,7 @@ void main() {
   group('check default button style value of', () {
     AppleAuthButton appleAuthButton = AppleAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );

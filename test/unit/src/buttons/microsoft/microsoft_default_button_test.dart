@@ -32,7 +32,7 @@ void main() {
 
     test('check text style color', () {
       Color? textStyleColor = microsoftAuthButton.getTextStyle().color;
-      expect(textStyleColor, Color(0xff5e5e5e));
+      expect(textStyleColor, const Color(0xff5e5e5e));
     });
 
     test('check button color', () {
@@ -90,10 +90,10 @@ void main() {
       expect(style!.borderWidth, 1.0);
     });
     test('borderColor', () {
-      expect(style!.borderColor, Color(0xff8c8c8c));
+      expect(style!.borderColor, const Color(0xff8c8c8c));
     });
     test('padding', () {
-      expect(style!.padding, EdgeInsets.symmetric(horizontal: 12.0));
+      expect(style!.padding, const EdgeInsets.symmetric(horizontal: 12.0));
     });
   });
 

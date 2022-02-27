@@ -34,20 +34,25 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
 
   @override
   Color getButtonColor() {
-    if (!enabled) return darkMode ? Color(0xff5a5a5a) : AuthColors.disabled;
+    if (!enabled) {
+      return darkMode ? const Color(0xff5a5a5a) : AuthColors.disabled;
+    }
     return darkMode ? AuthColors.darkMode : Colors.white;
   }
 
   @override
   Color? getIconColor() {
     if (!enabled) return AuthColors.disabledContent;
+    return null;
   }
 
   @override
   Color? getIconBackground() {
-    if (!enabled) return Color(0xffd2d2d2);
-    if (style!.buttonType == AuthButtonType.secondary)
+    if (!enabled) return const Color(0xffd2d2d2);
+    if (style!.buttonType == AuthButtonType.secondary) {
       return darkMode ? Colors.black12 : Colors.white;
+    }
+    return null;
   }
 
   @override
@@ -55,7 +60,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
 
   @override
   TextStyle getTextStyle() {
-    if (style!.buttonType == AuthButtonType.secondary)
+    if (style!.buttonType == AuthButtonType.secondary) {
       return style!.textStyle ??
           const TextStyle(
             color: Colors.white,
@@ -63,6 +68,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
             fontWeight: FontWeight.bold,
             letterSpacing: 0.50,
           );
+    }
     return style!.textStyle ??
         TextStyle(
           color: darkMode ? Colors.white : Colors.black,

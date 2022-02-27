@@ -57,19 +57,19 @@ class MicrosoftAuthButton extends AuthButton {
       iconUrl: AuthIcons.microsoft,
       iconColor: style!.iconColor,
       iconSize: style!.iconSize,
-      darkMode: this.darkMode,
+      darkMode: darkMode,
     );
   }
 
   @override
   Color getButtonColor() {
     return resolvedButtonColor(
-      buttonColor: ButtonColor(
+      buttonColor: const ButtonColor(
         Colors.white,
         onSecondaryButton: Colors.amber,
       ),
-      darkMode: this.darkMode,
-      enabled: this.enabled,
+      darkMode: darkMode,
+      enabled: enabled,
       buttonType: style!.buttonType,
       iconType: style!.iconType,
     );
@@ -85,7 +85,7 @@ class MicrosoftAuthButton extends AuthButton {
       fontSize: 16.0,
       fontWeight: FontWeight.w600,
       textColor: TextColor(
-        darkMode ? Colors.white : Color(0xff5e5e5e),
+        darkMode ? Colors.white : const Color(0xff5e5e5e),
         onSecondaryButton: Colors.white,
       ),
     );
@@ -93,9 +93,9 @@ class MicrosoftAuthButton extends AuthButton {
 
   @override
   AuthButtonStyle? getButtonStyle() {
-    if (style!.buttonType == AuthButtonType.icon)
+    if (style!.buttonType == AuthButtonType.icon) {
       return style!.merge(
-        AuthButtonStyle(
+        const AuthButtonStyle(
           width: 50.0,
           height: 50.0,
           borderWidth: 1.0,
@@ -103,15 +103,17 @@ class MicrosoftAuthButton extends AuthButton {
           padding: EdgeInsets.zero,
         ),
       );
-    if (style!.buttonType == AuthButtonType.secondary)
+    }
+    if (style!.buttonType == AuthButtonType.secondary) {
       return style!.merge(
-        AuthButtonStyle(
+        const AuthButtonStyle(
           height: 40.0,
           separator: 12.0,
         ),
       );
+    }
     return style!.merge(
-      AuthButtonStyle(
+      const AuthButtonStyle(
         height: 40.0,
         separator: 12.0,
         padding: EdgeInsets.symmetric(horizontal: 12.0),

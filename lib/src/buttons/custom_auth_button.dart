@@ -48,7 +48,7 @@ class CustomAuthButton extends AuthButton {
   @override
   AuthButtonStyle? getButtonStyle() {
     return style!.merge(
-      AuthButtonStyle(
+      const AuthButtonStyle(
         separator: 10.0,
         height: 40.0,
         borderRadius: 8.0,

@@ -49,6 +49,7 @@ class EmailAuthButton extends AuthButton {
   Color? getProgressIndicatorValueColor() {
     if (style!.buttonType == AuthButtonType.secondary) return Colors.teal;
     if (style!.buttonType != AuthButtonType.secondary) return Colors.teal[200];
+    return null;
   }
 
   @override
@@ -60,7 +61,7 @@ class EmailAuthButton extends AuthButton {
       iconUrl: AuthIcons.email,
       iconColor: style!.iconColor,
       iconSize: style!.iconSize,
-      darkMode: this.darkMode,
+      darkMode: darkMode,
       canBeWhite: true,
     );
   }
@@ -68,12 +69,12 @@ class EmailAuthButton extends AuthButton {
   @override
   Color getButtonColor() {
     return resolvedButtonColor(
-      buttonColor: ButtonColor(
+      buttonColor: const ButtonColor(
         Colors.teal,
         onSecondaryIcon: Colors.white,
       ),
-      darkMode: this.darkMode,
-      enabled: this.enabled,
+      darkMode: darkMode,
+      enabled: enabled,
       buttonType: style!.buttonType,
       iconType: style!.iconType,
     );
@@ -95,25 +96,27 @@ class EmailAuthButton extends AuthButton {
 
   @override
   AuthButtonStyle? getButtonStyle() {
-    if (style!.buttonType == AuthButtonType.icon)
+    if (style!.buttonType == AuthButtonType.icon) {
       return style!.merge(
-        AuthButtonStyle(
+        const AuthButtonStyle(
           width: 50.0,
           height: 50.0,
           borderRadius: 8.0,
           padding: EdgeInsets.zero,
         ),
       );
-    if (style!.buttonType == AuthButtonType.secondary)
+    }
+    if (style!.buttonType == AuthButtonType.secondary) {
       return style!.merge(
-        AuthButtonStyle(
+        const AuthButtonStyle(
           separator: 12.0,
           height: 40.0,
           borderRadius: 8.0,
         ),
       );
+    }
     return style!.merge(
-      AuthButtonStyle(
+      const AuthButtonStyle(
         separator: 12.0,
         height: 40.0,
         borderRadius: 8.0,

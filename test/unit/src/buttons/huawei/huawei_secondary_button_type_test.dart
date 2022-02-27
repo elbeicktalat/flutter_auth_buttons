@@ -14,7 +14,7 @@ void main() {
   group('huawei secondary button type light mode', () {
     final HuaweiAuthButton huaweiAuthButton = HuaweiAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -48,7 +48,7 @@ void main() {
   group('huawei secondary button type dark mode', () {
     final HuaweiAuthButton huaweiAuthButton = HuaweiAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
       darkMode: true,
@@ -83,7 +83,7 @@ void main() {
   group('huawei check default button style value of', () {
     HuaweiAuthButton huaweiAuthButton = HuaweiAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -102,7 +102,7 @@ void main() {
   test('huawei check text style font family', () {
     final HuaweiAuthButton huaweiAuthButton = HuaweiAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );

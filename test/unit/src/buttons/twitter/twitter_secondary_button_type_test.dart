@@ -14,7 +14,7 @@ void main() {
   group('twitter secondary button type light mode', () {
     final TwitterAuthButton twitterAuthButton = TwitterAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -48,7 +48,7 @@ void main() {
   group('twitter secondary button type dark mode', () {
     final TwitterAuthButton twitterAuthButton = TwitterAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
       darkMode: true,
@@ -83,7 +83,7 @@ void main() {
   group('twitter check default button style value of', () {
     TwitterAuthButton twitterAuthButton = TwitterAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -102,7 +102,7 @@ void main() {
   test('twitter check text style font family', () {
     final TwitterAuthButton twitterAuthButton = TwitterAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );

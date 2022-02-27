@@ -14,7 +14,7 @@ void main() {
   group('github secondary button type light mode', () {
     final GithubAuthButton githubAuthButton = GithubAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -48,7 +48,7 @@ void main() {
   group('github secondary button type dark mode', () {
     final GithubAuthButton githubAuthButton = GithubAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
       darkMode: true,
@@ -83,7 +83,7 @@ void main() {
   group('github check default button style value of', () {
     GithubAuthButton githubAuthButton = GithubAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -102,7 +102,7 @@ void main() {
   test('github check text style font family', () {
     final GithubAuthButton githubAuthButton = GithubAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );

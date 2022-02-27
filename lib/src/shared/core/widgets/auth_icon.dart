@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class AuthIcon extends StatelessWidget {
-  AuthIcon(
+  const AuthIcon(
     this.iconUrl, {
     Key? key,
     this.color,

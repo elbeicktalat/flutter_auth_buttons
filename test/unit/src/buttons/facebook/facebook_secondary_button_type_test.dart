@@ -14,7 +14,7 @@ void main() {
   group('facebook secondary button type light mode', () {
     final FacebookAuthButton facebookAuthButton = FacebookAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -48,7 +48,7 @@ void main() {
   group('facebook secondary button type dark mode', () {
     final FacebookAuthButton facebookAuthButton = FacebookAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
       darkMode: true,
@@ -83,7 +83,7 @@ void main() {
   group('facebook check default button style value of', () {
     FacebookAuthButton facebookAuthButton = FacebookAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -102,7 +102,7 @@ void main() {
   test('facebook check text style font family', () {
     final FacebookAuthButton facebookAuthButton = FacebookAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );

@@ -10,7 +10,7 @@ class TextColor {
   final Color? onSecondaryIcon;
   final Color? onSecondaryButton;
 
-  TextColor(
+  const TextColor(
     this.color, {
     this.onSecondaryIcon,
     this.onSecondaryButton,

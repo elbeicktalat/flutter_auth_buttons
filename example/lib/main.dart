@@ -6,10 +6,12 @@ import 'package:auth_buttons/auth_buttons.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -24,7 +26,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     const String appName = 'Auth Buttons Example';
-    Divider _divider = Divider(height: 24);
+    Divider _divider = const Divider(height: 24);
     return MaterialApp(
       title: appName,
       themeMode: (darkMode) ? ThemeMode.dark : ThemeMode.light,
@@ -50,7 +52,7 @@ class _MyAppState extends State<MyApp> {
             children: [
               _chooseButtonType(),
               _chooseIconType(),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
               GoogleAuthButton(
                 onPressed: () {
                   // your implementation
@@ -135,7 +137,7 @@ class _MyAppState extends State<MyApp> {
                   iconType: iconType,
                 ),
               ),
-              SizedBox(height: 24),
+              const SizedBox(height: 24),
             ],
           ),
         ),
@@ -149,7 +151,7 @@ class _MyAppState extends State<MyApp> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Auth Button Types',
             style: TextStyle(
               fontSize: 24,
@@ -159,7 +161,7 @@ class _MyAppState extends State<MyApp> {
             children: [
               Row(
                 children: [
-                  Text('default'),
+                  const Text('default'),
                   Radio<AuthButtonType?>(
                     value: null,
                     groupValue: buttonType,
@@ -169,7 +171,7 @@ class _MyAppState extends State<MyApp> {
                       });
                     },
                   ),
-                  Text('secondary'),
+                  const Text('secondary'),
                   Radio<AuthButtonType>(
                     value: AuthButtonType.secondary,
                     groupValue: buttonType,
@@ -179,7 +181,7 @@ class _MyAppState extends State<MyApp> {
                       });
                     },
                   ),
-                  Text('icon'),
+                  const Text('icon'),
                   Radio<AuthButtonType>(
                     value: AuthButtonType.icon,
                     groupValue: buttonType,
@@ -204,7 +206,7 @@ class _MyAppState extends State<MyApp> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Auth Icon Types',
             style: TextStyle(
               fontSize: 24,
@@ -214,7 +216,7 @@ class _MyAppState extends State<MyApp> {
             children: [
               Row(
                 children: [
-                  Text('default'),
+                  const Text('default'),
                   Radio<AuthIconType?>(
                     value: null,
                     groupValue: iconType,
@@ -224,7 +226,7 @@ class _MyAppState extends State<MyApp> {
                       });
                     },
                   ),
-                  Text('outlined'),
+                  const Text('outlined'),
                   Radio<AuthIconType?>(
                     value: AuthIconType.outlined,
                     groupValue: iconType,
@@ -234,7 +236,7 @@ class _MyAppState extends State<MyApp> {
                       });
                     },
                   ),
-                  Text('secondary'),
+                  const Text('secondary'),
                   Radio<AuthIconType?>(
                     value: AuthIconType.secondary,
                     groupValue: iconType,

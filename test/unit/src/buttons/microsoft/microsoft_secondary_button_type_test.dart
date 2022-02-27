@@ -14,7 +14,7 @@ void main() {
   group('microsoft secondary button type light mode', () {
     final MicrosoftAuthButton microsoftAuthButton = MicrosoftAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -48,7 +48,7 @@ void main() {
   group('microsoft secondary button type dark mode', () {
     final MicrosoftAuthButton microsoftAuthButton = MicrosoftAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
       darkMode: true,
@@ -83,7 +83,7 @@ void main() {
   group('microsoft check default button style value of', () {
     MicrosoftAuthButton microsoftAuthButton = MicrosoftAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );
@@ -109,7 +109,7 @@ void main() {
   test('microsoft check text style font family', () {
     final MicrosoftAuthButton microsoftAuthButton = MicrosoftAuthButton(
       onPressed: () {},
-      style: AuthButtonStyle(
+      style: const AuthButtonStyle(
         buttonType: AuthButtonType.secondary,
       ),
     );

@@ -17,7 +17,7 @@ AuthIcon resolvedIconUrl({
   bool canBeWhite = false,
 }) {
   bool _buttonIsColored = false;
-  if (buttonColor != Colors.white || buttonColor != Color(0xffffffff)) {
+  if (buttonColor != Colors.white || buttonColor != const Color(0xffffffff)) {
     _buttonIsColored = true;
   }
 
