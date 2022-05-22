@@ -356,6 +356,38 @@ class AuthButtonStyle with Diagnosticable {
     );
   }
 
+  /// Returns a copy of this AuthButtonStyle with the given AuthButtonStyle replaced with
+  /// the new values.
+  ///
+  /// Like [copyWith()] it replaces fields with new values,
+  /// but it allows you passing AuthButtonStyle instead of passing every single field.
+  AuthButtonStyle replace(AuthButtonStyle? style) {
+    if (style == null) return this;
+    return copyWith(
+      buttonColor: style.buttonColor,
+      splashColor: style.splashColor,
+      elevation: style.elevation,
+      borderRadius: style.borderRadius,
+      padding: style.padding,
+      textStyle: style.textStyle,
+      borderColor: style.borderColor,
+      borderWidth: style.borderWidth,
+      buttonType: style.buttonType,
+      width: style.width,
+      height: style.height,
+      iconSize: style.iconSize,
+      separator: style.separator,
+      iconBackground: style.iconBackground,
+      iconType: style.iconType,
+      shadowColor: style.shadowColor,
+      progressIndicatorColor: style.progressIndicatorColor,
+      progressIndicatorValueColor: style.progressIndicatorValueColor,
+      progressIndicatorStrokeWidth: style.progressIndicatorStrokeWidth,
+      progressIndicatorValue: style.progressIndicatorValue,
+      iconColor: style.iconColor,
+    );
+  }
+
   @override
   int get hashCode {
     return hashList([
