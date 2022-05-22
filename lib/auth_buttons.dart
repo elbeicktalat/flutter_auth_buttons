@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 export 'package:auth_buttons/src/buttons/apple_auth_button.dart';
+export 'package:auth_buttons/src/buttons/auth_button_group.dart';
 export 'package:auth_buttons/src/buttons/custom_auth_button.dart';
 export 'package:auth_buttons/src/buttons/email_auth_button.dart';
 export 'package:auth_buttons/src/buttons/facebook_auth_button.dart';
