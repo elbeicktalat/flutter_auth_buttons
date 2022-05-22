@@ -12,7 +12,6 @@ class ButtonContents extends StatelessWidget {
     Key? key,
     this.text = '',
     required this.authIcon,
-    this.darkMode = false,
     this.rtl = false,
     this.isLoading = false,
     this.style,
@@ -27,9 +26,6 @@ class ButtonContents extends StatelessWidget {
   ///
   /// {@endtemplate}
   final AuthIcon authIcon;
-
-  /// {@macro darkMode}
-  final bool darkMode;
 
   /// {@macro rtl}
   final bool rtl;

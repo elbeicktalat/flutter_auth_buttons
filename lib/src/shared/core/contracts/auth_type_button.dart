@@ -12,7 +12,6 @@ abstract class AuthTypeButton extends StatelessWidget {
     required this.onPressed,
     required this.onLongPress,
     required this.style,
-    required this.darkMode,
     required this.isLoading,
     required this.rtl,
     required this.authIcon,
@@ -26,9 +25,6 @@ abstract class AuthTypeButton extends StatelessWidget {
 
   /// {@macro style}
   final AuthButtonStyle? style;
-
-  /// {@macro darkMode}
-  final bool darkMode;
 
   /// {@macro isLoading}
   final bool isLoading;
