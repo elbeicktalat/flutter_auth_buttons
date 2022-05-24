@@ -8,10 +8,10 @@ import 'package:flutter_svg/svg.dart';
 class AuthIcon extends StatelessWidget {
   const AuthIcon(
     this.iconUrl, {
-    Key? key,
+    super.key,
     this.color,
     this.iconSize,
-  }) : super(key: key);
+  });
 
   final String iconUrl;
   final Color? color;

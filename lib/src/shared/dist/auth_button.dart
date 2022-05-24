@@ -3,28 +3,17 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/shared/base/contracts/base_auth_button.dart';
-import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
-import 'package:flutter/widgets.dart';
 
 ///**[AuthButton]** a contract which all auth buttons should inherit.
 abstract class AuthButton extends BaseAuthButton {
   const AuthButton({
-    Key? key,
-    VoidCallback? onPressed,
-    VoidCallback? onLongPress,
-    AuthButtonStyle? style,
-    String? text,
-    bool darkMode = false,
-    bool isLoading = false,
-    bool rtl = false,
-  }) : super(
-          key: key,
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          style: style ?? const AuthButtonStyle(),
-          text: text,
-          darkMode: darkMode,
-          isLoading: isLoading,
-          rtl: rtl,
-        );
+    super.key,
+    super.onPressed,
+    super.onLongPress,
+    super.style,
+    super.text,
+    super.themeMode,
+    super.isLoading,
+    super.rtl,
+  });
 }

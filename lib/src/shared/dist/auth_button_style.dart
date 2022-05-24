@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/utils/auth_button_progress_indicator.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -31,6 +32,7 @@ class AuthButtonStyle with Diagnosticable {
     this.progressIndicatorStrokeWidth,
     this.progressIndicatorValue,
     this.iconColor,
+    this.progressIndicatorType = AuthButtonProgressIndicatorType.circular,
   });
 
   /// {@template buttonColor}
@@ -51,6 +53,10 @@ class AuthButtonStyle with Diagnosticable {
   ///
   /// {@endtemplate}
   final Color? buttonColor;
+
+  Color getButtonColor(BuildContext context) {
+    return buttonColor ?? Theme.of(context).colorScheme.surface;
+  }
 
   /// {@template splashColor}
   ///
@@ -115,6 +121,15 @@ class AuthButtonStyle with Diagnosticable {
   ///
   /// {@endtemplate}
   final TextStyle? textStyle;
+
+  TextStyle getTextStyle(BuildContext context) {
+    return textStyle ??
+        Theme.of(context)
+            .textTheme
+            .button
+            ?.copyWith(color: Theme.of(context).colorScheme.onSurface) ??
+        const TextStyle();
+  }
 
   /// {@template borderColor}
   ///
@@ -224,6 +239,10 @@ class AuthButtonStyle with Diagnosticable {
   /// {@endtemplate}
   final Color? iconBackground;
 
+  Color getIconBackground(BuildContext context) {
+    return iconBackground ?? Theme.of(context).colorScheme.onSurface;
+  }
+
   /// {@template iconType}
   ///
   ///**[iconType]** Define the icon type.
@@ -262,6 +281,7 @@ class AuthButtonStyle with Diagnosticable {
   final Color? progressIndicatorValueColor;
   final double? progressIndicatorStrokeWidth;
   final double? progressIndicatorValue;
+  final AuthButtonProgressIndicatorType? progressIndicatorType;
 
   /// Returns a copy of this AuthButtonStyle with the given fields replaced with
   /// the new values.
@@ -287,6 +307,7 @@ class AuthButtonStyle with Diagnosticable {
     double? progressIndicatorStrokeWidth,
     double? progressIndicatorValue,
     Color? iconColor,
+    AuthButtonProgressIndicatorType? progressIndicatorType,
   }) {
     return AuthButtonStyle(
       buttonColor: buttonColor ?? this.buttonColor,
@@ -314,6 +335,7 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorValue:
           progressIndicatorValue ?? this.progressIndicatorValue,
       iconColor: iconColor ?? this.iconColor,
+      progressIndicatorType: progressIndicatorType ?? progressIndicatorType,
     );
   }
 
@@ -353,6 +375,7 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorValue:
           progressIndicatorValue ?? style.progressIndicatorValue,
       iconColor: iconColor ?? style.iconColor,
+      progressIndicatorType: progressIndicatorType ?? style.progressIndicatorType,
     );
   }
 
@@ -385,6 +408,7 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorStrokeWidth: style.progressIndicatorStrokeWidth,
       progressIndicatorValue: style.progressIndicatorValue,
       iconColor: style.iconColor,
+      progressIndicatorType: style.progressIndicatorType,
     );
   }
 
@@ -412,6 +436,7 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorStrokeWidth,
       progressIndicatorValue,
       iconColor,
+      progressIndicatorType,
     ]);
   }
 
@@ -440,7 +465,8 @@ class AuthButtonStyle with Diagnosticable {
         other.progressIndicatorValueColor == progressIndicatorValueColor &&
         other.progressIndicatorStrokeWidth == progressIndicatorStrokeWidth &&
         other.progressIndicatorValue == progressIndicatorValue &&
-        other.iconColor == iconColor;
+        other.iconColor == iconColor &&
+        other.progressIndicatorType == progressIndicatorType;
   }
 
   @override
@@ -493,5 +519,8 @@ class AuthButtonStyle with Diagnosticable {
         defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('iconColor', iconColor,
         defaultValue: null));
+    properties.add(DiagnosticsProperty<AuthButtonProgressIndicatorType>(
+        'progressIndicatorType', progressIndicatorType,
+        defaultValue: AuthButtonProgressIndicatorType.circular));
   }
 }

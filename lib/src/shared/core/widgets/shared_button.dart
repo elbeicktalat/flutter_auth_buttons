@@ -9,12 +9,12 @@ import 'package:flutter/material.dart';
 /// no mater **buttonType** all buttons use this.
 class SharedButton extends StatelessWidget {
   const SharedButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.onLongPress,
     required this.child,
     required this.style,
-  }) : super(key: key);
+  });
 
   /// {@macro onPressed}
   final VoidCallback? onPressed;
@@ -41,7 +41,9 @@ class SharedButton extends StatelessWidget {
         child: child,
         style: ButtonStyle(
           padding: MaterialStateProperty.all(style!.padding),
-          backgroundColor: MaterialStateProperty.all(style!.buttonColor),
+          backgroundColor: MaterialStateProperty.all(
+            style!.getButtonColor(context),
+          ),
           elevation: MaterialStateProperty.all(style!.elevation),
           side: MaterialStateProperty.all(
             BorderSide(

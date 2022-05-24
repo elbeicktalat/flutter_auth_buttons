@@ -4,18 +4,19 @@
 
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
+import 'package:auth_buttons/src/utils/auth_button_progress_indicator.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
-class ButtonContents extends StatelessWidget {
+class ButtonContents extends StatefulWidget {
   const ButtonContents({
-    Key? key,
+    super.key,
     this.text = '',
     required this.authIcon,
     this.rtl = false,
     this.isLoading = false,
     this.style,
-  }) : super(key: key);
+  });
 
   /// {@macro text}
   final String text;
@@ -37,43 +38,87 @@ class ButtonContents extends StatelessWidget {
   final AuthButtonStyle? style;
 
   @override
+  State<ButtonContents> createState() => _ButtonContentsState();
+}
+
+class _ButtonContentsState extends State<ButtonContents> {
+  final GlobalKey _textKey = GlobalKey();
+  double? _textWidth;
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => getTextWidgetWidth());
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Row(
-      key: key,
+      key: widget.key,
       mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      textDirection: rtl ? TextDirection.rtl : null,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      textDirection: widget.rtl ? TextDirection.rtl : null,
       children: <Widget>[
         Container(
-          padding: (style!.buttonType == AuthButtonType.secondary)
+          padding: (widget.style!.buttonType == AuthButtonType.secondary)
               ? const EdgeInsets.all(5.0)
               : null,
           decoration: BoxDecoration(
-            color: style!.iconBackground,
-            borderRadius: BorderRadius.circular(style!.borderRadius ?? 0.0),
+            color: widget.style!.iconBackground,
+            borderRadius: BorderRadius.circular(
+              widget.style!.borderRadius ?? 0.0,
+            ),
           ),
-          child: isLoading
+          child: (widget.isLoading &&
+                  widget.style!.progressIndicatorType ==
+                      AuthButtonProgressIndicatorType.circular)
               ? SizedBox(
-                  width: style!.iconSize,
-                  height: style!.iconSize,
+                  width: widget.style!.iconSize,
+                  height: widget.style!.iconSize,
                   child: CircularProgressIndicator(
-                    backgroundColor: style!.progressIndicatorColor,
-                    strokeWidth: style!.progressIndicatorStrokeWidth ?? 4.0,
+                    backgroundColor: widget.style!.progressIndicatorColor,
+                    strokeWidth:
+                        widget.style!.progressIndicatorStrokeWidth ?? 4.0,
                     valueColor: AlwaysStoppedAnimation<Color?>(
-                        style!.progressIndicatorValueColor),
-                    value: style!.progressIndicatorValue,
+                      widget.style!.progressIndicatorValueColor,
+                    ),
+                    value: widget.style!.progressIndicatorValue,
                   ),
                 )
-              : authIcon,
+              : widget.authIcon,
         ),
-        SizedBox(
-          width: style!.separator,
-        ),
-        Text(
-          text,
-          style: style!.textStyle,
-        ),
+        SizedBox(width: widget.style!.separator),
+        if (widget.isLoading &&
+            widget.style!.progressIndicatorType ==
+                AuthButtonProgressIndicatorType.linear)
+          buildLinearProgressIndicator()
+        else
+          Text(
+            key: _textKey,
+            widget.text,
+            style: widget.style!.getTextStyle(context),
+            textAlign: TextAlign.center,
+          )
       ],
+    );
+  }
+
+  void getTextWidgetWidth() {
+    final renderBox = _textKey.currentContext?.findRenderObject() as RenderBox;
+    _textWidth = renderBox.size.width;
+  }
+
+  Widget buildLinearProgressIndicator() {
+    return SizedBox(
+      width: _textWidth,
+      child: LinearProgressIndicator(
+        backgroundColor: widget.style!.progressIndicatorColor,
+        minHeight: widget.style!.progressIndicatorStrokeWidth ?? 4.0,
+        value: widget.style!.progressIndicatorValue,
+        valueColor: AlwaysStoppedAnimation<Color?>(
+          widget.style!.progressIndicatorValueColor,
+        ),
+      ),
     );
   }
 }

@@ -4,14 +4,14 @@ import 'package:flutter/widgets.dart';
 @protected
 class InheritedAuthButton extends InheritedWidget {
   const InheritedAuthButton({
-    Key? key,
-    required Widget child,
+    super.key,
+    required super.child,
     required this.onIcon,
     required this.onSecondary,
     required this.style,
     required this.rtl,
     required this.isLoading,
-  }) : super(key: key, child: child);
+  });
 
   final AuthButtonStyle? onIcon;
   final AuthButtonStyle? onSecondary;
