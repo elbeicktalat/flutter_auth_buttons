@@ -6,40 +6,35 @@ import 'package:auth_buttons/src/shared/core/contracts/auth_type_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/core/widgets/button_contents.dart';
 import 'package:auth_buttons/src/shared/core/widgets/shared_button.dart';
-import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/material.dart';
 
 class AuthIconButton extends AuthTypeButton {
   const AuthIconButton({
-    Key? key,
-    required VoidCallback? onPressed,
-    required VoidCallback? onLongPress,
-    required AuthButtonStyle? style,
-    required bool isLoading,
-    required bool rtl,
-    required AuthIcon authIcon,
-  }) : super(
-          key: key,
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          style: style,
-          isLoading: isLoading,
-          rtl: rtl,
-          authIcon: authIcon,
-        );
+    super.key,
+    required super.onPressed,
+    required super.onLongPress,
+    required super.style,
+    required super.isLoading,
+    required super.rtl,
+    required super.authIcon,
+    required super.theme,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SharedButton(
-      key: key,
-      onPressed: onPressed,
-      onLongPress: onLongPress,
-      style: style,
-      child: ButtonContents(
+    return Theme(
+      data: theme,
+      child: SharedButton(
         key: key,
-        authIcon: getIcon(),
-        isLoading: isLoading,
+        onPressed: onPressed,
+        onLongPress: onLongPress,
         style: style,
+        child: ButtonContents(
+          key: key,
+          authIcon: getIcon(),
+          isLoading: isLoading,
+          style: style,
+        ),
       ),
     );
   }

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class AuthButtonGroup extends StatelessWidget {
   const AuthButtonGroup({
-    Key? key,
+    super.key,
     required this.buttons,
     this.gap = const SizedBox(height: 12),
     this.onIcon,
@@ -13,7 +13,7 @@ class AuthButtonGroup extends StatelessWidget {
     this.style,
     this.rtl = false,
     this.isLoading = false,
-  }) : super(key: key);
+  });
 
   final List<AuthButton> buttons;
   final SizedBox gap;

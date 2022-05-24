@@ -8,117 +8,38 @@ import 'package:auth_buttons/src/shared/base/widgets/auth_secondary_button.dart'
 import 'package:auth_buttons/src/shared/core/contracts/auth_button_style_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/inherited_auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
-import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
 abstract class BaseAuthButton extends AuthButtonStyleButton {
   const BaseAuthButton({
-    Key? key,
-    required VoidCallback? onPressed,
-    VoidCallback? onLongPress,
-    AuthButtonStyle? style,
-    String? text,
-    bool darkMode = false,
-    bool isLoading = false,
-    bool rtl = false,
-  }) : super(
-          key: key,
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          style: style ?? const AuthButtonStyle(),
-          text: text,
-          darkMode: darkMode,
-          isLoading: isLoading,
-          rtl: rtl,
-        );
-
-  @override
-  Color getButtonColor() {
-    if (!enabled) {
-      return darkMode ? const Color(0xff5a5a5a) : AuthColors.disabled;
-    }
-    return darkMode ? AuthColors.darkMode : Colors.white;
-  }
-
-  @override
-  Color? getIconColor() {
-    if (!enabled) return AuthColors.disabledContent;
-    return null;
-  }
-
-  @override
-  Color? getIconBackground() {
-    if (!enabled) return const Color(0xffd2d2d2);
-    if (style!.buttonType == AuthButtonType.secondary) {
-      return darkMode ? Colors.black12 : Colors.white;
-    }
-    return null;
-  }
-
-  @override
-  Color? getProgressIndicatorValueColor() => Colors.blue;
-
-  @override
-  TextStyle getTextStyle() {
-    if (style!.buttonType == AuthButtonType.secondary) {
-      return style!.textStyle ??
-          const TextStyle(
-            color: Colors.white,
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            letterSpacing: 0.50,
-          );
-    }
-    return style!.textStyle ??
-        TextStyle(
-          color: darkMode ? Colors.white : Colors.black,
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          letterSpacing: 0.50,
-        );
-  }
+    super.key,
+    required super.onPressed,
+    super.onLongPress,
+    super.style = const AuthButtonStyle(),
+    super.text,
+    super.darkMode = false,
+    super.themeMode = ThemeMode.system,
+    super.isLoading = false,
+    super.rtl = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     switch (style!.buttonType) {
       case AuthButtonType.icon:
         return AuthIconButton(
+          theme: getTheme(),
           onPressed: onPressed,
           onLongPress: onLongPress,
-          isLoading: isLoading,
-          rtl: rtl,
+          isLoading: getInheritedIsLoading(context) ?? isLoading,
+          rtl: getInheritedRtl(context) ?? rtl,
           authIcon: getIcon(),
-          style: getButtonStyle()!.replace(
-            AuthButtonStyle(
-              buttonColor: getButtonColor(),
-              textStyle: getTextStyle(),
-              iconColor: getIconColor(),
-              progressIndicatorValueColor: getProgressIndicatorValueColor(),
-            ).replace(getInheritedStyle(context)),
-          ),
+          style: getButtonStyle()!.replace(getInheritedStyle(context)),
         );
       case AuthButtonType.secondary:
         return AuthSecondaryButton(
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          isLoading: isLoading,
-          rtl: rtl,
-          text: text!,
-          authIcon: getIcon(),
-          style: getButtonStyle()!.replace(
-            AuthButtonStyle(
-              padding: style!.padding ?? const EdgeInsets.only(right: 16.0),
-              buttonColor: getButtonColor(),
-              iconBackground: getIconBackground(),
-              textStyle: getTextStyle(),
-              iconColor: getIconColor(),
-              progressIndicatorValueColor: getProgressIndicatorValueColor(),
-            ).replace(getInheritedStyle(context)),
-          ),
-        );
-      default:
-        return AuthDefaultButton(
+          theme: getTheme(),
           onPressed: onPressed,
           onLongPress: onLongPress,
           isLoading: getInheritedIsLoading(context) ?? isLoading,
@@ -127,12 +48,22 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           authIcon: getIcon(),
           style: getButtonStyle()!.replace(
             AuthButtonStyle(
-              buttonColor: getButtonColor(),
-              textStyle: getTextStyle(),
-              iconColor: getIconColor(),
-              progressIndicatorValueColor: getProgressIndicatorValueColor(),
+              padding: const EdgeInsets.only(right: 16.0),
+              iconBackground:
+                  isDarkMode ? Colors.white.withOpacity(.4) : Colors.white,
             ).replace(getInheritedStyle(context)),
           ),
+        );
+      default:
+        return AuthDefaultButton(
+          theme: getTheme(),
+          onPressed: onPressed,
+          onLongPress: onLongPress,
+          isLoading: getInheritedIsLoading(context) ?? isLoading,
+          rtl: getInheritedRtl(context) ?? rtl,
+          text: text!,
+          authIcon: getIcon(),
+          style: getButtonStyle()?.replace(getInheritedStyle(context)),
         );
     }
   }

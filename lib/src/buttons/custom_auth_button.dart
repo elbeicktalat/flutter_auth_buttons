@@ -5,7 +5,7 @@
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/src/material/theme_data.dart';
 
 /// Allows you to create your custom authentication button,
 /// which will be similar to others in auth_button library.
@@ -13,25 +13,22 @@ import 'package:flutter/material.dart';
 /// You have to provide your own colors and other stuff.
 class CustomAuthButton extends AuthButton {
   const CustomAuthButton({
-    Key? key,
-    VoidCallback? onPressed,
-    VoidCallback? onLongPress,
-    required String text,
+    super.key,
+    super.onPressed,
+    super.onLongPress,
+    required super.text,
     required this.iconUrl,
-    bool darkMode = false,
-    bool rtl = false,
-    bool isLoading = false,
-    AuthButtonStyle? style,
-  }) : super(
-          key: key,
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          text: text,
-          darkMode: darkMode,
-          rtl: rtl,
-          isLoading: isLoading,
-          style: style,
-        );
+    @Deprecated(
+      'Use ThemeMode instead. '
+      'This property has no more effect. '
+      'This feature was deprecated after v3.0.0',
+    )
+        bool darkMode = false,
+    super.rtl = false,
+    super.isLoading = false,
+    super.style,
+    super.themeMode,
+  });
 
   ///[iconUrl] Define the iconUrl.
   final String iconUrl;
@@ -43,6 +40,11 @@ class CustomAuthButton extends AuthButton {
       color: style!.iconColor,
       iconSize: style!.iconSize,
     );
+  }
+
+  @override
+  ThemeData getTheme() {
+    return ThemeData();
   }
 
   @override

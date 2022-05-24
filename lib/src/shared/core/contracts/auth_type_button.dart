@@ -8,14 +8,15 @@ import 'package:flutter/material.dart';
 
 abstract class AuthTypeButton extends StatelessWidget {
   const AuthTypeButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.onLongPress,
     required this.style,
     required this.isLoading,
     required this.rtl,
     required this.authIcon,
-  }) : super(key: key);
+    required this.theme,
+  });
 
   /// {@macro onPressed}
   final VoidCallback? onPressed;
@@ -34,6 +35,9 @@ abstract class AuthTypeButton extends StatelessWidget {
 
   /// {@macro authIcon}
   final AuthIcon authIcon;
+
+  /// {@macro theme}
+  final ThemeData theme;
 
   /// {@macro getIcon}
   AuthIcon getIcon();

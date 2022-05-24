@@ -2,17 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/src/helpers/auth_button_color.dart';
-import 'package:auth_buttons/src/helpers/auth_resolved_button_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
-import 'package:auth_buttons/src/helpers/auth_resolved_text_style.dart';
-import 'package:auth_buttons/src/helpers/auth_text_color.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
+import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 ///create twitter authentication button with multiple styles.
 ///
@@ -26,72 +24,80 @@ import 'package:flutter/material.dart';
 ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/twitter-icon.png)
 class TwitterAuthButton extends AuthButton {
   const TwitterAuthButton({
-    Key? key,
-    VoidCallback? onPressed,
-    VoidCallback? onLongPress,
-    String text = 'Sign in with Twitter',
-    bool darkMode = false,
-    bool rtl = false,
-    bool isLoading = false,
-    AuthButtonStyle? style,
-  }) : super(
-          key: key ?? const ValueKey<String>('TwitterAuthButton'),
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          text: text,
-          darkMode: darkMode,
-          rtl: rtl,
-          isLoading: isLoading,
-          style: style,
-        );
-
-  @override
-  Color? getProgressIndicatorValueColor() {
-    if (style!.buttonType == AuthButtonType.secondary) return Colors.blue;
-    if (style!.buttonType != AuthButtonType.secondary) return Colors.blue[200];
-    return null;
-  }
+    super.key = const ValueKey<String>('TwitterAuthButton'),
+    super.onPressed,
+    super.onLongPress,
+    super.text = 'Sign in with Twitter',
+    @Deprecated(
+      'Use ThemeMode instead. '
+      'This property has no more effect. '
+      'This feature was deprecated after v3.0.0',
+    )
+        bool darkMode = false,
+    super.rtl = false,
+    super.isLoading = false,
+    super.style,
+    super.themeMode,
+  });
 
   @override
   AuthIcon getIcon() {
     return resolvedIconUrl(
       buttonType: style!.buttonType,
       iconType: style!.iconType,
-      buttonColor: getButtonColor(),
-      iconUrl: AuthIcons.twitter,
-      iconColor: style!.iconColor,
+      iconsPath: AuthIcons.twitter,
       iconSize: style!.iconSize,
-      darkMode: darkMode,
+      iconColor: style!.iconColor,
+      theme: getTheme(),
       canBeWhite: true,
     );
   }
 
   @override
-  Color getButtonColor() {
-    return resolvedButtonColor(
-      buttonColor: const ButtonColor(
-        Colors.blue,
-        onSecondaryIcon: Colors.white,
+  ThemeData getTheme() {
+    final TextTheme textTheme = TextTheme(
+      button: GoogleFonts.getFont(
+        'Roboto',
+        fontSize: 18,
+        fontWeight: FontWeight.bold,
+        letterSpacing: 0.50,
       ),
-      darkMode: darkMode,
-      enabled: enabled,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
     );
-  }
-
-  @override
-  TextStyle getTextStyle() {
-    return resolvedTextStyle(
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
-      enabled: enabled,
-      fontWeight: FontWeight.bold,
-      textColor: TextColor(
-        Colors.white,
-        onSecondaryButton: Colors.white,
-        onSecondaryIcon: darkMode ? Colors.white : Colors.blue,
+    if (style!.buttonType == AuthButtonType.secondary) {
+      if (isDarkMode) {
+        return ThemeData(
+          colorScheme: const ColorScheme.dark(),
+          textTheme: textTheme,
+        );
+      }
+      return ThemeData(
+        colorScheme: const ColorScheme.light(
+          surface: Colors.blue,
+          onSurface: Colors.white,
+        ),
+        textTheme: textTheme,
+      );
+    }
+    if (isDarkMode) {
+      return ThemeData(
+        colorScheme: const ColorScheme.dark(
+          surface: AuthColors.darkMode,
+        ),
+        textTheme: textTheme,
+      );
+    }
+    if (style!.iconType == AuthIconType.secondary) {
+      return ThemeData(
+        colorScheme: const ColorScheme.light(),
+        textTheme: textTheme,
+      );
+    }
+    return ThemeData(
+      colorScheme: const ColorScheme.light(
+        surface: Colors.blue,
+        onSurface: Colors.white,
       ),
+      textTheme: textTheme,
     );
   }
 

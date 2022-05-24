@@ -26,13 +26,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     const String appName = 'Auth Buttons Example';
-    Divider _divider = const Divider(height: 24);
     return MaterialApp(
       title: appName,
       themeMode: (darkMode) ? ThemeMode.dark : ThemeMode.light,
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
       home: Scaffold(
         appBar: AppBar(
           title: const Text(appName),
@@ -58,7 +54,6 @@ class _MyAppState extends State<MyApp> {
                 style: const AuthButtonStyle(width: 300),
                 buttons: [
                   GoogleAuthButton(
-                    darkMode: darkMode,
                     onPressed: () {
                       // your implementation
                       setState(() {
@@ -72,7 +67,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                   AppleAuthButton(
                     onPressed: () {},
-                    darkMode: darkMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -80,7 +74,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                   FacebookAuthButton(
                     onPressed: () {},
-                    darkMode: darkMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -88,7 +81,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                   GithubAuthButton(
                     onPressed: () {},
-                    darkMode: darkMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -96,7 +88,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                   MicrosoftAuthButton(
                     onPressed: () {},
-                    darkMode: darkMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -104,7 +95,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                   TwitterAuthButton(
                     onPressed: () {},
-                    darkMode: darkMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -112,7 +102,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                   EmailAuthButton(
                     onPressed: () {},
-                    darkMode: darkMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -120,7 +109,6 @@ class _MyAppState extends State<MyApp> {
                   ),
                   HuaweiAuthButton(
                     onPressed: () {},
-                    darkMode: darkMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,

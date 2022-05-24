@@ -4,19 +4,27 @@
 
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/widgets.dart';
 
 abstract class AuthButtonStyleButton extends StatelessWidget {
   const AuthButtonStyleButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.onLongPress,
     required this.style,
     required this.text,
-    required this.darkMode,
+    @Deprecated(
+      'Use ThemeMode instead. '
+      'This property has no more effect. '
+      'This feature was deprecated after v3.0.0',
+    )
+        required this.darkMode,
+    required this.themeMode,
     required this.isLoading,
     required this.rtl,
-  }) : super(key: key);
+  });
 
   /// {@template onPressed}
   ///
@@ -64,6 +72,11 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/dark-mode-icon.png)
   ///
   /// {@endtemplate}
+  @Deprecated(
+    'Use ThemeMode instead. '
+    'This property has no more effect. '
+    'This feature was deprecated after v3.0.0',
+  )
   final bool darkMode;
 
   /// {@template isLoading}
@@ -85,35 +98,10 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   /// {@endtemplate}
   final bool rtl;
 
-  /// {@template getButtonColor}
+  /// Describes which theme will be used for the [AuthButton].
   ///
-  ///**[getButtonColor()]** a method which returns the **buttonColor**.
-  ///
-  /// For more info about **ButtonColor** take a look on
-  /// [ButtonColor](https://pub.dev/documentation/auth_buttons/latest/auth_buttons/AuthButtonStyle/buttonColor.html)
-  ///
-  /// {@endtemplate}
-  Color getButtonColor();
-
-  /// {@template getIconBackground}
-  ///
-  ///**[getIconBackground()]** a method which returns the **iconBackground**.
-  ///
-  /// For more info about **iconBackground** take a look on
-  /// [iconBackground](https://pub.dev/documentation/auth_buttons/latest/auth_buttons/AuthButtonStyle/iconBackground.html)
-  ///
-  /// {@endtemplate}
-  Color? getIconBackground();
-
-  /// {@template getTextStyle}
-  ///
-  ///**[getTextStyle()]** a method which returns the **textStyle**.
-  ///
-  /// For more info about **textStyle** take a look on
-  /// [textStyle](https://pub.dev/documentation/auth_buttons/latest/auth_buttons/AuthButtonStyle/textStyle.html)
-  ///
-  /// {@endtemplate}
-  TextStyle getTextStyle();
+  /// By default its sets to [ThemeMode.system] in order to get the system [Brightness].
+  final ThemeMode themeMode;
 
   /// {@template getIcon}
   ///
@@ -122,31 +110,19 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   /// {@endtemplate}
   AuthIcon getIcon();
 
-  /// {@template getIconColor}
-  ///
-  ///**[getIconColor()]** a method which returns the **iconColor**.
-  ///
-  /// All **icons** are NOT colored by default.
-  ///
-  /// For more info about **iconColor** take a look on
-  /// [iconColor](https://pub.dev/documentation/auth_buttons/latest/auth_buttons/AuthButtonStyle/iconColor.html)
-  ///
-  /// {@endtemplate}
-  Color? getIconColor();
-
-  /// {@template getProgressIndicatorValueColor}
-  ///
-  ///**[getProgressIndicatorValueColor()]** a method where returns the **progressIndicatorValueColor**.
-  ///
-  /// {@endtemplate}
-  Color? getProgressIndicatorValueColor();
-
   /// {@template getButtonStyle}
   ///
   ///**[getButtonStyle()]** returns **style** for all button types based on **AuthButtonType**.
   ///
   /// {@endtemplate}
   AuthButtonStyle? getButtonStyle();
+
+  /// {@template theme}
+  ///
+  /// Defines the configuration of the overall visual [Theme] for a [AuthButton].
+  ///
+  /// {@endtemplate}
+  ThemeData getTheme();
 
   /// {@template enabled}
   ///
@@ -157,6 +133,14 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   ///
   /// {@endtemplate}
   bool get enabled => onPressed != null || onLongPress != null;
+
+  /// {@template isDarkMode}
+  ///
+  /// Define if the button is in dark or light mode, follows the system [Brightness] by default.
+  ///
+  /// {@endtemplate}
+  bool get isDarkMode =>
+      SchedulerBinding.instance.window.platformBrightness == Brightness.dark;
 
   @override
   Widget build(BuildContext context);
