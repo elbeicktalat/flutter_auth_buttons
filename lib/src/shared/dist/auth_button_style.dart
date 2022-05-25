@@ -34,6 +34,7 @@ class AuthButtonStyle with Diagnosticable {
     this.progressIndicatorValue,
     this.iconColor,
     this.progressIndicatorType = AuthButtonProgressIndicatorType.circular,
+    this.visualDensity,
   });
 
   /// {@template buttonColor}
@@ -303,6 +304,7 @@ class AuthButtonStyle with Diagnosticable {
   final double? progressIndicatorStrokeWidth;
   final double? progressIndicatorValue;
   final AuthButtonProgressIndicatorType? progressIndicatorType;
+  final VisualDensity? visualDensity;
 
   /// Returns a copy of this AuthButtonStyle with the given fields replaced with
   /// the new values.
@@ -329,6 +331,7 @@ class AuthButtonStyle with Diagnosticable {
     double? progressIndicatorValue,
     Color? iconColor,
     AuthButtonProgressIndicatorType? progressIndicatorType,
+    VisualDensity? visualDensity,
   }) {
     return AuthButtonStyle(
       buttonColor: buttonColor ?? this.buttonColor,
@@ -356,7 +359,9 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorValue:
           progressIndicatorValue ?? this.progressIndicatorValue,
       iconColor: iconColor ?? this.iconColor,
-      progressIndicatorType: progressIndicatorType ?? progressIndicatorType,
+      progressIndicatorType:
+          progressIndicatorType ?? this.progressIndicatorType,
+      visualDensity: visualDensity ?? this.visualDensity,
     );
   }
 
@@ -398,6 +403,7 @@ class AuthButtonStyle with Diagnosticable {
       iconColor: iconColor ?? style.iconColor,
       progressIndicatorType:
           progressIndicatorType ?? style.progressIndicatorType,
+      visualDensity: visualDensity ?? style.visualDensity,
     );
   }
 
@@ -431,6 +437,7 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorValue: style.progressIndicatorValue,
       iconColor: style.iconColor,
       progressIndicatorType: style.progressIndicatorType,
+      visualDensity: style.visualDensity,
     );
   }
 
@@ -459,6 +466,7 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorValue,
       iconColor,
       progressIndicatorType,
+      visualDensity,
     ]);
   }
 
@@ -488,7 +496,8 @@ class AuthButtonStyle with Diagnosticable {
         other.progressIndicatorStrokeWidth == progressIndicatorStrokeWidth &&
         other.progressIndicatorValue == progressIndicatorValue &&
         other.iconColor == iconColor &&
-        other.progressIndicatorType == progressIndicatorType;
+        other.progressIndicatorType == progressIndicatorType &&
+        other.visualDensity == visualDensity;
   }
 
   @override
@@ -544,5 +553,8 @@ class AuthButtonStyle with Diagnosticable {
     properties.add(DiagnosticsProperty<AuthButtonProgressIndicatorType>(
         'progressIndicatorType', progressIndicatorType,
         defaultValue: AuthButtonProgressIndicatorType.circular));
+    properties.add(DiagnosticsProperty<VisualDensity?>(
+        'visualDensity', visualDensity,
+        defaultValue: null));
   }
 }

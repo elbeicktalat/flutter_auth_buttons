@@ -33,35 +33,37 @@ class SharedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return ElevatedButton(
       key: key,
-      width: style!.width,
-      height: style!.height,
-      child: ElevatedButton(
-        key: key,
-        onPressed: onPressed,
-        onLongPress: onLongPress,
-        child: child,
-        style: ButtonStyle(
-          padding: MaterialStateProperty.all(style!.padding),
-          backgroundColor: style!.getButtonColor(context, isDark),
-          foregroundColor: style!.getForegroundColor(context),
-          textStyle: MaterialStateProperty.all(style!.getTextStyle(context)),
-          elevation: MaterialStateProperty.all(style!.elevation),
-          side: MaterialStateProperty.all(
-            BorderSide(
-              width: style!.borderWidth ?? 2.0,
-              color: style!.borderColor ?? Colors.transparent,
-            ),
+      onPressed: onPressed,
+      onLongPress: onLongPress,
+      child: child,
+      style: ButtonStyle(
+        minimumSize: MaterialStateProperty.all(
+          Size(
+            style!.width ?? double.minPositive,
+            style!.height ?? double.minPositive,
           ),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(style!.borderRadius ?? 0.0),
-            ),
-          ),
-          shadowColor: MaterialStateProperty.all(style!.shadowColor),
-          overlayColor: MaterialStateProperty.all(style!.splashColor),
         ),
+        padding: MaterialStateProperty.all(style!.padding),
+        backgroundColor: style!.getButtonColor(context, isDark),
+        foregroundColor: style!.getForegroundColor(context),
+        textStyle: MaterialStateProperty.all(style!.getTextStyle(context)),
+        elevation: MaterialStateProperty.all(style!.elevation),
+        visualDensity: style!.visualDensity,
+        side: MaterialStateProperty.all(
+          BorderSide(
+            width: style!.borderWidth ?? 2.0,
+            color: style!.borderColor ?? Colors.transparent,
+          ),
+        ),
+        shape: MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(style!.borderRadius ?? 0.0),
+          ),
+        ),
+        shadowColor: MaterialStateProperty.all(style!.shadowColor),
+        overlayColor: MaterialStateProperty.all(style!.splashColor),
       ),
     );
   }
