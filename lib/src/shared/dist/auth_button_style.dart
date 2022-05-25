@@ -61,9 +61,10 @@ class AuthButtonStyle with Diagnosticable {
     BuildContext context,
     bool isDarkMode,
   ) {
-    return MaterialStateProperty.resolveWith(
-      (states) => _buttonColor(context, states, isDarkMode),
-    );
+    return Theme.of(context).elevatedButtonTheme.style?.backgroundColor ??
+        MaterialStateProperty.resolveWith(
+          (states) => _buttonColor(context, states, isDarkMode),
+        );
   }
 
   Color _buttonColor(
@@ -78,9 +79,10 @@ class AuthButtonStyle with Diagnosticable {
   }
 
   MaterialStateProperty<Color?>? getForegroundColor(BuildContext context) {
-    return MaterialStateProperty.resolveWith(
-      (states) => _foregroundColor(context, states),
-    );
+    return Theme.of(context).elevatedButtonTheme.style?.foregroundColor ??
+        MaterialStateProperty.resolveWith(
+          (states) => _foregroundColor(context, states),
+        );
   }
 
   Color _foregroundColor(BuildContext context, Set<MaterialState> states) {
@@ -98,6 +100,17 @@ class AuthButtonStyle with Diagnosticable {
   /// {@endtemplate}
   final Color? splashColor;
 
+  MaterialStateProperty<Color?>? getSplashColor(BuildContext context) {
+    return Theme.of(context).elevatedButtonTheme.style?.overlayColor ??
+        MaterialStateProperty.resolveWith(
+          (states) => _splashColor(context, states),
+        );
+  }
+
+  Color _splashColor(BuildContext context, Set<MaterialState> states) {
+    return splashColor ?? Theme.of(context).splashColor;
+  }
+
   /// {@template elevation}
   ///
   ///**[elevation]** Define the elevation button, the default value is [2.0].
@@ -108,6 +121,20 @@ class AuthButtonStyle with Diagnosticable {
   ///
   /// {@endtemplate}
   final double? elevation;
+
+  MaterialStateProperty<double?>? getElevation(BuildContext context) {
+    return Theme.of(context).elevatedButtonTheme.style?.elevation ??
+        MaterialStateProperty.resolveWith(
+          (states) => _elevation(context, states),
+        );
+  }
+
+  double _elevation(BuildContext context, Set<MaterialState> states) {
+    if (states.contains(MaterialState.disabled)) {
+      return 0.0;
+    }
+    return elevation ?? 2.0;
+  }
 
   /// {@template borderRadius}
   ///
@@ -122,6 +149,15 @@ class AuthButtonStyle with Diagnosticable {
   /// {@endtemplate}
   final double? borderRadius;
 
+  MaterialStateProperty<OutlinedBorder?>? getShape(BuildContext context) {
+    return Theme.of(context).elevatedButtonTheme.style?.shape ??
+        MaterialStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius ?? 0.0),
+          ),
+        );
+  }
+
   /// {@template padding}
   ///
   ///**[padding]** Define the button padding, the default value is [null],
@@ -133,6 +169,11 @@ class AuthButtonStyle with Diagnosticable {
   ///
   /// {@endtemplate}
   final EdgeInsets? padding;
+
+  MaterialStateProperty<EdgeInsetsGeometry?>? getPadding(BuildContext context) {
+    return Theme.of(context).elevatedButtonTheme.style?.padding ??
+        MaterialStateProperty.all(padding);
+  }
 
   /// {@template textStyle}
   ///
@@ -154,7 +195,12 @@ class AuthButtonStyle with Diagnosticable {
   /// {@endtemplate}
   final TextStyle? textStyle;
 
-  TextStyle getTextStyle(BuildContext context) {
+  MaterialStateProperty<TextStyle?>? getTextStyle(BuildContext context) {
+    return Theme.of(context).elevatedButtonTheme.style?.textStyle ??
+        MaterialStateProperty.all(_textStyle(context));
+  }
+
+  TextStyle _textStyle(BuildContext context) {
     return textStyle ?? Theme.of(context).textTheme.button ?? const TextStyle();
   }
 
@@ -193,6 +239,18 @@ class AuthButtonStyle with Diagnosticable {
   /// {@endtemplate}
   final double? borderWidth;
 
+  MaterialStateProperty<BorderSide?>? getBorder(BuildContext context) {
+    return Theme.of(context).elevatedButtonTheme.style?.side ??
+        MaterialStateProperty.all(_border());
+  }
+
+  BorderSide _border() {
+    return BorderSide(
+      width: borderWidth ?? 2.0,
+      color: borderColor ?? Colors.transparent,
+    );
+  }
+
   /// {@template buttonType}
   ///
   ///**[buttonType]** Define the button Type.
@@ -227,6 +285,16 @@ class AuthButtonStyle with Diagnosticable {
   ///
   /// {@endtemplate}
   final double? height;
+
+  MaterialStateProperty<Size?>? getMinimumSize(BuildContext context) {
+    return Theme.of(context).elevatedButtonTheme.style?.minimumSize ??
+        MaterialStateProperty.all(
+          Size(
+            width ?? double.minPositive,
+            height ?? double.minPositive,
+          ),
+        );
+  }
 
   /// {@template iconSize}
   ///
@@ -291,6 +359,15 @@ class AuthButtonStyle with Diagnosticable {
   ///
   /// {@endtemplate}
   final Color? shadowColor;
+
+  MaterialStateProperty<Color?>? getShadowColor(BuildContext context) {
+    return Theme.of(context).elevatedButtonTheme.style?.shadowColor ??
+        MaterialStateProperty.all(_shadowColor(context));
+  }
+
+  Color _shadowColor(BuildContext context) {
+    return shadowColor ?? Theme.of(context).shadowColor;
+  }
 
   /// {@template iconColor}
   ///

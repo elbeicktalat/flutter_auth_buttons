@@ -15,5 +15,6 @@ abstract class AuthButton extends BaseAuthButton {
     super.themeMode,
     super.isLoading,
     super.rtl,
+    super.theme,
   });
 }

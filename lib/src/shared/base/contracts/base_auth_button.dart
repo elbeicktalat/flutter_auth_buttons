@@ -22,7 +22,46 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
     super.themeMode = ThemeMode.system,
     super.isLoading = false,
     super.rtl = false,
+    super.theme,
   });
+
+  @override
+  ThemeData getTheme() {
+    if (style!.buttonType == AuthButtonType.icon) {
+      if (style!.iconType == AuthIconType.secondary) {
+        if (isDark) return (iconSecondaryDarkTheme());
+        return (iconSecondaryLightTheme());
+      }
+      if (style!.iconType == AuthIconType.outlined) {
+        if (isDark) return (iconOutlinedDarkTheme());
+        return (iconOutlinedLightTheme());
+      }
+      if (isDark) return (iconDarkTheme());
+      return (iconLightTheme());
+    }
+    if (style!.buttonType == AuthButtonType.secondary) {
+      if (style!.iconType == AuthIconType.secondary) {
+        if (isDark) return (secondarySecondaryDarkTheme());
+        return (secondarySecondaryLightTheme());
+      }
+      if (style!.iconType == AuthIconType.outlined) {
+        if (isDark) return (secondaryOutlinedDarkTheme());
+        return (secondaryOutlinedLightTheme());
+      }
+      if (isDark) return (secondaryDarkTheme());
+      return (secondaryLightTheme());
+    }
+    if (style!.iconType == AuthIconType.secondary) {
+      if (isDark) return (defaultSecondaryDarkTheme());
+      return (defaultSecondaryLightTheme());
+    }
+    if (style!.iconType == AuthIconType.outlined) {
+      if (isDark) return (defaultOutlinedDarkTheme());
+      return (defaultOutlinedLightTheme());
+    }
+    if (isDark) return (defaultDarkTheme());
+    return (defaultLightTheme());
+  }
 
   @override
   Widget build(BuildContext context) {

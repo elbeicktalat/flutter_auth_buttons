@@ -2,13 +2,15 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/shared/core/contracts/themeable_auth_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
+import 'package:auth_buttons/src/shared/dist/auth_button_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/widgets.dart';
 
-abstract class AuthButtonStyleButton extends StatelessWidget {
+abstract class AuthButtonStyleButton extends StatelessWidget
+    implements ThemeableAuthButton {
   const AuthButtonStyleButton({
     super.key,
     required this.onPressed,
@@ -24,6 +26,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
     required this.themeMode,
     required this.isLoading,
     required this.rtl,
+    required this.theme,
   });
 
   /// {@template onPressed}
@@ -102,6 +105,8 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   ///
   /// By default its sets to [ThemeMode.system] in order to get the system [Brightness].
   final ThemeMode themeMode;
+
+  final AuthButtonTheme? theme;
 
   /// {@template getIcon}
   ///
