@@ -51,6 +51,7 @@ class SharedButton extends StatelessWidget {
         textStyle: MaterialStateProperty.all(style!.getTextStyle(context)),
         elevation: MaterialStateProperty.all(style!.elevation),
         visualDensity: style!.visualDensity,
+        tapTargetSize: style!.tapTargetSize,
         side: MaterialStateProperty.all(
           BorderSide(
             width: style!.borderWidth ?? 2.0,

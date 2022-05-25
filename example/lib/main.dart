@@ -57,6 +57,7 @@ class _MyAppState extends State<MyApp> {
                 isLoading: isLoading,
                 style: const AuthButtonStyle(
                   progressIndicatorType: AuthButtonProgressIndicatorType.linear,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                 ),
                 buttons: [
                   GoogleAuthButton(
