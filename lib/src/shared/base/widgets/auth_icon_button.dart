@@ -18,6 +18,7 @@ class AuthIconButton extends AuthTypeButton {
     required super.rtl,
     required super.authIcon,
     required super.theme,
+    required super.isDark,
   });
 
   @override
@@ -29,6 +30,7 @@ class AuthIconButton extends AuthTypeButton {
         onPressed: onPressed,
         onLongPress: onLongPress,
         style: style,
+        isDark: isDark,
         child: ButtonContents(
           key: key,
           authIcon: getIcon(),

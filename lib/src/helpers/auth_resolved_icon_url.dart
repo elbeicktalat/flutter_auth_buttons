@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
+import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,8 @@ AuthIcon resolvedIconUrl({
   required Color? iconColor,
   required ThemeData theme,
   required bool canBeWhite,
-  required bool isDarkMode,
+  required bool isDark,
+  required bool enabled,
 }) {
   bool _buttonIsColored = false;
   if (theme.colorScheme.surface != Colors.white ||
@@ -30,7 +32,7 @@ AuthIcon resolvedIconUrl({
 
   if (iconColor == null &&
       buttonType == AuthButtonType.secondary &&
-      isDarkMode) {
+      isDark) {
     _color = iconColor ?? Colors.white;
   }
 
@@ -38,6 +40,10 @@ AuthIcon resolvedIconUrl({
       _buttonIsColored &&
       buttonType != AuthButtonType.secondary) {
     _color = iconColor ?? Colors.white;
+  }
+
+  if (!enabled) {
+    _color = AuthColors.disabledContent;
   }
 
   if (_buttonIsColored && buttonType != AuthButtonType.secondary) {

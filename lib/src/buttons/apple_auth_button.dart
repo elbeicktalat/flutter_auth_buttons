@@ -49,7 +49,8 @@ class AppleAuthButton extends AuthButton {
       iconColor: style!.iconColor,
       theme: getTheme(),
       canBeWhite: true,
-      isDarkMode: isDarkMode,
+      isDark: isDark,
+      enabled: enabled,
     );
   }
 
@@ -64,7 +65,7 @@ class AppleAuthButton extends AuthButton {
     );
 
     if (style!.buttonType == AuthButtonType.secondary) {
-      if (isDarkMode) {
+      if (isDark) {
         return ThemeData(
           colorScheme: const ColorScheme.dark(
             surface: AuthColors.darkMode,
@@ -81,7 +82,7 @@ class AppleAuthButton extends AuthButton {
         textTheme: textTheme,
       );
     }
-    if (isDarkMode) {
+    if (isDark) {
       return ThemeData(
         colorScheme: const ColorScheme.dark(
           surface: AuthColors.darkMode,

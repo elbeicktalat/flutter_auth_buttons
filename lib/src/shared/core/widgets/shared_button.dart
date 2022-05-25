@@ -14,6 +14,7 @@ class SharedButton extends StatelessWidget {
     required this.onLongPress,
     required this.child,
     required this.style,
+    required this.isDark,
   });
 
   /// {@macro onPressed}
@@ -28,6 +29,8 @@ class SharedButton extends StatelessWidget {
   /// {@macro style}
   final AuthButtonStyle? style;
 
+  final bool isDark;
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -41,9 +44,9 @@ class SharedButton extends StatelessWidget {
         child: child,
         style: ButtonStyle(
           padding: MaterialStateProperty.all(style!.padding),
-          backgroundColor: MaterialStateProperty.all(
-            style!.getButtonColor(context),
-          ),
+          backgroundColor: style!.getButtonColor(context, isDark),
+          foregroundColor: style!.getForegroundColor(context),
+          textStyle: MaterialStateProperty.all(style!.getTextStyle(context)),
           elevation: MaterialStateProperty.all(style!.elevation),
           side: MaterialStateProperty.all(
             BorderSide(

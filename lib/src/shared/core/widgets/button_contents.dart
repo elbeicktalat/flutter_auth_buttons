@@ -93,12 +93,7 @@ class _ButtonContentsState extends State<ButtonContents> {
                 AuthButtonProgressIndicatorType.linear)
           buildLinearProgressIndicator()
         else
-          Text(
-            key: _textKey,
-            widget.text,
-            style: widget.style!.getTextStyle(context),
-            textAlign: TextAlign.center,
-          )
+          Text(key: _textKey, widget.text)
       ],
     );
   }

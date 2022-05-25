@@ -18,6 +18,7 @@ class AuthDefaultButton extends AuthTypeButton {
     required super.rtl,
     required super.authIcon,
     required super.theme,
+    required super.isDark,
     required this.text,
   });
 
@@ -33,6 +34,7 @@ class AuthDefaultButton extends AuthTypeButton {
         onPressed: onPressed,
         onLongPress: onLongPress,
         style: style,
+        isDark: isDark,
         child: ButtonContents(
           key: key,
           authIcon: getIcon(),

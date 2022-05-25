@@ -16,6 +16,7 @@ abstract class AuthTypeButton extends StatelessWidget {
     required this.rtl,
     required this.authIcon,
     required this.theme,
+    required this.isDark,
   });
 
   /// {@macro onPressed}
@@ -38,6 +39,8 @@ abstract class AuthTypeButton extends StatelessWidget {
 
   /// {@macro theme}
   final ThemeData theme;
+
+  final bool isDark;
 
   /// {@macro getIcon}
   AuthIcon getIcon();

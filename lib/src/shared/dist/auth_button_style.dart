@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/utils/auth_button_progress_indicator.dart';
+import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -54,8 +55,37 @@ class AuthButtonStyle with Diagnosticable {
   /// {@endtemplate}
   final Color? buttonColor;
 
-  Color getButtonColor(BuildContext context) {
+  MaterialStateProperty<Color?>? getButtonColor(
+    BuildContext context,
+    bool isDarkMode,
+  ) {
+    return MaterialStateProperty.resolveWith(
+      (states) => _buttonColor(context, states, isDarkMode),
+    );
+  }
+
+  Color _buttonColor(
+    BuildContext context,
+    Set<MaterialState> states,
+    bool isDarkMode,
+  ) {
+    if (states.contains(MaterialState.disabled)) {
+      return isDarkMode ? Colors.black12 : AuthColors.disabled;
+    }
     return buttonColor ?? Theme.of(context).colorScheme.surface;
+  }
+
+  MaterialStateProperty<Color?>? getForegroundColor(BuildContext context) {
+    return MaterialStateProperty.resolveWith(
+      (states) => _foregroundColor(context, states),
+    );
+  }
+
+  Color _foregroundColor(BuildContext context, Set<MaterialState> states) {
+    if (states.contains(MaterialState.disabled)) {
+      return AuthColors.disabledContent;
+    }
+    return textStyle?.color ?? Theme.of(context).colorScheme.onSurface;
   }
 
   /// {@template splashColor}
@@ -123,12 +153,7 @@ class AuthButtonStyle with Diagnosticable {
   final TextStyle? textStyle;
 
   TextStyle getTextStyle(BuildContext context) {
-    return textStyle ??
-        Theme.of(context)
-            .textTheme
-            .button
-            ?.copyWith(color: Theme.of(context).colorScheme.onSurface) ??
-        const TextStyle();
+    return textStyle ?? Theme.of(context).textTheme.button ?? const TextStyle();
   }
 
   /// {@template borderColor}
@@ -238,10 +263,6 @@ class AuthButtonStyle with Diagnosticable {
   ///
   /// {@endtemplate}
   final Color? iconBackground;
-
-  Color getIconBackground(BuildContext context) {
-    return iconBackground ?? Theme.of(context).colorScheme.onSurface;
-  }
 
   /// {@template iconType}
   ///

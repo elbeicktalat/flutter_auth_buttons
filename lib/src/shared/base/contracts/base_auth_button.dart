@@ -35,6 +35,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           isLoading: getInheritedIsLoading(context) ?? isLoading,
           rtl: getInheritedRtl(context) ?? rtl,
           authIcon: getIcon(),
+          isDark: isDark,
           style: getButtonStyle()!.replace(getInheritedStyle(context)),
         );
       case AuthButtonType.secondary:
@@ -46,11 +47,15 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           rtl: getInheritedRtl(context) ?? rtl,
           text: text!,
           authIcon: getIcon(),
+          isDark: isDark,
           style: getButtonStyle()!.replace(
             AuthButtonStyle(
               padding: const EdgeInsets.only(right: 16.0),
-              iconBackground:
-                  isDarkMode ? Colors.white.withOpacity(.4) : Colors.white,
+              iconBackground: enabled
+                  ? isDark
+                      ? Colors.white.withOpacity(.4)
+                      : Colors.white
+                  : Colors.black12,
             ).replace(getInheritedStyle(context)),
           ),
         );
@@ -63,6 +68,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           rtl: getInheritedRtl(context) ?? rtl,
           text: text!,
           authIcon: getIcon(),
+          isDark: isDark,
           style: getButtonStyle()?.replace(getInheritedStyle(context)),
         );
     }
