@@ -375,7 +375,8 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorValue:
           progressIndicatorValue ?? style.progressIndicatorValue,
       iconColor: iconColor ?? style.iconColor,
-      progressIndicatorType: progressIndicatorType ?? style.progressIndicatorType,
+      progressIndicatorType:
+          progressIndicatorType ?? style.progressIndicatorType,
     );
   }
 

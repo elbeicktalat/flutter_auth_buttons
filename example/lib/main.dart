@@ -23,12 +23,16 @@ class _MyAppState extends State<MyApp> {
   AuthButtonType? buttonType;
   AuthIconType? iconType;
 
+  ThemeMode get themeMode => darkMode ? ThemeMode.dark : ThemeMode.light;
+
   @override
   Widget build(BuildContext context) {
     const String appName = 'Auth Buttons Example';
     return MaterialApp(
       title: appName,
-      themeMode: (darkMode) ? ThemeMode.dark : ThemeMode.light,
+      themeMode: themeMode,
+      theme: ThemeData.light(),
+      darkTheme: ThemeData.dark(),
       home: Scaffold(
         appBar: AppBar(
           title: const Text(appName),
@@ -62,6 +66,7 @@ class _MyAppState extends State<MyApp> {
                         isLoading = !isLoading;
                       });
                     },
+                    themeMode: themeMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -69,6 +74,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   AppleAuthButton(
                     onPressed: () {},
+                    themeMode: themeMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -76,6 +82,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   FacebookAuthButton(
                     onPressed: () {},
+                    themeMode: themeMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -83,6 +90,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   GithubAuthButton(
                     onPressed: () {},
+                    themeMode: themeMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -90,6 +98,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   MicrosoftAuthButton(
                     onPressed: () {},
+                    themeMode: themeMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -97,6 +106,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   TwitterAuthButton(
                     onPressed: () {},
+                    themeMode: themeMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -104,6 +114,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   EmailAuthButton(
                     onPressed: () {},
+                    themeMode: themeMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -111,6 +122,7 @@ class _MyAppState extends State<MyApp> {
                   ),
                   HuaweiAuthButton(
                     onPressed: () {},
+                    themeMode: themeMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,

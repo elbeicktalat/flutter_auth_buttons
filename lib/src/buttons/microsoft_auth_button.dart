@@ -38,7 +38,7 @@ class MicrosoftAuthButton extends AuthButton {
     super.isLoading = false,
     super.style,
     super.themeMode,
-  }) ;
+  });
 
   @override
   AuthIcon getIcon() {
@@ -50,6 +50,7 @@ class MicrosoftAuthButton extends AuthButton {
       iconColor: style!.iconColor,
       theme: getTheme(),
       canBeWhite: false,
+      isDarkMode: isDarkMode,
     );
   }
 

@@ -48,7 +48,8 @@ class AppleAuthButton extends AuthButton {
       iconSize: style!.iconSize,
       iconColor: style!.iconColor,
       theme: getTheme(),
-      canBeWhite: false,
+      canBeWhite: true,
+      isDarkMode: isDarkMode,
     );
   }
 

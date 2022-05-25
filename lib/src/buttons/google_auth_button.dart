@@ -50,6 +50,7 @@ class GoogleAuthButton extends AuthButton {
       iconColor: style!.iconColor,
       theme: getTheme(),
       canBeWhite: false,
+      isDarkMode: isDarkMode,
     );
   }
 

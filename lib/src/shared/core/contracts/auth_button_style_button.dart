@@ -140,7 +140,8 @@ abstract class AuthButtonStyleButton extends StatelessWidget {
   ///
   /// {@endtemplate}
   bool get isDarkMode =>
-      SchedulerBinding.instance.window.platformBrightness == Brightness.dark;
+      SchedulerBinding.instance.window.platformBrightness == Brightness.dark ||
+      themeMode == ThemeMode.dark;
 
   @override
   Widget build(BuildContext context);

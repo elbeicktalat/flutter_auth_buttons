@@ -14,6 +14,7 @@ AuthIcon resolvedIconUrl({
   required Color? iconColor,
   required ThemeData theme,
   required bool canBeWhite,
+  required bool isDarkMode,
 }) {
   bool _buttonIsColored = false;
   if (theme.colorScheme.surface != Colors.white ||
@@ -23,8 +24,14 @@ AuthIcon resolvedIconUrl({
 
   Color? _color = iconColor ?? theme.colorScheme.onSurface;
 
-  if (iconColor == null && theme.brightness != Brightness.dark) {
+  if (iconColor == null) {
     _color = null;
+  }
+
+  if (iconColor == null &&
+      buttonType == AuthButtonType.secondary &&
+      isDarkMode) {
+    _color = iconColor ?? Colors.white;
   }
 
   if (canBeWhite &&

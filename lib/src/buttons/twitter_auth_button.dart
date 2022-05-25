@@ -50,6 +50,7 @@ class TwitterAuthButton extends AuthButton {
       iconColor: style!.iconColor,
       theme: getTheme(),
       canBeWhite: true,
+      isDarkMode: isDarkMode,
     );
   }
 
