@@ -17,14 +17,17 @@ class AuthIconButton extends AuthTypeButton {
     required super.isLoading,
     required super.rtl,
     required super.authIcon,
-    required super.theme,
+    required super.materialStyle,
     required super.isDark,
   });
 
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: theme,
+      data: ThemeData(
+          elevatedButtonTheme: ElevatedButtonThemeData(
+        style: materialStyle,
+      )),
       child: SharedButton(
         key: key,
         onPressed: onPressed,

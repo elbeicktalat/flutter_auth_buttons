@@ -53,6 +53,8 @@ class _ButtonContentsState extends State<ButtonContents> {
 
   @override
   Widget build(BuildContext context) {
+    final indicatorType = widget.style!.progressIndicatorType ??
+        AuthButtonProgressIndicatorType.circular;
     return Row(
       key: widget.key,
       mainAxisSize: MainAxisSize.min,
@@ -70,28 +72,16 @@ class _ButtonContentsState extends State<ButtonContents> {
             ),
           ),
           child: (widget.isLoading &&
-                  widget.style!.progressIndicatorType ==
-                      AuthButtonProgressIndicatorType.circular)
-              ? SizedBox(
-                  width: widget.style!.iconSize,
-                  height: widget.style!.iconSize,
-                  child: CircularProgressIndicator(
-                    backgroundColor: widget.style!.progressIndicatorColor,
-                    strokeWidth:
-                        widget.style!.progressIndicatorStrokeWidth ?? 4.0,
-                    valueColor: AlwaysStoppedAnimation<Color?>(
-                      widget.style!.progressIndicatorValueColor,
-                    ),
-                    value: widget.style!.progressIndicatorValue,
-                  ),
-                )
+                      widget.style!.buttonType == AuthButtonType.icon ||
+                  indicatorType == AuthButtonProgressIndicatorType.circular)
+              ? _buildCircularProgressIndicator()
               : widget.authIcon,
         ),
         SizedBox(width: widget.style!.separator),
         if (widget.isLoading &&
-            widget.style!.progressIndicatorType ==
-                AuthButtonProgressIndicatorType.linear)
-          buildLinearProgressIndicator()
+            widget.style!.buttonType != AuthButtonType.icon &&
+            indicatorType == AuthButtonProgressIndicatorType.linear)
+          _buildLinearProgressIndicator()
         else
           Text(key: _textKey, widget.text)
       ],
@@ -103,7 +93,22 @@ class _ButtonContentsState extends State<ButtonContents> {
     _textWidth = renderBox.size.width;
   }
 
-  Widget buildLinearProgressIndicator() {
+  Widget _buildCircularProgressIndicator() {
+    return SizedBox(
+      width: widget.style!.iconSize,
+      height: widget.style!.iconSize,
+      child: CircularProgressIndicator(
+        backgroundColor: widget.style!.progressIndicatorColor,
+        strokeWidth: widget.style!.progressIndicatorStrokeWidth ?? 4.0,
+        valueColor: AlwaysStoppedAnimation<Color?>(
+          widget.style!.progressIndicatorValueColor,
+        ),
+        value: widget.style!.progressIndicatorValue,
+      ),
+    );
+  }
+
+  Widget _buildLinearProgressIndicator() {
     return SizedBox(
       width: _textWidth,
       child: LinearProgressIndicator(

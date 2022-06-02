@@ -22,45 +22,99 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
     super.themeMode = ThemeMode.system,
     super.isLoading = false,
     super.rtl = false,
-    super.theme,
+    super.materialStyle,
   });
 
   @override
-  ThemeData getTheme() {
-    if (style!.buttonType == AuthButtonType.icon) {
-      if (style!.iconType == AuthIconType.secondary) {
-        if (isDark) return (iconSecondaryDarkTheme());
-        return (iconSecondaryLightTheme());
-      }
-      if (style!.iconType == AuthIconType.outlined) {
-        if (isDark) return (iconOutlinedDarkTheme());
-        return (iconOutlinedLightTheme());
-      }
-      if (isDark) return (iconDarkTheme());
-      return (iconLightTheme());
-    }
-    if (style!.buttonType == AuthButtonType.secondary) {
-      if (style!.iconType == AuthIconType.secondary) {
-        if (isDark) return (secondarySecondaryDarkTheme());
-        return (secondarySecondaryLightTheme());
-      }
-      if (style!.iconType == AuthIconType.outlined) {
-        if (isDark) return (secondaryOutlinedDarkTheme());
-        return (secondaryOutlinedLightTheme());
-      }
-      if (isDark) return (secondaryDarkTheme());
-      return (secondaryLightTheme());
-    }
-    if (style!.iconType == AuthIconType.secondary) {
-      if (isDark) return (defaultSecondaryDarkTheme());
-      return (defaultSecondaryLightTheme());
-    }
-    if (style!.iconType == AuthIconType.outlined) {
-      if (isDark) return (defaultOutlinedDarkTheme());
-      return (defaultOutlinedLightTheme());
-    }
-    if (isDark) return (defaultDarkTheme());
-    return (defaultLightTheme());
+  ButtonStyle? getMaterialStyle(BuildContext context) {
+    return ButtonStyle(
+      textStyle: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.textStyle?.resolve(states) ??
+            inheritedMaterialStyle(context)?.textStyle?.resolve(states) ??
+            resolveTextStyle(context, states),
+      ),
+      backgroundColor: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.backgroundColor?.resolve(states) ??
+            inheritedMaterialStyle(context)?.backgroundColor?.resolve(states) ??
+            resolveBackgroundColor(context, states),
+      ),
+      foregroundColor: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.foregroundColor?.resolve(states) ??
+            inheritedMaterialStyle(context)?.foregroundColor?.resolve(states) ??
+            resolveForegroundColor(context, states),
+      ),
+      overlayColor: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.overlayColor?.resolve(states) ??
+            inheritedMaterialStyle(context)?.overlayColor?.resolve(states) ??
+            resolveOverlayColor(context, states),
+      ),
+      shadowColor: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.shadowColor?.resolve(states) ??
+            inheritedMaterialStyle(context)?.shadowColor?.resolve(states) ??
+            resolveShadowColor(context, states),
+      ),
+      surfaceTintColor: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.surfaceTintColor?.resolve(states) ??
+            inheritedMaterialStyle(context)
+                ?.surfaceTintColor
+                ?.resolve(states) ??
+            resolveSurfaceTintColor(context, states),
+      ),
+      elevation: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.elevation?.resolve(states) ??
+            inheritedMaterialStyle(context)?.elevation?.resolve(states) ??
+            resolveElevation(context, states),
+      ),
+      padding: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.padding?.resolve(states) ??
+            inheritedMaterialStyle(context)?.padding?.resolve(states) ??
+            resolvePadding(context, states),
+      ),
+      minimumSize: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.minimumSize?.resolve(states) ??
+            inheritedMaterialStyle(context)?.minimumSize?.resolve(states) ??
+            resolveMinimumSize(context, states),
+      ),
+      fixedSize: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.fixedSize?.resolve(states) ??
+            inheritedMaterialStyle(context)?.fixedSize?.resolve(states) ??
+            resolveFixedSize(context, states),
+      ),
+      maximumSize: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.maximumSize?.resolve(states) ??
+            inheritedMaterialStyle(context)?.maximumSize?.resolve(states) ??
+            resolveMaximumSize(context, states),
+      ),
+      side: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.side?.resolve(states) ??
+            inheritedMaterialStyle(context)?.side?.resolve(states) ??
+            resolveSide(context, states),
+      ),
+      shape: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.shape?.resolve(states) ??
+            inheritedMaterialStyle(context)?.shape?.resolve(states) ??
+            resolveShape(context, states),
+      ),
+      mouseCursor: MaterialStateProperty.resolveWith(
+        (states) =>
+            materialStyle?.mouseCursor?.resolve(states) ??
+            inheritedMaterialStyle(context)?.mouseCursor?.resolve(states) ??
+            resolveMouseCursor(context, states),
+      ),
+    );
   }
 
   @override
@@ -68,49 +122,73 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
     switch (style!.buttonType) {
       case AuthButtonType.icon:
         return AuthIconButton(
-          theme: getTheme(),
           onPressed: onPressed,
           onLongPress: onLongPress,
+          materialStyle: getMaterialStyle(context),
           isLoading: getInheritedIsLoading(context) ?? isLoading,
           rtl: getInheritedRtl(context) ?? rtl,
-          authIcon: getIcon(),
+          authIcon: getIcon(context),
           isDark: isDark,
-          style: getButtonStyle()!.replace(getInheritedStyle(context)),
+          style: _iconStyle(context),
         );
       case AuthButtonType.secondary:
         return AuthSecondaryButton(
-          theme: getTheme(),
           onPressed: onPressed,
           onLongPress: onLongPress,
+          materialStyle: getMaterialStyle(context),
           isLoading: getInheritedIsLoading(context) ?? isLoading,
           rtl: getInheritedRtl(context) ?? rtl,
           text: text!,
-          authIcon: getIcon(),
+          authIcon: getIcon(context),
           isDark: isDark,
-          style: getButtonStyle()!.replace(
-            AuthButtonStyle(
-              padding: const EdgeInsets.only(right: 16.0),
-              iconBackground: enabled
-                  ? isDark
-                      ? Colors.white.withOpacity(.4)
-                      : Colors.white
-                  : Colors.black12,
-            ).replace(getInheritedStyle(context)),
-          ),
+          style: _secondaryStyle(context),
         );
       default:
         return AuthDefaultButton(
-          theme: getTheme(),
           onPressed: onPressed,
           onLongPress: onLongPress,
+          materialStyle: getMaterialStyle(context),
           isLoading: getInheritedIsLoading(context) ?? isLoading,
           rtl: getInheritedRtl(context) ?? rtl,
           text: text!,
-          authIcon: getIcon(),
+          authIcon: getIcon(context),
           isDark: isDark,
-          style: getButtonStyle()?.replace(getInheritedStyle(context)),
+          style: _defaultStyle(context),
         );
     }
+  }
+
+  AuthButtonStyle _iconStyle(BuildContext context) {
+    return getButtonStyle()!.merge(
+      const AuthButtonStyle(
+        width: 50.0,
+        height: 50.0,
+        padding: EdgeInsets.zero,
+        borderRadius: 8.0,
+      ).merge(getInheritedStyle(context)),
+    );
+  }
+
+  AuthButtonStyle _secondaryStyle(BuildContext context) {
+    return getButtonStyle()!.merge(
+      AuthButtonStyle(
+        borderRadius: 8.0,
+        padding: const EdgeInsets.only(right: 16.0),
+        iconBackground: enabled
+            ? isDark
+                ? Colors.white.withOpacity(.4)
+                : Colors.white
+            : Colors.black12,
+      ).merge(getInheritedStyle(context)),
+    );
+  }
+
+  AuthButtonStyle _defaultStyle(BuildContext context) {
+    return getButtonStyle()!.merge(
+      const AuthButtonStyle(
+        borderRadius: 8.0,
+      ).merge(getInheritedStyle(context)),
+    );
   }
 
   bool? getInheritedIsLoading(BuildContext context) {
@@ -129,12 +207,14 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
 
   AuthButtonStyle? getInheritedStyle(BuildContext context) {
     if (InheritedAuthButton.of(context) != null) {
-      if (style!.buttonType == AuthButtonType.icon) {
-        return InheritedAuthButton.of(context)!.onIcon;
-      } else if (style!.buttonType == AuthButtonType.secondary) {
-        return InheritedAuthButton.of(context)!.onSecondary;
-      }
       return InheritedAuthButton.of(context)!.style;
+    }
+    return null;
+  }
+
+  ButtonStyle? inheritedMaterialStyle(BuildContext context) {
+    if (InheritedAuthButton.of(context) != null) {
+      return InheritedAuthButton.of(context)!.materialStyle;
     }
     return null;
   }

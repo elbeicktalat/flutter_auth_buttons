@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/utils/auth_button_progress_indicator.dart';
-import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +32,7 @@ class AuthButtonStyle with Diagnosticable {
     this.progressIndicatorStrokeWidth,
     this.progressIndicatorValue,
     this.iconColor,
-    this.progressIndicatorType = AuthButtonProgressIndicatorType.circular,
+    this.progressIndicatorType,
     this.visualDensity,
     this.tapTargetSize,
   });
@@ -57,39 +56,18 @@ class AuthButtonStyle with Diagnosticable {
   /// {@endtemplate}
   final Color? buttonColor;
 
-  MaterialStateProperty<Color?>? getButtonColor(
-    BuildContext context,
-    bool isDarkMode,
-  ) {
-    return Theme.of(context).elevatedButtonTheme.style?.backgroundColor ??
-        MaterialStateProperty.resolveWith(
-          (states) => _buttonColor(context, states, isDarkMode),
-        );
-  }
-
-  Color _buttonColor(
-    BuildContext context,
-    Set<MaterialState> states,
-    bool isDarkMode,
-  ) {
-    if (states.contains(MaterialState.disabled)) {
-      return isDarkMode ? Colors.black12 : AuthColors.disabled;
-    }
-    return buttonColor ?? Theme.of(context).colorScheme.surface;
+  MaterialStateProperty<Color?>? getBackgroundColor(BuildContext context) {
+    return MaterialStateProperty.resolveWith((states) =>
+        buttonColor ??
+        getMaterialStyle(context)?.backgroundColor?.resolve(states));
   }
 
   MaterialStateProperty<Color?>? getForegroundColor(BuildContext context) {
-    return Theme.of(context).elevatedButtonTheme.style?.foregroundColor ??
-        MaterialStateProperty.resolveWith(
-          (states) => _foregroundColor(context, states),
-        );
-  }
-
-  Color _foregroundColor(BuildContext context, Set<MaterialState> states) {
-    if (states.contains(MaterialState.disabled)) {
-      return AuthColors.disabledContent;
-    }
-    return textStyle?.color ?? Theme.of(context).colorScheme.onSurface;
+    return MaterialStateProperty.resolveWith(
+      (states) =>
+          textStyle?.color ??
+          getMaterialStyle(context)?.foregroundColor?.resolve(states),
+    );
   }
 
   /// {@template splashColor}
@@ -100,15 +78,10 @@ class AuthButtonStyle with Diagnosticable {
   /// {@endtemplate}
   final Color? splashColor;
 
-  MaterialStateProperty<Color?>? getSplashColor(BuildContext context) {
-    return Theme.of(context).elevatedButtonTheme.style?.overlayColor ??
-        MaterialStateProperty.resolveWith(
-          (states) => _splashColor(context, states),
-        );
-  }
-
-  Color _splashColor(BuildContext context, Set<MaterialState> states) {
-    return splashColor ?? Theme.of(context).splashColor;
+  MaterialStateProperty<Color?>? getOverlayColor(BuildContext context) {
+    return MaterialStateProperty.resolveWith((states) =>
+        splashColor ??
+        getMaterialStyle(context)?.overlayColor?.resolve(states));
   }
 
   /// {@template elevation}
@@ -123,17 +96,8 @@ class AuthButtonStyle with Diagnosticable {
   final double? elevation;
 
   MaterialStateProperty<double?>? getElevation(BuildContext context) {
-    return Theme.of(context).elevatedButtonTheme.style?.elevation ??
-        MaterialStateProperty.resolveWith(
-          (states) => _elevation(context, states),
-        );
-  }
-
-  double _elevation(BuildContext context, Set<MaterialState> states) {
-    if (states.contains(MaterialState.disabled)) {
-      return 0.0;
-    }
-    return elevation ?? 2.0;
+    return MaterialStateProperty.resolveWith((states) =>
+        elevation ?? getMaterialStyle(context)?.elevation?.resolve(states));
   }
 
   /// {@template borderRadius}
@@ -150,12 +114,15 @@ class AuthButtonStyle with Diagnosticable {
   final double? borderRadius;
 
   MaterialStateProperty<OutlinedBorder?>? getShape(BuildContext context) {
-    return Theme.of(context).elevatedButtonTheme.style?.shape ??
-        MaterialStateProperty.all(
-          RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(borderRadius ?? 0.0),
-          ),
-        );
+    return MaterialStateProperty.resolveWith((states) =>
+        _outlinedBorder() ?? getMaterialStyle(context)?.shape?.resolve(states));
+  }
+
+  OutlinedBorder? _outlinedBorder() {
+    if (borderRadius == null) return null;
+    return RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(borderRadius ?? 0.0),
+    );
   }
 
   /// {@template padding}
@@ -171,8 +138,8 @@ class AuthButtonStyle with Diagnosticable {
   final EdgeInsets? padding;
 
   MaterialStateProperty<EdgeInsetsGeometry?>? getPadding(BuildContext context) {
-    return Theme.of(context).elevatedButtonTheme.style?.padding ??
-        MaterialStateProperty.all(padding);
+    return MaterialStateProperty.resolveWith((states) =>
+        padding ?? getMaterialStyle(context)?.padding?.resolve(states));
   }
 
   /// {@template textStyle}
@@ -196,12 +163,8 @@ class AuthButtonStyle with Diagnosticable {
   final TextStyle? textStyle;
 
   MaterialStateProperty<TextStyle?>? getTextStyle(BuildContext context) {
-    return Theme.of(context).elevatedButtonTheme.style?.textStyle ??
-        MaterialStateProperty.all(_textStyle(context));
-  }
-
-  TextStyle _textStyle(BuildContext context) {
-    return textStyle ?? Theme.of(context).textTheme.button ?? const TextStyle();
+    return MaterialStateProperty.resolveWith((states) =>
+        textStyle ?? getMaterialStyle(context)?.textStyle?.resolve(states));
   }
 
   /// {@template borderColor}
@@ -239,12 +202,13 @@ class AuthButtonStyle with Diagnosticable {
   /// {@endtemplate}
   final double? borderWidth;
 
-  MaterialStateProperty<BorderSide?>? getBorder(BuildContext context) {
-    return Theme.of(context).elevatedButtonTheme.style?.side ??
-        MaterialStateProperty.all(_border());
+  MaterialStateProperty<BorderSide?>? getSide(BuildContext context) {
+    return MaterialStateProperty.resolveWith((states) =>
+        _borderSide() ?? getMaterialStyle(context)?.side?.resolve(states));
   }
 
-  BorderSide _border() {
+  BorderSide? _borderSide() {
+    if (borderWidth == null || borderColor == null) return null;
     return BorderSide(
       width: borderWidth ?? 2.0,
       color: borderColor ?? Colors.transparent,
@@ -287,13 +251,14 @@ class AuthButtonStyle with Diagnosticable {
   final double? height;
 
   MaterialStateProperty<Size?>? getMinimumSize(BuildContext context) {
-    return Theme.of(context).elevatedButtonTheme.style?.minimumSize ??
-        MaterialStateProperty.all(
-          Size(
-            width ?? double.minPositive,
-            height ?? double.minPositive,
-          ),
-        );
+    return MaterialStateProperty.resolveWith((states) =>
+        _minimumSize() ??
+        getMaterialStyle(context)?.minimumSize?.resolve(states));
+  }
+
+  Size? _minimumSize() {
+    if (width == null && height == null) return null;
+    return Size(width ?? double.minPositive, height ?? double.minPositive);
   }
 
   /// {@template iconSize}
@@ -361,12 +326,8 @@ class AuthButtonStyle with Diagnosticable {
   final Color? shadowColor;
 
   MaterialStateProperty<Color?>? getShadowColor(BuildContext context) {
-    return Theme.of(context).elevatedButtonTheme.style?.shadowColor ??
-        MaterialStateProperty.all(_shadowColor(context));
-  }
-
-  Color _shadowColor(BuildContext context) {
-    return shadowColor ?? Theme.of(context).shadowColor;
+    return MaterialStateProperty.resolveWith((states) =>
+        shadowColor ?? getMaterialStyle(context)?.shadowColor?.resolve(states));
   }
 
   /// {@template iconColor}
@@ -384,6 +345,10 @@ class AuthButtonStyle with Diagnosticable {
   final AuthButtonProgressIndicatorType? progressIndicatorType;
   final VisualDensity? visualDensity;
   final MaterialTapTargetSize? tapTargetSize;
+
+  ButtonStyle? getMaterialStyle(BuildContext context) {
+    return Theme.of(context).elevatedButtonTheme.style;
+  }
 
   /// Returns a copy of this AuthButtonStyle with the given fields replaced with
   /// the new values.
@@ -637,7 +602,7 @@ class AuthButtonStyle with Diagnosticable {
         defaultValue: null));
     properties.add(DiagnosticsProperty<AuthButtonProgressIndicatorType>(
         'progressIndicatorType', progressIndicatorType,
-        defaultValue: AuthButtonProgressIndicatorType.circular));
+        defaultValue: null));
     properties.add(DiagnosticsProperty<VisualDensity?>(
         'visualDensity', visualDensity,
         defaultValue: null));

@@ -13,47 +13,38 @@ AuthIcon resolvedIconUrl({
   required List<String> iconsPath,
   required double? iconSize,
   required Color? iconColor,
-  required ThemeData theme,
+  required ButtonStyle? materialStyle,
   required bool canBeWhite,
   required bool isDark,
   required bool enabled,
 }) {
+  final Set<MaterialState> states = {MaterialState.selected};
+  final Color? buttonColor = materialStyle?.backgroundColor?.resolve(states);
   bool _buttonIsColored = false;
-  if (theme.colorScheme.surface != Colors.white ||
-      theme.colorScheme.surface != const Color(0xffffffff)) {
+
+  if (buttonColor != Colors.white || buttonColor != const Color(0xffffffff)) {
     _buttonIsColored = true;
   }
 
-  Color? _color = iconColor ?? theme.colorScheme.onSurface;
+  Color? _color = iconColor ?? materialStyle?.foregroundColor?.resolve(states);
 
   if (iconColor == null) {
     _color = null;
   }
 
-  if (iconColor == null &&
-      buttonType == AuthButtonType.secondary &&
-      isDark) {
+  if (iconColor == null && buttonType == AuthButtonType.secondary && isDark) {
     _color = iconColor ?? Colors.white;
   }
 
   if (canBeWhite &&
       _buttonIsColored &&
-      buttonType != AuthButtonType.secondary) {
+      buttonType != AuthButtonType.secondary &&
+      iconType != AuthIconType.secondary) {
     _color = iconColor ?? Colors.white;
   }
 
   if (!enabled) {
     _color = AuthColors.disabledContent;
-  }
-
-  if (_buttonIsColored && buttonType != AuthButtonType.secondary) {
-    if (iconType == AuthIconType.outlined) {
-      return AuthIcon(iconsPath[1], color: _color, iconSize: iconSize);
-    }
-    if (iconType == AuthIconType.secondary) {
-      return AuthIcon(iconsPath[2], color: _color, iconSize: iconSize);
-    }
-    return AuthIcon(iconsPath[0], color: _color, iconSize: iconSize);
   }
 
   //for secondary buttons.

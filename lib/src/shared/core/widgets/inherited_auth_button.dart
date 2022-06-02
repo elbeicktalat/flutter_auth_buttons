@@ -1,23 +1,22 @@
 import 'package:auth_buttons/auth_buttons.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart'
+    show BuildContext, ButtonStyle, InheritedWidget, protected;
 
 @protected
 class InheritedAuthButton extends InheritedWidget {
   const InheritedAuthButton({
     super.key,
     required super.child,
-    required this.onIcon,
-    required this.onSecondary,
     required this.style,
     required this.rtl,
     required this.isLoading,
+    required this.materialStyle,
   });
 
-  final AuthButtonStyle? onIcon;
-  final AuthButtonStyle? onSecondary;
-  final AuthButtonStyle? style;
   final bool rtl;
   final bool isLoading;
+  final AuthButtonStyle? style;
+  final ButtonStyle? materialStyle;
 
   @override
   bool updateShouldNotify(covariant InheritedWidget oldWidget) => false;

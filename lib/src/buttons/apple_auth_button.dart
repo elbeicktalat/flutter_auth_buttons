@@ -36,63 +36,60 @@ class AppleAuthButton extends AuthButton {
     super.rtl = false,
     super.isLoading = false,
     super.style,
+    super.materialStyle,
     super.themeMode,
   });
 
   @override
-  AuthIcon getIcon() {
+  AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
       buttonType: style!.buttonType,
       iconType: style!.iconType,
       iconsPath: AuthIcons.apple,
       iconSize: style!.iconSize,
       iconColor: style!.iconColor,
-      theme: getTheme(),
       canBeWhite: true,
+      materialStyle: getMaterialStyle(context),
       isDark: isDark,
       enabled: enabled,
     );
   }
 
   @override
-  ThemeData getTheme() {
-    final TextTheme textTheme = TextTheme(
-      button: GoogleFonts.getFont(
-        'Source Sans Pro',
-        fontWeight: FontWeight.w600,
-        fontSize: 18,
-      ),
-    );
+  Color? resolveBackgroundColor(
+    BuildContext context,
+    Set<MaterialState> states,
+  ) {
+    if (!states.contains(MaterialState.disabled)) {
+      if (isDark) return AuthColors.darkMode;
+      if (style!.buttonType == AuthButtonType.secondary) return Colors.black;
+      return Colors.white;
+    }
+    return isDark ? AuthColors.disabledDark : AuthColors.disabled;
+  }
 
-    if (style!.buttonType == AuthButtonType.secondary) {
-      if (isDark) {
-        return ThemeData(
-          colorScheme: const ColorScheme.dark(
-            surface: AuthColors.darkMode,
-            onSurface: Colors.white,
-          ),
-          textTheme: textTheme,
-        );
-      }
-      return ThemeData(
-        colorScheme: const ColorScheme.light(
-          surface: Colors.black,
-          onSurface: Colors.white,
-        ),
-        textTheme: textTheme,
-      );
+  @override
+  Color? resolveForegroundColor(
+    BuildContext context,
+    Set<MaterialState> states,
+  ) {
+    if (!states.contains(MaterialState.disabled)) {
+      if (isDark) return Colors.white;
+      if (style!.buttonType == AuthButtonType.secondary) return Colors.white;
+      return Colors.black;
     }
-    if (isDark) {
-      return ThemeData(
-        colorScheme: const ColorScheme.dark(
-          surface: AuthColors.darkMode,
-        ),
-        textTheme: textTheme,
-      );
-    }
-    return ThemeData(
-      colorScheme: const ColorScheme.light(),
-      textTheme: textTheme,
+    return AuthColors.disabledContent;
+  }
+
+  @override
+  TextStyle? resolveTextStyle(
+    BuildContext context,
+    Set<MaterialState> states,
+  ) {
+    return GoogleFonts.getFont(
+      'Source Sans Pro',
+      fontWeight: FontWeight.w600,
+      fontSize: 18,
     );
   }
 
@@ -100,12 +97,7 @@ class AppleAuthButton extends AuthButton {
   AuthButtonStyle? getButtonStyle() {
     if (style!.buttonType == AuthButtonType.icon) {
       return style!.merge(
-        const AuthButtonStyle(
-          width: 50,
-          height: 50,
-          borderRadius: 8.0,
-          padding: EdgeInsets.zero,
-        ),
+        const AuthButtonStyle(),
       );
     }
     if (style!.buttonType == AuthButtonType.secondary) {
@@ -113,7 +105,6 @@ class AppleAuthButton extends AuthButton {
         const AuthButtonStyle(
           separator: 16.0,
           height: 40.0,
-          borderRadius: 8.0,
         ),
       );
     }
@@ -121,7 +112,6 @@ class AppleAuthButton extends AuthButton {
       const AuthButtonStyle(
         separator: 16.0,
         height: 40.0,
-        borderRadius: 8.0,
       ),
     );
   }

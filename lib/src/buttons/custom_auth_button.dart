@@ -5,7 +5,7 @@
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
-import 'package:flutter/src/material/theme_data.dart';
+import 'package:flutter/material.dart';
 
 /// Allows you to create your custom authentication button,
 /// which will be similar to others in auth_button library.
@@ -27,6 +27,7 @@ class CustomAuthButton extends AuthButton {
     super.rtl = false,
     super.isLoading = false,
     super.style,
+    super.materialStyle,
     super.themeMode,
   });
 
@@ -34,17 +35,12 @@ class CustomAuthButton extends AuthButton {
   final String iconUrl;
 
   @override
-  AuthIcon getIcon() {
+  AuthIcon getIcon(BuildContext context) {
     return AuthIcon(
       iconUrl,
       color: style!.iconColor,
       iconSize: style!.iconSize,
     );
-  }
-
-  @override
-  ThemeData getTheme() {
-    return ThemeData();
   }
 
   @override

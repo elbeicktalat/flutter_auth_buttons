@@ -13,6 +13,7 @@ class AuthButtonGroup extends StatelessWidget {
     this.style,
     this.rtl = false,
     this.isLoading = false,
+    this.materialStyle,
   });
 
   final List<AuthButton> buttons;
@@ -22,6 +23,7 @@ class AuthButtonGroup extends StatelessWidget {
   final AuthButtonStyle? style;
   final bool rtl;
   final bool isLoading;
+  final ButtonStyle? materialStyle;
 
   @override
   Widget build(BuildContext context) {
@@ -31,11 +33,10 @@ class AuthButtonGroup extends StatelessWidget {
       _children.add(gap);
     }
     return InheritedAuthButton(
-      onIcon: onIcon,
-      onSecondary: onSecondary,
       style: style,
       rtl: rtl,
       isLoading: isLoading,
+      materialStyle: materialStyle,
       child: Column(
         children: _children,
       ),

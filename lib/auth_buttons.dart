@@ -12,7 +12,7 @@ export 'package:auth_buttons/src/buttons/google_auth_button.dart';
 export 'package:auth_buttons/src/buttons/huawei_auth_button.dart';
 export 'package:auth_buttons/src/buttons/microsoft_auth_button.dart';
 export 'package:auth_buttons/src/buttons/twitter_auth_button.dart';
+export 'package:auth_buttons/src/shared/dist/auth_button_material_style.dart';
 export 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 export 'package:auth_buttons/src/utils/auth_button_progress_indicator.dart';
 export 'package:auth_buttons/src/utils/auth_style.dart';
-export 'package:auth_buttons/src/shared/dist/auth_button_theme.dart';

@@ -10,7 +10,6 @@ import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 ///create microsoft authentication button with multiple styles.
 ///
@@ -37,18 +36,19 @@ class MicrosoftAuthButton extends AuthButton {
     super.rtl = false,
     super.isLoading = false,
     super.style,
+    super.materialStyle,
     super.themeMode,
   });
 
   @override
-  AuthIcon getIcon() {
+  AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
       buttonType: style!.buttonType,
       iconType: style!.iconType,
       iconsPath: AuthIcons.microsoft,
       iconSize: style!.iconSize,
       iconColor: style!.iconColor,
-      theme: getTheme(),
+      materialStyle: getMaterialStyle(context),
       canBeWhite: false,
       isDark: isDark,
       enabled: enabled,
@@ -56,48 +56,45 @@ class MicrosoftAuthButton extends AuthButton {
   }
 
   @override
-  ThemeData getTheme() {
-    final TextTheme textTheme = TextTheme(
-      button: GoogleFonts.getFont(
-        'Roboto',
-        fontSize: 18,
-        fontWeight: FontWeight.bold,
-        letterSpacing: 0.50,
-      ),
-    );
-    if (style!.buttonType == AuthButtonType.secondary) {
-      if (isDark) {
-        return ThemeData(
-          colorScheme: const ColorScheme.dark(),
-          textTheme: textTheme,
+  Color? resolveBackgroundColor(
+    BuildContext context,
+    Set<MaterialState> states,
+  ) {
+    if (!states.contains(MaterialState.disabled)) {
+      if (isDark) return AuthColors.darkMode;
+      if (style!.buttonType == AuthButtonType.secondary) return Colors.amber;
+      return Colors.white;
+    }
+    return isDark ? AuthColors.disabledDark : AuthColors.disabled;
+  }
+
+  @override
+  Color? resolveForegroundColor(
+    BuildContext context,
+    Set<MaterialState> states,
+  ) {
+    if (!states.contains(MaterialState.disabled)) {
+      if (isDark) return Colors.white;
+      if (style!.buttonType == AuthButtonType.secondary) return Colors.white;
+      return Colors.black;
+    }
+    return AuthColors.disabledContent;
+  }
+
+  @override
+  BorderSide? resolveSide(
+    BuildContext context,
+    Set<MaterialState> states,
+  ) {
+    if (!states.contains(MaterialState.disabled)) {
+      if (style!.buttonType != AuthButtonType.secondary) {
+        return const BorderSide(
+          width: 1,
+          color: Color(0xff8c8c8c),
         );
       }
-      return ThemeData(
-        colorScheme: const ColorScheme.light(
-          surface: Colors.amber,
-          onSurface: Colors.white,
-        ),
-        textTheme: textTheme,
-      );
     }
-    if (isDark) {
-      return ThemeData(
-        colorScheme: const ColorScheme.dark(
-          surface: AuthColors.darkMode,
-        ),
-        textTheme: textTheme,
-      );
-    }
-    if (style!.iconType == AuthIconType.secondary) {
-      return ThemeData(
-        colorScheme: const ColorScheme.light(),
-        textTheme: textTheme,
-      );
-    }
-    return ThemeData(
-      colorScheme: const ColorScheme.light(),
-      textTheme: textTheme,
-    );
+    return null;
   }
 
   @override
@@ -105,11 +102,7 @@ class MicrosoftAuthButton extends AuthButton {
     if (style!.buttonType == AuthButtonType.icon) {
       return style!.merge(
         const AuthButtonStyle(
-          width: 50.0,
-          height: 50.0,
-          borderWidth: 1.0,
-          borderColor: Color(0xff8c8c8c),
-          padding: EdgeInsets.zero,
+          borderRadius: 0.0,
         ),
       );
     }
@@ -118,6 +111,7 @@ class MicrosoftAuthButton extends AuthButton {
         const AuthButtonStyle(
           height: 40.0,
           separator: 12.0,
+          borderRadius: 0,
         ),
       );
     }
@@ -125,9 +119,7 @@ class MicrosoftAuthButton extends AuthButton {
       const AuthButtonStyle(
         height: 40.0,
         separator: 12.0,
-        padding: EdgeInsets.symmetric(horizontal: 12.0),
-        borderWidth: 1.0,
-        borderColor: Color(0xff8c8c8c),
+        borderRadius: 0,
       ),
     );
   }

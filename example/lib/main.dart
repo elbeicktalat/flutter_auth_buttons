@@ -74,7 +74,7 @@ class _MyAppState extends State<MyApp> {
                     ),
                   ),
                   AppleAuthButton(
-                    // onPressed: () {},
+                    onPressed: () {},
                     themeMode: themeMode,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
