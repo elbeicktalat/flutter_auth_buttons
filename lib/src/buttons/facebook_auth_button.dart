@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_background_color.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_foreground_color.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
@@ -60,17 +62,16 @@ class FacebookAuthButton extends AuthButton {
     BuildContext context,
     Set<MaterialState> states,
   ) {
-    if (!states.contains(MaterialState.disabled)) {
-      if (isDark) return AuthColors.darkMode;
-      if (style!.buttonType == AuthButtonType.secondary) {
-        return AuthColors.facebook;
-      }
-      if (style!.iconType != null) {
-        return Colors.white;
-      }
-      return AuthColors.facebook;
-    }
-    return isDark ? AuthColors.disabledDark : AuthColors.disabled;
+    return resolvedBackgroundColor(
+      color: const ButtonColor(
+        AuthColors.facebook,
+        onOtherIcons: Colors.white,
+      ),
+      states: states,
+      isDark: isDark,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+    );
   }
 
   @override
@@ -78,13 +79,16 @@ class FacebookAuthButton extends AuthButton {
     BuildContext context,
     Set<MaterialState> states,
   ) {
-    if (!states.contains(MaterialState.disabled)) {
-      if (isDark) return Colors.white;
-      if (style!.buttonType == AuthButtonType.secondary) return Colors.white;
-      if (style!.iconType != null) return AuthColors.facebook;
-      return Colors.white;
-    }
-    return AuthColors.disabledContent;
+    return resolvedForegroundColor(
+      foregroundColor: const ForegroundColor(
+        Colors.white,
+        onOtherIcons: AuthColors.facebook,
+      ),
+      states: states,
+      isDark: isDark,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+    );
   }
 
   @override

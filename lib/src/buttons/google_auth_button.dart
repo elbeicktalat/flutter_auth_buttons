@@ -3,10 +3,11 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_background_color.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_foreground_color.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
-import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
@@ -60,12 +61,16 @@ class GoogleAuthButton extends AuthButton {
     BuildContext context,
     Set<MaterialState> states,
   ) {
-    if (!states.contains(MaterialState.disabled)) {
-      if (isDark) return AuthColors.darkMode;
-      if (style!.buttonType == AuthButtonType.secondary) return Colors.blue;
-      return Colors.white;
-    }
-    return isDark ? AuthColors.disabledDark : AuthColors.disabled;
+    return resolvedBackgroundColor(
+      color: const ButtonColor(
+        Colors.white,
+        onSecondaryButton: Colors.blue,
+      ),
+      states: states,
+      isDark: isDark,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+    );
   }
 
   @override
@@ -73,12 +78,16 @@ class GoogleAuthButton extends AuthButton {
     BuildContext context,
     Set<MaterialState> states,
   ) {
-    if (!states.contains(MaterialState.disabled)) {
-      if (isDark) return Colors.white;
-      if (style!.buttonType == AuthButtonType.secondary) return Colors.white;
-      return Colors.black;
-    }
-    return AuthColors.disabledContent;
+    return resolvedForegroundColor(
+      foregroundColor: const ForegroundColor(
+        Colors.black,
+        onSecondaryButton: Colors.white,
+      ),
+      states: states,
+      isDark: isDark,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+    );
   }
 
   @override

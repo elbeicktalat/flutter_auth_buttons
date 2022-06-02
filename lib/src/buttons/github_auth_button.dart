@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/helpers/auth_resolved_background_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
@@ -60,17 +61,16 @@ class GithubAuthButton extends AuthButton {
     BuildContext context,
     Set<MaterialState> states,
   ) {
-    if (!states.contains(MaterialState.disabled)) {
-      if (isDark) return AuthColors.darkMode;
-      if (style!.buttonType == AuthButtonType.secondary) {
-        return AuthColors.github;
-      }
-      if (style!.iconType != null) {
-        return Colors.white;
-      }
-      return AuthColors.github;
-    }
-    return isDark ? AuthColors.disabledDark : AuthColors.disabled;
+    return resolvedBackgroundColor(
+      color: const ButtonColor(
+        AuthColors.github,
+        onOtherIcons: Colors.white,
+      ),
+      states: states,
+      isDark: isDark,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+    );
   }
 
   @override

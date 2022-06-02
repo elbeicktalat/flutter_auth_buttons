@@ -3,10 +3,11 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_background_color.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_foreground_color.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
-import 'package:auth_buttons/src/utils/auth_colors.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
@@ -60,17 +61,16 @@ class EmailAuthButton extends AuthButton {
     BuildContext context,
     Set<MaterialState> states,
   ) {
-    if (!states.contains(MaterialState.disabled)) {
-      if (isDark) return AuthColors.darkMode;
-      if (style!.buttonType == AuthButtonType.secondary) {
-        return Colors.teal;
-      }
-      if (style!.iconType != null) {
-        return Colors.white;
-      }
-      return Colors.teal;
-    }
-    return isDark ? AuthColors.disabledDark : AuthColors.disabled;
+    return resolvedBackgroundColor(
+      color: const ButtonColor(
+        Colors.teal,
+        onOtherIcons: Colors.white,
+      ),
+      states: states,
+      isDark: isDark,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+    );
   }
 
   @override
@@ -78,13 +78,16 @@ class EmailAuthButton extends AuthButton {
     BuildContext context,
     Set<MaterialState> states,
   ) {
-    if (!states.contains(MaterialState.disabled)) {
-      if (isDark) return Colors.white;
-      if (style!.buttonType == AuthButtonType.secondary) return Colors.white;
-      if (style!.iconType != null) return Colors.teal;
-      return Colors.white;
-    }
-    return AuthColors.disabledContent;
+    return resolvedForegroundColor(
+      foregroundColor: const ForegroundColor(
+        Colors.white,
+        onOtherIcons: Colors.teal,
+      ),
+      states: states,
+      isDark: isDark,
+      buttonType: style!.buttonType,
+      iconType: style!.iconType,
+    );
   }
 
   @override
