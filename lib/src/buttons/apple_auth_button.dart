@@ -3,9 +3,9 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/auth_buttons.dart';
-import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_background_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_foreground_color.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
@@ -57,10 +57,7 @@ class AppleAuthButton extends AuthButton {
   }
 
   @override
-  Color? resolveBackgroundColor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Color? resolveBackgroundColor(Set<MaterialState> states) {
     return resolvedBackgroundColor(
       color: const ButtonColor(
         Colors.white,
@@ -74,10 +71,7 @@ class AppleAuthButton extends AuthButton {
   }
 
   @override
-  Color? resolveForegroundColor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Color? resolveForegroundColor(Set<MaterialState> states) {
     return resolvedForegroundColor(
       foregroundColor: const ForegroundColor(
         Colors.black,
@@ -91,10 +85,7 @@ class AppleAuthButton extends AuthButton {
   }
 
   @override
-  TextStyle? resolveTextStyle(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  TextStyle? resolveTextStyle(Set<MaterialState> states) {
     return GoogleFonts.getFont(
       'Source Sans Pro',
       fontWeight: FontWeight.w600,

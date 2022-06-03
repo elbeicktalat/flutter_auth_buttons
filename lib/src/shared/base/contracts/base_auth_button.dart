@@ -31,88 +31,92 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
       textStyle: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.textStyle?.resolve(states) ??
-            inheritedMaterialStyle(context)?.textStyle?.resolve(states) ??
-            resolveTextStyle(context, states),
+            _inheritedMaterialStyle(context)?.textStyle?.resolve(states) ??
+            resolveTextStyle(states),
       ),
       backgroundColor: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.backgroundColor?.resolve(states) ??
-            inheritedMaterialStyle(context)?.backgroundColor?.resolve(states) ??
-            resolveBackgroundColor(context, states),
+            _inheritedMaterialStyle(context)
+                ?.backgroundColor
+                ?.resolve(states) ??
+            resolveBackgroundColor(states),
       ),
       foregroundColor: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.foregroundColor?.resolve(states) ??
-            inheritedMaterialStyle(context)?.foregroundColor?.resolve(states) ??
-            resolveForegroundColor(context, states),
+            _inheritedMaterialStyle(context)
+                ?.foregroundColor
+                ?.resolve(states) ??
+            resolveForegroundColor(states),
       ),
       overlayColor: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.overlayColor?.resolve(states) ??
-            inheritedMaterialStyle(context)?.overlayColor?.resolve(states) ??
-            resolveOverlayColor(context, states),
+            _inheritedMaterialStyle(context)?.overlayColor?.resolve(states) ??
+            resolveOverlayColor(states),
       ),
       shadowColor: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.shadowColor?.resolve(states) ??
-            inheritedMaterialStyle(context)?.shadowColor?.resolve(states) ??
-            resolveShadowColor(context, states),
+            _inheritedMaterialStyle(context)?.shadowColor?.resolve(states) ??
+            resolveShadowColor(states),
       ),
       surfaceTintColor: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.surfaceTintColor?.resolve(states) ??
-            inheritedMaterialStyle(context)
+            _inheritedMaterialStyle(context)
                 ?.surfaceTintColor
                 ?.resolve(states) ??
-            resolveSurfaceTintColor(context, states),
+            resolveSurfaceTintColor(states),
       ),
       elevation: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.elevation?.resolve(states) ??
-            inheritedMaterialStyle(context)?.elevation?.resolve(states) ??
-            resolveElevation(context, states),
+            _inheritedMaterialStyle(context)?.elevation?.resolve(states) ??
+            resolveElevation(states),
       ),
       padding: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.padding?.resolve(states) ??
-            inheritedMaterialStyle(context)?.padding?.resolve(states) ??
-            resolvePadding(context, states),
+            _inheritedMaterialStyle(context)?.padding?.resolve(states) ??
+            resolvePadding(states),
       ),
       minimumSize: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.minimumSize?.resolve(states) ??
-            inheritedMaterialStyle(context)?.minimumSize?.resolve(states) ??
-            resolveMinimumSize(context, states),
+            _inheritedMaterialStyle(context)?.minimumSize?.resolve(states) ??
+            resolveMinimumSize(states),
       ),
       fixedSize: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.fixedSize?.resolve(states) ??
-            inheritedMaterialStyle(context)?.fixedSize?.resolve(states) ??
-            resolveFixedSize(context, states),
+            _inheritedMaterialStyle(context)?.fixedSize?.resolve(states) ??
+            resolveFixedSize(states),
       ),
       maximumSize: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.maximumSize?.resolve(states) ??
-            inheritedMaterialStyle(context)?.maximumSize?.resolve(states) ??
-            resolveMaximumSize(context, states),
+            _inheritedMaterialStyle(context)?.maximumSize?.resolve(states) ??
+            resolveMaximumSize(states),
       ),
       side: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.side?.resolve(states) ??
-            inheritedMaterialStyle(context)?.side?.resolve(states) ??
-            resolveSide(context, states),
+            _inheritedMaterialStyle(context)?.side?.resolve(states) ??
+            resolveSide(states),
       ),
       shape: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.shape?.resolve(states) ??
-            inheritedMaterialStyle(context)?.shape?.resolve(states) ??
-            resolveShape(context, states),
+            _inheritedMaterialStyle(context)?.shape?.resolve(states) ??
+            resolveShape(states),
       ),
       mouseCursor: MaterialStateProperty.resolveWith(
         (states) =>
             materialStyle?.mouseCursor?.resolve(states) ??
-            inheritedMaterialStyle(context)?.mouseCursor?.resolve(states) ??
-            resolveMouseCursor(context, states),
+            _inheritedMaterialStyle(context)?.mouseCursor?.resolve(states) ??
+            resolveMouseCursor(states),
       ),
     );
   }
@@ -125,8 +129,8 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           materialStyle: getMaterialStyle(context),
-          isLoading: getInheritedIsLoading(context) ?? isLoading,
-          rtl: getInheritedRtl(context) ?? rtl,
+          isLoading: _getInheritedIsLoading(context) ?? isLoading,
+          rtl: _getInheritedRtl(context) ?? rtl,
           authIcon: getIcon(context),
           isDark: isDark,
           style: _iconStyle(context),
@@ -136,8 +140,8 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           materialStyle: getMaterialStyle(context),
-          isLoading: getInheritedIsLoading(context) ?? isLoading,
-          rtl: getInheritedRtl(context) ?? rtl,
+          isLoading: _getInheritedIsLoading(context) ?? isLoading,
+          rtl: _getInheritedRtl(context) ?? rtl,
           text: text!,
           authIcon: getIcon(context),
           isDark: isDark,
@@ -148,8 +152,8 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           materialStyle: getMaterialStyle(context),
-          isLoading: getInheritedIsLoading(context) ?? isLoading,
-          rtl: getInheritedRtl(context) ?? rtl,
+          isLoading: _getInheritedIsLoading(context) ?? isLoading,
+          rtl: _getInheritedRtl(context) ?? rtl,
           text: text!,
           authIcon: getIcon(context),
           isDark: isDark,
@@ -165,7 +169,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
         height: 50.0,
         padding: EdgeInsets.zero,
         borderRadius: 8.0,
-      ).merge(getInheritedStyle(context)),
+      ).merge(_getInheritedStyle(context)),
     );
   }
 
@@ -179,7 +183,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
                 ? Colors.white.withOpacity(.4)
                 : Colors.white
             : Colors.black12,
-      ).merge(getInheritedStyle(context)),
+      ).merge(_getInheritedStyle(context)),
     );
   }
 
@@ -187,32 +191,32 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
     return getButtonStyle()!.merge(
       const AuthButtonStyle(
         borderRadius: 8.0,
-      ).merge(getInheritedStyle(context)),
+      ).merge(_getInheritedStyle(context)),
     );
   }
 
-  bool? getInheritedIsLoading(BuildContext context) {
+  bool? _getInheritedIsLoading(BuildContext context) {
     if (InheritedAuthButton.of(context) != null) {
       return InheritedAuthButton.of(context)!.isLoading;
     }
     return null;
   }
 
-  bool? getInheritedRtl(BuildContext context) {
+  bool? _getInheritedRtl(BuildContext context) {
     if (InheritedAuthButton.of(context) != null) {
       return InheritedAuthButton.of(context)!.rtl;
     }
     return null;
   }
 
-  AuthButtonStyle? getInheritedStyle(BuildContext context) {
+  AuthButtonStyle? _getInheritedStyle(BuildContext context) {
     if (InheritedAuthButton.of(context) != null) {
       return InheritedAuthButton.of(context)!.style;
     }
     return null;
   }
 
-  ButtonStyle? inheritedMaterialStyle(BuildContext context) {
+  ButtonStyle? _inheritedMaterialStyle(BuildContext context) {
     if (InheritedAuthButton.of(context) != null) {
       return InheritedAuthButton.of(context)!.materialStyle;
     }

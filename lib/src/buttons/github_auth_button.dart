@@ -57,10 +57,7 @@ class GithubAuthButton extends AuthButton {
   }
 
   @override
-  Color? resolveBackgroundColor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Color? resolveBackgroundColor(Set<MaterialState> states) {
     return resolvedBackgroundColor(
       color: const ButtonColor(
         AuthColors.github,
@@ -74,10 +71,7 @@ class GithubAuthButton extends AuthButton {
   }
 
   @override
-  Color? resolveForegroundColor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Color? resolveForegroundColor(Set<MaterialState> states) {
     if (!states.contains(MaterialState.disabled)) {
       if (isDark) return Colors.white;
       if (style!.buttonType == AuthButtonType.secondary) return Colors.white;

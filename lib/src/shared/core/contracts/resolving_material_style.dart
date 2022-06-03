@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart'
     show
         BorderSide,
-        BuildContext,
         Color,
         EdgeInsets,
         FontWeight,
@@ -13,10 +12,7 @@ import 'package:flutter/material.dart'
 import 'package:google_fonts/google_fonts.dart';
 
 mixin ResolvingMaterialStyle {
-  TextStyle? resolveTextStyle(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  TextStyle? resolveTextStyle(Set<MaterialState> states) {
     return GoogleFonts.getFont(
       'Roboto',
       fontSize: 18,
@@ -25,94 +21,55 @@ mixin ResolvingMaterialStyle {
     );
   }
 
-  Color? resolveBackgroundColor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Color? resolveBackgroundColor(Set<MaterialState> states) {
     return null;
   }
 
-  Color? resolveForegroundColor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Color? resolveForegroundColor(Set<MaterialState> states) {
     return null;
   }
 
-  Color? resolveOverlayColor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Color? resolveOverlayColor(Set<MaterialState> states) {
     return null;
   }
 
-  Color? resolveShadowColor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Color? resolveShadowColor(Set<MaterialState> states) {
     return null;
   }
 
-  Color? resolveSurfaceTintColor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Color? resolveSurfaceTintColor(Set<MaterialState> states) {
     return null;
   }
 
-  double? resolveElevation(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  double? resolveElevation(Set<MaterialState> states) {
     return null;
   }
 
-  EdgeInsets? resolvePadding(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  EdgeInsets? resolvePadding(Set<MaterialState> states) {
     return null;
   }
 
-  Size? resolveMinimumSize(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Size? resolveMinimumSize(Set<MaterialState> states) {
     return const Size(double.minPositive, double.minPositive);
   }
 
-  Size? resolveFixedSize(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Size? resolveFixedSize(Set<MaterialState> states) {
     return null;
   }
 
-  Size? resolveMaximumSize(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Size? resolveMaximumSize(Set<MaterialState> states) {
     return null;
   }
 
-  BorderSide? resolveSide(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  BorderSide? resolveSide(Set<MaterialState> states) {
     return null;
   }
 
-  OutlinedBorder? resolveShape(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  OutlinedBorder? resolveShape(Set<MaterialState> states) {
     return null;
   }
 
-  MouseCursor? resolveMouseCursor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  MouseCursor? resolveMouseCursor(Set<MaterialState> states) {
     return null;
   }
 }

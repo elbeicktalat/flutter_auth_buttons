@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_background_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_foreground_color.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
@@ -58,10 +58,7 @@ class HuaweiAuthButton extends AuthButton {
   }
 
   @override
-  Color? resolveBackgroundColor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Color? resolveBackgroundColor(Set<MaterialState> states) {
     return resolvedBackgroundColor(
       color: const ButtonColor(
         AuthColors.huawei,
@@ -75,10 +72,7 @@ class HuaweiAuthButton extends AuthButton {
   }
 
   @override
-  Color? resolveForegroundColor(
-    BuildContext context,
-    Set<MaterialState> states,
-  ) {
+  Color? resolveForegroundColor(Set<MaterialState> states) {
     return resolvedForegroundColor(
       foregroundColor: const ForegroundColor(
         Colors.white,
