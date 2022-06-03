@@ -42,6 +42,12 @@ class EmailAuthButton extends AuthButton {
   });
 
   @override
+  Color? getProgressIndicatorColor() {
+    if (style!.buttonType == AuthButtonType.secondary) return Colors.teal;
+    return Colors.teal[200];
+  }
+
+  @override
   AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
       buttonType: style!.buttonType,

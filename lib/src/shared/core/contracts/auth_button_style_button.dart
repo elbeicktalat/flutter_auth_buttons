@@ -123,6 +123,8 @@ abstract class AuthButtonStyleButton extends StatelessWidget
 
   ButtonStyle? getMaterialStyle(BuildContext context);
 
+  Color? getProgressIndicatorColor();
+
   /// {@template enabled}
   ///
   /// Define if the button is enabled or disabled.

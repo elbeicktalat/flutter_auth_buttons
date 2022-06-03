@@ -43,6 +43,12 @@ class HuaweiAuthButton extends AuthButton {
   });
 
   @override
+  Color? getProgressIndicatorColor() {
+    if (style!.buttonType == AuthButtonType.secondary) return Colors.red;
+    return Colors.red[200];
+  }
+
+  @override
   AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
       buttonType: style!.buttonType,

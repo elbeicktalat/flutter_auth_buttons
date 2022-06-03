@@ -43,6 +43,16 @@ class FacebookAuthButton extends AuthButton {
   });
 
   @override
+  Color? getProgressIndicatorColor() {
+    if (style!.buttonType == AuthButtonType.secondary) {
+      return AuthColors.facebook;
+    }
+    if (style!.buttonType != AuthButtonType.secondary &&
+        style!.iconType == null) return Colors.white;
+    return AuthColors.facebook;
+  }
+
+  @override
   AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
       buttonType: style!.buttonType,

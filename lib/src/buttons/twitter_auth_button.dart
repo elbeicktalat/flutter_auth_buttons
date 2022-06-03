@@ -42,6 +42,12 @@ class TwitterAuthButton extends AuthButton {
   });
 
   @override
+  Color? getProgressIndicatorColor() {
+    if (style!.buttonType == AuthButtonType.secondary) return Colors.blue;
+    return Colors.blue[200];
+  }
+
+  @override
   AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
       buttonType: style!.buttonType,

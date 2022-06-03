@@ -122,6 +122,9 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
   }
 
   @override
+  Color? getProgressIndicatorColor() => Colors.blue;
+
+  @override
   Widget build(BuildContext context) {
     switch (style!.buttonType) {
       case AuthButtonType.icon:
@@ -164,11 +167,13 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
 
   AuthButtonStyle _iconStyle(BuildContext context) {
     return getButtonStyle()!.merge(
-      const AuthButtonStyle(
+      AuthButtonStyle(
         width: 50.0,
         height: 50.0,
         padding: EdgeInsets.zero,
         borderRadius: 8.0,
+        progressIndicatorValueColor: getProgressIndicatorColor(),
+        progressIndicatorColor: getProgressIndicatorColor()?.withOpacity(.3),
       ).merge(_getInheritedStyle(context)),
     );
   }
@@ -183,14 +188,18 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
                 ? Colors.white.withOpacity(.4)
                 : Colors.white
             : Colors.black12,
+        progressIndicatorValueColor: getProgressIndicatorColor(),
+        progressIndicatorColor: Colors.white,
       ).merge(_getInheritedStyle(context)),
     );
   }
 
   AuthButtonStyle _defaultStyle(BuildContext context) {
     return getButtonStyle()!.merge(
-      const AuthButtonStyle(
+      AuthButtonStyle(
         borderRadius: 8.0,
+        progressIndicatorValueColor: getProgressIndicatorColor(),
+        progressIndicatorColor: getProgressIndicatorColor()?.withOpacity(.3),
       ).merge(_getInheritedStyle(context)),
     );
   }

@@ -42,6 +42,14 @@ class GithubAuthButton extends AuthButton {
   });
 
   @override
+  Color? getProgressIndicatorColor() {
+    if (style!.buttonType == AuthButtonType.secondary) {
+      return isDark ? const Color(0xff6d7c8b) : AuthColors.github;
+    }
+    return const Color(0xff6d7c8b);
+  }
+
+  @override
   AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
       buttonType: style!.buttonType,
