@@ -9,12 +9,10 @@ class InheritedAuthButton extends InheritedWidget {
     required super.child,
     required this.style,
     required this.rtl,
-    required this.isLoading,
     required this.materialStyle,
   });
 
   final bool rtl;
-  final bool isLoading;
   final AuthButtonStyle? style;
   final ButtonStyle? materialStyle;
 

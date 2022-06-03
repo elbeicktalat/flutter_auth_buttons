@@ -129,7 +129,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           materialStyle: getMaterialStyle(context),
-          isLoading: _getInheritedIsLoading(context) ?? isLoading,
+          isLoading: isLoading,
           rtl: _getInheritedRtl(context) ?? rtl,
           authIcon: getIcon(context),
           isDark: isDark,
@@ -140,7 +140,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           materialStyle: getMaterialStyle(context),
-          isLoading: _getInheritedIsLoading(context) ?? isLoading,
+          isLoading: isLoading,
           rtl: _getInheritedRtl(context) ?? rtl,
           text: text!,
           authIcon: getIcon(context),
@@ -152,7 +152,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           onPressed: onPressed,
           onLongPress: onLongPress,
           materialStyle: getMaterialStyle(context),
-          isLoading: _getInheritedIsLoading(context) ?? isLoading,
+          isLoading: isLoading,
           rtl: _getInheritedRtl(context) ?? rtl,
           text: text!,
           authIcon: getIcon(context),
@@ -193,13 +193,6 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
         borderRadius: 8.0,
       ).merge(_getInheritedStyle(context)),
     );
-  }
-
-  bool? _getInheritedIsLoading(BuildContext context) {
-    if (InheritedAuthButton.of(context) != null) {
-      return InheritedAuthButton.of(context)!.isLoading;
-    }
-    return null;
   }
 
   bool? _getInheritedRtl(BuildContext context) {
