@@ -33,24 +33,30 @@ class SharedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      key: key,
-      onPressed: onPressed,
-      onLongPress: onLongPress,
-      child: child,
-      style: ButtonStyle(
-        padding: style!.getPadding(context),
-        backgroundColor: style!.getBackgroundColor(context),
-        foregroundColor: style!.getForegroundColor(context),
-        textStyle: style!.getTextStyle(context),
-        elevation: style!.getElevation(context),
-        shadowColor: style!.getShadowColor(context),
-        overlayColor: style!.getOverlayColor(context),
-        minimumSize: style!.getMinimumSize(context),
-        side: style!.getSide(context),
-        shape: style!.getShape(context),
-        visualDensity: style!.visualDensity,
-        tapTargetSize: style!.tapTargetSize,
+    return SizedBox(
+      width: style!.width,
+      height: style!.height,
+      child: FittedBox(
+        child: ElevatedButton(
+          key: key,
+          onPressed: onPressed,
+          onLongPress: onLongPress,
+          child: child,
+          style: ButtonStyle(
+            padding: style!.getPadding(context),
+            backgroundColor: style!.getBackgroundColor(context),
+            foregroundColor: style!.getForegroundColor(context),
+            textStyle: style!.getTextStyle(context),
+            elevation: style!.getElevation(context),
+            shadowColor: style!.getShadowColor(context),
+            overlayColor: style!.getOverlayColor(context),
+            minimumSize: style!.getMinimumSize(context),
+            side: style!.getSide(context),
+            shape: style!.getShape(context),
+            visualDensity: style!.visualDensity,
+            tapTargetSize: style!.tapTargetSize,
+          ),
+        ),
       ),
     );
   }

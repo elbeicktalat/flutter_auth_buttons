@@ -18,7 +18,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool isLoading = false;
-  bool darkMode = true;
+  bool darkMode = false;
 
   AuthButtonType? buttonType;
   AuthIconType? iconType;
@@ -54,10 +54,10 @@ class _MyAppState extends State<MyApp> {
               _chooseIconType(),
               const SizedBox(height: 24),
               AuthButtonGroup(
-                isLoading: isLoading,
-                style: const AuthButtonStyle(
+                style:  AuthButtonStyle(
+                  width: 180,
                   progressIndicatorType: AuthButtonProgressIndicatorType.linear,
-                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  buttonType: buttonType,
                 ),
                 buttons: [
                   GoogleAuthButton(
@@ -68,6 +68,7 @@ class _MyAppState extends State<MyApp> {
                       });
                     },
                     themeMode: themeMode,
+                    isLoading: isLoading,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -76,6 +77,7 @@ class _MyAppState extends State<MyApp> {
                   AppleAuthButton(
                     onPressed: () {},
                     themeMode: themeMode,
+                    isLoading: isLoading,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -84,6 +86,7 @@ class _MyAppState extends State<MyApp> {
                   FacebookAuthButton(
                     onPressed: () {},
                     themeMode: themeMode,
+                    isLoading: isLoading,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -92,6 +95,7 @@ class _MyAppState extends State<MyApp> {
                   GithubAuthButton(
                     onPressed: () {},
                     themeMode: themeMode,
+                    isLoading: isLoading,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -100,6 +104,7 @@ class _MyAppState extends State<MyApp> {
                   MicrosoftAuthButton(
                     onPressed: () {},
                     themeMode: themeMode,
+                    isLoading: isLoading,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -108,6 +113,7 @@ class _MyAppState extends State<MyApp> {
                   TwitterAuthButton(
                     onPressed: () {},
                     themeMode: themeMode,
+                    isLoading: isLoading,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -116,6 +122,7 @@ class _MyAppState extends State<MyApp> {
                   EmailAuthButton(
                     onPressed: () {},
                     themeMode: themeMode,
+                    isLoading: isLoading,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,
@@ -124,6 +131,7 @@ class _MyAppState extends State<MyApp> {
                   HuaweiAuthButton(
                     onPressed: () {},
                     themeMode: themeMode,
+                    isLoading: isLoading,
                     style: AuthButtonStyle(
                       buttonType: buttonType,
                       iconType: iconType,

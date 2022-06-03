@@ -7,39 +7,69 @@ class AuthButtonGroup extends StatelessWidget {
   const AuthButtonGroup({
     super.key,
     required this.buttons,
-    this.gap = const SizedBox(height: 12),
-    this.onIcon,
-    this.onSecondary,
     this.style,
     this.rtl = false,
-    this.isLoading = false,
     this.materialStyle,
+    this.orientation = Axis.horizontal,
+    this.spacing,
+    this.runSpacing,
+    this.alignment = WrapAlignment.start,
+    this.runAlignment = WrapAlignment.start,
+    this.crossAxisAlignment = WrapCrossAlignment.start,
+    this.direction = VerticalDirection.down,
   });
 
-  final List<AuthButton> buttons;
-  final SizedBox gap;
-  final AuthButtonStyle? onIcon;
-  final AuthButtonStyle? onSecondary;
-  final AuthButtonStyle? style;
   final bool rtl;
-  final bool isLoading;
+  final List<AuthButton> buttons;
+  final AuthButtonStyle? style;
   final ButtonStyle? materialStyle;
+  final double? spacing;
+  final double? runSpacing;
+  final Axis orientation;
+  final WrapAlignment alignment;
+  final WrapAlignment runAlignment;
+  final WrapCrossAlignment crossAxisAlignment;
+  final VerticalDirection direction;
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> _children = [];
-    for (var button in buttons) {
-      _children.add(button);
-      _children.add(gap);
-    }
     return InheritedAuthButton(
       style: style,
       rtl: rtl,
-      isLoading: isLoading,
       materialStyle: materialStyle,
-      child: Column(
-        children: _children,
+      child: Wrap(
+        spacing: spacing ?? _getSpacing(),
+        runSpacing: runSpacing ?? _getRunSpacing(),
+        alignment: alignment,
+        runAlignment: runAlignment,
+        crossAxisAlignment: crossAxisAlignment,
+        direction: orientation,
+        verticalDirection: direction,
+        children: buttons,
       ),
     );
+  }
+
+  double _getSpacing() {
+    if (orientation == Axis.vertical) {
+      if (style!.buttonType != AuthButtonType.icon) {
+        return 0.0;
+      }
+      return 8.0;
+    }
+    return 8.0;
+  }
+
+  double _getRunSpacing() {
+    if (orientation != Axis.horizontal) {
+      if (style!.buttonType != AuthButtonType.icon) {
+        return 0.0;
+      }
+      return 8.0;
+    }
+    if (style!.buttonType != AuthButtonType.icon) {
+      return 0.0;
+    }
+    return 8.0;
   }
 }
