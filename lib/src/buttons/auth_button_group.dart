@@ -33,6 +33,20 @@ class AuthButtonGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> _fittedButtons = [];
+    for (var button in buttons) {
+      _fittedButtons.add(SizedBox(
+        width: style!.width,
+        height: style!.height,
+        child: FittedBox(child: button),
+      ));
+    }
+
+    List<Widget> _children = buttons;
+    if (style!.buttonType != AuthButtonType.icon) {
+      _children = _fittedButtons;
+    }
+
     return InheritedAuthButton(
       style: style,
       rtl: rtl,
@@ -45,7 +59,7 @@ class AuthButtonGroup extends StatelessWidget {
         crossAxisAlignment: crossAxisAlignment,
         direction: orientation,
         verticalDirection: direction,
-        children: buttons,
+        children: _children,
       ),
     );
   }
