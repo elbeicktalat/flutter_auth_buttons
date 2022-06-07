@@ -17,6 +17,7 @@ class AuthButtonStyle with Diagnosticable {
     this.borderRadius,
     this.textStyle,
     this.padding,
+    this.margin,
     this.borderColor,
     this.borderWidth,
     this.buttonType,
@@ -115,7 +116,8 @@ class AuthButtonStyle with Diagnosticable {
 
   MaterialStateProperty<OutlinedBorder?>? getShape(BuildContext context) {
     return MaterialStateProperty.resolveWith((states) =>
-        _outlinedBorder() ?? _getMaterialStyle(context)?.shape?.resolve(states));
+        _outlinedBorder() ??
+        _getMaterialStyle(context)?.shape?.resolve(states));
   }
 
   OutlinedBorder? _outlinedBorder() {
@@ -141,6 +143,8 @@ class AuthButtonStyle with Diagnosticable {
     return MaterialStateProperty.resolveWith((states) =>
         padding ?? _getMaterialStyle(context)?.padding?.resolve(states));
   }
+
+  final EdgeInsets? margin;
 
   /// {@template textStyle}
   ///
@@ -358,6 +362,7 @@ class AuthButtonStyle with Diagnosticable {
     double? elevation,
     double? borderRadius,
     EdgeInsets? padding,
+    EdgeInsets? margin,
     TextStyle? textStyle,
     Color? borderColor,
     double? borderWidth,
@@ -384,6 +389,7 @@ class AuthButtonStyle with Diagnosticable {
       elevation: elevation ?? this.elevation,
       borderRadius: borderRadius ?? this.borderRadius,
       padding: padding ?? this.padding,
+      margin: margin ?? this.margin,
       textStyle: textStyle ?? this.textStyle,
       borderColor: borderColor ?? this.borderColor,
       borderWidth: borderWidth ?? this.borderWidth,
@@ -427,6 +433,7 @@ class AuthButtonStyle with Diagnosticable {
       elevation: elevation ?? style.elevation,
       borderRadius: borderRadius ?? style.borderRadius,
       padding: padding ?? style.padding,
+      margin: margin ?? style.margin,
       textStyle: textStyle ?? style.textStyle,
       borderColor: borderColor ?? style.borderColor,
       borderWidth: borderWidth ?? style.borderWidth,
@@ -467,6 +474,7 @@ class AuthButtonStyle with Diagnosticable {
       elevation: style.elevation,
       borderRadius: style.borderRadius,
       padding: style.padding,
+      margin: style.margin,
       textStyle: style.textStyle,
       borderColor: style.borderColor,
       borderWidth: style.borderWidth,
@@ -529,6 +537,7 @@ class AuthButtonStyle with Diagnosticable {
         other.elevation == elevation &&
         other.borderRadius == borderRadius &&
         other.padding == padding &&
+        other.margin == margin &&
         other.textStyle == textStyle &&
         other.borderColor == borderColor &&
         other.borderWidth == borderWidth &&
@@ -563,6 +572,8 @@ class AuthButtonStyle with Diagnosticable {
         defaultValue: null));
     properties.add(DiagnosticsProperty<EdgeInsets?>('padding', padding,
         defaultValue: null));
+    properties.add(
+        DiagnosticsProperty<EdgeInsets?>('margin', margin, defaultValue: null));
     properties.add(DiagnosticsProperty<TextStyle?>('textStyle', textStyle,
         defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('borderColor', borderColor,

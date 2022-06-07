@@ -53,8 +53,23 @@ class _MyAppState extends State<MyApp> {
               _chooseButtonType(),
               _chooseIconType(),
               const SizedBox(height: 24),
+              GoogleAuthButton(
+                onPressed: () {
+                  // your implementation
+                  setState(() {
+                    isLoading = !isLoading;
+                  });
+                },
+                themeMode: themeMode,
+                isLoading: isLoading,
+                style: AuthButtonStyle(
+                  buttonType: buttonType,
+                  iconType: iconType,
+                  margin: const EdgeInsets.only(bottom: 18),
+                ),
+              ),
               AuthButtonGroup(
-                style:  AuthButtonStyle(
+                style: AuthButtonStyle(
                   width: 180,
                   progressIndicatorType: AuthButtonProgressIndicatorType.linear,
                   buttonType: buttonType,
