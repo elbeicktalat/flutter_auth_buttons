@@ -71,9 +71,9 @@ class _ButtonContentsState extends State<ButtonContents> {
               widget.style!.borderRadius ?? 0.0,
             ),
           ),
-          child: (widget.isLoading &&
-                      widget.style!.buttonType == AuthButtonType.icon ||
-                  indicatorType == AuthButtonProgressIndicatorType.circular)
+          child: widget.isLoading &&
+                  (widget.style!.buttonType == AuthButtonType.icon ||
+                      indicatorType == AuthButtonProgressIndicatorType.circular)
               ? _buildCircularProgressIndicator()
               : widget.authIcon,
         ),
