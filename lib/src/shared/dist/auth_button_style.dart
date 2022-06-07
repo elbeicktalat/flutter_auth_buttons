@@ -59,14 +59,14 @@ class AuthButtonStyle with Diagnosticable {
   MaterialStateProperty<Color?>? getBackgroundColor(BuildContext context) {
     return MaterialStateProperty.resolveWith((states) =>
         buttonColor ??
-        getMaterialStyle(context)?.backgroundColor?.resolve(states));
+        _getMaterialStyle(context)?.backgroundColor?.resolve(states));
   }
 
   MaterialStateProperty<Color?>? getForegroundColor(BuildContext context) {
     return MaterialStateProperty.resolveWith(
       (states) =>
           textStyle?.color ??
-          getMaterialStyle(context)?.foregroundColor?.resolve(states),
+          _getMaterialStyle(context)?.foregroundColor?.resolve(states),
     );
   }
 
@@ -81,7 +81,7 @@ class AuthButtonStyle with Diagnosticable {
   MaterialStateProperty<Color?>? getOverlayColor(BuildContext context) {
     return MaterialStateProperty.resolveWith((states) =>
         splashColor ??
-        getMaterialStyle(context)?.overlayColor?.resolve(states));
+        _getMaterialStyle(context)?.overlayColor?.resolve(states));
   }
 
   /// {@template elevation}
@@ -97,7 +97,7 @@ class AuthButtonStyle with Diagnosticable {
 
   MaterialStateProperty<double?>? getElevation(BuildContext context) {
     return MaterialStateProperty.resolveWith((states) =>
-        elevation ?? getMaterialStyle(context)?.elevation?.resolve(states));
+        elevation ?? _getMaterialStyle(context)?.elevation?.resolve(states));
   }
 
   /// {@template borderRadius}
@@ -115,7 +115,7 @@ class AuthButtonStyle with Diagnosticable {
 
   MaterialStateProperty<OutlinedBorder?>? getShape(BuildContext context) {
     return MaterialStateProperty.resolveWith((states) =>
-        _outlinedBorder() ?? getMaterialStyle(context)?.shape?.resolve(states));
+        _outlinedBorder() ?? _getMaterialStyle(context)?.shape?.resolve(states));
   }
 
   OutlinedBorder? _outlinedBorder() {
@@ -139,7 +139,7 @@ class AuthButtonStyle with Diagnosticable {
 
   MaterialStateProperty<EdgeInsetsGeometry?>? getPadding(BuildContext context) {
     return MaterialStateProperty.resolveWith((states) =>
-        padding ?? getMaterialStyle(context)?.padding?.resolve(states));
+        padding ?? _getMaterialStyle(context)?.padding?.resolve(states));
   }
 
   /// {@template textStyle}
@@ -164,7 +164,7 @@ class AuthButtonStyle with Diagnosticable {
 
   MaterialStateProperty<TextStyle?>? getTextStyle(BuildContext context) {
     return MaterialStateProperty.resolveWith((states) =>
-        textStyle ?? getMaterialStyle(context)?.textStyle?.resolve(states));
+        textStyle ?? _getMaterialStyle(context)?.textStyle?.resolve(states));
   }
 
   /// {@template borderColor}
@@ -204,7 +204,7 @@ class AuthButtonStyle with Diagnosticable {
 
   MaterialStateProperty<BorderSide?>? getSide(BuildContext context) {
     return MaterialStateProperty.resolveWith((states) =>
-        _borderSide() ?? getMaterialStyle(context)?.side?.resolve(states));
+        _borderSide() ?? _getMaterialStyle(context)?.side?.resolve(states));
   }
 
   BorderSide? _borderSide() {
@@ -253,7 +253,7 @@ class AuthButtonStyle with Diagnosticable {
   MaterialStateProperty<Size?>? getMinimumSize(BuildContext context) {
     return MaterialStateProperty.resolveWith((states) =>
         _minimumSize() ??
-        getMaterialStyle(context)?.minimumSize?.resolve(states));
+        _getMaterialStyle(context)?.minimumSize?.resolve(states));
   }
 
   Size? _minimumSize() {
@@ -327,7 +327,7 @@ class AuthButtonStyle with Diagnosticable {
 
   MaterialStateProperty<Color?>? getShadowColor(BuildContext context) {
     return MaterialStateProperty.resolveWith((states) =>
-        shadowColor ?? getMaterialStyle(context)?.shadowColor?.resolve(states));
+        shadowColor ?? _getMaterialStyle(context)?.shadowColor?.resolve(states));
   }
 
   /// {@template iconColor}
@@ -346,7 +346,7 @@ class AuthButtonStyle with Diagnosticable {
   final VisualDensity? visualDensity;
   final MaterialTapTargetSize? tapTargetSize;
 
-  ButtonStyle? getMaterialStyle(BuildContext context) {
+  ButtonStyle? _getMaterialStyle(BuildContext context) {
     return Theme.of(context).elevatedButtonTheme.style;
   }
 
