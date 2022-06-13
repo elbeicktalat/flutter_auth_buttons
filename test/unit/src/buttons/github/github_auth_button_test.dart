@@ -12,12 +12,6 @@ void main() {
     test('text', () {
       expect(githubAuthButton.text, 'Sign in with Github');
     });
-    test('darkMode', () {
-      expect(githubAuthButton.darkMode, false);
-    });
-    test('Button type', () {
-      expect(githubAuthButton.style!.buttonType, null);
-    });
     test('rtl', () {
       expect(githubAuthButton.rtl, false);
     });

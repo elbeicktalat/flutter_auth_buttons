@@ -12,19 +12,11 @@ void main() {
     test('text', () {
       expect(appleAuthButton.text, 'Sign in with Apple');
     });
-    test('darkMode', () {
-      expect(appleAuthButton.darkMode, false);
-    });
     test('isLoading', () {
       expect(appleAuthButton.isLoading, false);
     });
     test('rtl', () {
       expect(appleAuthButton.rtl, false);
     });
-  });
-
-  test('iconSize', () {
-    double? iconColor = appleAuthButton.style!.iconSize;
-    expect(iconColor, 30.0);
   });
 }

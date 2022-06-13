@@ -12,12 +12,6 @@ void main() {
     test('text', () {
       expect(microsoftAuthButton.text, 'Sign in with Microsoft');
     });
-    test('darkMode', () {
-      expect(microsoftAuthButton.darkMode, false);
-    });
-    test('Button type', () {
-      expect(microsoftAuthButton.style!.buttonType, null);
-    });
     test('isLoading', () {
       expect(microsoftAuthButton.isLoading, false);
     });

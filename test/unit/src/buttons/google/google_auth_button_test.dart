@@ -12,12 +12,6 @@ void main() {
     test('text', () {
       expect(googleAuthButton.text, 'Sign in with Google');
     });
-    test('darkMode', () {
-      expect(googleAuthButton.darkMode, false);
-    });
-    test('Button type', () {
-      expect(googleAuthButton.style!.buttonType, null);
-    });
     test('isLoading', () {
       expect(googleAuthButton.isLoading, false);
     });

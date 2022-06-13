@@ -12,12 +12,6 @@ void main() {
     test('text', () {
       expect(facebookAuthButton.text, 'Sign in with Facebook');
     });
-    test('darkMode', () {
-      expect(facebookAuthButton.darkMode, false);
-    });
-    test('Button type', () {
-      expect(facebookAuthButton.style!.buttonType, null);
-    });
     test('isLoading', () {
       expect(facebookAuthButton.isLoading, false);
     });

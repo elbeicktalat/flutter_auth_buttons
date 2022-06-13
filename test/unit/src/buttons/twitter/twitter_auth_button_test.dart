@@ -12,12 +12,6 @@ void main() {
     test('text', () {
       expect(twitterAuthButton.text, 'Sign in with Twitter');
     });
-    test('darkMode', () {
-      expect(twitterAuthButton.darkMode, false);
-    });
-    test('Button type', () {
-      expect(twitterAuthButton.style!.buttonType, null);
-    });
     test('isLoading', () {
       expect(twitterAuthButton.isLoading, false);
     });

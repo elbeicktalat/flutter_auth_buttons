@@ -12,12 +12,6 @@ void main() {
     test('text', () {
       expect(huaweiAuthButton.text, 'Sign in with Huawei');
     });
-    test('darkMode', () {
-      expect(huaweiAuthButton.darkMode, false);
-    });
-    test('Button type', () {
-      expect(huaweiAuthButton.style!.buttonType, null);
-    });
     test('isLoading', () {
       expect(huaweiAuthButton.isLoading, false);
     });
