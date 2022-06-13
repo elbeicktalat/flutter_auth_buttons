@@ -48,7 +48,9 @@ class _ButtonContentsState extends State<ButtonContents> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) => getTextWidgetWidth());
+    if (widget.style!.buttonType != AuthButtonType.icon) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => getTextWidgetWidth());
+    }
   }
 
   @override
@@ -77,20 +79,22 @@ class _ButtonContentsState extends State<ButtonContents> {
               ? _buildCircularProgressIndicator()
               : widget.authIcon,
         ),
-        SizedBox(width: widget.style!.separator),
-        if (widget.isLoading &&
-            widget.style!.buttonType != AuthButtonType.icon &&
-            indicatorType == AuthButtonProgressIndicatorType.linear)
-          _buildLinearProgressIndicator()
-        else
-          Text(key: _textKey, widget.text)
+        if (widget.style!.buttonType != AuthButtonType.icon) ...[
+          SizedBox(width: widget.style!.separator),
+          if (widget.isLoading &&
+              widget.style!.buttonType != AuthButtonType.icon &&
+              indicatorType == AuthButtonProgressIndicatorType.linear)
+            _buildLinearProgressIndicator()
+          else
+            Text(key: _textKey, widget.text)
+        ]
       ],
     );
   }
 
   void getTextWidgetWidth() {
-    final renderBox = _textKey.currentContext?.findRenderObject() as RenderBox;
-    _textWidth = renderBox.size.width;
+    final renderBox = _textKey.currentContext?.findRenderObject() as RenderBox?;
+    _textWidth = renderBox?.size.width;
   }
 
   Widget _buildCircularProgressIndicator() {
@@ -109,14 +113,16 @@ class _ButtonContentsState extends State<ButtonContents> {
   }
 
   Widget _buildLinearProgressIndicator() {
-    return SizedBox(
-      width: _textWidth,
-      child: LinearProgressIndicator(
-        backgroundColor: widget.style!.progressIndicatorColor,
-        minHeight: widget.style!.progressIndicatorStrokeWidth ?? 4.0,
-        value: widget.style!.progressIndicatorValue,
-        valueColor: AlwaysStoppedAnimation<Color?>(
-          widget.style!.progressIndicatorValueColor,
+    return Flexible(
+      child: SizedBox(
+        width: _textWidth,
+        child: LinearProgressIndicator(
+          backgroundColor: widget.style!.progressIndicatorColor,
+          minHeight: widget.style!.progressIndicatorStrokeWidth ?? 4.0,
+          value: widget.style!.progressIndicatorValue,
+          valueColor: AlwaysStoppedAnimation<Color?>(
+            widget.style!.progressIndicatorValueColor,
+          ),
         ),
       ),
     );
