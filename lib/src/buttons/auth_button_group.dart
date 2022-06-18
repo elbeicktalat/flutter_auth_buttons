@@ -1,6 +1,6 @@
 import 'package:auth_buttons/auth_buttons.dart';
+import 'package:auth_buttons/src/shared/base/contracts/auth_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/inherited_auth_button.dart';
-import 'package:auth_buttons/src/shared/dist/auth_button.dart';
 import 'package:flutter/material.dart';
 
 class AuthButtonGroup extends StatelessWidget {

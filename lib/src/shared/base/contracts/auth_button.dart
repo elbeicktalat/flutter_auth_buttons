@@ -2,17 +2,17 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/shared/auth_button_style.dart';
 import 'package:auth_buttons/src/shared/base/widgets/auth_default_button.dart';
 import 'package:auth_buttons/src/shared/base/widgets/auth_icon_button.dart';
 import 'package:auth_buttons/src/shared/base/widgets/auth_secondary_button.dart';
 import 'package:auth_buttons/src/shared/core/contracts/auth_button_style_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/inherited_auth_button.dart';
-import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
-abstract class BaseAuthButton extends AuthButtonStyleButton {
-  const BaseAuthButton({
+abstract class AuthButton extends AuthButtonStyleButton {
+  const AuthButton({
     super.key,
     required super.onPressed,
     super.onLongPress,
