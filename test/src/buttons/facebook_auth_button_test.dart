@@ -24,9 +24,6 @@ void main() {
     test('isLoading', () {
       expect(facebookAuthButton.isLoading, false);
     });
-    test('rtl', () {
-      expect(facebookAuthButton.rtl, false);
-    });
   });
 
   void defaultButtonTypeTestGroup() {

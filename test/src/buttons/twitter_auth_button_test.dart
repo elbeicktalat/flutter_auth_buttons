@@ -24,9 +24,6 @@ void main() {
     test('isLoading', () {
       expect(twitterAuthButton.isLoading, false);
     });
-    test('rtl', () {
-      expect(twitterAuthButton.rtl, false);
-    });
   });
 
   void defaultButtonTypeTestGroup() {

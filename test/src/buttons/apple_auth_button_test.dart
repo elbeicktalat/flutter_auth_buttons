@@ -23,9 +23,6 @@ void main() {
     test('isLoading', () {
       expect(appleAuthButton.isLoading, false);
     });
-    test('rtl', () {
-      expect(appleAuthButton.rtl, false);
-    });
   });
 
   void defaultButtonTypeTestGroup() {

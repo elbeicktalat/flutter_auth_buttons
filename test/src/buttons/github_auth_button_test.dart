@@ -21,9 +21,6 @@ void main() {
     test('text', () {
       expect(githubAuthButton.text, 'Sign in with Github');
     });
-    test('rtl', () {
-      expect(githubAuthButton.rtl, false);
-    });
     test('isLoading', () {
       expect(githubAuthButton.isLoading, false);
     });

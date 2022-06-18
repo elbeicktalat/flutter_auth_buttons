@@ -23,9 +23,6 @@ void main() {
     test('isLoading', () {
       expect(sut.isLoading, false);
     });
-    test('rtl', () {
-      expect(sut.rtl, false);
-    });
   });
 
   void defaultButtonTypeTestGroup() {

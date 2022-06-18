@@ -24,9 +24,6 @@ void main() {
     test('isLoading', () {
       expect(microsoftAuthButton.isLoading, false);
     });
-    test('rtl', () {
-      expect(microsoftAuthButton.rtl, false);
-    });
   });
 
   void defaultButtonTypeTestGroup() {

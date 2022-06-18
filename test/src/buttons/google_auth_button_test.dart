@@ -24,9 +24,6 @@ void main() {
     test('isLoading', () {
       expect(googleAuthButton.isLoading, false);
     });
-    test('rtl', () {
-      expect(googleAuthButton.rtl, false);
-    });
   });
 
   void defaultButtonTypeTestGroup() {

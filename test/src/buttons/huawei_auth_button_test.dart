@@ -24,9 +24,6 @@ void main() {
     test('isLoading', () {
       expect(huaweiAuthButton.isLoading, false);
     });
-    test('rtl', () {
-      expect(huaweiAuthButton.rtl, false);
-    });
   });
 
   void defaultButtonTypeTestGroup() {
