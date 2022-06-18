@@ -12,11 +12,11 @@ import 'package:flutter/material.dart';
 ///
 /// You have to provide your own colors and other stuff.
 class CustomAuthButton extends AuthButton {
-  const CustomAuthButton({
+  CustomAuthButton({
     super.key,
     super.onPressed,
     super.onLongPress,
-    required super.text,
+    super.text,
     required this.iconUrl,
     @Deprecated(
       'Use ThemeMode instead. '
@@ -35,7 +35,10 @@ class CustomAuthButton extends AuthButton {
     super.materialStyle,
     super.themeMode,
     super.textDirection,
-  });
+  }) : assert(
+          iconUrl.isNotEmpty && !iconUrl.contains(' '),
+          'iconUrl can\'t be blank',
+        );
 
   ///[iconUrl] Define the iconUrl.
   final String iconUrl;

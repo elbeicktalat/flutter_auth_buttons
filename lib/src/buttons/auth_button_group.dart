@@ -17,7 +17,7 @@ class AuthButtonGroup extends StatelessWidget {
     this.runAlignment = WrapAlignment.start,
     this.crossAxisAlignment = WrapCrossAlignment.start,
     this.direction = VerticalDirection.down,
-  });
+  }) : assert(buttons.length >= 2, 'buttons must be more than one');
 
   final TextDirection textDirection;
   final List<AuthButton> buttons;
@@ -33,20 +33,6 @@ class AuthButtonGroup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _fittedButtons = [];
-    for (var button in buttons) {
-      _fittedButtons.add(SizedBox(
-        width: style!.width,
-        height: style!.height,
-        child: FittedBox(child: button),
-      ));
-    }
-
-    List<Widget> _children = buttons;
-    if (style!.buttonType != AuthButtonType.icon) {
-      _children = _fittedButtons;
-    }
-
     return InheritedAuthButton(
       style: style,
       textDirection: textDirection,
@@ -59,9 +45,31 @@ class AuthButtonGroup extends StatelessWidget {
         crossAxisAlignment: crossAxisAlignment,
         direction: orientation,
         verticalDirection: direction,
-        children: _children,
+        children: getChildren() ?? buttons,
       ),
     );
+  }
+
+  @visibleForTesting
+  List<Widget>? getChildren() {
+    final List<Widget> _fittedButtons = [];
+    for (var button in buttons) {
+      _fittedButtons.add(
+        SizedBox(
+          width: style?.width,
+          height: style?.height,
+          child: FittedBox(
+            fit: BoxFit.fill,
+            child: button,
+          ),
+        ),
+      );
+    }
+
+    if (style?.buttonType != AuthButtonType.icon) {
+      return _fittedButtons;
+    }
+    return null;
   }
 
   double _getSpacing() {
