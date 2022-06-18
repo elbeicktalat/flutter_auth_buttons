@@ -5,15 +5,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+//Todo: support network icons.
 class AuthIcon extends StatelessWidget {
   const AuthIcon(
-    this.iconUrl, {
+    this.iconPath, {
     super.key,
     this.color,
     this.iconSize,
   });
 
-  final String iconUrl;
+  final String iconPath;
   final Color? color;
   final double? iconSize;
 
@@ -23,7 +24,7 @@ class AuthIcon extends StatelessWidget {
       width: iconSize,
       height: iconSize,
       child: SvgPicture.asset(
-        iconUrl,
+        iconPath,
         color: color,
       ),
     );

@@ -11,10 +11,10 @@ import 'package:flutter/material.dart';
 /// The common [AuthButton]s body structures.
 ///
 /// This Widget describes how others widget will be display.
-class ButtonContents extends StatefulWidget {
-  const ButtonContents({
+class ButtonContent extends StatefulWidget {
+  const ButtonContent({
     super.key,
-    this.text = '',
+    this.text,
     required this.authIcon,
     this.textDirection = TextDirection.ltr,
     this.isLoading = false,
@@ -22,7 +22,7 @@ class ButtonContents extends StatefulWidget {
   });
 
   /// {@macro text}
-  final String text;
+  final String? text;
 
   /// {@macro authIcon}
   final AuthIcon authIcon;
@@ -37,10 +37,10 @@ class ButtonContents extends StatefulWidget {
   final AuthButtonStyle? style;
 
   @override
-  State<ButtonContents> createState() => _ButtonContentsState();
+  State<ButtonContent> createState() => _ButtonContentState();
 }
 
-class _ButtonContentsState extends State<ButtonContents> {
+class _ButtonContentState extends State<ButtonContent> {
   final GlobalKey _textKey = GlobalKey();
   double? _textWidth;
 
@@ -84,8 +84,8 @@ class _ButtonContentsState extends State<ButtonContents> {
               widget.style!.buttonType != AuthButtonType.icon &&
               indicatorType == AuthButtonProgressIndicatorType.linear)
             _buildLinearProgressIndicator()
-          else
-            Text(key: _textKey, widget.text)
+          else if (widget.text != null)
+            Text(key: _textKey, widget.text!)
         ]
       ],
     );

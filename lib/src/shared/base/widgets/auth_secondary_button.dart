@@ -4,7 +4,7 @@
 
 import 'package:auth_buttons/src/shared/core/contracts/auth_type_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
-import 'package:auth_buttons/src/shared/core/widgets/button_contents.dart';
+import 'package:auth_buttons/src/shared/core/widgets/button_content.dart';
 import 'package:auth_buttons/src/shared/core/widgets/shared_button.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +38,7 @@ class AuthSecondaryButton extends AuthTypeButton {
         onLongPress: onLongPress,
         style: style,
         isDark: isDark,
-        child: ButtonContents(
+        child: ButtonContent(
           key: key,
           authIcon: getIcon(),
           text: text,

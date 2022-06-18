@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/auth_buttons.dart';
+import 'package:auth_buttons/src/shared/core/widgets/button_content.dart';
 import 'package:flutter/material.dart';
 
 ///[SharedButton] The button common for all auth buttons,
@@ -24,7 +25,7 @@ class SharedButton extends StatelessWidget {
   final VoidCallback? onLongPress;
 
   ///[child] is A Widget which will be put inside of this widget.
-  final Widget child;
+  final ButtonContent child;
 
   /// {@macro style}
   final AuthButtonStyle? style;
