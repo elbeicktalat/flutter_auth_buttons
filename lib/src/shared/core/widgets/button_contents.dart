@@ -8,6 +8,9 @@ import 'package:auth_buttons/src/utils/auth_button_progress_indicator.dart';
 import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/material.dart';
 
+/// The common [AuthButton]s body structures.
+///
+/// This Widget describes how others widget will be display.
 class ButtonContents extends StatefulWidget {
   const ButtonContents({
     super.key,
@@ -21,14 +24,10 @@ class ButtonContents extends StatefulWidget {
   /// {@macro text}
   final String text;
 
-  /// {@template authIcon}
-  ///
-  ///**[authIcon]** Define the icon to display.
-  ///
-  /// {@endtemplate}
+  /// {@macro authIcon}
   final AuthIcon authIcon;
 
-  /// {@macro rtl}
+  /// {@macro textDirection}
   final TextDirection textDirection;
 
   /// {@macro isLoading}

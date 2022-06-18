@@ -6,6 +6,14 @@ import 'package:auth_buttons/src/shared/auth_button_style.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:flutter/material.dart';
 
+/// The core interface of all buttons types.
+///
+/// See also:
+///
+///  * [AuthDefaultButton], the default auth button type.
+///  * [AuthSecondaryButton], the secondary auth button type.
+///  * [AuthIconButton], the icon auth button type.
+///
 abstract class AuthTypeButton extends StatelessWidget {
   const AuthTypeButton({
     super.key,
@@ -34,12 +42,17 @@ abstract class AuthTypeButton extends StatelessWidget {
   /// {@macro textDirection}
   final TextDirection textDirection;
 
-  /// {@macro authIcon}
+  /// {@template authIcon}
+  ///
+  /// The widget which defines the icon to display.
+  ///
+  /// {@endtemplate}
   final AuthIcon authIcon;
 
-  /// {@macro theme}
+  /// {@macro materialStyle}
   final ButtonStyle? materialStyle;
 
+  /// {@macro isDark}
   final bool isDark;
 
   /// {@macro getIcon}

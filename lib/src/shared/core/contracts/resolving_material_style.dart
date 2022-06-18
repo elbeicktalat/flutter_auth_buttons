@@ -11,6 +11,11 @@ import 'package:flutter/material.dart'
         TextStyle;
 import 'package:google_fonts/google_fonts.dart';
 
+///[ResolvingMaterialStyle] a mixin which provides the resolve methods for [AuthButton]s.
+///
+/// resolve methods allows style resolving based on the [MaterialState]s.
+///
+/// This is mixed in [AuthButtonStyleButton], its methods are implemented in the concrete [AuthButton]s.
 mixin ResolvingMaterialStyle {
   TextStyle? resolveTextStyle(Set<MaterialState> states) {
     return GoogleFonts.getFont(

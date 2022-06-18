@@ -29,6 +29,7 @@ class SharedButton extends StatelessWidget {
   /// {@macro style}
   final AuthButtonStyle? style;
 
+  /// {@macro isDark}
   final bool isDark;
 
   @override
