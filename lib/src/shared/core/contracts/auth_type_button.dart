@@ -13,7 +13,7 @@ abstract class AuthTypeButton extends StatelessWidget {
     required this.onLongPress,
     required this.style,
     required this.isLoading,
-    required this.rtl,
+    this.textDirection = TextDirection.ltr,
     required this.authIcon,
     required this.materialStyle,
     required this.isDark,
@@ -31,8 +31,8 @@ abstract class AuthTypeButton extends StatelessWidget {
   /// {@macro isLoading}
   final bool isLoading;
 
-  /// {@macro rtl}
-  final bool rtl;
+  /// {@macro textDirection}
+  final TextDirection textDirection;
 
   /// {@macro authIcon}
   final AuthIcon authIcon;

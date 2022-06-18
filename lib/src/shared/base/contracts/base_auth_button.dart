@@ -20,7 +20,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
     super.text,
     super.themeMode = ThemeMode.system,
     super.isLoading = false,
-    super.rtl = false,
+    super.textDirection = TextDirection.ltr,
     super.materialStyle,
   });
 
@@ -132,7 +132,6 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           onLongPress: onLongPress,
           materialStyle: getMaterialStyle(context),
           isLoading: isLoading,
-          rtl: _getInheritedRtl(context) ?? rtl,
           authIcon: getIcon(context),
           isDark: isDark,
           style: _iconStyle(context),
@@ -143,7 +142,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           onLongPress: onLongPress,
           materialStyle: getMaterialStyle(context),
           isLoading: isLoading,
-          rtl: _getInheritedRtl(context) ?? rtl,
+          textDirection: _getInheritedTextDirection(context) ?? textDirection,
           text: text!,
           authIcon: getIcon(context),
           isDark: isDark,
@@ -155,7 +154,7 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
           onLongPress: onLongPress,
           materialStyle: getMaterialStyle(context),
           isLoading: isLoading,
-          rtl: _getInheritedRtl(context) ?? rtl,
+          textDirection: _getInheritedTextDirection(context) ?? textDirection,
           text: text!,
           authIcon: getIcon(context),
           isDark: isDark,
@@ -203,9 +202,9 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
     );
   }
 
-  bool? _getInheritedRtl(BuildContext context) {
+  TextDirection? _getInheritedTextDirection(BuildContext context) {
     if (InheritedAuthButton.of(context) != null) {
-      return InheritedAuthButton.of(context)!.rtl;
+      return InheritedAuthButton.of(context)!.textDirection;
     }
     return null;
   }

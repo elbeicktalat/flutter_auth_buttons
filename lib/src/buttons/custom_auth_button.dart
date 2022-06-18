@@ -24,11 +24,17 @@ class CustomAuthButton extends AuthButton {
       'This feature was deprecated after v3.0.0',
     )
         bool darkMode = false,
-    super.rtl = false,
+    @Deprecated(
+      'Use TextDirection instead. '
+      'This property has no more effect. '
+      'This feature was deprecated after v3.0.0',
+    )
+        bool rtl = false,
     super.isLoading = false,
     super.style,
     super.materialStyle,
     super.themeMode,
+    super.textDirection,
   });
 
   ///[iconUrl] Define the iconUrl.

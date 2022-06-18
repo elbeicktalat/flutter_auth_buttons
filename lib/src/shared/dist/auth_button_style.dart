@@ -331,7 +331,8 @@ class AuthButtonStyle with Diagnosticable {
 
   MaterialStateProperty<Color?>? getShadowColor(BuildContext context) {
     return MaterialStateProperty.resolveWith((states) =>
-        shadowColor ?? _getMaterialStyle(context)?.shadowColor?.resolve(states));
+        shadowColor ??
+        _getMaterialStyle(context)?.shadowColor?.resolve(states));
   }
 
   /// {@template iconColor}

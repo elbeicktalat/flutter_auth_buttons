@@ -8,7 +8,7 @@ class AuthButtonGroup extends StatelessWidget {
     super.key,
     required this.buttons,
     this.style,
-    this.rtl = false,
+    this.textDirection = TextDirection.ltr,
     this.materialStyle,
     this.orientation = Axis.horizontal,
     this.spacing,
@@ -19,7 +19,7 @@ class AuthButtonGroup extends StatelessWidget {
     this.direction = VerticalDirection.down,
   });
 
-  final bool rtl;
+  final TextDirection textDirection;
   final List<AuthButton> buttons;
   final AuthButtonStyle? style;
   final ButtonStyle? materialStyle;
@@ -49,7 +49,7 @@ class AuthButtonGroup extends StatelessWidget {
 
     return InheritedAuthButton(
       style: style,
-      rtl: rtl,
+      textDirection: textDirection,
       materialStyle: materialStyle,
       child: Wrap(
         spacing: spacing ?? _getSpacing(),

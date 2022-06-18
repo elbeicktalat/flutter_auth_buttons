@@ -18,7 +18,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget
     required this.text,
     required this.themeMode,
     required this.isLoading,
-    required this.rtl,
+    required this.textDirection,
     required this.materialStyle,
   });
 
@@ -63,16 +63,16 @@ abstract class AuthButtonStyleButton extends StatelessWidget
   /// {@endtemplate}
   final bool isLoading;
 
-  /// {@template rtl}
+  /// {@template textDirection}
   ///
-  ///**[rtl]** A boolean variable needed to support the **right to left** languages.
+  /// A direction in which text flows.
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/rtl.png)
   ///
   /// {@endtemplate}
-  final bool rtl;
+  final TextDirection textDirection;
 
   /// Describes which theme will be used for the [AuthButton].
   ///

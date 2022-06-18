@@ -15,7 +15,6 @@ class AuthIconButton extends AuthTypeButton {
     required super.onLongPress,
     required super.style,
     required super.isLoading,
-    required super.rtl,
     required super.authIcon,
     required super.materialStyle,
     required super.isDark,

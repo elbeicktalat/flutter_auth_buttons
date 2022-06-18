@@ -13,7 +13,7 @@ class ButtonContents extends StatefulWidget {
     super.key,
     this.text = '',
     required this.authIcon,
-    this.rtl = false,
+    this.textDirection = TextDirection.ltr,
     this.isLoading = false,
     this.style,
   });
@@ -29,7 +29,7 @@ class ButtonContents extends StatefulWidget {
   final AuthIcon authIcon;
 
   /// {@macro rtl}
-  final bool rtl;
+  final TextDirection textDirection;
 
   /// {@macro isLoading}
   final bool isLoading;
@@ -61,7 +61,7 @@ class _ButtonContentsState extends State<ButtonContents> {
       key: widget.key,
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      textDirection: widget.rtl ? TextDirection.rtl : null,
+      textDirection: widget.textDirection,
       children: <Widget>[
         Container(
           padding: (widget.style!.buttonType == AuthButtonType.secondary)
