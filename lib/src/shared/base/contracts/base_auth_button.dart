@@ -18,7 +18,6 @@ abstract class BaseAuthButton extends AuthButtonStyleButton {
     super.onLongPress,
     super.style = const AuthButtonStyle(),
     super.text,
-    super.darkMode = false,
     super.themeMode = ThemeMode.system,
     super.isLoading = false,
     super.rtl = false,

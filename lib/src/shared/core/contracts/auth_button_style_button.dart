@@ -16,12 +16,6 @@ abstract class AuthButtonStyleButton extends StatelessWidget
     required this.onLongPress,
     required this.style,
     required this.text,
-    @Deprecated(
-      'Use ThemeMode instead. '
-      'This property has no more effect. '
-      'This feature was deprecated after v3.0.0',
-    )
-        required this.darkMode,
     required this.themeMode,
     required this.isLoading,
     required this.rtl,
@@ -60,26 +54,6 @@ abstract class AuthButtonStyleButton extends StatelessWidget
   ///
   /// {@endtemplate}
   final String? text;
-
-  /// {@template darkMode}
-  ///
-  ///**[darkMode]** Define if the theme of the button is dark or light,
-  ///the default value is [false].
-  ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
-  ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/dark-mode-default.png)
-  ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-icon.png)
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/dark-mode-icon.png)
-  ///
-  /// {@endtemplate}
-  @Deprecated(
-    'Use ThemeMode instead. '
-    'This property has no more effect. '
-    'This feature was deprecated after v3.0.0',
-  )
-  final bool darkMode;
 
   /// {@template isLoading}
   ///
