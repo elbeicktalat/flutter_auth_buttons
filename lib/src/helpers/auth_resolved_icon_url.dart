@@ -46,20 +46,25 @@ AuthIcon resolvedIconUrl({
   //for secondary buttons.
   if (buttonType == AuthButtonType.secondary) {
     if (iconType == AuthIconType.outlined) {
-      return AuthIcon(iconsPath[1], color: _color, iconSize: iconSize);
+      return AuthIcon(
+          iconPath: iconsPath[1], color: _color, iconSize: iconSize);
     }
     if (iconType == AuthIconType.secondary) {
-      return AuthIcon(iconsPath[2], color: _color, iconSize: iconSize);
+      return AuthIcon(
+        iconPath: iconsPath[2],
+        color: _color,
+        iconSize: iconSize,
+      );
     }
-    return AuthIcon(iconsPath[0], color: _color, iconSize: iconSize);
+    return AuthIcon(iconPath: iconsPath[0], color: _color, iconSize: iconSize);
   }
 
   //for default & icon buttons.
   if (iconType == AuthIconType.outlined) {
-    return AuthIcon(iconsPath[1], color: _color, iconSize: iconSize);
+    return AuthIcon(iconPath: iconsPath[1], color: _color, iconSize: iconSize);
   }
   if (iconType == AuthIconType.secondary) {
-    return AuthIcon(iconsPath[2], color: _color, iconSize: iconSize);
+    return AuthIcon(iconPath: iconsPath[2], color: _color, iconSize: iconSize);
   }
-  return AuthIcon(iconsPath[0], color: _color, iconSize: iconSize);
+  return AuthIcon(iconPath: iconsPath[0], color: _color, iconSize: iconSize);
 }
