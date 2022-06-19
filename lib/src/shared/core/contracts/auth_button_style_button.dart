@@ -107,7 +107,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget
   ///  * [materialStyle], the visual properties of material buttons.
   ///
   /// {@endtemplate}
-  final AuthButtonStyle? style;
+  final AuthButtonStyle style;
 
   /// {@template text}
   ///

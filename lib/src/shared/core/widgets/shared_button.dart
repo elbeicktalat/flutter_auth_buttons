@@ -44,7 +44,7 @@ class SharedButton extends StatelessWidget {
   final ButtonContent child;
 
   /// {@macro style}
-  final AuthButtonStyle? style;
+  final AuthButtonStyle style;
 
   /// {@macro isDark}
   final bool isDark;
@@ -53,7 +53,7 @@ class SharedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       key: key,
-      padding: style!.margin ?? EdgeInsets.zero,
+      padding: style.margin ?? EdgeInsets.zero,
       child: ElevatedButton(
         key: key,
         onPressed: onPressed,
@@ -64,18 +64,18 @@ class SharedButton extends StatelessWidget {
         autofocus: autofocus ?? false,
         child: child,
         style: ButtonStyle(
-          padding: style!.getPadding(context),
-          backgroundColor: style!.getBackgroundColor(context),
-          foregroundColor: style!.getForegroundColor(context),
-          textStyle: style!.getTextStyle(context),
-          elevation: style!.getElevation(context),
-          shadowColor: style!.getShadowColor(context),
-          overlayColor: style!.getOverlayColor(context),
-          minimumSize: style!.getMinimumSize(context),
-          side: style!.getSide(context),
-          shape: style!.getShape(context),
-          visualDensity: style!.visualDensity,
-          tapTargetSize: style!.tapTargetSize,
+          padding: style.getPadding(context),
+          backgroundColor: style.getBackgroundColor(context),
+          foregroundColor: style.getForegroundColor(context),
+          textStyle: style.getTextStyle(context),
+          elevation: style.getElevation(context),
+          shadowColor: style.getShadowColor(context),
+          overlayColor: style.getOverlayColor(context),
+          minimumSize: style.getMinimumSize(context),
+          side: style.getSide(context),
+          shape: style.getShape(context),
+          visualDensity: style.visualDensity,
+          tapTargetSize: style.tapTargetSize,
         ),
       ),
     );

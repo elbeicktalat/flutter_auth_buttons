@@ -18,7 +18,7 @@ class ButtonContent extends StatefulWidget {
     required this.authIcon,
     this.textDirection = TextDirection.ltr,
     this.isLoading = false,
-    this.style,
+    required this.style,
   });
 
   /// {@macro text}
@@ -34,7 +34,7 @@ class ButtonContent extends StatefulWidget {
   final bool isLoading;
 
   /// {@macro style}
-  final AuthButtonStyle? style;
+  final AuthButtonStyle style;
 
   @override
   State<ButtonContent> createState() => _ButtonContentState();
@@ -47,14 +47,14 @@ class _ButtonContentState extends State<ButtonContent> {
   @override
   void initState() {
     super.initState();
-    if (widget.style!.buttonType != AuthButtonType.icon) {
+    if (widget.style.buttonType != AuthButtonType.icon) {
       WidgetsBinding.instance.addPostFrameCallback((_) => getTextWidgetWidth());
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final indicatorType = widget.style!.progressIndicatorType ??
+    final indicatorType = widget.style.progressIndicatorType ??
         AuthButtonProgressIndicatorType.circular;
     return Row(
       key: widget.key,
@@ -63,25 +63,25 @@ class _ButtonContentState extends State<ButtonContent> {
       textDirection: widget.textDirection,
       children: <Widget>[
         Container(
-          padding: (widget.style!.buttonType == AuthButtonType.secondary)
+          padding: (widget.style.buttonType == AuthButtonType.secondary)
               ? const EdgeInsets.all(5.0)
               : null,
           decoration: BoxDecoration(
-            color: widget.style!.iconBackground,
+            color: widget.style.iconBackground,
             borderRadius: BorderRadius.circular(
-              widget.style!.borderRadius ?? 0.0,
+              widget.style.borderRadius ?? 0.0,
             ),
           ),
           child: widget.isLoading &&
-                  (widget.style!.buttonType == AuthButtonType.icon ||
+                  (widget.style.buttonType == AuthButtonType.icon ||
                       indicatorType == AuthButtonProgressIndicatorType.circular)
               ? _buildCircularProgressIndicator()
               : widget.authIcon,
         ),
-        if (widget.style!.buttonType != AuthButtonType.icon) ...[
-          SizedBox(width: widget.style!.separator),
+        if (widget.style.buttonType != AuthButtonType.icon) ...[
+          SizedBox(width: widget.style.separator),
           if (widget.isLoading &&
-              widget.style!.buttonType != AuthButtonType.icon &&
+              widget.style.buttonType != AuthButtonType.icon &&
               indicatorType == AuthButtonProgressIndicatorType.linear)
             _buildLinearProgressIndicator()
           else if (widget.text != null)
@@ -98,15 +98,15 @@ class _ButtonContentState extends State<ButtonContent> {
 
   Widget _buildCircularProgressIndicator() {
     return SizedBox(
-      width: widget.style!.iconSize,
-      height: widget.style!.iconSize,
+      width: widget.style.iconSize,
+      height: widget.style.iconSize,
       child: CircularProgressIndicator(
-        backgroundColor: widget.style!.progressIndicatorColor,
-        strokeWidth: widget.style!.progressIndicatorStrokeWidth ?? 4.0,
+        backgroundColor: widget.style.progressIndicatorColor,
+        strokeWidth: widget.style.progressIndicatorStrokeWidth ?? 4.0,
         valueColor: AlwaysStoppedAnimation<Color?>(
-          widget.style!.progressIndicatorValueColor,
+          widget.style.progressIndicatorValueColor,
         ),
-        value: widget.style!.progressIndicatorValue,
+        value: widget.style.progressIndicatorValue,
       ),
     );
   }
@@ -116,11 +116,11 @@ class _ButtonContentState extends State<ButtonContent> {
       child: SizedBox(
         width: _textWidth,
         child: LinearProgressIndicator(
-          backgroundColor: widget.style!.progressIndicatorColor,
-          minHeight: widget.style!.progressIndicatorStrokeWidth ?? 4.0,
-          value: widget.style!.progressIndicatorValue,
+          backgroundColor: widget.style.progressIndicatorColor,
+          minHeight: widget.style.progressIndicatorStrokeWidth ?? 4.0,
+          value: widget.style.progressIndicatorValue,
           valueColor: AlwaysStoppedAnimation<Color?>(
-            widget.style!.progressIndicatorValueColor,
+            widget.style.progressIndicatorValueColor,
           ),
         ),
       ),

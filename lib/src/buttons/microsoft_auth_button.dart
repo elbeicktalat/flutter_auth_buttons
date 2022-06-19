@@ -57,11 +57,11 @@ class MicrosoftAuthButton extends AuthButton {
   @override
   AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
       iconsPath: AuthIcons.microsoft,
-      iconSize: style!.iconSize,
-      iconColor: style!.iconColor,
+      iconSize: style.iconSize,
+      iconColor: style.iconColor,
       materialStyle: getMaterialStyle(context),
       canBeWhite: false,
       isDark: isDark,
@@ -78,8 +78,8 @@ class MicrosoftAuthButton extends AuthButton {
       ),
       states: states,
       isDark: isDark,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
     );
   }
 
@@ -92,15 +92,15 @@ class MicrosoftAuthButton extends AuthButton {
       ),
       states: states,
       isDark: isDark,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
     );
   }
 
   @override
   BorderSide? resolveSide(Set<MaterialState> states) {
     if (!states.contains(MaterialState.disabled)) {
-      if (style!.buttonType != AuthButtonType.secondary) {
+      if (style.buttonType != AuthButtonType.secondary) {
         return const BorderSide(
           width: 1,
           color: Color(0xff8c8c8c),
@@ -112,15 +112,15 @@ class MicrosoftAuthButton extends AuthButton {
 
   @override
   AuthButtonStyle? getButtonStyle() {
-    if (style!.buttonType == AuthButtonType.icon) {
-      return style!.merge(
+    if (style.buttonType == AuthButtonType.icon) {
+      return style.merge(
         const AuthButtonStyle(
           borderRadius: 0.0,
         ),
       );
     }
-    if (style!.buttonType == AuthButtonType.secondary) {
-      return style!.merge(
+    if (style.buttonType == AuthButtonType.secondary) {
+      return style.merge(
         const AuthButtonStyle(
           height: 40.0,
           separator: 12.0,
@@ -128,7 +128,7 @@ class MicrosoftAuthButton extends AuthButton {
         ),
       );
     }
-    return style!.merge(
+    return style.merge(
       const AuthButtonStyle(
         height: 40.0,
         separator: 12.0,

@@ -129,7 +129,7 @@ abstract class AuthButton extends AuthButtonStyleButton {
 
   @override
   Widget build(BuildContext context) {
-    switch (style!.buttonType) {
+    switch (style.buttonType) {
       case AuthButtonType.icon:
         return AuthIconButton(
           onPressed: onPressed,

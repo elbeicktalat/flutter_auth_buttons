@@ -54,18 +54,18 @@ class HuaweiAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorColor() {
-    if (style!.buttonType == AuthButtonType.secondary) return Colors.red;
+    if (style.buttonType == AuthButtonType.secondary) return Colors.red;
     return Colors.red[200];
   }
 
   @override
   AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
       iconsPath: AuthIcons.huawei,
-      iconSize: style!.iconSize,
-      iconColor: style!.iconColor,
+      iconSize: style.iconSize,
+      iconColor: style.iconColor,
       materialStyle: getMaterialStyle(context),
       canBeWhite: true,
       isDark: isDark,
@@ -82,8 +82,8 @@ class HuaweiAuthButton extends AuthButton {
       ),
       states: states,
       isDark: isDark,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
     );
   }
 
@@ -96,27 +96,27 @@ class HuaweiAuthButton extends AuthButton {
       ),
       states: states,
       isDark: isDark,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
     );
   }
 
   @override
   AuthButtonStyle? getButtonStyle() {
-    if (style!.buttonType == AuthButtonType.icon) {
-      return style!.merge(
+    if (style.buttonType == AuthButtonType.icon) {
+      return style.merge(
         const AuthButtonStyle(),
       );
     }
-    if (style!.buttonType == AuthButtonType.secondary) {
-      return style!.merge(
+    if (style.buttonType == AuthButtonType.secondary) {
+      return style.merge(
         const AuthButtonStyle(
           separator: 10.0,
           height: 40.0,
         ),
       );
     }
-    return style!.merge(
+    return style.merge(
       const AuthButtonStyle(
         separator: 10.0,
         height: 40.0,

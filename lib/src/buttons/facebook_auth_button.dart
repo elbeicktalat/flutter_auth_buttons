@@ -54,22 +54,24 @@ class FacebookAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorColor() {
-    if (style!.buttonType == AuthButtonType.secondary) {
+    if (style.buttonType == AuthButtonType.secondary) {
       return AuthColors.facebook;
     }
-    if (style!.buttonType != AuthButtonType.secondary &&
-        style!.iconType == null) return Colors.white;
+    if (style.buttonType != AuthButtonType.secondary &&
+        style.iconType == null) {
+      return Colors.white;
+    }
     return AuthColors.facebook;
   }
 
   @override
   AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
       iconsPath: AuthIcons.facebook,
-      iconSize: style!.iconSize,
-      iconColor: style!.iconColor,
+      iconSize: style.iconSize,
+      iconColor: style.iconColor,
       materialStyle: getMaterialStyle(context),
       canBeWhite: true,
       isDark: isDark,
@@ -86,8 +88,8 @@ class FacebookAuthButton extends AuthButton {
       ),
       states: states,
       isDark: isDark,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
     );
   }
 
@@ -100,27 +102,27 @@ class FacebookAuthButton extends AuthButton {
       ),
       states: states,
       isDark: isDark,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
     );
   }
 
   @override
   AuthButtonStyle? getButtonStyle() {
-    if (style!.buttonType == AuthButtonType.icon) {
-      return style!.merge(
+    if (style.buttonType == AuthButtonType.icon) {
+      return style.merge(
         const AuthButtonStyle(),
       );
     }
-    if (style!.buttonType == AuthButtonType.secondary) {
-      return style!.merge(
+    if (style.buttonType == AuthButtonType.secondary) {
+      return style.merge(
         const AuthButtonStyle(
           separator: 12.0,
           height: 40.0,
         ),
       );
     }
-    return style!.merge(
+    return style.merge(
       const AuthButtonStyle(
         separator: 12.0,
         height: 40.0,

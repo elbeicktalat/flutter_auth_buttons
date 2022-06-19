@@ -50,7 +50,7 @@ abstract class AuthTypeButton extends StatelessWidget {
   final bool? autofocus;
 
   /// {@macro style}
-  final AuthButtonStyle? style;
+  final AuthButtonStyle style;
 
   /// {@macro isLoading}
   final bool isLoading;

@@ -7,7 +7,6 @@ import 'package:auth_buttons/src/helpers/auth_resolved_background_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_foreground_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/shared/base/contracts/auth_button.dart';
-import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -57,11 +56,11 @@ class AppleAuthButton extends AuthButton {
   @override
   AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
       iconsPath: AuthIcons.apple,
-      iconSize: style!.iconSize,
-      iconColor: style!.iconColor,
+      iconSize: style.iconSize,
+      iconColor: style.iconColor,
       canBeWhite: true,
       materialStyle: getMaterialStyle(context),
       isDark: isDark,
@@ -78,8 +77,8 @@ class AppleAuthButton extends AuthButton {
       ),
       states: states,
       isDark: isDark,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
     );
   }
 
@@ -92,8 +91,8 @@ class AppleAuthButton extends AuthButton {
       ),
       states: states,
       isDark: isDark,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
     );
   }
 
@@ -108,20 +107,20 @@ class AppleAuthButton extends AuthButton {
 
   @override
   AuthButtonStyle? getButtonStyle() {
-    if (style!.buttonType == AuthButtonType.icon) {
-      return style!.merge(
+    if (style.buttonType == AuthButtonType.icon) {
+      return style.merge(
         const AuthButtonStyle(),
       );
     }
-    if (style!.buttonType == AuthButtonType.secondary) {
-      return style!.merge(
+    if (style.buttonType == AuthButtonType.secondary) {
+      return style.merge(
         const AuthButtonStyle(
           separator: 16.0,
           height: 40.0,
         ),
       );
     }
-    return style!.merge(
+    return style.merge(
       const AuthButtonStyle(
         separator: 16.0,
         height: 40.0,

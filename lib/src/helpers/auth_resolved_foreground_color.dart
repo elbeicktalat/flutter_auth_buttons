@@ -4,7 +4,6 @@
 
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:auth_buttons/src/utils/auth_colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 @immutable

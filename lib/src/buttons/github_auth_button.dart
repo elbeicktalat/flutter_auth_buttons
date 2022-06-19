@@ -53,7 +53,7 @@ class GithubAuthButton extends AuthButton {
 
   @override
   Color? getProgressIndicatorColor() {
-    if (style!.buttonType == AuthButtonType.secondary) {
+    if (style.buttonType == AuthButtonType.secondary) {
       return isDark ? const Color(0xff6d7c8b) : AuthColors.github;
     }
     return const Color(0xff6d7c8b);
@@ -62,11 +62,11 @@ class GithubAuthButton extends AuthButton {
   @override
   AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
       iconsPath: AuthIcons.github,
-      iconSize: style!.iconSize,
-      iconColor: style!.iconColor,
+      iconSize: style.iconSize,
+      iconColor: style.iconColor,
       materialStyle: getMaterialStyle(context),
       canBeWhite: true,
       isDark: isDark,
@@ -83,8 +83,8 @@ class GithubAuthButton extends AuthButton {
       ),
       states: states,
       isDark: isDark,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
     );
   }
 
@@ -92,8 +92,8 @@ class GithubAuthButton extends AuthButton {
   Color? resolveForegroundColor(Set<MaterialState> states) {
     if (!states.contains(MaterialState.disabled)) {
       if (isDark) return Colors.white;
-      if (style!.buttonType == AuthButtonType.secondary) return Colors.white;
-      if (style!.iconType != null) return AuthColors.github;
+      if (style.buttonType == AuthButtonType.secondary) return Colors.white;
+      if (style.iconType != null) return AuthColors.github;
       return Colors.white;
     }
     return AuthColors.disabledContent;
@@ -101,20 +101,20 @@ class GithubAuthButton extends AuthButton {
 
   @override
   AuthButtonStyle? getButtonStyle() {
-    if (style!.buttonType == AuthButtonType.icon) {
-      return style!.merge(
+    if (style.buttonType == AuthButtonType.icon) {
+      return style.merge(
         const AuthButtonStyle(),
       );
     }
-    if (style!.buttonType == AuthButtonType.secondary) {
-      return style!.merge(
+    if (style.buttonType == AuthButtonType.secondary) {
+      return style.merge(
         const AuthButtonStyle(
           separator: 12.0,
           height: 40.0,
         ),
       );
     }
-    return style!.merge(
+    return style.merge(
       const AuthButtonStyle(
         separator: 12.0,
         height: 40.0,

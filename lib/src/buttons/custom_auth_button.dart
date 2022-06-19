@@ -27,27 +27,29 @@ class CustomAuthButton extends AuthButton {
     required this.authIcon,
     @Deprecated(
       'Use ThemeMode instead. '
-          'This property has no more effect. '
-          'This feature was deprecated after v3.0.0',
-    ) bool darkMode = false,
+      'This property has no more effect. '
+      'This feature was deprecated after v3.0.0',
+    )
+        bool darkMode = false,
     @Deprecated(
       'Use TextDirection instead. '
-          'This property has no more effect. '
-          'This feature was deprecated after v3.0.0',
-    ) bool rtl = false,
+      'This property has no more effect. '
+      'This feature was deprecated after v3.0.0',
+    )
+        bool rtl = false,
     super.isLoading = false,
     super.style,
     super.materialStyle,
     super.themeMode,
     super.textDirection,
   }) : assert(
-  (style!.buttonType != AuthButtonType.icon)
-      ? text != null && text.isNotBlank
-      : text == null,
-  (style.buttonType != AuthButtonType.icon)
-      ? 'Text must be not blank.'
-      : 'Icon button type does not need a text.',
-  );
+          (style.buttonType != AuthButtonType.icon)
+              ? text != null && text.isNotBlank
+              : text == null,
+          (style.buttonType != AuthButtonType.icon)
+              ? 'Text must be not blank.'
+              : 'Icon button type does not need a text.',
+        );
 
   ///[iconUrl] Define the iconUrl.
   final AuthIcon authIcon;
@@ -72,12 +74,12 @@ class CustomAuthButton extends AuthButton {
     if (!enabled) {
       buttonColor = isDark ? AuthColors.disabledDark : AuthColors.disabled;
     }
-    return style!.merge(
+    return style.merge(
       AuthButtonStyle(
-          separator: 10.0,
-          height: 40.0,
-          borderRadius: 8.0,
-          buttonColor: buttonColor,
+        separator: 10.0,
+        height: 40.0,
+        borderRadius: 8.0,
+        buttonColor: buttonColor,
       ),
     );
   }
