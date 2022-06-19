@@ -7,7 +7,7 @@ import 'package:auth_buttons/src/utils/auth_style.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-///[AuthButtonStyle] holds all visual properties which can have a auth button.
+/// The visual properties which can have a [AuthButton].
 @immutable
 class AuthButtonStyle with Diagnosticable {
   const AuthButtonStyle({
@@ -40,19 +40,19 @@ class AuthButtonStyle with Diagnosticable {
 
   /// {@template buttonColor}
   ///
-  ///**[buttonColor]** Define the button color.
-  /// The default value is [white] if the [darkMode] = [false].
-  /// else the value is [Color(0xff424242)].
+  /// Define the background color of an [AuthButton].
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
+  /// This property is the equivalent of [ButtonStyle.backgroundColor].
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/dark-mode-default.png)
+  /// If buttons are [enabled] than the value is [AuthColors.darkMode] on [Brightness.dark].
   ///
-  /// You can also give it any color you want.
-  ///```dart
-  ///color: Colors.amberAccent,
-  ///```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/button-color-amber.png)
+  /// Non [enabled] buttons, defaults [AuthColors.disabled] on [Brightness.light] and [AuthColors.disabledDark] on [Brightness.dark].
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/buttoncolor/white.jpg)
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/buttoncolor/dark.jpg)
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/buttoncolor/amber.png)
   ///
   /// {@endtemplate}
   final Color? buttonColor;
@@ -73,8 +73,10 @@ class AuthButtonStyle with Diagnosticable {
 
   /// {@template splashColor}
   ///
-  ///**[splashColor]** Define the color when the button is onPressed.
-  ///The default value is [Colors.grey].
+  /// The highlight color that's typically used to indicate that
+  /// the button is focused, hovered, or pressed.
+  ///
+  /// This property is the equivalent of [ButtonStyle.overlayColor].
   ///
   /// {@endtemplate}
   final Color? splashColor;
@@ -87,11 +89,11 @@ class AuthButtonStyle with Diagnosticable {
 
   /// {@template elevation}
   ///
-  ///**[elevation]** Define the elevation button, the default value is [2.0].
+  /// The elevation of the button's [Material].
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/buttons/google.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/elevation.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/elevation.png)
   ///
   /// {@endtemplate}
   final double? elevation;
@@ -103,13 +105,9 @@ class AuthButtonStyle with Diagnosticable {
 
   /// {@template borderRadius}
   ///
-  ///**[borderRadius]** Define the border radius, the default value is [8.0].
+  /// Define the border radius.
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
-  ///
-  ///Sure you can give it any other value.
-  ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-radius.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/border-radius.jpg)
   ///
   /// {@endtemplate}
   final double? borderRadius;
@@ -129,12 +127,25 @@ class AuthButtonStyle with Diagnosticable {
 
   /// {@template padding}
   ///
-  ///**[padding]** Define the button padding, the default value is [null],
-  /// when the [style] = [AuthButtonStyle.icon],
-  /// the value is equal to [0.0], for the default is equal to
+  /// The padding between the button's boundary and its child.
+  ///
+  /// Defaults to
+  ///
   /// ```dart
-  /// EdgeInsets.only(left: 16.0, right: 16.0, top: 6.0, bottom: 6.0)
+  /// EdgeInsets.symmetric(vertical: 6.0, horizontal: 16.0)
   /// ```
+  ///
+  /// If [AuthButton.style] is equal to [AuthButtonType.icon],
+  /// the value is equal to [EdgeInsets.zero].
+  ///
+  /// If [AuthButton.style] is equal to [AuthButtonType.secondary],
+  /// the value is equal to
+  ///
+  /// ```dart
+  /// EdgeInsets.only(right: 16.0)
+  /// ```
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/padding.jpg)
   ///
   /// {@endtemplate}
   final EdgeInsets? padding;
@@ -144,24 +155,22 @@ class AuthButtonStyle with Diagnosticable {
         padding ?? _getMaterialStyle(context)?.padding?.resolve(states));
   }
 
+  /// {@template margin}
+  ///
+  /// The external space surround the buttons, defaults to [EdgeInsets.zero].
+  ///
+  /// {@endtemplate}
   final EdgeInsets? margin;
 
   /// {@template textStyle}
   ///
-  ///**[textStyle]** Define the text style.
+  /// If non-null, the style to use for this text.
   ///
-  ///You can customise the text style how you prefer example:
-  /// ```dart
-  ///textStyle: TextStyle(
-  ///   color: Colors.red[800],
-  ///   fontSize: 16.0,
-  ///   fontWeight: FontWeight.bold,
-  ///   fontStyle: FontStyle.italic,
-  ///   letterSpacing: 2.0,
-  /// ),
-  /// ```
-  /// <br/>
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/text-style.png)
+  /// If the style's "inherit" property is true, the style will be merged with
+  /// the closest enclosing [DefaultTextStyle]. Otherwise, the style will
+  /// replace the closest enclosing [DefaultTextStyle].
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/text-style.jpg)
   ///
   /// {@endtemplate}
   final TextStyle? textStyle;
@@ -173,35 +182,32 @@ class AuthButtonStyle with Diagnosticable {
 
   /// {@template borderColor}
   ///
-  ///**[borderColor]** Define the border color around the button.
+  /// Define the color border around the button.
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-icon.png)
   ///
   /// ```dart
   /// borderColor: Colors.amber
   /// ```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-color-amber.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/border-color-amber.png)
   ///
   /// ```dart
   /// borderColor: Colors.green
   /// ```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-color-green.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/border-color-green.png)
   ///
   /// {@endtemplate}
   final Color? borderColor;
 
   /// {@template borderWidth}
   ///
-  ///**[borderWidth]** Define the border width around the button.
+  /// Define the width of the border which surround the button.
   ///
-  ///The default value is [null], when the [style] = [AuthButtonStyle.icon],
-  ///the value is [2.0].
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-width-soft.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/border-width-soft.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-width-medium.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/border-width-medium.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/border-width-large.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/border-width-large.png)
   ///
   /// {@endtemplate}
   final double? borderWidth;
@@ -221,35 +227,33 @@ class AuthButtonStyle with Diagnosticable {
 
   /// {@template buttonType}
   ///
-  ///**[buttonType]** Define the button Type.
+  /// Define the button Type.
   ///
-  /// This is the default Type:
+  /// This is the default Type, [buttonType] equal to null.
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/buttons/google.png)
   ///
-  ///```dart
-  ///buttonType: AuthButtonType.icon,
-  ///```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google-icon.png)
+  /// If [buttonType] equal to [AuthButtonType.icon]
   ///
-  ///```dart
-  ///buttonType: AuthButtonType.secondary,
-  ///```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google-secondary.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/buttons/google-icon.png)
+  ///
+  /// If [buttonType] equal to [AuthButtonType.secondary]
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/buttons/google-secondary.png)
   ///
   /// {@endtemplate}
   final AuthButtonType? buttonType;
 
   /// {@template width}
   ///
-  ///**[width]** Define the button width, the default value is the minimum.
+  /// Define the button width, defaults is the minimum.
   ///
   /// {@endtemplate}
   final double? width;
 
   /// {@template height}
   ///
-  ///**[height]** Define the height button, the default value is the minimum.
+  /// Define the height button, the default value is the minimum.
   ///
   /// {@endtemplate}
   final double? height;
@@ -267,64 +271,63 @@ class AuthButtonStyle with Diagnosticable {
 
   /// {@template iconSize}
   ///
-  ///**[iconSize]** Define the size of the icon, the default value is [35.0].
-  ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
+  /// Define the size of an [AuthIcon], defaults 30.0.
   ///
   /// Also you can give it any size.
   ///
-  /// ```dart
-  ///iconSize: 25.0,
-  /// ```
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/icon-size-small.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/icon-size-small.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/icon-size-big.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/icon-size-big.png)
   ///
   /// {@endtemplate}
   final double? iconSize;
 
   /// {@template separator}
   ///
-  ///**[separator]** Define the value of the space between the [Icon] and the [Text].
-  ///the default value is [10.0].
+  /// Define the value of the space between the [AuthIcon] and the [Text].
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/buttons/google.png)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/separator.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/separator.png)
   ///
   /// {@endtemplate}
   final double? separator;
 
   /// {@template iconBackground}
   ///
-  ///**[iconBackground]** Define the background icon,
-  /// when the **[style]** is equal to **[AuthButtonStyle.secondary]**
+  /// Define the background of an [AuthIcon].
+  ///
+  /// Ideally used when the [buttonType] is equal to [AuthButtonType.secondary].
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/icon-background.jpg)
   ///
   /// {@endtemplate}
   final Color? iconBackground;
 
   /// {@template iconType}
   ///
-  ///**[iconType]** Define the icon type.
+  /// Define the icon type.
   ///
-  /// This's the **default** icon.
+  /// The default icon looks, [iconType] must be null.
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/default/google.svg)
+  /// ![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/icontype/default.jpg)
   ///
-  ///when the **[iconType]** is equal to **[AuthIconType.outlined]**
+  /// If the [iconType] is equal to [AuthIconType.outlined]
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/outlined/google.svg)
+  /// ![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/icontype/outlined.jpg)
   ///
-  ///when the **[iconType]** is equal to **[AuthIconType.secondary]**
+  /// If the [iconType] is equal to [AuthIconType.secondary]
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/lib/images/secondary/google.svg)
+  /// ![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/icontype/secondary.jpg)
   ///
   /// {@endtemplate}
   final AuthIconType? iconType;
 
   /// {@template shadowColor}
   ///
-  ///**[shadowColor]** Define the color of the the shadow behind the button.
+  /// Define the color of the shadow placed behind the button.
+  ///
+  /// ![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/shadow-color.jpg)
   ///
   /// {@endtemplate}
   final Color? shadowColor;
@@ -337,17 +340,30 @@ class AuthButtonStyle with Diagnosticable {
 
   /// {@template iconColor}
   ///
-  ///**[iconColor]** Define the color icon, by default icons are NOT colored.
-  /// if the buttons are disabled the icon color is **#e5e5e5**.
+  /// Define the color icon, by default icons are NOT colored.
+  ///
+  /// If the buttons are disabled the icon color is **#e5e5e5**.
   ///
   /// {@endtemplate}
   final Color? iconColor;
+
+  /// Determinate the progress indicator to show.
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/progressindicatortype/circular.jpg)
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/progressindicatortype/linear.jpg)
+  ///
+  /// See also:
+  ///
+  /// * [CircularProgressIndicator], which shows progress along a circular arc.
+  /// * [LinearProgressIndicator], which displays progress along a line.
+  ///
+  final AuthIndicatorType? progressIndicatorType;
 
   final Color? progressIndicatorColor;
   final Color? progressIndicatorValueColor;
   final double? progressIndicatorStrokeWidth;
   final double? progressIndicatorValue;
-  final AuthButtonProgressIndicatorType? progressIndicatorType;
   final VisualDensity? visualDensity;
   final MaterialTapTargetSize? tapTargetSize;
 
@@ -355,8 +371,7 @@ class AuthButtonStyle with Diagnosticable {
     return Theme.of(context).elevatedButtonTheme.style;
   }
 
-  /// Returns a copy of this AuthButtonStyle with the given fields replaced with
-  /// the new values.
+  /// Returns a copy of this AuthButtonStyle with the given fields replaced with the new values.
   AuthButtonStyle copyWith({
     Color? buttonColor,
     Color? splashColor,
@@ -380,7 +395,7 @@ class AuthButtonStyle with Diagnosticable {
     double? progressIndicatorStrokeWidth,
     double? progressIndicatorValue,
     Color? iconColor,
-    AuthButtonProgressIndicatorType? progressIndicatorType,
+    AuthIndicatorType? progressIndicatorType,
     VisualDensity? visualDensity,
     MaterialTapTargetSize? tapTargetSize,
   }) {
@@ -462,8 +477,7 @@ class AuthButtonStyle with Diagnosticable {
     );
   }
 
-  /// Returns a copy of this AuthButtonStyle with the given AuthButtonStyle replaced with
-  /// the new values.
+  /// Returns a copy of this AuthButtonStyle with the given [style] replaced with the new values.
   ///
   /// Like [copyWith()] it replaces fields with new values,
   /// but it allows you passing AuthButtonStyle instead of passing every single field.
@@ -499,66 +513,63 @@ class AuthButtonStyle with Diagnosticable {
   }
 
   @override
-  int get hashCode {
-    return hashList([
-      buttonColor,
-      splashColor,
-      elevation,
-      borderRadius,
-      padding,
-      textStyle,
-      borderColor,
-      borderWidth,
-      buttonType,
-      width,
-      height,
-      iconSize,
-      separator,
-      iconBackground,
-      iconType,
-      shadowColor,
-      progressIndicatorColor,
-      progressIndicatorValueColor,
-      progressIndicatorStrokeWidth,
-      progressIndicatorValue,
-      iconColor,
-      progressIndicatorType,
-      visualDensity,
-      tapTargetSize,
-    ]);
-  }
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is AuthButtonStyle &&
+          runtimeType == other.runtimeType &&
+          buttonColor == other.buttonColor &&
+          splashColor == other.splashColor &&
+          elevation == other.elevation &&
+          borderRadius == other.borderRadius &&
+          padding == other.padding &&
+          margin == other.margin &&
+          textStyle == other.textStyle &&
+          borderColor == other.borderColor &&
+          borderWidth == other.borderWidth &&
+          buttonType == other.buttonType &&
+          width == other.width &&
+          height == other.height &&
+          iconSize == other.iconSize &&
+          separator == other.separator &&
+          iconBackground == other.iconBackground &&
+          iconType == other.iconType &&
+          shadowColor == other.shadowColor &&
+          iconColor == other.iconColor &&
+          progressIndicatorColor == other.progressIndicatorColor &&
+          progressIndicatorValueColor == other.progressIndicatorValueColor &&
+          progressIndicatorStrokeWidth == other.progressIndicatorStrokeWidth &&
+          progressIndicatorValue == other.progressIndicatorValue &&
+          progressIndicatorType == other.progressIndicatorType &&
+          visualDensity == other.visualDensity &&
+          tapTargetSize == other.tapTargetSize;
 
   @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    if (other.runtimeType != runtimeType) return false;
-    return other is AuthButtonStyle &&
-        other.buttonColor == buttonColor &&
-        other.splashColor == splashColor &&
-        other.elevation == elevation &&
-        other.borderRadius == borderRadius &&
-        other.padding == padding &&
-        other.margin == margin &&
-        other.textStyle == textStyle &&
-        other.borderColor == borderColor &&
-        other.borderWidth == borderWidth &&
-        other.buttonType == buttonType &&
-        other.width == width &&
-        other.height == height &&
-        other.iconSize == iconSize &&
-        other.separator == separator &&
-        other.iconBackground == iconBackground &&
-        other.iconType == iconType &&
-        other.shadowColor == shadowColor &&
-        other.progressIndicatorColor == progressIndicatorColor &&
-        other.progressIndicatorValueColor == progressIndicatorValueColor &&
-        other.progressIndicatorStrokeWidth == progressIndicatorStrokeWidth &&
-        other.progressIndicatorValue == progressIndicatorValue &&
-        other.iconColor == iconColor &&
-        other.progressIndicatorType == progressIndicatorType &&
-        other.visualDensity == visualDensity &&
-        other.tapTargetSize == tapTargetSize;
-  }
+  int get hashCode =>
+      buttonColor.hashCode ^
+      splashColor.hashCode ^
+      elevation.hashCode ^
+      borderRadius.hashCode ^
+      padding.hashCode ^
+      margin.hashCode ^
+      textStyle.hashCode ^
+      borderColor.hashCode ^
+      borderWidth.hashCode ^
+      buttonType.hashCode ^
+      width.hashCode ^
+      height.hashCode ^
+      iconSize.hashCode ^
+      separator.hashCode ^
+      iconBackground.hashCode ^
+      iconType.hashCode ^
+      shadowColor.hashCode ^
+      iconColor.hashCode ^
+      progressIndicatorColor.hashCode ^
+      progressIndicatorValueColor.hashCode ^
+      progressIndicatorStrokeWidth.hashCode ^
+      progressIndicatorValue.hashCode ^
+      progressIndicatorType.hashCode ^
+      visualDensity.hashCode ^
+      tapTargetSize.hashCode;
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
@@ -612,7 +623,7 @@ class AuthButtonStyle with Diagnosticable {
         defaultValue: null));
     properties.add(DiagnosticsProperty<Color?>('iconColor', iconColor,
         defaultValue: null));
-    properties.add(DiagnosticsProperty<AuthButtonProgressIndicatorType>(
+    properties.add(DiagnosticsProperty<AuthIndicatorType>(
         'progressIndicatorType', progressIndicatorType,
         defaultValue: null));
     properties.add(DiagnosticsProperty<VisualDensity?>(
