@@ -28,6 +28,10 @@ class HuaweiAuthButton extends AuthButton {
     super.key = const ValueKey<String>('HuaweiAuthButton'),
     super.onPressed,
     super.onLongPress,
+    super.onHover,
+    super.onFocusChange,
+    super.focusNode,
+    super.autofocus,
     super.text = 'Sign in with Huawei',
     @Deprecated(
       'Use ThemeMode instead. '

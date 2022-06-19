@@ -21,6 +21,10 @@ abstract class AuthButtonStyleButton extends StatelessWidget
     super.key,
     required this.onPressed,
     required this.onLongPress,
+    required this.onHover,
+    required this.onFocusChange,
+    required this.focusNode,
+    required this.autofocus,
     required this.style,
     required this.text,
     required this.themeMode,
@@ -54,6 +58,42 @@ abstract class AuthButtonStyleButton extends StatelessWidget
   ///
   /// {@endtemplate}
   final VoidCallback? onLongPress;
+
+  /// {@template onHover}
+  ///
+  /// Called when a pointer enters or exits the button response area.
+  ///
+  /// The value passed to the callback is true if a pointer has entered this
+  /// part of the material and false if a pointer has exited this part of the
+  /// material.
+  ///
+  /// {@endtemplate}
+  final ValueChanged<bool>? onHover;
+
+  /// {@template onFocusChange}
+  ///
+  /// Called when the focus changes.
+  ///
+  /// Called with true if this widget's node gains focus, and false if it loses
+  /// focus.
+  ///
+  /// {@endtemplate}
+  final ValueChanged<bool>? onFocusChange;
+
+  /// {@macro flutter.widgets.Focus.focusNode}
+  final FocusNode? focusNode;
+
+  /// {@template autofocus}
+  ///
+  /// True if this widget will be selected as the initial focus when no other node in its scope is currently focused.
+  ///
+  /// Ideally, there is only one widget with autofocus set in each FocusScope.
+  /// If there is more than one widget with autofocus set, then the first one added to the tree will get focus.
+  ///
+  /// If the value is null than [autofocus] is false.
+  ///
+  /// {@endtemplate}
+  final bool? autofocus;
 
   /// {@template style}
   ///

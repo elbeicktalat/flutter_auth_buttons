@@ -13,6 +13,10 @@ class SharedButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.onLongPress,
+    required this.onHover,
+    required this.onFocusChange,
+    required this.focusNode,
+    required this.autofocus,
     required this.child,
     required this.style,
     required this.isDark,
@@ -23,6 +27,18 @@ class SharedButton extends StatelessWidget {
 
   /// {@macro onLongPress}
   final VoidCallback? onLongPress;
+
+  /// {@macro onHover}
+  final ValueChanged<bool>? onHover;
+
+  /// {@macro onFocusChange}
+  final ValueChanged<bool>? onFocusChange;
+
+  /// {@macro focusNode}
+  final FocusNode? focusNode;
+
+  /// {@macro autofocus}
+  final bool? autofocus;
 
   ///[child] is A Widget which will be put inside of this widget.
   final ButtonContent child;
@@ -42,6 +58,10 @@ class SharedButton extends StatelessWidget {
         key: key,
         onPressed: onPressed,
         onLongPress: onLongPress,
+        onHover: onHover,
+        onFocusChange: onFocusChange,
+        focusNode: focusNode,
+        autofocus: autofocus ?? false,
         child: child,
         style: ButtonStyle(
           padding: style!.getPadding(context),

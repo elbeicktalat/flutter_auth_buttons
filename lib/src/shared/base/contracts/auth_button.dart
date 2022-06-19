@@ -14,8 +14,12 @@ import 'package:flutter/material.dart';
 abstract class AuthButton extends AuthButtonStyleButton {
   const AuthButton({
     super.key,
-    required super.onPressed,
+    super.onPressed,
     super.onLongPress,
+    super.onHover,
+    super.onFocusChange,
+    super.focusNode,
+    super.autofocus,
     super.style = const AuthButtonStyle(),
     super.text,
     super.themeMode = ThemeMode.system,
@@ -130,6 +134,10 @@ abstract class AuthButton extends AuthButtonStyleButton {
         return AuthIconButton(
           onPressed: onPressed,
           onLongPress: onLongPress,
+          onHover: onHover,
+          onFocusChange: onFocusChange,
+          focusNode: focusNode,
+          autofocus: autofocus,
           materialStyle: getMaterialStyle(context),
           isLoading: isLoading,
           authIcon: getIcon(context),
@@ -140,6 +148,10 @@ abstract class AuthButton extends AuthButtonStyleButton {
         return AuthSecondaryButton(
           onPressed: onPressed,
           onLongPress: onLongPress,
+          onHover: onHover,
+          onFocusChange: onFocusChange,
+          focusNode: focusNode,
+          autofocus: autofocus,
           materialStyle: getMaterialStyle(context),
           isLoading: isLoading,
           textDirection: _getInheritedTextDirection(context) ?? textDirection,
@@ -152,6 +164,10 @@ abstract class AuthButton extends AuthButtonStyleButton {
         return AuthDefaultButton(
           onPressed: onPressed,
           onLongPress: onLongPress,
+          onHover: onHover,
+          onFocusChange: onFocusChange,
+          focusNode: focusNode,
+          autofocus: autofocus,
           materialStyle: getMaterialStyle(context),
           isLoading: isLoading,
           textDirection: _getInheritedTextDirection(context) ?? textDirection,

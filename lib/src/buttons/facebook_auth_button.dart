@@ -28,6 +28,10 @@ class FacebookAuthButton extends AuthButton {
     super.key = const ValueKey<String>('FacebookAuthButton'),
     super.onPressed,
     super.onLongPress,
+    super.onHover,
+    super.onFocusChange,
+    super.focusNode,
+    super.autofocus,
     super.text = 'Sign in with Facebook',
     @Deprecated(
       'Use ThemeMode instead. '

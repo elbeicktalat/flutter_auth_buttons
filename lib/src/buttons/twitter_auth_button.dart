@@ -27,6 +27,10 @@ class TwitterAuthButton extends AuthButton {
     super.key = const ValueKey<String>('TwitterAuthButton'),
     super.onPressed,
     super.onLongPress,
+    super.onHover,
+    super.onFocusChange,
+    super.focusNode,
+    super.autofocus,
     super.text = 'Sign in with Twitter',
     @Deprecated(
       'Use ThemeMode instead. '

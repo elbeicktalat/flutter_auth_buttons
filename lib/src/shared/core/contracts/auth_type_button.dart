@@ -19,6 +19,10 @@ abstract class AuthTypeButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.onLongPress,
+    required this.onHover,
+    required this.onFocusChange,
+    required this.focusNode,
+    required this.autofocus,
     required this.style,
     required this.isLoading,
     this.textDirection = TextDirection.ltr,
@@ -32,6 +36,18 @@ abstract class AuthTypeButton extends StatelessWidget {
 
   /// {@macro onLongPress}
   final VoidCallback? onLongPress;
+
+  /// {@macro onHover}
+  final ValueChanged<bool>? onHover;
+
+  /// {@macro onFocusChange}
+  final ValueChanged<bool>? onFocusChange;
+
+  /// {@macro flutter.widgets.Focus.focusNode}
+  final FocusNode? focusNode;
+
+  /// {@macro autofocus}
+  final bool? autofocus;
 
   /// {@macro style}
   final AuthButtonStyle? style;
