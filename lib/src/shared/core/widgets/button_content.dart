@@ -4,8 +4,7 @@
 
 import 'package:auth_buttons/src/shared/auth_button_style.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
-import 'package:auth_buttons/src/utils/auth_button_progress_indicator.dart';
-import 'package:auth_buttons/src/utils/auth_style.dart';
+import 'package:auth_buttons/src/utils/auth_type.dart';
 import 'package:flutter/material.dart';
 
 /// The common [AuthButton]s body structures.

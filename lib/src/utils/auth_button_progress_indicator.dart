@@ -1,4 +1,0 @@
-enum AuthIndicatorType {
-  circular,
-  linear,
-}

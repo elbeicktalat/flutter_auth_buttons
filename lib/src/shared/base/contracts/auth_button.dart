@@ -8,7 +8,7 @@ import 'package:auth_buttons/src/shared/base/widgets/auth_icon_button.dart';
 import 'package:auth_buttons/src/shared/base/widgets/auth_secondary_button.dart';
 import 'package:auth_buttons/src/shared/core/contracts/auth_button_style_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/inherited_auth_button.dart';
-import 'package:auth_buttons/src/utils/auth_style.dart';
+import 'package:auth_buttons/src/utils/auth_type.dart';
 import 'package:flutter/material.dart';
 
 abstract class AuthButton extends AuthButtonStyleButton {

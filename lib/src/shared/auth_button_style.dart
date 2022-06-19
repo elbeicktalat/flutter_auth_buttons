@@ -2,8 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/src/utils/auth_button_progress_indicator.dart';
-import 'package:auth_buttons/src/utils/auth_style.dart';
+import 'package:auth_buttons/src/utils/auth_type.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
