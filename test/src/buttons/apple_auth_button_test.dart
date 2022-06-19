@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/auth_buttons.dart';
-import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -90,7 +89,7 @@ void main() {
             onPressed: () {},
             isLoading: true,
             style: const AuthButtonStyle(
-              progressIndicatorType: AuthButtonProgressIndicatorType.linear,
+              progressIndicatorType: AuthIndicatorType.linear,
             ),
           ),
         );
@@ -176,7 +175,7 @@ void main() {
             onPressed: () {},
             isLoading: true,
             style: const AuthButtonStyle(
-              progressIndicatorType: AuthButtonProgressIndicatorType.linear,
+              progressIndicatorType: AuthIndicatorType.linear,
             ),
           ),
         );

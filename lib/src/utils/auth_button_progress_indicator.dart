@@ -1,4 +1,4 @@
-enum AuthButtonProgressIndicatorType {
+enum AuthIndicatorType {
   circular,
   linear,
 }

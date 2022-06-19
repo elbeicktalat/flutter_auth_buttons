@@ -54,8 +54,8 @@ class _ButtonContentState extends State<ButtonContent> {
 
   @override
   Widget build(BuildContext context) {
-    final indicatorType = widget.style.progressIndicatorType ??
-        AuthButtonProgressIndicatorType.circular;
+    final indicatorType =
+        widget.style.progressIndicatorType ?? AuthIndicatorType.circular;
     return Row(
       key: widget.key,
       mainAxisSize: MainAxisSize.min,
@@ -74,7 +74,7 @@ class _ButtonContentState extends State<ButtonContent> {
           ),
           child: widget.isLoading &&
                   (widget.style.buttonType == AuthButtonType.icon ||
-                      indicatorType == AuthButtonProgressIndicatorType.circular)
+                      indicatorType == AuthIndicatorType.circular)
               ? _buildCircularProgressIndicator()
               : widget.authIcon,
         ),
@@ -82,7 +82,7 @@ class _ButtonContentState extends State<ButtonContent> {
           SizedBox(width: widget.style.separator),
           if (widget.isLoading &&
               widget.style.buttonType != AuthButtonType.icon &&
-              indicatorType == AuthButtonProgressIndicatorType.linear)
+              indicatorType == AuthIndicatorType.linear)
             _buildLinearProgressIndicator()
           else if (widget.text != null)
             Text(key: _textKey, widget.text!)
@@ -100,7 +100,7 @@ class _ButtonContentState extends State<ButtonContent> {
     return SizedBox(
       width: widget.style.iconSize,
       height: widget.style.iconSize,
-      child: CircularProgressIndicator(
+      child: CircularProgressIndicator.adaptive(
         backgroundColor: widget.style.progressIndicatorColor,
         strokeWidth: widget.style.progressIndicatorStrokeWidth ?? 4.0,
         valueColor: AlwaysStoppedAnimation<Color?>(

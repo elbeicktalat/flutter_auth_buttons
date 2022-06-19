@@ -199,7 +199,7 @@ abstract class AuthButton extends AuthButtonStyleButton {
         padding: const EdgeInsets.only(right: 16.0),
         iconBackground: enabled
             ? isDark
-                ? Colors.white.withOpacity(.4)
+                ? Colors.grey.withOpacity(.2)
                 : Colors.white
             : Colors.black12,
         progressIndicatorValueColor: getProgressIndicatorColor(),

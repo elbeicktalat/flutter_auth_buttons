@@ -27,7 +27,7 @@ Color resolvedForegroundColor({
   required AuthIconType? iconType,
 }) {
   if (!states.contains(MaterialState.disabled)) {
-    if (isDark) return Colors.white;
+    if (isDark) return Colors.grey.shade400;
     if (buttonType == AuthButtonType.secondary) {
       return foregroundColor.onSecondaryButton ?? foregroundColor.main;
     }
