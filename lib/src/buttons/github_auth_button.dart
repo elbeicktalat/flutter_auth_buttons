@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/helpers/auth_resolved_background_color.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_foreground_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
 import 'package:auth_buttons/src/shared/auth_button_style.dart';
 import 'package:auth_buttons/src/shared/base/contracts/auth_button.dart';
@@ -90,13 +91,16 @@ class GithubAuthButton extends AuthButton {
 
   @override
   Color? resolveForegroundColor(Set<MaterialState> states) {
-    if (!states.contains(MaterialState.disabled)) {
-      if (isDark) return Colors.white;
-      if (style.buttonType == AuthButtonType.secondary) return Colors.white;
-      if (style.iconType != null) return AuthColors.github;
-      return Colors.white;
-    }
-    return AuthColors.disabledContent;
+    return resolvedForegroundColor(
+      foregroundColor: const ForegroundColor(
+        Colors.white,
+        onOtherIcons: Colors.black,
+      ),
+      states: states,
+      isDark: isDark,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
+    );
   }
 
   @override
