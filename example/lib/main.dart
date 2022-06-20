@@ -70,8 +70,9 @@ class _MyAppState extends State<MyApp> {
               ),
               AuthButtonGroup(
                 style: AuthButtonStyle(
-                  width: 180,
-                  progressIndicatorType: AuthButtonProgressIndicatorType.linear,
+                  width: 185,
+                  height: 38,
+                  progressIndicatorType: AuthIndicatorType.linear,
                   buttonType: buttonType,
                 ),
                 buttons: [
