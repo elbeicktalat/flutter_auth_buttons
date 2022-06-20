@@ -2,16 +2,14 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/src/helpers/auth_button_color.dart';
-import 'package:auth_buttons/src/helpers/auth_resolved_button_color.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_background_color.dart';
+import 'package:auth_buttons/src/helpers/auth_resolved_foreground_color.dart';
 import 'package:auth_buttons/src/helpers/auth_resolved_icon_url.dart';
-import 'package:auth_buttons/src/helpers/auth_resolved_text_style.dart';
-import 'package:auth_buttons/src/helpers/auth_text_color.dart';
+import 'package:auth_buttons/src/shared/auth_button_style.dart';
+import 'package:auth_buttons/src/shared/base/contracts/auth_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
-import 'package:auth_buttons/src/shared/dist/auth_button.dart';
-import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:auth_buttons/src/utils/auth_icons.dart';
-import 'package:auth_buttons/src/utils/auth_style.dart';
+import 'package:auth_buttons/src/utils/auth_type.dart';
 import 'package:flutter/material.dart';
 
 ///create email authentication button with multiple styles.
@@ -26,100 +24,101 @@ import 'package:flutter/material.dart';
 ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/email-icon.png)
 class EmailAuthButton extends AuthButton {
   const EmailAuthButton({
-    Key? key,
-    VoidCallback? onPressed,
-    VoidCallback? onLongPress,
-    String text = 'Sign in with Email',
-    bool darkMode = false,
-    bool rtl = false,
-    bool isLoading = false,
-    AuthButtonStyle? style,
-  }) : super(
-          key: key ?? const ValueKey<String>('EmailAuthButton'),
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          text: text,
-          darkMode: darkMode,
-          rtl: rtl,
-          isLoading: isLoading,
-          style: style,
-        );
+    super.key = const ValueKey<String>('EmailAuthButton'),
+    super.onPressed,
+    super.onLongPress,
+    super.onHover,
+    super.onFocusChange,
+    super.focusNode,
+    super.autofocus,
+    super.text = 'Sign in with Email',
+    @Deprecated(
+      'Use ThemeMode instead. '
+      'This property has no more effect. '
+      'This feature was deprecated after v3.0.0',
+    )
+        bool darkMode = false,
+    @Deprecated(
+      'Use TextDirection instead. '
+      'This property has no more effect. '
+      'This feature was deprecated after v3.0.0',
+    )
+        bool rtl = false,
+    super.isLoading = false,
+    super.style,
+    super.materialStyle,
+    super.themeMode,
+    super.textDirection,
+  });
 
   @override
-  Color? getProgressIndicatorValueColor() {
-    if (style!.buttonType == AuthButtonType.secondary) return Colors.teal;
-    if (style!.buttonType != AuthButtonType.secondary) return Colors.teal[200];
-    return null;
+  Color? getProgressIndicatorColor() {
+    if (style.buttonType == AuthButtonType.secondary) return Colors.teal;
+    return Colors.teal[200];
   }
 
   @override
-  AuthIcon getIcon() {
+  AuthIcon getIcon(BuildContext context) {
     return resolvedIconUrl(
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
-      buttonColor: getButtonColor(),
-      iconUrl: AuthIcons.email,
-      iconColor: style!.iconColor,
-      iconSize: style!.iconSize,
-      darkMode: darkMode,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
+      iconsPath: AuthIcons.email,
+      iconSize: style.iconSize,
+      iconColor: style.iconColor,
+      materialStyle: getMaterialStyle(context),
       canBeWhite: true,
+      isDark: isDark,
+      enabled: enabled,
     );
   }
 
   @override
-  Color getButtonColor() {
-    return resolvedButtonColor(
-      buttonColor: const ButtonColor(
+  Color? resolveBackgroundColor(Set<MaterialState> states) {
+    return resolvedBackgroundColor(
+      color: const ButtonColor(
         Colors.teal,
-        onSecondaryIcon: Colors.white,
+        onOtherIcons: Colors.white,
       ),
-      darkMode: darkMode,
-      enabled: enabled,
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
+      states: states,
+      isDark: isDark,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
     );
   }
 
   @override
-  TextStyle getTextStyle() {
-    return resolvedTextStyle(
-      buttonType: style!.buttonType,
-      iconType: style!.iconType,
-      enabled: enabled,
-      fontWeight: FontWeight.w600,
-      textColor: TextColor(
+  Color? resolveForegroundColor(Set<MaterialState> states) {
+    return resolvedForegroundColor(
+      foregroundColor: const ForegroundColor(
         Colors.white,
-        onSecondaryIcon: darkMode ? Colors.white : Colors.teal[900],
+        onOtherIcons: Colors.teal,
       ),
+      states: states,
+      isDark: isDark,
+      buttonType: style.buttonType,
+      iconType: style.iconType,
     );
   }
 
   @override
   AuthButtonStyle? getButtonStyle() {
-    if (style!.buttonType == AuthButtonType.icon) {
-      return style!.merge(
-        const AuthButtonStyle(
-          width: 50.0,
-          height: 50.0,
-          borderRadius: 8.0,
-          padding: EdgeInsets.zero,
-        ),
+    if (style.buttonType == AuthButtonType.icon) {
+      return style.merge(
+        const AuthButtonStyle(),
       );
     }
-    if (style!.buttonType == AuthButtonType.secondary) {
-      return style!.merge(
+    if (style.buttonType == AuthButtonType.secondary) {
+      return style.merge(
         const AuthButtonStyle(
           separator: 12.0,
           height: 40.0,
-          borderRadius: 8.0,
         ),
       );
     }
-    return style!.merge(
+    return style.merge(
       const AuthButtonStyle(
         separator: 12.0,
         height: 40.0,
-        borderRadius: 8.0,
       ),
     );
   }

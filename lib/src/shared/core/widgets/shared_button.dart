@@ -3,18 +3,24 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/auth_buttons.dart';
+import 'package:auth_buttons/src/shared/core/widgets/button_content.dart';
 import 'package:flutter/material.dart';
 
 ///[SharedButton] The button common for all auth buttons,
 /// no mater **buttonType** all buttons use this.
 class SharedButton extends StatelessWidget {
   const SharedButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.onLongPress,
+    required this.onHover,
+    required this.onFocusChange,
+    required this.focusNode,
+    required this.autofocus,
     required this.child,
     required this.style,
-  }) : super(key: key);
+    required this.isDark,
+  });
 
   /// {@macro onPressed}
   final VoidCallback? onPressed;
@@ -22,40 +28,54 @@ class SharedButton extends StatelessWidget {
   /// {@macro onLongPress}
   final VoidCallback? onLongPress;
 
+  /// {@macro onHover}
+  final ValueChanged<bool>? onHover;
+
+  /// {@macro onFocusChange}
+  final ValueChanged<bool>? onFocusChange;
+
+  /// {@macro focusNode}
+  final FocusNode? focusNode;
+
+  /// {@macro autofocus}
+  final bool? autofocus;
+
   ///[child] is A Widget which will be put inside of this widget.
-  final Widget child;
+  final ButtonContent child;
 
   /// {@macro style}
-  final AuthButtonStyle? style;
+  final AuthButtonStyle style;
+
+  /// {@macro isDark}
+  final bool isDark;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Padding(
       key: key,
-      width: style!.width,
-      height: style!.height,
+      padding: style.margin ?? EdgeInsets.zero,
       child: ElevatedButton(
         key: key,
         onPressed: onPressed,
         onLongPress: onLongPress,
+        onHover: onHover,
+        onFocusChange: onFocusChange,
+        focusNode: focusNode,
+        autofocus: autofocus ?? false,
         child: child,
         style: ButtonStyle(
-          padding: MaterialStateProperty.all(style!.padding),
-          backgroundColor: MaterialStateProperty.all(style!.buttonColor),
-          elevation: MaterialStateProperty.all(style!.elevation),
-          side: MaterialStateProperty.all(
-            BorderSide(
-              width: style!.borderWidth ?? 2.0,
-              color: style!.borderColor ?? Colors.transparent,
-            ),
-          ),
-          shape: MaterialStateProperty.all(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(style!.borderRadius ?? 0.0),
-            ),
-          ),
-          shadowColor: MaterialStateProperty.all(style!.shadowColor),
-          overlayColor: MaterialStateProperty.all(style!.splashColor),
+          padding: style.getPadding(context),
+          backgroundColor: style.getBackgroundColor(context),
+          foregroundColor: style.getForegroundColor(context),
+          textStyle: style.getTextStyle(context),
+          elevation: style.getElevation(context),
+          shadowColor: style.getShadowColor(context),
+          overlayColor: style.getOverlayColor(context),
+          minimumSize: style.getMinimumSize(context),
+          side: style.getSide(context),
+          shape: style.getShape(context),
+          visualDensity: style.visualDensity,
+          tapTargetSize: style.tapTargetSize,
         ),
       ),
     );

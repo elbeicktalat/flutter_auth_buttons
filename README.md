@@ -35,6 +35,11 @@ We also recommend you to using the latest version.
 
 ## Overview
 
+From the version `3.0.0` all [AuthButtons](https://github.com/elbeicktalat/flutter_auth_buttons/blob/main/lib/src/shared/base/contracts/auth_button.dart) are following the system mode. see [ThemeMode](https://github.com/flutter/flutter/blob/02558d69d92384e7ed1b66f50006796342c8945a/packages/flutter/lib/src/material/app.dart#L41) for more info. 
+
+From the version `3.0.0` you're able to regroup [AuthButton](https://github.com/elbeicktalat/flutter_auth_buttons/blob/main/lib/src/shared/base/contracts/auth_button.dart)s for sharing style properties, 
+to do this use the already existing [AuthButtonGroup](#grouped-buttons). 
+
 From the version `2.0.0` disabled state is supported.
 1. [Enabled](#enabled-state)
 1. [Disabled](#disabled-state)
@@ -44,7 +49,11 @@ There are three Types you can choose between them:
 1. [Default](#default-type)
 1. [Icon](#icon-type)
 1. [Secondary](#secondary-type)
-  
+
+## Suggestion
+If you plain to use a non existing AuthButton like: Linkedin or any others along with the existing one,
+than make your custom one just use `CustomAuthButton` this provide you with a fast way to do so.
+
 ## Using
 
 ### Enabled State.
@@ -56,7 +65,6 @@ You need to use just the following code:
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: false, // if true second example
 ),
 ```
 Light             |  Dark
@@ -66,7 +74,6 @@ Light             |  Dark
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: false,
   style: AuthButtonStyle(
     iconType: AuthIconType.outlined,
   ),
@@ -81,7 +88,6 @@ Light             |  Dark
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: false,
   style: AuthButtonStyle(
     iconType: AuthIconType.secondary,
   ),
@@ -98,7 +104,6 @@ Light             |  Dark
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: false,
   style: AuthButtonStyle(
     buttonType: AuthButtonType.icon,
   ),
@@ -113,7 +118,6 @@ Light             |  Dark
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: false,
   style: AuthButtonStyle(
     buttonType: AuthButtonType.icon,
     iconType: AuthIconType.outlined,
@@ -129,7 +133,6 @@ Light             |  Dark
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: false,
   style: AuthButtonStyle(
     buttonType: AuthButtonType.icon,
     iconType: AuthIconType.secondary,
@@ -146,7 +149,6 @@ Light             |  Dark
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: false,
   style: AuthButtonStyle(
     buttonType: AuthButtonType.secondary,
   ),
@@ -160,7 +162,6 @@ Light             |  Dark
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: false,
   style: AuthButtonStyle(
     buttonType: AuthButtonType.secondary,
     iconType: AuthIconType.outlined,
@@ -175,7 +176,6 @@ Light             |  Dark
 ```dart
 GoogleAuthButton(
   onPressed: () {},
-  darkMode: false,
   style: AuthButtonStyle(
     buttonType: AuthButtonType.secondary,
     iconType: AuthIconType.secondary,
@@ -193,47 +193,57 @@ Light             |  Dark
 :-------------------------:|:-------------------------:
 ![disabled-buttons](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/disabled-buttons.png)  |  ![dark-disabled-buttons](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-disabled-buttons.png)
 
-Do same think with the other buttons, when you want customize any button 
+Do same think with the other buttons, when you want to customize any button 
 you can do it just passing a property which you want.
 
-Full property you can passing:
+### Grouped buttons
+Secondary             |  Icon
+:-------------------------:|:-------------------------:
+![auth-button-group-secondary-buttons](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/auth-button-group-secondary-buttons.png)  |  ![auth-button-group-icon-buttons](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/auth-button-group-icon-buttons.png)
+
+
+Full property you can pass:
 
 ```dart
 GoogleAuthButton(
   key: const ValueKey<String>(''),
   onPressed: () {},
   onLongPress: () {},
+  onHover: (bool value) {},
+  onFocusChange: (bool value) {},
+  focusNode: FocusNode(),
+  autofocus: false,
   text: 'Sign in with Google',
-  darkMode: false,
-  isLoading: isLoading,
-  rtl: false,
+  isLoading: false,
+  themeMode: ThemeMode.system,
+  textDirection: TextDirection.ltr,
+  materialStyle: ButtonStyle(),
   style: AuthButtonStyle(
-    buttonColor: Colors.white,
-    splashColor: Colors.grey.shade100,
-    shadowColor: Colors.grey,
-    borderColor: Colors.red,
-    borderRadius: 8.0,
-    borderWidth: 2.0,
+    buttonColor: Colors.blue,
+    splashColor: Colors.red,
     elevation: 2.0,
-    width: 280.0,
-    height: 50.0,
-    separator: 10.0,
-    iconSize: 35.0,
-    iconBackground: Colors.transparent,
-    iconType: AuthIconType.outlined,
-    iconColor: Colors.red,
-    buttonType: AuthButtonType.secondary,
+    borderRadius: 99.0,
+    textStyle: TextStyle(),
     padding: const EdgeInsets.all(8.0),
-    progressIndicatorColor: Colors.red,
-    progressIndicatorValueColor: Colors.amber,
+    margin: const EdgeInsets.all(8.0),
+    borderColor: Colors.amber,
+    borderWidth: 3.0,
+    buttonType: AuthButtonType.secondary,
+    width: 300.0,
+    height: 50.0,
+    iconSize: 40.0,
+    separator: 20.0,
+    iconBackground: Colors.white,
+    iconType: AuthIconType.outlined,
+    shadowColor: Colors.pink,
+    progressIndicatorColor: Colors.blue,
+    progressIndicatorValueColor: Colors.grey[300],
     progressIndicatorStrokeWidth: 2.0,
-    textStyle: const TextStyle(
-      color: Colors.black,
-      fontSize: 18,
-      fontWeight: FontWeight.bold,
-      letterSpacing: 0.50,
-    ),
-  ),
+    progressIndicatorValue: 1.0,
+    iconColor: Colors.purple,
+    progressIndicatorType: AuthIndicatorType.circular,
+    visualDensity: VisualDensity.standard,
+    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
 ),
 ```
 

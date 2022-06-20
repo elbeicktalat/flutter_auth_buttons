@@ -4,44 +4,49 @@
 
 import 'package:auth_buttons/src/shared/core/contracts/auth_type_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
-import 'package:auth_buttons/src/shared/core/widgets/button_contents.dart';
+import 'package:auth_buttons/src/shared/core/widgets/button_content.dart';
 import 'package:auth_buttons/src/shared/core/widgets/shared_button.dart';
-import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
 import 'package:flutter/material.dart';
 
 class AuthIconButton extends AuthTypeButton {
   const AuthIconButton({
-    Key? key,
-    required VoidCallback? onPressed,
-    required VoidCallback? onLongPress,
-    required AuthButtonStyle? style,
-    required bool darkMode,
-    required bool isLoading,
-    required bool rtl,
-    required AuthIcon authIcon,
-  }) : super(
-          key: key,
-          onPressed: onPressed,
-          onLongPress: onLongPress,
-          style: style,
-          darkMode: darkMode,
-          isLoading: isLoading,
-          rtl: rtl,
-          authIcon: authIcon,
-        );
+    super.key,
+    required super.onPressed,
+    required super.onLongPress,
+    required super.onHover,
+    required super.onFocusChange,
+    required super.focusNode,
+    required super.autofocus,
+    required super.style,
+    required super.isLoading,
+    required super.authIcon,
+    required super.materialStyle,
+    required super.isDark,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return SharedButton(
-      key: key,
-      onPressed: onPressed,
-      onLongPress: onLongPress,
-      style: style,
-      child: ButtonContents(
+    return Theme(
+      data: ThemeData(
+          elevatedButtonTheme: ElevatedButtonThemeData(
+        style: materialStyle,
+      )),
+      child: SharedButton(
         key: key,
-        authIcon: getIcon(),
-        isLoading: isLoading,
+        onPressed: onPressed,
+        onLongPress: onLongPress,
+        onHover: onHover,
+        onFocusChange: onFocusChange,
+        focusNode: focusNode,
+        autofocus: autofocus,
         style: style,
+        isDark: isDark,
+        child: ButtonContent(
+          key: key,
+          authIcon: getIcon(),
+          isLoading: isLoading,
+          style: style,
+        ),
       ),
     );
   }

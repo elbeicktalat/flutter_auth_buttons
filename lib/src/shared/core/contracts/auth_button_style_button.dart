@@ -2,161 +2,208 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import 'package:auth_buttons/src/shared/auth_button_style.dart';
+import 'package:auth_buttons/src/shared/core/contracts/resolving_material_style.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
-import 'package:auth_buttons/src/shared/dist/auth_button_style.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart' show SchedulerBinding;
 
-abstract class AuthButtonStyleButton extends StatelessWidget {
+/// The core interface of all auth buttons.
+///
+/// See also:
+///
+///  * [AuthButton], the common implementation of all auth buttons.
+///  * [ResolvingMaterialStyle], the mixin which provides the resolve methods.
+///
+abstract class AuthButtonStyleButton extends StatelessWidget
+    with ResolvingMaterialStyle {
   const AuthButtonStyleButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.onLongPress,
+    required this.onHover,
+    required this.onFocusChange,
+    required this.focusNode,
+    required this.autofocus,
     required this.style,
     required this.text,
-    required this.darkMode,
+    required this.themeMode,
     required this.isLoading,
-    required this.rtl,
-  }) : super(key: key);
+    required this.textDirection,
+    required this.materialStyle,
+  });
 
   /// {@template onPressed}
   ///
-  ///**[onPressed]** is a void function well be called when the button is pressed.
+  /// Called when the button is tapped.
+  ///
+  /// If this callback and [onLongPress] are null, then the button will be disabled.
+  ///
+  /// See also:
+  ///
+  ///  * [enabled], which is true if the button is enabled.
   ///
   /// {@endtemplate}
   final VoidCallback? onPressed;
 
   /// {@template onLongPress}
   ///
-  ///**[onLongPress]** is a void function well be called when the button is pressed for long.
+  /// Called when the button is long-pressed.
+  ///
+  /// If this callback and [onPressed] are null, then the button will be disabled.
+  ///
+  /// See also:
+  ///
+  ///  * [enabled], which is true if the button is enabled.
   ///
   /// {@endtemplate}
   final VoidCallback? onLongPress;
 
-  /// {@template style}
+  /// {@template onHover}
   ///
-  ///**[style]** define the entire button style, like buttonColor, iconSize,
-  /// width, and other.
+  /// Called when a pointer enters or exits the button response area.
+  ///
+  /// The value passed to the callback is true if a pointer has entered this
+  /// part of the material and false if a pointer has exited this part of the
+  /// material.
   ///
   /// {@endtemplate}
-  final AuthButtonStyle? style;
+  final ValueChanged<bool>? onHover;
+
+  /// {@template onFocusChange}
+  ///
+  /// Called when the focus changes.
+  ///
+  /// Called with true if this widget's node gains focus, and false if it loses
+  /// focus.
+  ///
+  /// {@endtemplate}
+  final ValueChanged<bool>? onFocusChange;
+
+  /// {@macro flutter.widgets.Focus.focusNode}
+  final FocusNode? focusNode;
+
+  /// {@template autofocus}
+  ///
+  /// True if this widget will be selected as the initial focus when no other node in its scope is currently focused.
+  ///
+  /// Ideally, there is only one widget with autofocus set in each FocusScope.
+  /// If there is more than one widget with autofocus set, then the first one added to the tree will get focus.
+  ///
+  /// If the value is null than [autofocus] is false.
+  ///
+  /// {@endtemplate}
+  final bool? autofocus;
+
+  /// {@template style}
+  ///
+  /// Customizes this button's appearance.
+  ///
+  /// This contains everything related to the button appearance,
+  /// buttonColor, iconSize, width, and others.
+  ///
+  /// See also:
+  ///
+  ///  * [materialStyle], the visual properties of material buttons.
+  ///
+  /// {@endtemplate}
+  final AuthButtonStyle style;
 
   /// {@template text}
   ///
-  ///**[text]** Define text in the button.
-  ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
-  ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/text.png)
+  /// The text within the button.
   ///
   /// {@endtemplate}
   final String? text;
 
-  /// {@template darkMode}
-  ///
-  ///**[darkMode]** Define if the theme of the button is dark or light,
-  ///the default value is [false].
-  ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-default.png)
-  ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/dark-mode-default.png)
-  ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/style-icon.png)
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/dark-mode-icon.png)
-  ///
-  /// {@endtemplate}
-  final bool darkMode;
-
   /// {@template isLoading}
   ///
-  ///**[isLoading]** A boolean variable which define if something is loading,
-  /// if so will be show a progress indicator.
+  /// Show [ProgressIndicator] if this value is true.
+  ///
+  /// See also:
+  ///
+  ///  * [AuthButtonProgressIndicatorType], which define the progress indicator type,
+  ///  available types are: [CircularProgressIndicator] and [LinearProgressIndicator].
   ///
   /// {@endtemplate}
   final bool isLoading;
 
-  /// {@template rtl}
+  /// {@template textDirection}
   ///
-  ///**[rtl]** A boolean variable needed to support the **right to left** languages.
+  /// A direction in which text flows.
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/buttons/google.png)
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/master/doc/api/assets/rtl.png)
   ///
   /// {@endtemplate}
-  final bool rtl;
+  final TextDirection textDirection;
 
-  /// {@template getButtonColor}
+  /// Describes which theme will be used for the [AuthButton]s.
   ///
-  ///**[getButtonColor()]** a method which returns the **buttonColor**.
+  /// By default its sets to [ThemeMode.system] in order to get the system [Brightness].
+  final ThemeMode themeMode;
+
+  ///{@template materialStyle}
   ///
-  /// For more info about **ButtonColor** take a look on
-  /// [ButtonColor](https://pub.dev/documentation/auth_buttons/latest/auth_buttons/AuthButtonStyle/buttonColor.html)
+  /// Customizes this button's appearance within the [ButtonStyle].
+  ///
+  /// See also:
+  ///
+  ///  * [style], the [AuthButton]s dedicated visual properties.
   ///
   /// {@endtemplate}
-  Color getButtonColor();
-
-  /// {@template getIconBackground}
-  ///
-  ///**[getIconBackground()]** a method which returns the **iconBackground**.
-  ///
-  /// For more info about **iconBackground** take a look on
-  /// [iconBackground](https://pub.dev/documentation/auth_buttons/latest/auth_buttons/AuthButtonStyle/iconBackground.html)
-  ///
-  /// {@endtemplate}
-  Color? getIconBackground();
-
-  /// {@template getTextStyle}
-  ///
-  ///**[getTextStyle()]** a method which returns the **textStyle**.
-  ///
-  /// For more info about **textStyle** take a look on
-  /// [textStyle](https://pub.dev/documentation/auth_buttons/latest/auth_buttons/AuthButtonStyle/textStyle.html)
-  ///
-  /// {@endtemplate}
-  TextStyle getTextStyle();
+  final ButtonStyle? materialStyle;
 
   /// {@template getIcon}
   ///
-  ///**[getIcon()]** a method which returns the **authIcon**.
+  /// The method which returns the [AuthIcon].
   ///
   /// {@endtemplate}
-  AuthIcon getIcon();
-
-  /// {@template getIconColor}
-  ///
-  ///**[getIconColor()]** a method which returns the **iconColor**.
-  ///
-  /// All **icons** are NOT colored by default.
-  ///
-  /// For more info about **iconColor** take a look on
-  /// [iconColor](https://pub.dev/documentation/auth_buttons/latest/auth_buttons/AuthButtonStyle/iconColor.html)
-  ///
-  /// {@endtemplate}
-  Color? getIconColor();
-
-  /// {@template getProgressIndicatorValueColor}
-  ///
-  ///**[getProgressIndicatorValueColor()]** a method where returns the **progressIndicatorValueColor**.
-  ///
-  /// {@endtemplate}
-  Color? getProgressIndicatorValueColor();
+  AuthIcon getIcon(BuildContext context);
 
   /// {@template getButtonStyle}
   ///
-  ///**[getButtonStyle()]** returns **style** for all button types based on **AuthButtonType**.
+  /// Returns an [AuthButtonStyle], this method makes more easy buttons styling.
   ///
   /// {@endtemplate}
   AuthButtonStyle? getButtonStyle();
+
+  /// {@template getButtonStyle}
+  ///
+  /// Returns a material [ButtonStyle], this method makes more easy buttons styling.
+  ///
+  /// {@endtemplate}
+  ButtonStyle? getMaterialStyle(BuildContext context);
+
+  /// {@template getProgressIndicatorColor}
+  ///
+  /// Returns the color of the [ProgressIndicator]s.
+  ///
+  /// {@endtemplate}
+  Color? getProgressIndicatorColor();
 
   /// {@template enabled}
   ///
   /// Define if the button is enabled or disabled.
   ///
-  /// Buttons are disabled by default. To enable a button, set its **[onPressed]**
-  /// or **[onLongPress]** properties to a non-null value.
+  /// Buttons are disabled by default. To enable a button, set its [onPressed]
+  /// or [onLongPress] properties to a non-null value.
   ///
   /// {@endtemplate}
   bool get enabled => onPressed != null || onLongPress != null;
+
+  /// {@template isDark}
+  ///
+  /// Define if the button is in dark or light appearance, follows the system [Brightness] by default.
+  ///
+  /// {@endtemplate}
+  bool get isDark {
+    if (themeMode == ThemeMode.dark) return true;
+    if (themeMode == ThemeMode.light) return false;
+    return SchedulerBinding.instance.window.platformBrightness ==
+        Brightness.dark;
+  }
 
   @override
   Widget build(BuildContext context);
