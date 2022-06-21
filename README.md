@@ -197,10 +197,31 @@ Do same think with the other buttons, when you want to customize any button
 you can do it just passing a property which you want.
 
 ### Grouped buttons
+
+Example
+
+<img src="https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/auth-button-group-usecase.png" alt="auth button group usecase" width="200"/>
+
+```dart
+AuthButtonGroup(
+  style: const AuthButtonStyle(
+    width: 180,
+    height: 50,
+    borderColor: Colors.purple,
+    borderWidth: 3.0,
+    margin: EdgeInsets.only(bottom: 8.0),
+  ),
+  buttons: [
+    GoogleAuthButton(),
+    AppleAuthButton(),
+    //....
+  ]
+),
+```
+
 Secondary             |  Icon
 :-------------------------:|:-------------------------:
-![auth-button-group-secondary-buttons](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/auth-button-group-secondary-buttons.png)  |  ![auth-button-group-icon-buttons](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/auth-button-group-icon-buttons.png)
-
+<img src="https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/auth-button-group-secondary-buttons.png" alt="auth button group secondary buttons" width="200"/>  | <img src="https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/auth-button-group-icon-buttons.png" alt="auth-button-group-icon-buttons" width="200"/>
 
 Full property you can pass:
 

@@ -51,7 +51,7 @@ class AuthButtonStyle with Diagnosticable {
   ///
   ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/buttoncolor/dark.jpg)
   ///
-  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/buttoncolor/amber.png)
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/buttoncolor/amber.jpg)
   ///
   /// {@endtemplate}
   final Color? buttonColor;
@@ -157,6 +157,8 @@ class AuthButtonStyle with Diagnosticable {
   /// {@template margin}
   ///
   /// The external space surround the buttons, defaults to [EdgeInsets.zero].
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/margin.jpg)
   ///
   /// {@endtemplate}
   final EdgeInsets? margin;
@@ -325,6 +327,8 @@ class AuthButtonStyle with Diagnosticable {
   /// {@template shadowColor}
   ///
   /// Define the color of the shadow placed behind the button.
+  ///
+  ///![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/buttons/google.png)
   ///
   /// ![](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/api/assets/shadow-color.jpg)
   ///

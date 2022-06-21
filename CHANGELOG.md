@@ -1,4 +1,15 @@
-### [2.0.4] - 07 Jun 2022
+### [3.0.0] - 21 Jun 2022
+- Add `InheritedAuthButton`
+- Add `AuthButtonGroup` widget
+- Deprecate darkMode, use `ThemeMode` which allows following the system `Brightness`.
+- Deprecate trl, use `TextDirection` for more cleaner API.
+- Add progressIndicatorType in the style, this allows to choose between `CircularProgressIndicator` or `LinearProgressIndicator`.
+- Add visualDensity, tapTargetSize, margin in the style.
+- Add materialStyle property, this allows the usage of `ButtonStyle` form material.
+- Default icons color will be never white on secondary button type.
+- Add support for network and non svg icons.
+- Add onHover and other attributes.
+### [2.0.4] - 07 Jan 2022
 - Run dart format.
 ### [2.0.3] - 16 Dic 2021
 #### `Visible for collaborates`
