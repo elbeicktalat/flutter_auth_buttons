@@ -202,7 +202,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget
   bool get isDark {
     if (themeMode == ThemeMode.dark) return true;
     if (themeMode == ThemeMode.light) return false;
-    return SchedulerBinding.instance.window.platformBrightness ==
+    return SchedulerBinding.instance.platformDispatcher.platformBrightness ==
         Brightness.dark;
   }
 
