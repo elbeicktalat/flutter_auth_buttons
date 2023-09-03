@@ -1,3 +1,14 @@
+### [3.0.1] - 03 Set 2023
+
+- Update dependencies
+- Fix window deprecation
+- Use `ColorFilter.mode` instead of deprecated `color`
+
+#### `Visible for collaborates`
+
+- Format the hole project
+- Add very strict analysis rules
+
 ### [3.0.0] - 21 Jun 2022
 
 - Add `InheritedAuthButton`
