@@ -34,28 +34,28 @@ void main() {
 
     testWidgets(
       'default button should have a text',
-      (tester) async {
+      (WidgetTester tester) async {
         await tester.pumpWidget(sut);
-        final text = find.byType(Text);
+        final Finder text = find.byType(Text);
         expect(text, findsOneWidget);
       },
     );
 
     testWidgets(
       'default button should have an icon',
-      (tester) async {
+      (WidgetTester tester) async {
         await tester.pumpWidget(sut);
-        final icon = find.byType(AuthIcon);
+        final Finder icon = find.byType(AuthIcon);
         expect(icon, findsOneWidget);
       },
     );
 
     testWidgets(
       'default button should have a text and icon synchronously',
-      (tester) async {
+      (WidgetTester tester) async {
         await tester.pumpWidget(sut);
-        final text = find.byType(Text);
-        final icon = find.byType(AuthIcon);
+        final Finder text = find.byType(Text);
+        final Finder icon = find.byType(AuthIcon);
         expect(text, findsOneWidget);
         expect(icon, findsOneWidget);
       },
@@ -63,7 +63,7 @@ void main() {
 
     testWidgets(
       'default button should have no icon but, a text and circular progress indicator if isLoading',
-      (tester) async {
+      (WidgetTester tester) async {
         sut = MaterialApp(
           home: FacebookAuthButton(
             onPressed: () {},
@@ -72,9 +72,9 @@ void main() {
         );
         await tester.pumpWidget(sut);
 
-        final indicator = find.byType(CircularProgressIndicator);
-        final icon = find.byType(AuthIcon);
-        final text = find.byType(Text);
+        final Finder indicator = find.byType(CircularProgressIndicator);
+        final Finder icon = find.byType(AuthIcon);
+        final Finder text = find.byType(Text);
 
         expect(indicator, findsOneWidget);
         expect(icon, findsNothing);
@@ -84,7 +84,7 @@ void main() {
 
     testWidgets(
       'default button should have no text, but an icon and linear progress indicator if isLoading',
-      (tester) async {
+      (WidgetTester tester) async {
         sut = MaterialApp(
           home: FacebookAuthButton(
             onPressed: () {},
@@ -96,9 +96,9 @@ void main() {
         );
         await tester.pumpWidget(sut);
 
-        final indicator = find.byType(LinearProgressIndicator);
-        final icon = find.byType(AuthIcon);
-        final text = find.byType(Text);
+        final Finder indicator = find.byType(LinearProgressIndicator);
+        final Finder icon = find.byType(AuthIcon);
+        final Finder text = find.byType(Text);
 
         expect(indicator, findsOneWidget);
         expect(icon, findsOneWidget);
@@ -120,28 +120,28 @@ void main() {
 
     testWidgets(
       'secondary button should have a text',
-      (tester) async {
+      (WidgetTester tester) async {
         await tester.pumpWidget(sut);
-        final text = find.byType(Text);
+        final Finder text = find.byType(Text);
         expect(text, findsOneWidget);
       },
     );
 
     testWidgets(
       'secondary button should have an icon',
-      (tester) async {
+      (WidgetTester tester) async {
         await tester.pumpWidget(sut);
-        final icon = find.byType(AuthIcon);
+        final Finder icon = find.byType(AuthIcon);
         expect(icon, findsOneWidget);
       },
     );
 
     testWidgets(
       'secondary button should have a text and icon synchronously',
-      (tester) async {
+      (WidgetTester tester) async {
         await tester.pumpWidget(sut);
-        final text = find.byType(Text);
-        final icon = find.byType(AuthIcon);
+        final Finder text = find.byType(Text);
+        final Finder icon = find.byType(AuthIcon);
         expect(text, findsOneWidget);
         expect(icon, findsOneWidget);
       },
@@ -149,7 +149,7 @@ void main() {
 
     testWidgets(
       'secondary button should have no icon but, a text and circular progress indicator if isLoading',
-      (tester) async {
+      (WidgetTester tester) async {
         sut = MaterialApp(
           home: FacebookAuthButton(
             onPressed: () {},
@@ -158,9 +158,9 @@ void main() {
         );
         await tester.pumpWidget(sut);
 
-        final indicator = find.byType(CircularProgressIndicator);
-        final icon = find.byType(AuthIcon);
-        final text = find.byType(Text);
+        final Finder indicator = find.byType(CircularProgressIndicator);
+        final Finder icon = find.byType(AuthIcon);
+        final Finder text = find.byType(Text);
 
         expect(indicator, findsOneWidget);
         expect(icon, findsNothing);
@@ -170,7 +170,7 @@ void main() {
 
     testWidgets(
       'secondary button should have no text, but an icon and linear progress indicator if isLoading',
-      (tester) async {
+      (WidgetTester tester) async {
         sut = MaterialApp(
           home: FacebookAuthButton(
             onPressed: () {},
@@ -182,9 +182,9 @@ void main() {
         );
         await tester.pumpWidget(sut);
 
-        final indicator = find.byType(LinearProgressIndicator);
-        final icon = find.byType(AuthIcon);
-        final text = find.byType(Text);
+        final Finder indicator = find.byType(LinearProgressIndicator);
+        final Finder icon = find.byType(AuthIcon);
+        final Finder text = find.byType(Text);
 
         expect(indicator, findsOneWidget);
         expect(icon, findsOneWidget);
@@ -205,17 +205,18 @@ void main() {
       );
     });
 
-    testWidgets('icon button should have only an icon', (tester) async {
+    testWidgets('icon button should have only an icon',
+        (WidgetTester tester) async {
       await tester.pumpWidget(sut);
-      final icon = find.byType(AuthIcon);
-      final text = find.byType(Text);
+      final Finder icon = find.byType(AuthIcon);
+      final Finder text = find.byType(Text);
       expect(icon, findsOneWidget);
       expect(text, findsNothing);
     });
 
     testWidgets(
       'icon button should have a circular progress indicator if isLoading',
-      (tester) async {
+      (WidgetTester tester) async {
         sut = MaterialApp(
           home: FacebookAuthButton(
             onPressed: () {},
@@ -227,8 +228,8 @@ void main() {
         );
         await tester.pumpWidget(sut);
 
-        final indicator = find.byType(CircularProgressIndicator);
-        final icon = find.byType(AuthIcon);
+        final Finder indicator = find.byType(CircularProgressIndicator);
+        final Finder icon = find.byType(AuthIcon);
 
         expect(indicator, findsOneWidget);
         expect(icon, findsNothing);

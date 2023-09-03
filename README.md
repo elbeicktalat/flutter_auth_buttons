@@ -1,23 +1,30 @@
 # auth_buttons
+
 [![Github stars](https://img.shields.io/github/stars/elbeicktalat/flutter_auth_buttons?logo=github)](https://github.com/elbeicktalat/flutter_auth_buttons)
 [![Pub Version](https://img.shields.io/pub/v/auth_buttons?color=blue&logo=dart)](https://pub.dev/packages/auth_buttons)
 
-Auth Buttons is a flutter widget library, include buttons for authenticating with the most popular 
+Auth Buttons is a flutter widget library, include buttons for authenticating with the most popular
 social networks like: Google, Facebook, Apple and too other.
 
 ## Installation
+
 1) Add this to your packages pubspec.yaml file:
+
 ```yaml
 dependencies:
   auth_buttons: <^last>
 ```
-2) Install it 
-You can install it from the command line:
+
+2) Install it
+   You can install it from the command line:
+
 ```bash
 $ flutter pub get
 ```
-3) Import it 
-Now in Dart code, you can use:
+
+3) Import it
+   Now in Dart code, you can use:
+
 ```dart
 import 'package:auth_buttons/auth_buttons.dart';
 ```
@@ -31,16 +38,24 @@ We recommend you to using `show` special when you want use some button.
 import 'package:auth_buttons/auth_buttons.dart'
     show GoogleAuthButton, AuthButtonStyle, AuthButtonType, AuthIconType;
 ```
+
 We also recommend you to using the latest version.
 
 ## Overview
 
-From the version `3.0.0` all [AuthButtons](https://github.com/elbeicktalat/flutter_auth_buttons/blob/main/lib/src/shared/base/contracts/auth_button.dart) are following the system mode. see [ThemeMode](https://github.com/flutter/flutter/blob/02558d69d92384e7ed1b66f50006796342c8945a/packages/flutter/lib/src/material/app.dart#L41) for more info. 
+From the version `3.0.0`
+all [AuthButtons](https://github.com/elbeicktalat/flutter_auth_buttons/blob/main/lib/src/shared/base/contracts/auth_button.dart)
+are following the system mode.
+see [ThemeMode](https://github.com/flutter/flutter/blob/02558d69d92384e7ed1b66f50006796342c8945a/packages/flutter/lib/src/material/app.dart#L41)
+for more info.
 
-From the version `3.0.0` you're able to regroup [AuthButton](https://github.com/elbeicktalat/flutter_auth_buttons/blob/main/lib/src/shared/base/contracts/auth_button.dart)s for sharing style properties, 
-to do this use the already existing [AuthButtonGroup](#grouped-buttons). 
+From the version `3.0.0` you're able to
+regroup [AuthButton](https://github.com/elbeicktalat/flutter_auth_buttons/blob/main/lib/src/shared/base/contracts/auth_button.dart)
+s for sharing style properties,
+to do this use the already existing [AuthButtonGroup](#grouped-buttons).
 
 From the version `2.0.0` disabled state is supported.
+
 1. [Enabled](#enabled-state)
 1. [Disabled](#disabled-state)
 
@@ -51,14 +66,16 @@ There are three Types you can choose between them:
 1. [Secondary](#secondary-type)
 
 ## Suggestion
-If you plain to use a non existing AuthButton like: Linkedin or any others along with the existing one,
+
+If you plain to use a non existing AuthButton like: Linkedin or any others along with the existing
+one,
 than make your custom one just use `CustomAuthButton` this provide you with a fast way to do so.
 
 ## Using
 
 ### Enabled State.
 
-You need to use just the following code: 
+You need to use just the following code:
 
 ### Default Type
 
@@ -67,6 +84,7 @@ GoogleAuthButton(
   onPressed: () {},
 ),
 ```
+
 Light             |  Dark
 :-------------------------:|:-------------------------:
 ![default-button-default-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/default-button-default-icon.png)  |  ![dark-default-button-default-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-default-button-default-icon.png)
@@ -84,7 +102,6 @@ Light             |  Dark
 :-------------------------:|:-------------------------:
 ![default-button-outlined-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/default-button-outlined-icon.png)  |  ![dark-default-button-outlined-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-default-button-outlined-icon.png)
 
-
 ```dart
 GoogleAuthButton(
   onPressed: () {},
@@ -97,7 +114,6 @@ GoogleAuthButton(
 Light             |  Dark
 :-------------------------:|:-------------------------:
 ![default-button-secondary-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/default-button-secondary-icon.png)  |  ![dark-default-button-secondary-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-default-button-secondary-icon.png)
-
 
 ### Icon Type
 
@@ -114,7 +130,6 @@ Light             |  Dark
 :-------------------------:|:-------------------------:
 ![icon-button-default-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/icon-button-default-icon.png)  |  ![dark-icon-button-default-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-icon-button-default-icon.png)
 
-
 ```dart
 GoogleAuthButton(
   onPressed: () {},
@@ -128,7 +143,6 @@ GoogleAuthButton(
 Light             |  Dark
 :-------------------------:|:-------------------------:
 ![icon-button-outlined-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/icon-button-outlined-icon.png)  |  ![dark-icon-button-outlined-icon](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-icon-button-outlined-icon.png)
-
 
 ```dart
 GoogleAuthButton(
@@ -193,7 +207,7 @@ Light             |  Dark
 :-------------------------:|:-------------------------:
 ![disabled-buttons](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/disabled-buttons.png)  |  ![dark-disabled-buttons](https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/dark-disabled-buttons.png)
 
-Do same think with the other buttons, when you want to customize any button 
+Do same think with the other buttons, when you want to customize any button
 you can do it just passing a property which you want.
 
 ### Grouped buttons
@@ -219,9 +233,9 @@ AuthButtonGroup(
 ),
 ```
 
-Secondary             |  Icon
-:-------------------------:|:-------------------------:
-<img src="https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/auth-button-group-secondary-buttons.png" alt="auth button group secondary buttons" width="200"/>  | <img src="https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/auth-button-group-icon-buttons.png" alt="auth-button-group-icon-buttons" width="200"/>
+                                                                                               Secondary                                                                                               |  Icon
+:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------:
+ <img src="https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/auth-button-group-secondary-buttons.png" alt="auth button group secondary buttons" width="200"/> | <img src="https://raw.githubusercontent.com/elbeicktalat/flutter_auth_buttons/main/doc/readme_assets/auth-button-group-icon-buttons.png" alt="auth-button-group-icon-buttons" width="200"/>
 
 Full property you can pass:
 

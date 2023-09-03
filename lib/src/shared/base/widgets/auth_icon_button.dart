@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 
 class AuthIconButton extends AuthTypeButton {
   const AuthIconButton({
-    super.key,
     required super.onPressed,
     required super.onLongPress,
     required super.onHover,
@@ -22,15 +21,17 @@ class AuthIconButton extends AuthTypeButton {
     required super.authIcon,
     required super.materialStyle,
     required super.isDark,
+    super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Theme(
       data: ThemeData(
-          elevatedButtonTheme: ElevatedButtonThemeData(
-        style: materialStyle,
-      )),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: materialStyle,
+        ),
+      ),
       child: SharedButton(
         key: key,
         onPressed: onPressed,

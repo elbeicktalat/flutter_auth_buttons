@@ -4,6 +4,7 @@
 
 import 'package:auth_buttons/src/shared/auth_button_style.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// The core interface of all buttons types.
@@ -16,7 +17,6 @@ import 'package:flutter/material.dart';
 ///
 abstract class AuthTypeButton extends StatelessWidget {
   const AuthTypeButton({
-    super.key,
     required this.onPressed,
     required this.onLongPress,
     required this.onHover,
@@ -25,10 +25,11 @@ abstract class AuthTypeButton extends StatelessWidget {
     required this.autofocus,
     required this.style,
     required this.isLoading,
-    this.textDirection = TextDirection.ltr,
     required this.authIcon,
     required this.materialStyle,
     required this.isDark,
+    this.textDirection = TextDirection.ltr,
+    super.key,
   });
 
   /// {@macro onPressed}
@@ -76,4 +77,22 @@ abstract class AuthTypeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    // @formatter:off
+    super.debugFillProperties(properties);
+    properties.add(ObjectFlagProperty<VoidCallback?>.has('onPressed', onPressed));
+    properties.add(ObjectFlagProperty<VoidCallback?>.has('onLongPress', onLongPress));
+    properties.add(ObjectFlagProperty<ValueChanged<bool>?>.has('onHover', onHover));
+    properties.add(ObjectFlagProperty<ValueChanged<bool>?>.has('onFocusChange', onFocusChange));
+    properties.add(DiagnosticsProperty<FocusNode?>('focusNode', focusNode));
+    properties.add(DiagnosticsProperty<bool?>('autofocus', autofocus));
+    properties.add(DiagnosticsProperty<AuthButtonStyle>('style', style));
+    properties.add(DiagnosticsProperty<bool>('isLoading', isLoading));
+    properties.add(EnumProperty<TextDirection>('textDirection', textDirection));
+    properties.add(DiagnosticsProperty<ButtonStyle?>('materialStyle', materialStyle));
+    properties.add(DiagnosticsProperty<bool>('isDark', isDark));
+    // @formatter:on
+  }
 }

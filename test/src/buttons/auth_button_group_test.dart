@@ -7,7 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 void main() {
   late AuthButtonGroup sut;
 
-  final List<AuthButton> listOf2EnabledAuthButtons = [
+  final List<AuthButton> listOf2EnabledAuthButtons = <AuthButton>[
     GoogleAuthButton(onPressed: () {}),
     AppleAuthButton(onPressed: () {}),
   ];
@@ -22,7 +22,7 @@ void main() {
     () {
       expect(sut.buttons.length, greaterThanOrEqualTo(2));
       expect(
-        () => sut = AuthButtonGroup(buttons: const []),
+        () => sut = AuthButtonGroup(buttons: const <AuthButton>[]),
         throwsAssertionError,
       );
     },
@@ -30,12 +30,12 @@ void main() {
 
   testWidgets(
     'should wrap buttons with FittedBox if buttonType is not icon',
-    (tester) async {
-      final children = sut.getChildren();
+    (WidgetTester tester) async {
+      final List<Widget>? children = sut.getChildren();
       if (children == null) return;
 
       await tester.pumpWidget(MaterialApp(home: sut.getChildren()!.first));
-      expect(find.byType(FittedBox), findsOneWidget);
+      expect(find.byType(FittedBox), findsNWidgets(2));
       expect(children.length, equals(sut.buttons.length));
 
       // if buttonType equals to icon

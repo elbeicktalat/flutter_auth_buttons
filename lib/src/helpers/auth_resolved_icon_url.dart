@@ -18,53 +18,52 @@ AuthIcon resolvedIconUrl({
   required bool isDark,
   required bool enabled,
 }) {
-  final Set<MaterialState> states = {MaterialState.selected};
+  final Set<MaterialState> states = <MaterialState>{MaterialState.selected};
   final Color? buttonColor = materialStyle?.backgroundColor?.resolve(states);
-  bool _buttonIsColored = false;
+  bool buttonIsColored = false;
 
   if (buttonColor != Colors.white || buttonColor != const Color(0xffffffff)) {
-    _buttonIsColored = true;
+    buttonIsColored = true;
   }
 
-  Color? _color = iconColor ?? materialStyle?.foregroundColor?.resolve(states);
+  Color? color = iconColor ?? materialStyle?.foregroundColor?.resolve(states);
 
   if (iconColor == null) {
-    _color = null;
+    color = null;
   }
 
   if (canBeWhite &&
-      _buttonIsColored &&
+      buttonIsColored &&
       buttonType != AuthButtonType.secondary &&
       iconType == null) {
-    _color = iconColor ?? Colors.white;
+    color = iconColor ?? Colors.white;
   }
 
   if (!enabled) {
-    _color = AuthColors.disabledContent;
+    color = AuthColors.disabledContent;
   }
 
   //for secondary buttons.
   if (buttonType == AuthButtonType.secondary) {
     if (iconType == AuthIconType.outlined) {
-      return AuthIcon(
-          iconPath: iconsPath[1], color: _color, iconSize: iconSize);
+      return AuthIcon(iconPath: iconsPath[1], color: color, iconSize: iconSize);
     }
     if (iconType == AuthIconType.secondary) {
       return AuthIcon(
         iconPath: iconsPath[2],
-        color: _color,
+        color: color,
         iconSize: iconSize,
       );
     }
-    return AuthIcon(iconPath: iconsPath[0], color: _color, iconSize: iconSize);
+    return AuthIcon(iconPath: iconsPath[0], color: color, iconSize: iconSize);
   }
 
   //for default & icon buttons.
   if (iconType == AuthIconType.outlined) {
-    return AuthIcon(iconPath: iconsPath[1], color: _color, iconSize: iconSize);
+    return AuthIcon(iconPath: iconsPath[1], color: color, iconSize: iconSize);
   }
   if (iconType == AuthIconType.secondary) {
-    return AuthIcon(iconPath: iconsPath[2], color: _color, iconSize: iconSize);
+    return AuthIcon(iconPath: iconsPath[2], color: color, iconSize: iconSize);
   }
-  return AuthIcon(iconPath: iconsPath[0], color: _color, iconSize: iconSize);
+  return AuthIcon(iconPath: iconsPath[0], color: color, iconSize: iconSize);
 }

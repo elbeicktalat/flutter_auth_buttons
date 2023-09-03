@@ -6,11 +6,11 @@ import 'package:auth_buttons/src/shared/core/contracts/auth_type_button.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/shared/core/widgets/button_content.dart';
 import 'package:auth_buttons/src/shared/core/widgets/shared_button.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class AuthDefaultButton extends AuthTypeButton {
   const AuthDefaultButton({
-    super.key,
     required super.onPressed,
     required super.onLongPress,
     required super.onHover,
@@ -24,6 +24,7 @@ class AuthDefaultButton extends AuthTypeButton {
     required super.materialStyle,
     required super.isDark,
     required this.text,
+    super.key,
   });
 
   ///{@macro text}
@@ -33,9 +34,10 @@ class AuthDefaultButton extends AuthTypeButton {
   Widget build(BuildContext context) {
     return Theme(
       data: ThemeData(
-          elevatedButtonTheme: ElevatedButtonThemeData(
-        style: materialStyle,
-      )),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: materialStyle,
+        ),
+      ),
       child: SharedButton(
         key: key,
         onPressed: onPressed,
@@ -60,4 +62,10 @@ class AuthDefaultButton extends AuthTypeButton {
 
   @override
   AuthIcon getIcon() => authIcon;
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('text', text));
+  }
 }

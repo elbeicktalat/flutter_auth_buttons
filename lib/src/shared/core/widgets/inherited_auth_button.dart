@@ -1,6 +1,7 @@
 import 'dart:ui' show TextDirection;
 
 import 'package:auth_buttons/auth_buttons.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart'
     show BuildContext, ButtonStyle, InheritedWidget;
 
@@ -18,11 +19,11 @@ import 'package:flutter/material.dart'
 ///
 class InheritedAuthButton extends InheritedWidget {
   const InheritedAuthButton({
-    super.key,
     required super.child,
     this.style,
     this.materialStyle,
     this.textDirection = TextDirection.ltr,
+    super.key,
   });
 
   /// {@macro style}
@@ -43,5 +44,15 @@ class InheritedAuthButton extends InheritedWidget {
   /// This [of] method is typical in others [InheritedWidget]s.
   static InheritedAuthButton? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<InheritedAuthButton>();
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    // @formatter:off
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty<AuthButtonStyle?>('style', style));
+    properties.add(DiagnosticsProperty<ButtonStyle?>('materialStyle', materialStyle));
+    properties.add(EnumProperty<TextDirection>('textDirection', textDirection));
+    // @formatter:on
   }
 }
