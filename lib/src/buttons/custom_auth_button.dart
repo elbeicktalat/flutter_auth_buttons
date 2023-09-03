@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 /// You have to provide your own colors and other stuff.
 class CustomAuthButton extends AuthButton {
   CustomAuthButton({
+    required this.authIcon,
     super.key,
     super.onPressed,
     super.onLongPress,
@@ -24,19 +25,18 @@ class CustomAuthButton extends AuthButton {
     super.focusNode,
     super.autofocus,
     super.text,
-    required this.authIcon,
     @Deprecated(
       'Use ThemeMode instead. '
       'This property has no more effect. '
       'This feature was deprecated after v3.0.0',
     )
-        bool darkMode = false,
+    bool darkMode = false,
     @Deprecated(
       'Use TextDirection instead. '
       'This property has no more effect. '
       'This feature was deprecated after v3.0.0',
     )
-        bool rtl = false,
+    bool rtl = false,
     super.isLoading = false,
     super.style,
     super.materialStyle,
@@ -51,7 +51,7 @@ class CustomAuthButton extends AuthButton {
               : 'Icon button type does not need a text.',
         );
 
-  ///[iconUrl] Define the iconUrl.
+  /// iconUrl Define the iconUrl.
   final AuthIcon authIcon;
 
   @override

@@ -4,13 +4,13 @@
 
 import 'package:auth_buttons/auth_buttons.dart';
 import 'package:auth_buttons/src/shared/core/widgets/button_content.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 ///[SharedButton] The button common for all auth buttons,
 /// no mater **buttonType** all buttons use this.
 class SharedButton extends StatelessWidget {
   const SharedButton({
-    super.key,
     required this.onPressed,
     required this.onLongPress,
     required this.onHover,
@@ -20,6 +20,7 @@ class SharedButton extends StatelessWidget {
     required this.child,
     required this.style,
     required this.isDark,
+    super.key,
   });
 
   /// {@macro onPressed}
@@ -62,7 +63,6 @@ class SharedButton extends StatelessWidget {
         onFocusChange: onFocusChange,
         focusNode: focusNode,
         autofocus: autofocus ?? false,
-        child: child,
         style: ButtonStyle(
           padding: style.getPadding(context),
           backgroundColor: style.getBackgroundColor(context),
@@ -77,7 +77,23 @@ class SharedButton extends StatelessWidget {
           visualDensity: style.visualDensity,
           tapTargetSize: style.tapTargetSize,
         ),
+        child: child,
       ),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    // @formatter:off
+    super.debugFillProperties(properties);
+    properties.add(ObjectFlagProperty<VoidCallback?>.has('onPressed', onPressed));
+    properties.add(ObjectFlagProperty<VoidCallback?>.has('onLongPress', onLongPress));
+    properties.add(ObjectFlagProperty<ValueChanged<bool>?>.has('onHover', onHover));
+    properties.add(ObjectFlagProperty<ValueChanged<bool>?>.has('onFocusChange', onFocusChange));
+    properties.add(DiagnosticsProperty<FocusNode?>('focusNode', focusNode));
+    properties.add(DiagnosticsProperty<bool?>('autofocus', autofocus));
+    properties.add(DiagnosticsProperty<AuthButtonStyle>('style', style));
+    properties.add(DiagnosticsProperty<bool>('isDark', isDark));
+    // @formatter:on
   }
 }

@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:auth_buttons/src/helpers/auth_string_extension.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -13,11 +14,11 @@ import 'package:flutter_svg/svg.dart';
 /// Provide an icon by using [iconPath] for the local icons or [iconUrl] for the network one.
 class AuthIcon extends StatelessWidget {
   AuthIcon({
-    super.key,
     this.iconPath,
     this.iconUrl,
     this.color,
     this.iconSize = 40,
+    super.key,
   })  : assert(
           iconPath != null && iconPath.isNotBlank ||
               iconUrl != null && iconUrl.isNotBlank,
@@ -62,7 +63,8 @@ class AuthIcon extends StatelessWidget {
         height: iconSize,
         child: SvgPicture.asset(
           iconPath!,
-          color: color,
+          colorFilter:
+              color != null ? ColorFilter.mode(color!, BlendMode.srcIn) : null,
         ),
       );
     }
@@ -82,10 +84,21 @@ class AuthIcon extends StatelessWidget {
         height: iconSize,
         child: SvgPicture.network(
           iconUrl!,
-          color: color,
+          theme: SvgTheme(currentColor: color ?? const Color(0xFF000000)),
         ),
       );
     }
-    return Container();
+    return const SizedBox.shrink();
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    // @formatter:off
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('iconPath', iconPath));
+    properties.add(StringProperty('iconUrl', iconUrl));
+    properties.add(ColorProperty('color', color));
+    properties.add(DoubleProperty('iconSize', iconSize));
+    // @formatter:on
   }
 }

@@ -5,6 +5,7 @@
 import 'package:auth_buttons/src/shared/auth_button_style.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
 import 'package:auth_buttons/src/utils/auth_type.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 /// The common [AuthButton]s body structures.
@@ -12,12 +13,12 @@ import 'package:flutter/material.dart';
 /// This Widget describes how others widget will be display.
 class ButtonContent extends StatefulWidget {
   const ButtonContent({
-    super.key,
-    this.text,
     required this.authIcon,
+    required this.style,
+    this.text,
     this.textDirection = TextDirection.ltr,
     this.isLoading = false,
-    required this.style,
+    super.key,
   });
 
   /// {@macro text}
@@ -37,6 +38,17 @@ class ButtonContent extends StatefulWidget {
 
   @override
   State<ButtonContent> createState() => _ButtonContentState();
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    // @formatter:off
+    super.debugFillProperties(properties);
+    properties.add(StringProperty('text', text));
+    properties.add(EnumProperty<TextDirection>('textDirection', textDirection));
+    properties.add(DiagnosticsProperty<bool>('isLoading', isLoading));
+    properties.add(DiagnosticsProperty<AuthButtonStyle>('style', style));
+    // @formatter:on
+  }
 }
 
 class _ButtonContentState extends State<ButtonContent> {
@@ -53,7 +65,7 @@ class _ButtonContentState extends State<ButtonContent> {
 
   @override
   Widget build(BuildContext context) {
-    final indicatorType =
+    final AuthIndicatorType indicatorType =
         widget.style.progressIndicatorType ?? AuthIndicatorType.circular;
     return Row(
       key: widget.key,
@@ -77,21 +89,22 @@ class _ButtonContentState extends State<ButtonContent> {
               ? _buildCircularProgressIndicator()
               : widget.authIcon,
         ),
-        if (widget.style.buttonType != AuthButtonType.icon) ...[
+        if (widget.style.buttonType != AuthButtonType.icon) ...<Widget>[
           SizedBox(width: widget.style.separator),
           if (widget.isLoading &&
               widget.style.buttonType != AuthButtonType.icon &&
               indicatorType == AuthIndicatorType.linear)
             _buildLinearProgressIndicator()
           else if (widget.text != null)
-            Text(key: _textKey, widget.text!)
-        ]
+            Text(key: _textKey, widget.text!),
+        ],
       ],
     );
   }
 
   void getTextWidgetWidth() {
-    final renderBox = _textKey.currentContext?.findRenderObject() as RenderBox?;
+    final RenderBox? renderBox =
+        _textKey.currentContext?.findRenderObject() as RenderBox?;
     _textWidth = renderBox?.size.width;
   }
 

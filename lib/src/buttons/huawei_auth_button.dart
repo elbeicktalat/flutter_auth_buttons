@@ -38,13 +38,13 @@ class HuaweiAuthButton extends AuthButton {
       'This property has no more effect. '
       'This feature was deprecated after v3.0.0',
     )
-        bool darkMode = false,
+    bool darkMode = false,
     @Deprecated(
       'Use TextDirection instead. '
       'This property has no more effect. '
       'This feature was deprecated after v3.0.0',
     )
-        bool rtl = false,
+    bool rtl = false,
     super.isLoading = false,
     super.style,
     super.materialStyle,

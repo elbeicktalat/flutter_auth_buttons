@@ -5,6 +5,7 @@
 import 'package:auth_buttons/src/shared/auth_button_style.dart';
 import 'package:auth_buttons/src/shared/core/contracts/resolving_material_style.dart';
 import 'package:auth_buttons/src/shared/core/widgets/auth_icon.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show SchedulerBinding;
 
@@ -12,13 +13,12 @@ import 'package:flutter/scheduler.dart' show SchedulerBinding;
 ///
 /// See also:
 ///
-///  * [AuthButton], the common implementation of all auth buttons.
+///  * AuthButton, the common implementation of all auth buttons.
 ///  * [ResolvingMaterialStyle], the mixin which provides the resolve methods.
 ///
 abstract class AuthButtonStyleButton extends StatelessWidget
     with ResolvingMaterialStyle {
   const AuthButtonStyleButton({
-    super.key,
     required this.onPressed,
     required this.onLongPress,
     required this.onHover,
@@ -31,6 +31,7 @@ abstract class AuthButtonStyleButton extends StatelessWidget
     required this.isLoading,
     required this.textDirection,
     required this.materialStyle,
+    super.key,
   });
 
   /// {@template onPressed}
@@ -201,10 +202,31 @@ abstract class AuthButtonStyleButton extends StatelessWidget
   bool get isDark {
     if (themeMode == ThemeMode.dark) return true;
     if (themeMode == ThemeMode.light) return false;
-    return SchedulerBinding.instance.window.platformBrightness ==
+    return SchedulerBinding.instance.platformDispatcher.platformBrightness ==
         Brightness.dark;
   }
 
   @override
   Widget build(BuildContext context);
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    // @formatter:off
+    super.debugFillProperties(properties);
+    properties.add(ObjectFlagProperty<VoidCallback?>.has('onPressed', onPressed));
+    properties.add(ObjectFlagProperty<VoidCallback?>.has('onLongPress', onLongPress));
+    properties.add(ObjectFlagProperty<ValueChanged<bool>?>.has('onHover', onHover));
+    properties.add(ObjectFlagProperty<ValueChanged<bool>?>.has('onFocusChange', onFocusChange));
+    properties.add(DiagnosticsProperty<FocusNode?>('focusNode', focusNode));
+    properties.add(DiagnosticsProperty<bool?>('autofocus', autofocus));
+    properties.add(DiagnosticsProperty<AuthButtonStyle>('style', style));
+    properties.add(StringProperty('text', text));
+    properties.add(DiagnosticsProperty<bool>('isLoading', isLoading));
+    properties.add(EnumProperty<TextDirection>('textDirection', textDirection));
+    properties.add(EnumProperty<ThemeMode>('themeMode', themeMode));
+    properties.add(DiagnosticsProperty<ButtonStyle?>('materialStyle', materialStyle));
+    properties.add(DiagnosticsProperty<bool>('enabled', enabled));
+    properties.add(DiagnosticsProperty<bool>('isDark', isDark));
+    // @formatter:on
+  }
 }

@@ -27,7 +27,7 @@ class AuthIcons {
     'packages/auth_buttons/images/secondary/twitter.svg',
   ];
 
-  static const List<String> github = [
+  static const List<String> github = <String>[
     'packages/auth_buttons/images/default/github_black.svg',
     'packages/auth_buttons/images/outlined/github.svg',
     'packages/auth_buttons/images/secondary/github.svg',

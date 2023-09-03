@@ -8,15 +8,15 @@ import 'package:flutter/material.dart';
 
 @immutable
 class ForegroundColor {
-  final Color main;
-  final Color? onSecondaryButton;
-  final Color? onOtherIcons;
-
   const ForegroundColor(
     this.main, {
     this.onSecondaryButton,
     this.onOtherIcons,
   });
+
+  final Color main;
+  final Color? onSecondaryButton;
+  final Color? onOtherIcons;
 }
 
 Color resolvedForegroundColor({

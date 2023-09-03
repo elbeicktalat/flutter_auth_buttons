@@ -32,13 +32,13 @@ abstract class AuthButton extends AuthButtonStyleButton {
   ButtonStyle? getMaterialStyle(BuildContext context) {
     return ButtonStyle(
       textStyle: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.textStyle?.resolve(states) ??
             _inheritedMaterialStyle(context)?.textStyle?.resolve(states) ??
             resolveTextStyle(states),
       ),
       backgroundColor: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.backgroundColor?.resolve(states) ??
             _inheritedMaterialStyle(context)
                 ?.backgroundColor
@@ -46,7 +46,7 @@ abstract class AuthButton extends AuthButtonStyleButton {
             resolveBackgroundColor(states),
       ),
       foregroundColor: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.foregroundColor?.resolve(states) ??
             _inheritedMaterialStyle(context)
                 ?.foregroundColor
@@ -54,19 +54,19 @@ abstract class AuthButton extends AuthButtonStyleButton {
             resolveForegroundColor(states),
       ),
       overlayColor: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.overlayColor?.resolve(states) ??
             _inheritedMaterialStyle(context)?.overlayColor?.resolve(states) ??
             resolveOverlayColor(states),
       ),
       shadowColor: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.shadowColor?.resolve(states) ??
             _inheritedMaterialStyle(context)?.shadowColor?.resolve(states) ??
             resolveShadowColor(states),
       ),
       surfaceTintColor: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.surfaceTintColor?.resolve(states) ??
             _inheritedMaterialStyle(context)
                 ?.surfaceTintColor
@@ -74,49 +74,49 @@ abstract class AuthButton extends AuthButtonStyleButton {
             resolveSurfaceTintColor(states),
       ),
       elevation: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.elevation?.resolve(states) ??
             _inheritedMaterialStyle(context)?.elevation?.resolve(states) ??
             resolveElevation(states),
       ),
       padding: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.padding?.resolve(states) ??
             _inheritedMaterialStyle(context)?.padding?.resolve(states) ??
             resolvePadding(states),
       ),
       minimumSize: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.minimumSize?.resolve(states) ??
             _inheritedMaterialStyle(context)?.minimumSize?.resolve(states) ??
             resolveMinimumSize(states),
       ),
       fixedSize: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.fixedSize?.resolve(states) ??
             _inheritedMaterialStyle(context)?.fixedSize?.resolve(states) ??
             resolveFixedSize(states),
       ),
       maximumSize: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.maximumSize?.resolve(states) ??
             _inheritedMaterialStyle(context)?.maximumSize?.resolve(states) ??
             resolveMaximumSize(states),
       ),
       side: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.side?.resolve(states) ??
             _inheritedMaterialStyle(context)?.side?.resolve(states) ??
             resolveSide(states),
       ),
       shape: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.shape?.resolve(states) ??
             _inheritedMaterialStyle(context)?.shape?.resolve(states) ??
             resolveShape(states),
       ),
       mouseCursor: MaterialStateProperty.resolveWith(
-        (states) =>
+        (Set<MaterialState> states) =>
             materialStyle?.mouseCursor?.resolve(states) ??
             _inheritedMaterialStyle(context)?.mouseCursor?.resolve(states) ??
             resolveMouseCursor(states),

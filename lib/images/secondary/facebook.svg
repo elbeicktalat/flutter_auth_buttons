@@ -1,17 +1,17 @@
-<svg id="facebook_secondary" data-name="Livello 1" xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 68.03 67.67">
+<svg data-name="Livello 1" id="facebook_secondary" viewBox="0 0 68.03 67.67"
+    xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <linearGradient id="facebook_color" x1="5.93" y1="-939.19" x2="5.93" y2="-940.84"
-            gradientTransform="translate(-202.89 37426.37) scale(40 39.78)"
-            gradientUnits="userSpaceOnUse">
+        <linearGradient gradientTransform="translate(-202.89 37426.37) scale(40 39.78)" gradientUnits="userSpaceOnUse" id="facebook_color" x1="5.93" x2="5.93"
+            y1="-939.19"
+            y2="-940.84">
             <stop offset="0" stop-color="#0062e0" />
             <stop offset="1" stop-color="#19afff" />
         </linearGradient>
     </defs>
     <path
         d="M68.15,34.21a34,34,0,1,0-39.33,33.6V44H20.18V34.21h8.64v-7.5c0-8.52,5.07-13.23,12.84-13.23a52.62,52.62,0,0,1,7.62.66v8.37H45c-4.23,0-5.54,2.63-5.54,5.32v6.38h9.43L47.37,44H39.45V67.81A34,34,0,0,0,68.15,34.21Z"
-        transform="translate(-0.11 -0.19)" fill="url(#facebook_color)" />
+        fill="url(#facebook_color)" transform="translate(-0.11 -0.19)" />
     <path
         d="M47.37,44l1.51-9.83H39.45V27.83c0-2.69,1.31-5.32,5.54-5.32h4.29V14.14a52.62,52.62,0,0,0-7.62-.66c-7.77,0-12.84,4.71-12.84,13.23v7.5H20.18V44h8.64V67.81a34.66,34.66,0,0,0,10.63,0V44Z"
-        transform="translate(-0.11 -0.19)" fill="none" />
+        fill="none" transform="translate(-0.11 -0.19)" />
 </svg>
