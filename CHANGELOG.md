@@ -1,3 +1,7 @@
+### [3.0.2] - 05 Set 2023
+- Pass static analytics.
+- Fix isNotEmpty & use RegExp 
+
 ### [3.0.1] - 03 Set 2023
 
 - Update dependencies
