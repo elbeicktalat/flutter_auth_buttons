@@ -51,7 +51,8 @@ class InheritedAuthButton extends InheritedWidget {
     // @formatter:off
     super.debugFillProperties(properties);
     properties.add(DiagnosticsProperty<AuthButtonStyle?>('style', style));
-    properties.add(DiagnosticsProperty<ButtonStyle?>('materialStyle', materialStyle));
+    properties
+        .add(DiagnosticsProperty<ButtonStyle?>('materialStyle', materialStyle));
     properties.add(EnumProperty<TextDirection>('textDirection', textDirection));
     // @formatter:on
   }
