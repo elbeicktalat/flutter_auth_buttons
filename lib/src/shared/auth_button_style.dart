@@ -596,31 +596,64 @@ class AuthButtonStyle with Diagnosticable {
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     // @formatter:off
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty<Color?>('buttonColor', buttonColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('splashColor', splashColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('elevation', elevation, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('borderRadius', borderRadius, defaultValue: null));
-    properties.add(DiagnosticsProperty<EdgeInsets?>('padding', padding, defaultValue: null));
-    properties.add(DiagnosticsProperty<EdgeInsets?>('margin', margin, defaultValue: null));
-    properties.add(DiagnosticsProperty<TextStyle?>('textStyle', textStyle, defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('borderColor', borderColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('borderWidth', borderWidth, defaultValue: null));
-    properties.add(DiagnosticsProperty<AuthButtonType?>('buttonType', buttonType, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('width', width, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('height', height, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('iconSize', iconSize, defaultValue: 30.0));
-    properties.add(DiagnosticsProperty<double?>('separator', separator, defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('iconBackground', iconBackground, defaultValue: null));
-    properties.add(DiagnosticsProperty<AuthIconType?>('iconType', iconType, defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('shadowColor', shadowColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('progressIndicatorColor', progressIndicatorColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('progressIndicatorValueColor', progressIndicatorValueColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('progressIndicatorStrokeWidth', progressIndicatorStrokeWidth, defaultValue: null));
-    properties.add(DiagnosticsProperty<double?>('progressIndicatorValue', progressIndicatorValue, defaultValue: null));
-    properties.add(DiagnosticsProperty<Color?>('iconColor', iconColor, defaultValue: null));
-    properties.add(DiagnosticsProperty<AuthIndicatorType>('progressIndicatorType', progressIndicatorType, defaultValue: null));
-    properties.add(DiagnosticsProperty<VisualDensity?>('visualDensity', visualDensity, defaultValue: null));
-    properties.add(DiagnosticsProperty<MaterialTapTargetSize?>('tapTargetSize', tapTargetSize, defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('buttonColor', buttonColor,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('splashColor', splashColor,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('elevation', elevation,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('borderRadius', borderRadius,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<EdgeInsets?>('padding', padding,
+        defaultValue: null));
+    properties.add(
+        DiagnosticsProperty<EdgeInsets?>('margin', margin, defaultValue: null));
+    properties.add(DiagnosticsProperty<TextStyle?>('textStyle', textStyle,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('borderColor', borderColor,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>('borderWidth', borderWidth,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<AuthButtonType?>(
+        'buttonType', buttonType,
+        defaultValue: null));
+    properties
+        .add(DiagnosticsProperty<double?>('width', width, defaultValue: null));
+    properties.add(
+        DiagnosticsProperty<double?>('height', height, defaultValue: null));
+    properties.add(
+        DiagnosticsProperty<double?>('iconSize', iconSize, defaultValue: 30.0));
+    properties.add(DiagnosticsProperty<double?>('separator', separator,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('iconBackground', iconBackground,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<AuthIconType?>('iconType', iconType,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('shadowColor', shadowColor,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>(
+        'progressIndicatorColor', progressIndicatorColor,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>(
+        'progressIndicatorValueColor', progressIndicatorValueColor,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>(
+        'progressIndicatorStrokeWidth', progressIndicatorStrokeWidth,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<double?>(
+        'progressIndicatorValue', progressIndicatorValue,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<Color?>('iconColor', iconColor,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<AuthIndicatorType>(
+        'progressIndicatorType', progressIndicatorType,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<VisualDensity?>(
+        'visualDensity', visualDensity,
+        defaultValue: null));
+    properties.add(DiagnosticsProperty<MaterialTapTargetSize?>(
+        'tapTargetSize', tapTargetSize,
+        defaultValue: null));
     // @formatter:on
   }
 }
