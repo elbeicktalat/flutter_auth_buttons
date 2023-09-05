@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import 'package:auth_buttons/src/helpers/auth_string_extension.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,8 +19,8 @@ class AuthIcon extends StatelessWidget {
     this.iconSize = 40,
     super.key,
   })  : assert(
-          iconPath != null && iconPath.isNotBlank ||
-              iconUrl != null && iconUrl.isNotBlank,
+          iconPath != null && iconPath.isNotEmpty && !iconPath.contains(' ') ||
+              iconUrl != null && iconUrl.isNotEmpty && !iconUrl.contains(' '),
           'Must provide an icon source, which must be not blank',
         ),
         assert(
