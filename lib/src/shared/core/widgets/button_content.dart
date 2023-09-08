@@ -69,8 +69,8 @@ class _ButtonContentState extends State<ButtonContent> {
         widget.style.progressIndicatorType ?? AuthIndicatorType.circular;
     return Row(
       key: widget.key,
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: widget.style.mainAxisSize ?? MainAxisSize.min,
+      mainAxisAlignment: widget.style.mainAxisAlignment ?? MainAxisAlignment.spaceBetween,
       textDirection: widget.textDirection,
       children: <Widget>[
         Container(

@@ -68,7 +68,6 @@ class _MyAppState extends State<_MyApp> {
                   margin: const EdgeInsets.only(bottom: 18),
                 ),
               ),
-              const SizedBox(height: 0),
               AppleAuthButton(
                 onPressed: () {
                   // your implementation
@@ -79,9 +78,30 @@ class _MyAppState extends State<_MyApp> {
                 themeMode: themeMode,
                 isLoading: isLoading,
                 style: AuthButtonStyle(
+                  width: double.infinity,
                   buttonType: buttonType,
                   iconType: iconType,
-                  margin: const EdgeInsets.only(bottom: 18),
+                  margin: const EdgeInsets.only(left: 24, right: 24, bottom: 8),
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                ),
+              ),
+              FacebookAuthButton(
+                onPressed: () {
+                  // your implementation
+                  setState(() {
+                    isLoading = !isLoading;
+                  });
+                },
+                themeMode: themeMode,
+                isLoading: isLoading,
+                style: AuthButtonStyle(
+                  width: double.infinity,
+                  buttonType: buttonType,
+                  iconType: iconType,
+                  margin: const EdgeInsets.only(left: 24, right: 24, bottom: 18),
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
                 ),
               ),
               AuthButtonGroup(
