@@ -69,8 +69,8 @@ class _ButtonContentState extends State<ButtonContent> {
         widget.style.progressIndicatorType ?? AuthIndicatorType.circular;
     return Row(
       key: widget.key,
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: widget.style.mainAxisSize ?? MainAxisSize.min,
+      mainAxisAlignment: widget.style.mainAxisAlignment ?? MainAxisAlignment.spaceBetween,
       textDirection: widget.textDirection,
       children: <Widget>[
         Container(
@@ -103,8 +103,7 @@ class _ButtonContentState extends State<ButtonContent> {
   }
 
   void getTextWidgetWidth() {
-    final RenderBox? renderBox =
-        _textKey.currentContext?.findRenderObject() as RenderBox?;
+    final RenderBox? renderBox = _textKey.currentContext?.findRenderObject() as RenderBox?;
     _textWidth = renderBox?.size.width;
   }
 
