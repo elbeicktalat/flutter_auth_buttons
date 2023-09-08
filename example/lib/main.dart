@@ -68,6 +68,22 @@ class _MyAppState extends State<_MyApp> {
                   margin: const EdgeInsets.only(bottom: 18),
                 ),
               ),
+              const SizedBox(height: 0),
+              AppleAuthButton(
+                onPressed: () {
+                  // your implementation
+                  setState(() {
+                    isLoading = !isLoading;
+                  });
+                },
+                themeMode: themeMode,
+                isLoading: isLoading,
+                style: AuthButtonStyle(
+                  buttonType: buttonType,
+                  iconType: iconType,
+                  margin: const EdgeInsets.only(bottom: 18),
+                ),
+              ),
               AuthButtonGroup(
                 style: AuthButtonStyle(
                   width: 185,

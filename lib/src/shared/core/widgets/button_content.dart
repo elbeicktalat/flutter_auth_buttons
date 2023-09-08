@@ -103,8 +103,7 @@ class _ButtonContentState extends State<ButtonContent> {
   }
 
   void getTextWidgetWidth() {
-    final RenderBox? renderBox =
-        _textKey.currentContext?.findRenderObject() as RenderBox?;
+    final RenderBox? renderBox = _textKey.currentContext?.findRenderObject() as RenderBox?;
     _textWidth = renderBox?.size.width;
   }
 
