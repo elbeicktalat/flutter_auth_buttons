@@ -99,7 +99,7 @@ class AppleAuthButton extends AuthButton {
   @override
   TextStyle? resolveTextStyle(Set<MaterialState> states) {
     return GoogleFonts.getFont(
-      'Source Sans Pro',
+      'Source Sans 3',
       fontWeight: FontWeight.w600,
       fontSize: 18,
     );
