@@ -97,20 +97,23 @@ class AuthButtonGroup extends StatelessWidget {
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    // @formatter:off
     super.debugFillProperties(properties);
     properties.add(EnumProperty<TextDirection>('textDirection', textDirection));
     properties.add(DiagnosticsProperty<AuthButtonStyle?>('style', style));
-    properties
-        .add(DiagnosticsProperty<ButtonStyle?>('materialStyle', materialStyle));
+    properties.add(
+      DiagnosticsProperty<ButtonStyle?>('materialStyle', materialStyle),
+    );
     properties.add(DoubleProperty('spacing', spacing));
     properties.add(DoubleProperty('runSpacing', runSpacing));
     properties.add(EnumProperty<Axis>('orientation', orientation));
     properties.add(EnumProperty<WrapAlignment>('alignment', alignment));
     properties.add(EnumProperty<WrapAlignment>('runAlignment', runAlignment));
-    properties.add(EnumProperty<WrapCrossAlignment>(
-        'crossAxisAlignment', crossAxisAlignment));
+    properties.add(
+      EnumProperty<WrapCrossAlignment>(
+        'crossAxisAlignment',
+        crossAxisAlignment,
+      ),
+    );
     properties.add(EnumProperty<VerticalDirection>('direction', direction));
-    // @formatter:on
   }
 }

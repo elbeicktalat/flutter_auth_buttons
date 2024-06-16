@@ -92,12 +92,10 @@ class AuthIcon extends StatelessWidget {
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    // @formatter:off
     super.debugFillProperties(properties);
     properties.add(StringProperty('iconPath', iconPath));
     properties.add(StringProperty('iconUrl', iconUrl));
     properties.add(ColorProperty('color', color));
     properties.add(DoubleProperty('iconSize', iconSize));
-    // @formatter:on
   }
 }

@@ -84,20 +84,25 @@ class SharedButton extends StatelessWidget {
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    // @formatter:off
     super.debugFillProperties(properties);
-    properties
-        .add(ObjectFlagProperty<VoidCallback?>.has('onPressed', onPressed));
-    properties
-        .add(ObjectFlagProperty<VoidCallback?>.has('onLongPress', onLongPress));
-    properties
-        .add(ObjectFlagProperty<ValueChanged<bool>?>.has('onHover', onHover));
-    properties.add(ObjectFlagProperty<ValueChanged<bool>?>.has(
-        'onFocusChange', onFocusChange));
+    properties.add(
+      ObjectFlagProperty<VoidCallback?>.has('onPressed', onPressed),
+    );
+    properties.add(
+      ObjectFlagProperty<VoidCallback?>.has('onLongPress', onLongPress),
+    );
+    properties.add(
+      ObjectFlagProperty<ValueChanged<bool>?>.has('onHover', onHover),
+    );
+    properties.add(
+      ObjectFlagProperty<ValueChanged<bool>?>.has(
+        'onFocusChange',
+        onFocusChange,
+      ),
+    );
     properties.add(DiagnosticsProperty<FocusNode?>('focusNode', focusNode));
     properties.add(DiagnosticsProperty<bool?>('autofocus', autofocus));
     properties.add(DiagnosticsProperty<AuthButtonStyle>('style', style));
     properties.add(DiagnosticsProperty<bool>('isDark', isDark));
-    // @formatter:on
   }
 }

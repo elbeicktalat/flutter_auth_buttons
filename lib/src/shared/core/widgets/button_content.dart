@@ -41,13 +41,11 @@ class ButtonContent extends StatefulWidget {
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    // @formatter:off
     super.debugFillProperties(properties);
     properties.add(StringProperty('text', text));
     properties.add(EnumProperty<TextDirection>('textDirection', textDirection));
     properties.add(DiagnosticsProperty<bool>('isLoading', isLoading));
     properties.add(DiagnosticsProperty<AuthButtonStyle>('style', style));
-    // @formatter:on
   }
 }
 
