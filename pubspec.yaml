@@ -3,9 +3,13 @@ description: Auth Buttons is a flutter widget library, include buttons for authe
 version: 3.0.2
 homepage: https://github.com/elbeicktalat/flutter_auth_buttons
 
+screenshots:
+  - description: Flutter Auth Buttons, Google, Apple, Facebook, Github, Microsoft, Twitter etc.
+    path: doc/buttons.png
+
 environment:
-  sdk: ">=2.17.0 <4.0.0"
-  flutter: ">=1.20.0"
+  sdk: '>=3.3.4 <4.0.0'
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
