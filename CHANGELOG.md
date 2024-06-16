@@ -1,3 +1,9 @@
+### [3.0.3] - 16 Jun 2024
+- Update dependencies
+#### `Visible for collaborates`
+- Setup publish to pub workflow
+- Format `debugFillProperties` methods
+
 ### [3.0.2] - 05 Set 2023
 - Pass static analytics.
 - Fix isNotEmpty & use RegExp 
