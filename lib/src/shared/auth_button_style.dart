@@ -36,6 +36,8 @@ class AuthButtonStyle with Diagnosticable {
     this.progressIndicatorType,
     this.visualDensity,
     this.tapTargetSize,
+    this.mainAxisSize = MainAxisSize.min,
+    this.mainAxisAlignment = MainAxisAlignment.spaceBetween,
   });
 
   /// {@template buttonColor}
@@ -397,6 +399,8 @@ class AuthButtonStyle with Diagnosticable {
   final double? progressIndicatorValue;
   final VisualDensity? visualDensity;
   final MaterialTapTargetSize? tapTargetSize;
+  final MainAxisSize mainAxisSize;
+  final MainAxisAlignment mainAxisAlignment;
 
   ButtonStyle? _getMaterialStyle(BuildContext context) {
     return Theme.of(context).elevatedButtonTheme.style;
@@ -430,6 +434,8 @@ class AuthButtonStyle with Diagnosticable {
     AuthIndicatorType? progressIndicatorType,
     VisualDensity? visualDensity,
     MaterialTapTargetSize? tapTargetSize,
+    MainAxisSize? mainAxisSize,
+    MainAxisAlignment? mainAxisAlignment,
   }) {
     return AuthButtonStyle(
       buttonColor: buttonColor ?? this.buttonColor,
@@ -463,6 +469,8 @@ class AuthButtonStyle with Diagnosticable {
           progressIndicatorType ?? this.progressIndicatorType,
       visualDensity: visualDensity ?? this.visualDensity,
       tapTargetSize: tapTargetSize ?? this.tapTargetSize,
+      mainAxisSize: mainAxisSize ?? this.mainAxisSize,
+      mainAxisAlignment: mainAxisAlignment ?? this.mainAxisAlignment,
     );
   }
 
@@ -544,6 +552,8 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorType: style.progressIndicatorType,
       visualDensity: style.visualDensity,
       tapTargetSize: style.tapTargetSize,
+      mainAxisSize: style.mainAxisSize,
+      mainAxisAlignment: style.mainAxisAlignment,
     );
   }
 
@@ -577,7 +587,9 @@ class AuthButtonStyle with Diagnosticable {
           progressIndicatorValue == other.progressIndicatorValue &&
           progressIndicatorType == other.progressIndicatorType &&
           visualDensity == other.visualDensity &&
-          tapTargetSize == other.tapTargetSize;
+          tapTargetSize == other.tapTargetSize &&
+          mainAxisSize == other.mainAxisSize &&
+          mainAxisAlignment == other.mainAxisAlignment;
 
   @override
   int get hashCode =>
@@ -606,7 +618,9 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorValue.hashCode ^
       progressIndicatorType.hashCode ^
       visualDensity.hashCode ^
-      tapTargetSize.hashCode;
+      tapTargetSize.hashCode ^
+      mainAxisSize.hashCode ^
+      mainAxisAlignment.hashCode;
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
@@ -771,6 +785,20 @@ class AuthButtonStyle with Diagnosticable {
         'tapTargetSize',
         tapTargetSize,
         defaultValue: null,
+      ),
+    );
+    properties.add(
+      EnumProperty<MainAxisSize?>(
+        'mainAxisSize',
+        mainAxisSize,
+        defaultValue: MainAxisSize.min,
+      ),
+    );
+    properties.add(
+      EnumProperty<MainAxisAlignment?>(
+        'mainAxisAlignment',
+        mainAxisAlignment,
+        defaultValue: MainAxisAlignment.spaceBetween,
       ),
     );
   }
