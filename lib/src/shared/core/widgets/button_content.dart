@@ -72,9 +72,10 @@ class _ButtonContentState extends State<ButtonContent> {
       textDirection: widget.textDirection,
       children: <Widget>[
         Container(
-          padding: (widget.style.buttonType == AuthButtonType.secondary)
-              ? const EdgeInsets.all(5.0)
-              : null,
+          padding: widget.style.iconPadding ??
+              ((widget.style.buttonType == AuthButtonType.secondary)
+                  ? const EdgeInsets.all(5.0)
+                  : null),
           decoration: BoxDecoration(
             color: widget.style.iconBackground,
             borderRadius: BorderRadius.circular(

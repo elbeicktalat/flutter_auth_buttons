@@ -26,6 +26,7 @@ class AuthButtonStyle with Diagnosticable {
     this.separator,
     this.iconBackground,
     this.iconType,
+    this.iconPadding,
     this.shadowColor,
     this.progressIndicatorColor,
     this.progressIndicatorValueColor,
@@ -340,6 +341,15 @@ class AuthButtonStyle with Diagnosticable {
   /// {@endtemplate}
   final AuthIconType? iconType;
 
+  /// {@template iconType}
+  ///
+  /// Define the padding around the icon.
+  ///
+  /// If the [buttonType] is [AuthIconType.secondary] then
+  ///
+  /// {@endtemplate}
+  final EdgeInsets? iconPadding;
+
   /// {@template shadowColor}
   ///
   /// Define the color of the shadow placed behind the button.
@@ -410,6 +420,7 @@ class AuthButtonStyle with Diagnosticable {
     double? separator,
     Color? iconBackground,
     AuthIconType? iconType,
+    EdgeInsets? iconPadding,
     Color? shadowColor,
     Color? progressIndicatorColor,
     Color? progressIndicatorValueColor,
@@ -437,6 +448,7 @@ class AuthButtonStyle with Diagnosticable {
       separator: separator ?? this.separator,
       iconBackground: iconBackground ?? this.iconBackground,
       iconType: iconType ?? this.iconType,
+      iconPadding: iconPadding ?? this.iconPadding,
       shadowColor: shadowColor ?? this.shadowColor,
       progressIndicatorColor:
           progressIndicatorColor ?? this.progressIndicatorColor,
@@ -481,6 +493,7 @@ class AuthButtonStyle with Diagnosticable {
       separator: separator ?? style.separator,
       iconBackground: iconBackground ?? style.iconBackground,
       iconType: iconType ?? style.iconType,
+      iconPadding: iconPadding ?? style.iconPadding,
       shadowColor: shadowColor ?? style.shadowColor,
       progressIndicatorColor:
           progressIndicatorColor ?? style.progressIndicatorColor,
@@ -521,6 +534,7 @@ class AuthButtonStyle with Diagnosticable {
       separator: style.separator,
       iconBackground: style.iconBackground,
       iconType: style.iconType,
+      iconPadding: style.iconPadding,
       shadowColor: style.shadowColor,
       progressIndicatorColor: style.progressIndicatorColor,
       progressIndicatorValueColor: style.progressIndicatorValueColor,
@@ -554,6 +568,7 @@ class AuthButtonStyle with Diagnosticable {
           separator == other.separator &&
           iconBackground == other.iconBackground &&
           iconType == other.iconType &&
+          iconPadding == other.iconPadding &&
           shadowColor == other.shadowColor &&
           iconColor == other.iconColor &&
           progressIndicatorColor == other.progressIndicatorColor &&
@@ -582,6 +597,7 @@ class AuthButtonStyle with Diagnosticable {
       separator.hashCode ^
       iconBackground.hashCode ^
       iconType.hashCode ^
+      iconPadding.hashCode ^
       shadowColor.hashCode ^
       iconColor.hashCode ^
       progressIndicatorColor.hashCode ^
@@ -690,6 +706,9 @@ class AuthButtonStyle with Diagnosticable {
         iconType,
         defaultValue: null,
       ),
+    );
+    properties.add(
+      DiagnosticsProperty<EdgeInsets?>('iconPadding', iconPadding),
     );
     properties.add(
       DiagnosticsProperty<Color?>(
