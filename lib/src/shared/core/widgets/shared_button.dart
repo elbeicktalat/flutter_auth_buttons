@@ -73,7 +73,9 @@ class SharedButton extends StatelessWidget {
           overlayColor: style.getOverlayColor(context),
           minimumSize: style.getMinimumSize(context),
           maximumSize:
-              style.width != null ? style.getMinimumSize(context) : null,
+              style.width != null && style.mainAxisSize != MainAxisSize.min
+                  ? style.getMinimumSize(context)
+                  : null,
           side: style.getSide(context),
           shape: style.getShape(context),
           visualDensity: style.visualDensity,
