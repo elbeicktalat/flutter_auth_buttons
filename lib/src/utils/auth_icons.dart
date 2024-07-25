@@ -50,4 +50,10 @@ class AuthIcons {
     'packages/auth_buttons/images/outlined/huawei.svg',
     'packages/auth_buttons/images/secondary/huawei.svg',
   ];
+
+  static const List<String> naver = <String>[
+    'packages/auth_buttons/images/default/naver.svg',
+    'packages/auth_buttons/images/outlined/naver.svg',
+    'packages/auth_buttons/images/secondary/naver.svg',
+  ];
 }
