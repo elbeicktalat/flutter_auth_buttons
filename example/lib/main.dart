@@ -153,6 +153,15 @@ class _MyAppState extends State<_MyApp> {
                       iconType: iconType,
                     ),
                   ),
+                  NaverAuthButton(
+                    onPressed: () {},
+                    themeMode: themeMode,
+                    isLoading: isLoading,
+                    style: AuthButtonStyle(
+                      buttonType: buttonType,
+                      iconType: iconType,
+                    ),
+                  ),
                 ],
               ),
             ],

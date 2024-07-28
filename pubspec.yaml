@@ -32,6 +32,7 @@ flutter:
     - packages/auth_buttons/images/default/google.svg
     - packages/auth_buttons/images/default/huawei.svg
     - packages/auth_buttons/images/default/microsoft.svg
+    - packages/auth_buttons/images/default/naver.svg
     - packages/auth_buttons/images/default/twitter.svg
 
     - packages/auth_buttons/images/outlined/apple.svg
@@ -41,6 +42,7 @@ flutter:
     - packages/auth_buttons/images/outlined/google.svg
     - packages/auth_buttons/images/outlined/huawei.svg
     - packages/auth_buttons/images/outlined/microsoft.svg
+    - packages/auth_buttons/images/outlined/naver.svg
     - packages/auth_buttons/images/outlined/twitter.svg
 
     - packages/auth_buttons/images/secondary/apple.svg
@@ -50,4 +52,5 @@ flutter:
     - packages/auth_buttons/images/secondary/google.svg
     - packages/auth_buttons/images/secondary/huawei.svg
     - packages/auth_buttons/images/secondary/microsoft.svg
+    - packages/auth_buttons/images/secondary/naver.svg
     - packages/auth_buttons/images/secondary/twitter.svg
