@@ -10,6 +10,7 @@ export 'package:auth_buttons/src/buttons/facebook_auth_button.dart';
 export 'package:auth_buttons/src/buttons/github_auth_button.dart';
 export 'package:auth_buttons/src/buttons/google_auth_button.dart';
 export 'package:auth_buttons/src/buttons/huawei_auth_button.dart';
+export 'package:auth_buttons/src/buttons/kakao_auth_button.dart';
 export 'package:auth_buttons/src/buttons/microsoft_auth_button.dart';
 export 'package:auth_buttons/src/buttons/naver_auth_button.dart';
 export 'package:auth_buttons/src/buttons/twitter_auth_button.dart';

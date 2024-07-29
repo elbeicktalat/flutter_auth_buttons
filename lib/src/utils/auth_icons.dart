@@ -51,6 +51,12 @@ class AuthIcons {
     'packages/auth_buttons/images/secondary/huawei.svg',
   ];
 
+  static const List<String> kakao = <String>[
+    'packages/auth_buttons/images/default/kakao.svg',
+    'packages/auth_buttons/images/outlined/kakao.svg',
+    'packages/auth_buttons/images/secondary/kakao.svg',
+  ];
+
   static const List<String> naver = <String>[
     'packages/auth_buttons/images/default/naver.svg',
     'packages/auth_buttons/images/outlined/naver.svg',
