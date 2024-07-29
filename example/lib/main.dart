@@ -162,6 +162,15 @@ class _MyAppState extends State<_MyApp> {
                       iconType: iconType,
                     ),
                   ),
+                  KakaoAuthButton(
+                    onPressed: () {},
+                    themeMode: themeMode,
+                    isLoading: isLoading,
+                    style: AuthButtonStyle(
+                      buttonType: buttonType,
+                      iconType: iconType,
+                    ),
+                  ),
                 ],
               ),
             ],
