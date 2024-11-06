@@ -26,6 +26,7 @@ class AuthButtonStyle with Diagnosticable {
     this.separator,
     this.iconBackground,
     this.iconType,
+    this.iconPadding,
     this.shadowColor,
     this.progressIndicatorColor,
     this.progressIndicatorValueColor,
@@ -35,6 +36,8 @@ class AuthButtonStyle with Diagnosticable {
     this.progressIndicatorType,
     this.visualDensity,
     this.tapTargetSize,
+    this.mainAxisSize = MainAxisSize.min,
+    this.mainAxisAlignment = MainAxisAlignment.spaceBetween,
   });
 
   /// {@template buttonColor}
@@ -340,6 +343,15 @@ class AuthButtonStyle with Diagnosticable {
   /// {@endtemplate}
   final AuthIconType? iconType;
 
+  /// {@template iconType}
+  ///
+  /// Define the padding around the icon.
+  ///
+  /// If the [buttonType] is [AuthIconType.secondary] then
+  ///
+  /// {@endtemplate}
+  final EdgeInsets? iconPadding;
+
   /// {@template shadowColor}
   ///
   /// Define the color of the shadow placed behind the button.
@@ -387,6 +399,8 @@ class AuthButtonStyle with Diagnosticable {
   final double? progressIndicatorValue;
   final VisualDensity? visualDensity;
   final MaterialTapTargetSize? tapTargetSize;
+  final MainAxisSize mainAxisSize;
+  final MainAxisAlignment mainAxisAlignment;
 
   ButtonStyle? _getMaterialStyle(BuildContext context) {
     return Theme.of(context).elevatedButtonTheme.style;
@@ -410,6 +424,7 @@ class AuthButtonStyle with Diagnosticable {
     double? separator,
     Color? iconBackground,
     AuthIconType? iconType,
+    EdgeInsets? iconPadding,
     Color? shadowColor,
     Color? progressIndicatorColor,
     Color? progressIndicatorValueColor,
@@ -419,6 +434,8 @@ class AuthButtonStyle with Diagnosticable {
     AuthIndicatorType? progressIndicatorType,
     VisualDensity? visualDensity,
     MaterialTapTargetSize? tapTargetSize,
+    MainAxisSize? mainAxisSize,
+    MainAxisAlignment? mainAxisAlignment,
   }) {
     return AuthButtonStyle(
       buttonColor: buttonColor ?? this.buttonColor,
@@ -437,6 +454,7 @@ class AuthButtonStyle with Diagnosticable {
       separator: separator ?? this.separator,
       iconBackground: iconBackground ?? this.iconBackground,
       iconType: iconType ?? this.iconType,
+      iconPadding: iconPadding ?? this.iconPadding,
       shadowColor: shadowColor ?? this.shadowColor,
       progressIndicatorColor:
           progressIndicatorColor ?? this.progressIndicatorColor,
@@ -451,6 +469,8 @@ class AuthButtonStyle with Diagnosticable {
           progressIndicatorType ?? this.progressIndicatorType,
       visualDensity: visualDensity ?? this.visualDensity,
       tapTargetSize: tapTargetSize ?? this.tapTargetSize,
+      mainAxisSize: mainAxisSize ?? this.mainAxisSize,
+      mainAxisAlignment: mainAxisAlignment ?? this.mainAxisAlignment,
     );
   }
 
@@ -481,6 +501,7 @@ class AuthButtonStyle with Diagnosticable {
       separator: separator ?? style.separator,
       iconBackground: iconBackground ?? style.iconBackground,
       iconType: iconType ?? style.iconType,
+      iconPadding: iconPadding ?? style.iconPadding,
       shadowColor: shadowColor ?? style.shadowColor,
       progressIndicatorColor:
           progressIndicatorColor ?? style.progressIndicatorColor,
@@ -521,6 +542,7 @@ class AuthButtonStyle with Diagnosticable {
       separator: style.separator,
       iconBackground: style.iconBackground,
       iconType: style.iconType,
+      iconPadding: style.iconPadding,
       shadowColor: style.shadowColor,
       progressIndicatorColor: style.progressIndicatorColor,
       progressIndicatorValueColor: style.progressIndicatorValueColor,
@@ -530,6 +552,8 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorType: style.progressIndicatorType,
       visualDensity: style.visualDensity,
       tapTargetSize: style.tapTargetSize,
+      mainAxisSize: style.mainAxisSize,
+      mainAxisAlignment: style.mainAxisAlignment,
     );
   }
 
@@ -554,6 +578,7 @@ class AuthButtonStyle with Diagnosticable {
           separator == other.separator &&
           iconBackground == other.iconBackground &&
           iconType == other.iconType &&
+          iconPadding == other.iconPadding &&
           shadowColor == other.shadowColor &&
           iconColor == other.iconColor &&
           progressIndicatorColor == other.progressIndicatorColor &&
@@ -562,7 +587,9 @@ class AuthButtonStyle with Diagnosticable {
           progressIndicatorValue == other.progressIndicatorValue &&
           progressIndicatorType == other.progressIndicatorType &&
           visualDensity == other.visualDensity &&
-          tapTargetSize == other.tapTargetSize;
+          tapTargetSize == other.tapTargetSize &&
+          mainAxisSize == other.mainAxisSize &&
+          mainAxisAlignment == other.mainAxisAlignment;
 
   @override
   int get hashCode =>
@@ -582,6 +609,7 @@ class AuthButtonStyle with Diagnosticable {
       separator.hashCode ^
       iconBackground.hashCode ^
       iconType.hashCode ^
+      iconPadding.hashCode ^
       shadowColor.hashCode ^
       iconColor.hashCode ^
       progressIndicatorColor.hashCode ^
@@ -590,7 +618,9 @@ class AuthButtonStyle with Diagnosticable {
       progressIndicatorValue.hashCode ^
       progressIndicatorType.hashCode ^
       visualDensity.hashCode ^
-      tapTargetSize.hashCode;
+      tapTargetSize.hashCode ^
+      mainAxisSize.hashCode ^
+      mainAxisAlignment.hashCode;
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
@@ -692,6 +722,9 @@ class AuthButtonStyle with Diagnosticable {
       ),
     );
     properties.add(
+      DiagnosticsProperty<EdgeInsets?>('iconPadding', iconPadding),
+    );
+    properties.add(
       DiagnosticsProperty<Color?>(
         'shadowColor',
         shadowColor,
@@ -752,6 +785,20 @@ class AuthButtonStyle with Diagnosticable {
         'tapTargetSize',
         tapTargetSize,
         defaultValue: null,
+      ),
+    );
+    properties.add(
+      EnumProperty<MainAxisSize?>(
+        'mainAxisSize',
+        mainAxisSize,
+        defaultValue: MainAxisSize.min,
+      ),
+    );
+    properties.add(
+      EnumProperty<MainAxisAlignment?>(
+        'mainAxisAlignment',
+        mainAxisAlignment,
+        defaultValue: MainAxisAlignment.spaceBetween,
       ),
     );
   }
